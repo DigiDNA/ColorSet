@@ -24,7 +24,7 @@
 
 import Cocoa
 
-class ColorItem: NSObject
+class ColorItem: NSObject, NSCoding
 {
     @objc public dynamic var name       = "Untitled"
     @objc public dynamic var hasVariant = false
@@ -173,5 +173,42 @@ class ColorItem: NSObject
         )
         
         self.updating = false
+    }
+    
+    func encode( with coder: NSCoder )
+    {
+        coder.encode( self.name,       forKey: "n" )
+        coder.encode( self.hasVariant, forKey: "v" )
+        
+        coder.encode( self.red,    forKey: "r1" )
+        coder.encode( self.green,  forKey: "g1" )
+        coder.encode( self.blue,   forKey: "b1" )
+        coder.encode( self.alpha,  forKey: "a1" )
+        
+        coder.encode( self.red2,   forKey: "r2" )
+        coder.encode( self.green2, forKey: "g2" )
+        coder.encode( self.blue2,  forKey: "b2" )
+        coder.encode( self.alpha2, forKey: "a2" )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        guard let n = coder.decodeObject( forKey: "n" ) as? String else { return nil }
+        
+        self.name       = n
+        self.hasVariant = coder.decodeBool(   forKey: "v" )
+        
+        self.red   = CGFloat( coder.decodeDouble( forKey: "r1" ) )
+        self.green = CGFloat( coder.decodeDouble( forKey: "g1" ) )
+        self.blue  = CGFloat( coder.decodeDouble( forKey: "b1" ) )
+        self.alpha = CGFloat( coder.decodeDouble( forKey: "a1" ) )
+        
+        self.red2   = CGFloat( coder.decodeDouble( forKey: "r2" ) )
+        self.green2 = CGFloat( coder.decodeDouble( forKey: "g2" ) )
+        self.blue2  = CGFloat( coder.decodeDouble( forKey: "b2" ) )
+        self.alpha2 = CGFloat( coder.decodeDouble( forKey: "a2" ) )
+        
+        super.init()
+        
     }
 }

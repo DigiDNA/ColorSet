@@ -43,11 +43,16 @@ class ColorItem: NSObject, NSCoding
     @objc public dynamic var alpha2: CGFloat = 1.0
     
     private var observations: [ NSKeyValueObservation ] = []
+    private var updating                                = false
     
     override init()
     {
         super.init()
-        
+        self.observe()
+    }
+    
+    private func observe()
+    {
         let o1 = self.observe( \.red   ) { ( o, c ) in self.updateColorFromRGB() }
         let o2 = self.observe( \.green ) { ( o, c ) in self.updateColorFromRGB() }
         let o3 = self.observe( \.blue  ) { ( o, c ) in self.updateColorFromRGB() }
@@ -62,8 +67,6 @@ class ColorItem: NSObject, NSCoding
         
         self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10 ] )
     }
-    
-    private var updating = false
     
     private func updateColorFromRGB()
     {
@@ -180,15 +183,15 @@ class ColorItem: NSObject, NSCoding
         coder.encode( self.name,       forKey: "n" )
         coder.encode( self.hasVariant, forKey: "v" )
         
-        coder.encode( self.red,    forKey: "r1" )
-        coder.encode( self.green,  forKey: "g1" )
-        coder.encode( self.blue,   forKey: "b1" )
-        coder.encode( self.alpha,  forKey: "a1" )
+        coder.encode( Double( self.red ),    forKey: "r1" )
+        coder.encode( Double( self.green ),  forKey: "g1" )
+        coder.encode( Double( self.blue ),   forKey: "b1" )
+        coder.encode( Double( self.alpha ),  forKey: "a1" )
         
-        coder.encode( self.red2,   forKey: "r2" )
-        coder.encode( self.green2, forKey: "g2" )
-        coder.encode( self.blue2,  forKey: "b2" )
-        coder.encode( self.alpha2, forKey: "a2" )
+        coder.encode( Double( self.red2 ),   forKey: "r2" )
+        coder.encode( Double( self.green2 ), forKey: "g2" )
+        coder.encode( Double( self.blue2 ),  forKey: "b2" )
+        coder.encode( Double( self.alpha2 ), forKey: "a2" )
     }
     
     required init?( coder: NSCoder )
@@ -209,6 +212,8 @@ class ColorItem: NSObject, NSCoding
         self.alpha2 = CGFloat( coder.decodeDouble( forKey: "a2" ) )
         
         super.init()
-        
+        self.observe()
+        self.updateColorFromRGB()
+        self.updateVariantFromRGB()
     }
 }

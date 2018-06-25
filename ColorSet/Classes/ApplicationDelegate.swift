@@ -32,9 +32,7 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
     private var aboutWindowController: NSWindowController?
     
     func applicationDidFinishLaunching( _ notification: Notification )
-    {
-        self.newDocument( nil )
-    }
+    {}
 
     func applicationWillTerminate( _ notification: Notification )
     {}
@@ -59,5 +57,56 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         }
         
         self.aboutWindowController?.window?.makeKeyAndOrderFront( sender )
+    }
+    
+    @IBAction public func openDocument( _ sender: Any? )
+    {
+        let panel = NSOpenPanel()
+        
+        panel.canChooseDirectories    = false
+        panel.canChooseFiles          = true
+        panel.canCreateDirectories    = false
+        panel.allowsMultipleSelection = false
+        panel.allowedFileTypes        = [ "colorset" ]
+        
+        let r = panel.runModal()
+        
+        if( r != .OK )
+        {
+            return
+        }
+        
+        guard let url = panel.url else
+        {
+            return
+        }
+        
+        do
+        {
+            let data = try Data( contentsOf: url )
+            
+            guard let colors = NSKeyedUnarchiver.unarchiveObject( with: data ) as? [ ColorItem ] else
+            {
+                let alert             = NSAlert()
+                alert.messageText     = "Load error"
+                alert.informativeText = "Invalid data format"
+                
+                alert.runModal()
+                
+                return
+            }
+            
+            let controller = MainWindowController( colors: colors )
+            controller.url = url
+            
+            controller.window?.center()
+            controller.window?.makeKeyAndOrderFront( sender )
+            
+            self.controllers.append( controller )
+        }
+        catch let error as NSError
+        {
+            NSAlert( error: error ).runModal()
+        }
     }
 }

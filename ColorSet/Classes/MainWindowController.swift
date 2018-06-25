@@ -28,8 +28,17 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
 {
     @objc private dynamic var selectedColor: ColorItem?
     @objc private dynamic var hasVariant = false
+    public var url: URL?
+    public private( set ) var colors: [ ColorItem ] = []
     private var observations: [ NSKeyValueObservation ] = []
     @IBOutlet private var arrayController: NSArrayController?
+    
+    convenience init( colors: [ ColorItem ] )
+    {
+        self.init()
+        
+        self.colors = colors
+    }
     
     override var windowNibName: NSNib.Name?
     {
@@ -51,6 +60,11 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         guard let variantView = self.window?.contentView?.subviewWithIdentifier( "Variant" ) as? ColorView else
         {
             return
+        }
+        
+        for color in self.colors
+        {
+            controller.addObject( color )
         }
         
         colorView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color", options: nil )
@@ -94,6 +108,78 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         self.observations.append( contentsOf: [ o1, o2 ] )
+    }
+    
+    @IBAction public func saveDocument( _ sender: Any? ) 
+    {
+        guard let url = self.url else
+        {
+            self.saveDocumentAs( sender )
+            
+            return
+        }
+        
+        self.save( to: url )
+    }
+    
+    @IBAction public func saveDocumentAs( _ sender: Any? ) 
+    {
+        guard let window = self.window else
+        {
+            return
+        }
+        
+        let panel = NSSavePanel()
+        
+        panel.allowedFileTypes     = [ "colorset" ]
+        panel.canCreateDirectories = true
+        
+        panel.beginSheetModal( for: window )
+        {
+            ( r ) in
+            
+            if( r != .OK )
+            {
+                return
+            }
+            
+            guard let url = panel.url else
+            {
+                return
+            }
+            
+            self.save( to: url )
+            
+            self.url = url
+        }
+    }
+    
+    public func save( to url: URL )
+    {
+        guard let colors = self.arrayController?.arrangedObjects as? [ ColorItem ] else
+        {
+            return
+        }
+        
+        let data = NSKeyedArchiver.archivedData( withRootObject: colors )
+        
+        do
+        {
+            try data.write( to: url )
+        }
+        catch let error as NSError
+        {
+            let alert = NSAlert( error: error )
+            
+            guard let window = self.window else
+            {
+                alert.runModal()
+                
+                return
+            }
+            
+            alert.beginSheetModal( for: window, completionHandler: nil )
+        }
     }
     
     @IBAction public func newColor( _ sender: Any? )
@@ -144,7 +230,10 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     func tableView( _ tableView: NSTableView, didAdd rowView: NSTableRowView, forRow row: Int )
     {
-        tableView.editColumn( 0, row: row, with: nil, select: true )
+        if( self.window?.isVisible ?? false )
+        {
+            tableView.editColumn( 0, row: row, with: nil, select: true )
+        }
     }
     
     func control( _ control: NSControl, textShouldBeginEditing fieldEditor: NSText ) -> Bool

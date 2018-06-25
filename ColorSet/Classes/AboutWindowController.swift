@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2018 Jean-David Gadina - www.imazing.com
+ * Copyright (c) 2018 Jean-David Gadina - www.xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,40 +24,26 @@
 
 import Cocoa
 
-@NSApplicationMain
-
-class ApplicationDelegate: NSResponder, NSApplicationDelegate
+@objc class AboutWindowController: NSWindowController
 {
-    private var controllers = [ NSWindowController ]()
-    private var aboutWindowController: NSWindowController?
+    @objc private dynamic var name:      String?
+    @objc private dynamic var version:   String?
+    @objc private dynamic var copyright: String?
     
-    func applicationDidFinishLaunching( _ notification: Notification )
+    override var windowNibName: NSNib.Name?
     {
-        self.newDocument( nil )
-    }
-
-    func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    @IBAction public func newDocument( _ sender: Any? )
-    {
-        let controller = MainWindowController()
-        
-        controller.window?.center()
-        controller.window?.makeKeyAndOrderFront( sender )
-        
-        self.controllers.append( controller )
+        return NSNib.Name( NSStringFromClass( type( of: self ) ) )
     }
     
-    @IBAction public func showAboutWindow( _ sender: Any? )
+    override func windowDidLoad()
     {
-        if( self.aboutWindowController == nil )
-        {
-            self.aboutWindowController = AboutWindowController()
-            
-            self.aboutWindowController?.window?.center()
-        }
+        super.windowDidLoad()
         
-        self.aboutWindowController?.window?.makeKeyAndOrderFront( sender )
+        self.window?.titlebarAppearsTransparent = true
+        self.window?.titleVisibility            = .hidden
+        
+        self.name      = Bundle.main.object( forInfoDictionaryKey: "CFBundleName"               ) as? String
+        self.version   = Bundle.main.object( forInfoDictionaryKey: "CFBundleShortVersionString" ) as? String
+        self.copyright = Bundle.main.object( forInfoDictionaryKey: "NSHumanReadableCopyright"   ) as? String
     }
 }

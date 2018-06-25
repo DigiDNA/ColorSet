@@ -19,6 +19,8 @@
 		0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0543AE9D20E0FFD000284E99 /* ColorView.swift */; };
 		05D11EC120E1359C00A621B5 /* ColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11EC020E1359C00A621B5 /* ColorComponent.swift */; };
 		05D11EC720E13B9400A621B5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC620E13B9400A621B5 /* Icon.icns */; };
+		05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */; };
+		05D11ECC20E13E0900A621B5 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		0543AE9D20E0FFD000284E99 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		05D11EC020E1359C00A621B5 /* ColorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponent.swift; sourceTree = "<group>"; };
 		05D11EC620E13B9400A621B5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		05D11EC920E13DFF00A621B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.AboutWindowController.xib; sourceTree = "<group>"; };
+		05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		0543AE7320DC33DF00284E99 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */,
 				0543AE7420DC33DF00284E99 /* ApplicationDelegate.swift */,
 				0543AE7C20DC345200284E99 /* MainWindowController.swift */,
 				0543AE8120DC382A00284E99 /* ColorItem.swift */,
@@ -103,6 +108,7 @@
 				05D11EC620E13B9400A621B5 /* Icon.icns */,
 				0543AE7720DC33DF00284E99 /* MainMenu.xib */,
 				0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */,
+				05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -169,6 +175,7 @@
 				05D11EC720E13B9400A621B5 /* Icon.icns in Resources */,
 				0543AE8020DC35CC00284E99 /* ColorSet.MainWindowController.xib in Resources */,
 				0543AE7B20DC33DF00284E99 /* MainMenu.xib in Resources */,
+				05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0530C42320E1213500F5B259 /* NSView.swift in Sources */,
+				05D11ECC20E13E0900A621B5 /* AboutWindowController.swift in Sources */,
 				0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */,
 				0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */,
 				0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */,
@@ -208,6 +216,14 @@
 				0543AE7F20DC35CC00284E99 /* Base */,
 			);
 			name = ColorSet.MainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05D11EC920E13DFF00A621B5 /* Base */,
+			);
+			name = ColorSet.AboutWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

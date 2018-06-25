@@ -819,7 +819,7 @@
             </view>
             <point key="canvasLocation" x="244" y="314"/>
         </window>
-        <arrayController id="awq-PE-ook"/>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="awq-PE-ook"/>
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="128" height="128"/>

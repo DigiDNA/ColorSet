@@ -21,6 +21,7 @@
 		05D11EC720E13B9400A621B5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC620E13B9400A621B5 /* Icon.icns */; };
 		05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */; };
 		05D11ECC20E13E0900A621B5 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */; };
+		05D11ECE20E165FB00A621B5 /* File.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05D11ECD20E165FB00A621B5 /* File.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		05D11EC620E13B9400A621B5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		05D11EC920E13DFF00A621B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.AboutWindowController.xib; sourceTree = "<group>"; };
 		05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		05D11ECD20E165FB00A621B5 /* File.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = File.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				05D11EC620E13B9400A621B5 /* Icon.icns */,
+				05D11ECD20E165FB00A621B5 /* File.icns */,
 				0543AE7720DC33DF00284E99 /* MainMenu.xib */,
 				0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */,
 				05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */,
@@ -179,6 +182,7 @@
 			files = (
 				05D11EC720E13B9400A621B5 /* Icon.icns in Resources */,
 				0543AE8020DC35CC00284E99 /* ColorSet.MainWindowController.xib in Resources */,
+				05D11ECE20E165FB00A621B5 /* File.icns in Resources */,
 				0543AE7B20DC33DF00284E99 /* MainMenu.xib in Resources */,
 				05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */,
 			);

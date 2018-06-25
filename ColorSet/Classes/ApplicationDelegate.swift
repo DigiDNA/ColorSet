@@ -59,6 +59,11 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         self.aboutWindowController?.window?.makeKeyAndOrderFront( sender )
     }
     
+    func application( _ sender: NSApplication, openFile filename: String ) -> Bool
+    {
+        return self.open( url: URL( fileURLWithPath: filename ) )
+    }
+    
     @IBAction public func openDocument( _ sender: Any? )
     {
         let panel = NSOpenPanel()
@@ -81,6 +86,11 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
             return
         }
         
+        let _ = self.open( url: url )
+    }
+    
+    private func open( url: URL ) -> Bool
+    {
         do
         {
             let data = try Data( contentsOf: url )
@@ -93,14 +103,14 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
                 
                 alert.runModal()
                 
-                return
+                return false
             }
             
             let controller = MainWindowController( colors: colors )
             controller.url = url
             
             controller.window?.center()
-            controller.window?.makeKeyAndOrderFront( sender )
+            controller.window?.makeKeyAndOrderFront( nil )
             
             self.controllers.append( controller )
         }
@@ -108,5 +118,7 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         {
             NSAlert( error: error ).runModal()
         }
+        
+        return true
     }
 }

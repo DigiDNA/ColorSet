@@ -25,6 +25,7 @@
 #import "NSColor+ColorSetKit.h"
 #import "ColorSet.h"
 #import "ColorPair.h"
+#import <objc/runtime.h>
 
 static ColorSet * MainColorSet = nil;
 static NSLock   * Lock         = nil;
@@ -34,18 +35,13 @@ static NSLock   * Lock         = nil;
 + ( nullable NSColor * )colorFromColorSet: ( NSString * )name
 {
     static dispatch_once_t once;
-    static BOOL ( ^ isDark )( void );
     
     dispatch_once
     (
         &once,
         ^( void )
         {
-            Lock   = [ NSLock new ];
-            isDark = ^
-            {
-                return NO;
-            };
+            Lock = [ NSLock new ];
         }
     );
     
@@ -63,13 +59,16 @@ static NSLock   * Lock         = nil;
         
         pair = [ MainColorSet.colors objectForKey: name ];
         
-        if( pair != nil )
+        if( @available( macOS 10.14, * ) )
         {
-            return ( pair.variant != nil && isDark() ) ? pair.variant : pair.color;
+            if( pair.variant != nil && [ [ NSAppearance currentAppearance ].name isEqualToString: NSAppearanceNameDarkAqua ] )
+            {
+                return pair.variant;
+            }
         }
+            
+        return pair.color;
     }
-    
-    return nil;
 }
 
 @end

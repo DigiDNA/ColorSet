@@ -23,6 +23,7 @@
  ******************************************************************************/
 
 import Cocoa
+import GitHubUpdates
 
 @NSApplicationMain
 
@@ -30,9 +31,12 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
 {
     private var controllers = [ NSWindowController ]()
     private var aboutWindowController: NSWindowController?
+    @IBOutlet private var updater: GitHubUpdater?
     
     func applicationDidFinishLaunching( _ notification: Notification )
-    {}
+    {
+        self.updater?.checkForUpdatesInBackground()
+    }
 
     func applicationWillTerminate( _ notification: Notification )
     {}

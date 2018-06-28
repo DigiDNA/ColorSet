@@ -91,33 +91,41 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
     
     private func open( url: URL ) -> Bool
     {
-        do
+        guard let set = ColorSet( url: url ) else
         {
-            let data = try Data( contentsOf: url )
+            let alert             = NSAlert()
+            alert.messageText     = "Load error"
+            alert.informativeText = "Invalid data format"
             
-            guard let colors = NSKeyedUnarchiver.unarchiveObject( with: data ) as? [ ColorItem ] else
+            alert.runModal()
+            
+            return false
+        }
+        
+        var colors = [ ColorItem ]()
+        
+        for p in set.colors
+        {
+            guard let color = p.value.color else
             {
-                let alert             = NSAlert()
-                alert.messageText     = "Load error"
-                alert.informativeText = "Invalid data format"
-                
-                alert.runModal()
-                
-                return false
+                continue
             }
             
-            let controller = MainWindowController( colors: colors )
-            controller.url = url
+            let item     = ColorItem()
+            item.name    = p.key
+            item.color   = color
+            item.variant = p.value.variant
             
-            controller.window?.center()
-            controller.window?.makeKeyAndOrderFront( nil )
-            
-            self.controllers.append( controller )
+            colors.append( item )
         }
-        catch let error as NSError
-        {
-            NSAlert( error: error ).runModal()
-        }
+        
+        let controller = MainWindowController( colors: colors )
+        controller.url = url
+        
+        controller.window?.center()
+        controller.window?.makeKeyAndOrderFront( nil )
+        
+        self.controllers.append( controller )
         
         return true
     }

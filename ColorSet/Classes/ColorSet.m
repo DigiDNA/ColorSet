@@ -87,10 +87,7 @@ NS_ASSUME_NONNULL_END
         
         [ stream readUInt32 ];
         
-        if( ( n = [ stream readUInt32 ] ) )
-        {
-            return 0;
-        }
+        n = [ stream readUInt64 ];
         
         for( i = 0; i < n; i++ )
         {
@@ -100,19 +97,19 @@ NS_ASSUME_NONNULL_END
                 NSColor  * color;
                 NSColor  * variant;
                 
-                if( ( name = [ stream readString ] ) )
+                if( ( name = [ stream readString ] ) == nil )
                 {
                     return nil;
                 }
                 
                 hasVariant = [ stream readUInt8 ];
                 
-                if( ( color = [ stream readColor ] ) )
+                if( ( color = [ stream readColor ] ) == nil )
                 {
                     return nil;
                 }
                 
-                if( ( variant = [ stream readColor ] ) )
+                if( ( variant = [ stream readColor ] ) == nil )
                 {
                     return nil;
                 }
@@ -168,7 +165,9 @@ NS_ASSUME_NONNULL_END
             return;
         }
         
+        [ self willChangeValueForKey: NSStringFromSelector( @selector( mutableColors ) ) ];
         [ self.mutableColors setObject: [ [ ColorPair alloc ] initWithColor: color variant: variant ] forKey: name ];
+        [ self didChangeValueForKey: NSStringFromSelector( @selector( mutableColors ) ) ];
     }
 }
 
@@ -176,7 +175,9 @@ NS_ASSUME_NONNULL_END
 {
     @synchronized( self )
     {
+        [ self willChangeValueForKey: NSStringFromSelector( @selector( mutableColors ) ) ];
         [ self.mutableColors setObject: [ [ ColorPair alloc ] initWithColor: color variant: variant ] forKey: name ];
+        [ self didChangeValueForKey: NSStringFromSelector( @selector( mutableColors ) ) ];
     }
 }
 

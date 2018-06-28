@@ -282,9 +282,9 @@ NS_ASSUME_NONNULL_END
     {
         if( self.pos < self.mutableData.length + n )
         {
-            memcpy( buf, ( ( char * )( self.mutableData.bytes ) ) + n, n );
+            memcpy( buf, ( ( char * )( self.mutableData.bytes ) ) + self.pos, n );
             
-            self.pos += n;
+            self.pos = self.pos + n;
             
             return YES;
         }

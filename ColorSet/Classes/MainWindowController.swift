@@ -67,9 +67,10 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             controller.addObject( color )
         }
         
-        self.arrayController?.selectsInsertedObjects = true
+        controller.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true ) ]
+        controller.selectsInsertedObjects = true
         
-        colorView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color", options: nil )
+        colorView.bind(   NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color",   options: nil )
         variantView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.variant", options: nil )
             
         let o1 = controller.observe( \.selectionIndexes, options: .new )
@@ -163,11 +164,16 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        let data = NSKeyedArchiver.archivedData( withRootObject: colors )
+        let set = ColorSet()
+        
+        for color in colors
+        {
+            set.addColor( color.color, variant: color.variant, forName: color.name )
+        }
         
         do
         {
-            try data.write( to: url )
+            try set.write( to: url )
         }
         catch let error as NSError
         {

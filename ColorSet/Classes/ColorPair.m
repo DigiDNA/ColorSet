@@ -39,9 +39,9 @@ NS_ASSUME_NONNULL_END
     return [ self initWithColor: nil ];
 }
 
-- ( instancetype )initWithColor: ( nullable NSColor * )color;
+- ( instancetype )initWithColor: ( nullable NSColor * )color
 {
-    return [ self initWithColor: nil variant: nil ];
+    return [ self initWithColor: color variant: nil ];
 }
 
 - ( instancetype )initWithColor: ( nullable NSColor * )color variant: ( nullable NSColor * )variant

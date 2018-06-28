@@ -67,6 +67,8 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             controller.addObject( color )
         }
         
+        self.arrayController?.selectsInsertedObjects = true
+        
         colorView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color", options: nil )
         variantView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.variant", options: nil )
             

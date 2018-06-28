@@ -186,12 +186,12 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.red" id="lkZ-c0-ce3"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-lf-dJY">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-lf-dJY">
                                                                 <rect key="frame" x="459" y="5" width="75" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="75" id="8fa-wz-ZBd"/>
                                                                 </constraints>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="qEc-qI-1y1">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="qEc-qI-1y1">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="UdM-jJ-46o">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="255"/>
@@ -252,9 +252,9 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.green" id="D7Q-n6-qQv"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyS-qz-DEm">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyS-qz-DEm">
                                                                 <rect key="frame" x="459" y="5" width="75" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="3SE-l0-Vd2">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="3SE-l0-Vd2">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Wve-7H-IgG">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="255"/>
@@ -314,9 +314,9 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.blue" id="h6X-XY-htT"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-j1-nkh">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-j1-nkh">
                                                                 <rect key="frame" x="459" y="5" width="75" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="fxM-RR-BZe">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="fxM-RR-BZe">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="YJP-G5-3qD">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="255"/>
@@ -376,9 +376,9 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.alpha" id="b0Z-0g-sKa"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-cN-v6x">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-cN-v6x">
                                                                 <rect key="frame" x="459" y="4" width="75" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="GHa-MO-x1P">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="GHa-MO-x1P">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="5JS-DP-gHV">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="1"/>
@@ -412,6 +412,24 @@
                                                             <constraint firstAttribute="trailing" secondItem="VnC-jX-CQa" secondAttribute="trailing" id="uWs-UJ-TtT"/>
                                                         </constraints>
                                                     </customView>
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRN-KA-cl8">
+                                                        <rect key="frame" x="433" y="188" width="96" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="96" id="Hsv-2K-xVL"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="yxY-rN-KPw">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="self.selectedColor.color" id="KwM-By-51w">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">ColorSet.HexColor</string>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="Gxa-Kl-PWZ" firstAttribute="width" secondItem="i3q-ww-vi0" secondAttribute="width" id="1Qx-hX-Vke"/>
@@ -424,9 +442,11 @@
                                                     <constraint firstItem="5RD-PI-Uz6" firstAttribute="width" secondItem="Emv-1E-ecz" secondAttribute="width" id="7x8-G3-mJ3"/>
                                                     <constraint firstItem="ZWe-Nc-lUe" firstAttribute="leading" secondItem="htQ-RR-Cub" secondAttribute="leading" constant="20" id="Ash-pE-ox6"/>
                                                     <constraint firstItem="Fwa-Vz-wa9" firstAttribute="centerX" secondItem="5RD-PI-Uz6" secondAttribute="centerX" id="CkR-9F-gC3"/>
+                                                    <constraint firstItem="tIj-93-3sA" firstAttribute="leading" secondItem="nRN-KA-cl8" secondAttribute="trailing" constant="8" id="DKL-cJ-RBj"/>
                                                     <constraint firstAttribute="trailing" secondItem="Emv-1E-ecz" secondAttribute="trailing" constant="20" id="HcZ-sf-fUT"/>
                                                     <constraint firstItem="EN7-cN-v6x" firstAttribute="width" secondItem="fDw-j1-nkh" secondAttribute="width" id="IqQ-lB-qog"/>
                                                     <constraint firstItem="Fwa-Vz-wa9" firstAttribute="top" secondItem="5RD-PI-Uz6" secondAttribute="bottom" constant="8" id="J1I-Yp-jvD"/>
+                                                    <constraint firstItem="nRN-KA-cl8" firstAttribute="centerY" secondItem="tIj-93-3sA" secondAttribute="centerY" id="Mht-PN-vJ6"/>
                                                     <constraint firstItem="ZWe-Nc-lUe" firstAttribute="top" secondItem="htQ-RR-Cub" secondAttribute="top" constant="20" id="Ofa-Xv-btG"/>
                                                     <constraint firstItem="0xv-oZ-3HS" firstAttribute="width" secondItem="Fwa-Vz-wa9" secondAttribute="width" id="PkN-Wo-wbW"/>
                                                     <constraint firstItem="0xv-oZ-3HS" firstAttribute="centerX" secondItem="Fwa-Vz-wa9" secondAttribute="centerX" id="QEt-NT-p5l"/>
@@ -507,12 +527,12 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.red2" id="gqr-np-cz4"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fna-fj-eeQ">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fna-fj-eeQ">
                                                                 <rect key="frame" x="459" y="5" width="75" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="75" id="9cG-ij-Qjd"/>
                                                                 </constraints>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="ZYo-1q-iD1">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="ZYo-1q-iD1">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="dhG-eJ-oJt">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="255"/>
@@ -572,9 +592,9 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.green2" id="sMF-PF-70B"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mi1-2w-uJh">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mi1-2w-uJh">
                                                                 <rect key="frame" x="459" y="5" width="75" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="6qy-9p-QIU">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="6qy-9p-QIU">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="9Tq-TX-tjm">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="255"/>
@@ -634,9 +654,9 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.blue2" id="z8e-hG-zyF"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-fu-fnP">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-fu-fnP">
                                                                 <rect key="frame" x="459" y="5" width="75" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="TYa-0C-by2">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="TYa-0C-by2">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="cdN-Kj-gub">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="255"/>
@@ -696,9 +716,9 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.alpha2" id="gcX-uz-grK"/>
                                                                 </connections>
                                                             </slider>
-                                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-up-sd0">
+                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-up-sd0">
                                                                 <rect key="frame" x="459" y="4" width="75" height="22"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="uU1-G7-Tri">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="uU1-G7-Tri">
                                                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="1i1-ZV-Mr3">
                                                                         <real key="minimum" value="0.0"/>
                                                                         <real key="maximum" value="1"/>
@@ -732,6 +752,21 @@
                                                             <constraint firstItem="bTe-up-sd0" firstAttribute="leading" secondItem="fB6-af-rXS" secondAttribute="trailing" constant="10" id="tNv-1w-NgT"/>
                                                         </constraints>
                                                     </customView>
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-i1-V76">
+                                                        <rect key="frame" x="433" y="188" width="96" height="22"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="sEj-ce-aUK">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="self.selectedColor.variant" id="KTU-WA-a0P">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">ColorSet.HexColor</string>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="Mi1-2w-uJh" firstAttribute="width" secondItem="fna-fj-eeQ" secondAttribute="width" id="2rA-9x-rWF"/>
@@ -760,6 +795,8 @@
                                                     <constraint firstItem="u9z-bv-Mbe" firstAttribute="width" secondItem="p9H-6P-ckt" secondAttribute="width" id="q8l-gk-WvB"/>
                                                     <constraint firstItem="Zkc-k6-1Y4" firstAttribute="leading" secondItem="O9O-h1-xXA" secondAttribute="leading" constant="12" id="qyS-vZ-yVY"/>
                                                     <constraint firstItem="4cq-Cm-I0h" firstAttribute="top" secondItem="O9O-h1-xXA" secondAttribute="top" constant="20" id="rRx-7f-wyJ"/>
+                                                    <constraint firstItem="LNB-i1-V76" firstAttribute="centerY" secondItem="dhB-Uw-TWF" secondAttribute="centerY" id="s92-bz-GVH"/>
+                                                    <constraint firstItem="dhB-Uw-TWF" firstAttribute="leading" secondItem="LNB-i1-V76" secondAttribute="trailing" constant="8" id="tU9-T4-fxp"/>
                                                     <constraint firstItem="hYe-Dd-P0Y" firstAttribute="centerX" secondItem="6OA-o0-bpK" secondAttribute="centerX" id="xcF-W6-laB"/>
                                                 </constraints>
                                                 <connections>
@@ -784,6 +821,7 @@
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="centerX" secondItem="MT1-gl-csU" secondAttribute="centerX" id="9q3-h8-aKY"/>
                                             <constraint firstItem="JBA-E9-cei" firstAttribute="top" secondItem="htQ-RR-Cub" secondAttribute="bottom" constant="8" id="B1E-ba-Dqa"/>
                                             <constraint firstItem="JBA-E9-cei" firstAttribute="leading" secondItem="MT1-gl-csU" secondAttribute="leading" constant="20" id="Lpl-7x-6dV"/>
+                                            <constraint firstItem="LNB-i1-V76" firstAttribute="width" secondItem="nRN-KA-cl8" secondAttribute="width" id="MJY-Yb-zzC"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerY" secondItem="MT1-gl-csU" secondAttribute="centerY" id="OsA-u8-lIC"/>
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="top" secondItem="MT1-gl-csU" secondAttribute="top" id="Q4l-D3-SOS"/>
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="width" secondItem="MT1-gl-csU" secondAttribute="width" id="YKp-0q-bt3"/>

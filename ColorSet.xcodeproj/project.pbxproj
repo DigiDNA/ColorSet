@@ -17,6 +17,7 @@
 		0543AE8020DC35CC00284E99 /* ColorSet.MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */; };
 		0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0543AE8120DC382A00284E99 /* ColorItem.swift */; };
 		0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0543AE9D20E0FFD000284E99 /* ColorView.swift */; };
+		0564590220E4DDFD001EA86F /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564590120E4DDFD001EA86F /* HexColor.swift */; };
 		05D11EC120E1359C00A621B5 /* ColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11EC020E1359C00A621B5 /* ColorComponent.swift */; };
 		05D11EC720E13B9400A621B5 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC620E13B9400A621B5 /* Icon.icns */; };
 		05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */; };
@@ -40,6 +41,7 @@
 		0543AE7F20DC35CC00284E99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.MainWindowController.xib; sourceTree = "<group>"; };
 		0543AE8120DC382A00284E99 /* ColorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorItem.swift; sourceTree = "<group>"; };
 		0543AE9D20E0FFD000284E99 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		0564590120E4DDFD001EA86F /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		05D11EC020E1359C00A621B5 /* ColorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponent.swift; sourceTree = "<group>"; };
 		05D11EC620E13B9400A621B5 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		05D11EC920E13DFF00A621B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.AboutWindowController.xib; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				0530C42520E1305B00F5B259 /* Exception.h */,
 				0530C42620E1305B00F5B259 /* Exception.m */,
 				05D11EC020E1359C00A621B5 /* ColorComponent.swift */,
+				0564590120E4DDFD001EA86F /* HexColor.swift */,
 				0530C42420E1305B00F5B259 /* ColorSet-Bridging-Header.h */,
 			);
 			path = Classes;
@@ -197,6 +200,7 @@
 			files = (
 				0530C42320E1213500F5B259 /* NSView.swift in Sources */,
 				05D11ECC20E13E0900A621B5 /* AboutWindowController.swift in Sources */,
+				0564590220E4DDFD001EA86F /* HexColor.swift in Sources */,
 				0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */,
 				0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */,
 				0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */,

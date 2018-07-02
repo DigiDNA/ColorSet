@@ -44,19 +44,28 @@ import Cocoa
         
         guard let c = value as? NSColor else
         {
-            return "000000"
+            return "#000000"
         }
         
         c.usingColorSpace( NSColorSpace.sRGB )?.getRed( &r, green: &g, blue: &b, alpha: nil )
         
-        return NSString( format: "%02X%02X%02X", UInt32( r * 255 ), UInt32( g * 255 ), UInt32( b * 255 ) )
+        return NSString( format: "#%02X%02X%02X", UInt32( r * 255 ), UInt32( g * 255 ), UInt32( b * 255 ) )
     }
     
     override func reverseTransformedValue( _ value: Any? ) -> Any?
     {
-        guard let s = value as? NSString else
+        guard var s = value as? NSString else
         {
             return NSColor.black
+        }
+        
+        if( s.hasPrefix( "#" ) )
+        {
+            s = s.substring( from: 1 ) as NSString
+        }
+        else if( s.hasPrefix( "0x" ) )
+        {
+            s = s.substring( from: 2 ) as NSString
         }
         
         if( s.length != 6 )

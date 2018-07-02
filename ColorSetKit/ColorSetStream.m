@@ -150,11 +150,18 @@ NS_ASSUME_NONNULL_END
     
     @synchronized( self )
     {
-        if( [ self read: 8 in: &n ] && n > 1 )
+        if( [ self read: 8 in: &n ] && n > 0 )
         {
-            if( ( data = [ self readDataOfLength: n - 1 ] ) )
+            if( ( data = [ self readDataOfLength: n ] ) )
             {
-                return [ [ NSString alloc ] initWithData: data encoding: NSASCIIStringEncoding ];
+                if( data.length > 1 )
+                {
+                    return [ [ NSString alloc ] initWithData: [ data subdataWithRange: NSMakeRange( 0, data.length - 1 ) ] encoding: NSASCIIStringEncoding ];
+                }
+                else
+                {
+                    return @"";
+                }
             }
         }
         

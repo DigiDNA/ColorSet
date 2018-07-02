@@ -24,14 +24,17 @@
 
 import Cocoa
 
-class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate
+class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSMenuDelegate
 {
     @objc private dynamic var selectedColor: ColorItem?
     @objc private dynamic var hasVariant = false
-    public var url: URL?
-    public private( set ) var colors: [ ColorItem ] = []
-    private var observations: [ NSKeyValueObservation ] = []
-    @IBOutlet private var arrayController: NSArrayController?
+    
+    public var                url:          URL?
+    public private( set ) var colors:       [ ColorItem ]             = []
+    private var               observations: [ NSKeyValueObservation ] = []
+    
+    @IBOutlet public var tableView:       NSTableView?
+    @IBOutlet public var arrayController: NSArrayController?
     
     convenience init( colors: [ ColorItem ] )
     {
@@ -47,11 +50,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     override func windowDidLoad()
     {
-        guard let controller = self.arrayController else
-        {
-            return
-        }
-        
         guard let colorView = self.window?.contentView?.subviewWithIdentifier( "Color" ) as? ColorView else
         {
             return
@@ -61,6 +59,18 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         {
             return
         }
+        
+        guard let controller = self.arrayController else
+        {
+            return
+        }
+        
+        guard let tableView = self.window?.contentView?.subviewWithIdentifier( "TableView" ) as? NSTableView else
+        {
+            return
+        }
+        
+        self.tableView = tableView
         
         for color in self.colors
         {
@@ -213,6 +223,19 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         self.arrayController?.addObject( color )
     }
     
+    @IBAction public func removeColor( _ sender: Any? )
+    {
+        guard let tableView = self.tableView else
+        {
+            return
+        }
+        
+        if( tableView.clickedRow >= 0 )
+        {
+            self.arrayController?.remove( atArrangedObjectIndex: tableView.clickedRow )
+        }
+    }
+    
     func tableView( _ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int ) -> NSView?
     {
         guard let view = tableView.makeView( withIdentifier: NSUserInterfaceItemIdentifier( "Row" ), owner: self ) as? NSTableCellView else
@@ -282,6 +305,21 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             {
                 return false
             }
+        }
+        
+        return true
+    }
+    
+    override func validateMenuItem( _ item: NSMenuItem ) -> Bool
+    {
+        guard let tableView = self.tableView else
+        {
+            return false
+        }
+        
+        if( item.action == #selector( removeColor( _ : ) ) )
+        {
+            return tableView.clickedRow >= 0
         }
         
         return true

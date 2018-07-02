@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="ColorSet" customModuleProvider="target">
             <connections>
-                <outlet property="arrayController" destination="awq-PE-ook" id="LW3-Og-yTD"/>
+                <outlet property="arrayController" destination="awq-PE-ook" id="1f0-W5-Cqw"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="OIr-lX-POC"/>
             </connections>
         </customObject>
@@ -24,24 +24,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Lso-KC-mOG">
+                    <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-CO-nnG">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                         <subviews>
-                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-CO-nnG">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                            <customView id="VFZ-fG-zHI">
+                                <rect key="frame" x="0.0" y="0.0" width="202" height="600"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <customView id="VFZ-fG-zHI">
+                                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="YHx-KD-BVy">
                                         <rect key="frame" x="0.0" y="0.0" width="202" height="600"/>
-                                        <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsJ-Zp-VF3">
-                                                <rect key="frame" x="0.0" y="0.0" width="202" height="575"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="202" height="580"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Bjf-9S-0pg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="202" height="575"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="202" height="580"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="2DC-L7-gI3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="575"/>
+                                                        <tableView identifier="TableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="2DC-L7-gI3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="580"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -103,12 +103,13 @@
                                                                 <binding destination="awq-PE-ook" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="6ZA-aU-oay" id="A7I-gd-3Oh"/>
                                                                 <outlet property="dataSource" destination="-2" id="mKJ-ol-iRV"/>
                                                                 <outlet property="delegate" destination="-2" id="Hiq-hA-lvh"/>
+                                                                <outlet property="menu" destination="hNe-Y4-bGW" id="k6J-PR-foP"/>
                                                             </connections>
                                                         </tableView>
                                                     </subviews>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="G6e-gb-2N3">
-                                                    <rect key="frame" x="0.0" y="584" width="200" height="16"/>
+                                                    <rect key="frame" x="0.0" y="559" width="100" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="FaE-KJ-6rR">
@@ -118,19 +119,30 @@
                                             </scrollView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="SsJ-Zp-VF3" firstAttribute="top" secondItem="VFZ-fG-zHI" secondAttribute="top" constant="25" id="2kI-u0-oXh"/>
-                                            <constraint firstItem="SsJ-Zp-VF3" firstAttribute="width" secondItem="VFZ-fG-zHI" secondAttribute="width" id="4mU-FZ-Vcx"/>
-                                            <constraint firstAttribute="bottom" secondItem="SsJ-Zp-VF3" secondAttribute="bottom" id="HFw-V7-pAg"/>
-                                            <constraint firstItem="SsJ-Zp-VF3" firstAttribute="centerX" secondItem="VFZ-fG-zHI" secondAttribute="centerX" id="QwT-DT-5dU"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ciC-Ak-eij"/>
+                                            <constraint firstItem="SsJ-Zp-VF3" firstAttribute="top" secondItem="YHx-KD-BVy" secondAttribute="top" constant="20" id="84P-SS-EHl"/>
+                                            <constraint firstItem="SsJ-Zp-VF3" firstAttribute="width" secondItem="YHx-KD-BVy" secondAttribute="width" id="Vkl-Le-dkc"/>
+                                            <constraint firstAttribute="bottom" secondItem="SsJ-Zp-VF3" secondAttribute="bottom" id="gEf-RI-iv4"/>
+                                            <constraint firstItem="SsJ-Zp-VF3" firstAttribute="centerX" secondItem="YHx-KD-BVy" secondAttribute="centerX" id="i3E-nS-tYr"/>
                                         </constraints>
-                                    </customView>
-                                    <customView id="MT1-gl-csU">
-                                        <rect key="frame" x="203" y="0.0" width="597" height="600"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YHx-KD-BVy" firstAttribute="width" secondItem="VFZ-fG-zHI" secondAttribute="width" id="Fe4-pq-t8R"/>
+                                    <constraint firstItem="YHx-KD-BVy" firstAttribute="centerX" secondItem="VFZ-fG-zHI" secondAttribute="centerX" id="P80-I1-F0a"/>
+                                    <constraint firstItem="YHx-KD-BVy" firstAttribute="height" secondItem="VFZ-fG-zHI" secondAttribute="height" id="Wst-xu-yad"/>
+                                    <constraint firstItem="YHx-KD-BVy" firstAttribute="centerY" secondItem="VFZ-fG-zHI" secondAttribute="centerY" id="c8C-79-4KC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ciC-Ak-eij"/>
+                                </constraints>
+                            </customView>
+                            <customView id="MT1-gl-csU">
+                                <rect key="frame" x="203" y="0.0" width="597" height="600"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-hY-KH6">
+                                        <rect key="frame" x="0.0" y="0.0" width="597" height="600"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4I-Zg-0zJ">
-                                                <rect key="frame" x="171" y="172" width="256" height="256"/>
+                                                <rect key="frame" x="170" y="172" width="256" height="256"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="256" id="FTz-aa-2Gy"/>
                                                     <constraint firstAttribute="width" constant="256" id="dme-r4-ikk"/>
@@ -818,46 +830,60 @@
                                             </customView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="centerX" secondItem="MT1-gl-csU" secondAttribute="centerX" id="9q3-h8-aKY"/>
-                                            <constraint firstItem="JBA-E9-cei" firstAttribute="top" secondItem="htQ-RR-Cub" secondAttribute="bottom" constant="8" id="B1E-ba-Dqa"/>
-                                            <constraint firstItem="JBA-E9-cei" firstAttribute="leading" secondItem="MT1-gl-csU" secondAttribute="leading" constant="20" id="Lpl-7x-6dV"/>
-                                            <constraint firstItem="LNB-i1-V76" firstAttribute="width" secondItem="nRN-KA-cl8" secondAttribute="width" id="MJY-Yb-zzC"/>
-                                            <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerY" secondItem="MT1-gl-csU" secondAttribute="centerY" id="OsA-u8-lIC"/>
-                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="top" secondItem="MT1-gl-csU" secondAttribute="top" id="Q4l-D3-SOS"/>
-                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="width" secondItem="MT1-gl-csU" secondAttribute="width" id="YKp-0q-bt3"/>
-                                            <constraint firstItem="O9O-h1-xXA" firstAttribute="width" secondItem="htQ-RR-Cub" secondAttribute="width" id="Ys7-Us-BrS"/>
-                                            <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerX" secondItem="MT1-gl-csU" secondAttribute="centerX" id="blG-FE-Vv6"/>
-                                            <constraint firstItem="O9O-h1-xXA" firstAttribute="top" secondItem="JBA-E9-cei" secondAttribute="bottom" constant="8" id="hZz-7a-wPf"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JBA-E9-cei" secondAttribute="trailing" constant="20" symbolic="YES" id="jBQ-FJ-gyS"/>
-                                            <constraint firstItem="O9O-h1-xXA" firstAttribute="centerX" secondItem="htQ-RR-Cub" secondAttribute="centerX" id="nF4-qt-yEL"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="sA9-co-i7R"/>
+                                            <constraint firstItem="JBA-E9-cei" firstAttribute="top" secondItem="htQ-RR-Cub" secondAttribute="bottom" constant="8" id="2Bb-e3-C81"/>
+                                            <constraint firstItem="p4I-Zg-0zJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JBA-E9-cei" secondAttribute="trailing" constant="8" symbolic="YES" id="4W9-il-yhc"/>
+                                            <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="6dg-qn-rMt"/>
+                                            <constraint firstItem="LNB-i1-V76" firstAttribute="width" secondItem="nRN-KA-cl8" secondAttribute="width" id="Cya-LG-mMd"/>
+                                            <constraint firstItem="JBA-E9-cei" firstAttribute="leading" secondItem="bH4-hY-KH6" secondAttribute="leading" constant="20" id="DW1-4g-29U"/>
+                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="KBQ-WJ-Fy0"/>
+                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="width" secondItem="bH4-hY-KH6" secondAttribute="width" id="MG4-GE-iZD"/>
+                                            <constraint firstItem="O9O-h1-xXA" firstAttribute="width" secondItem="bH4-hY-KH6" secondAttribute="width" id="V9U-da-d4l"/>
+                                            <constraint firstItem="O9O-h1-xXA" firstAttribute="top" secondItem="JBA-E9-cei" secondAttribute="bottom" constant="8" id="W1n-5J-4Iy"/>
+                                            <constraint firstItem="O9O-h1-xXA" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="aJX-K9-afJ"/>
+                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="top" secondItem="bH4-hY-KH6" secondAttribute="top" id="b8S-Kn-y7z"/>
+                                            <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerY" secondItem="bH4-hY-KH6" secondAttribute="centerY" id="p4x-iP-b5x"/>
                                         </constraints>
-                                    </customView>
+                                    </visualEffectView>
                                 </subviews>
-                                <holdingPriorities>
-                                    <real value="250"/>
-                                    <real value="250"/>
-                                </holdingPriorities>
-                            </splitView>
+                                <constraints>
+                                    <constraint firstItem="bH4-hY-KH6" firstAttribute="centerY" secondItem="MT1-gl-csU" secondAttribute="centerY" id="4Nq-Oa-XtG"/>
+                                    <constraint firstItem="bH4-hY-KH6" firstAttribute="centerX" secondItem="MT1-gl-csU" secondAttribute="centerX" id="Xv5-gE-Lj5"/>
+                                    <constraint firstItem="bH4-hY-KH6" firstAttribute="height" secondItem="MT1-gl-csU" secondAttribute="height" id="rqB-9S-oj5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="sA9-co-i7R"/>
+                                    <constraint firstItem="bH4-hY-KH6" firstAttribute="width" secondItem="MT1-gl-csU" secondAttribute="width" id="ygX-yb-MqN"/>
+                                </constraints>
+                            </customView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="MJG-CO-nnG" firstAttribute="centerY" secondItem="Lso-KC-mOG" secondAttribute="centerY" id="SVV-Ym-dUx"/>
-                            <constraint firstItem="MJG-CO-nnG" firstAttribute="width" secondItem="Lso-KC-mOG" secondAttribute="width" id="bVH-6V-mQv"/>
-                            <constraint firstItem="MJG-CO-nnG" firstAttribute="centerX" secondItem="Lso-KC-mOG" secondAttribute="centerX" id="n0Q-iS-ztg"/>
-                            <constraint firstItem="MJG-CO-nnG" firstAttribute="height" secondItem="Lso-KC-mOG" secondAttribute="height" id="n7Y-Jy-ape"/>
-                        </constraints>
-                    </visualEffectView>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Lso-KC-mOG" firstAttribute="height" secondItem="EiT-Mj-1SZ" secondAttribute="height" id="NhZ-7g-3tb"/>
-                    <constraint firstItem="Lso-KC-mOG" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="QAw-u1-CS2"/>
-                    <constraint firstItem="Lso-KC-mOG" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="awG-0J-xkx"/>
-                    <constraint firstItem="Lso-KC-mOG" firstAttribute="width" secondItem="EiT-Mj-1SZ" secondAttribute="width" id="d3N-tE-Mdp"/>
+                    <constraint firstItem="MJG-CO-nnG" firstAttribute="width" secondItem="EiT-Mj-1SZ" secondAttribute="width" id="BUg-Cm-1Y2"/>
+                    <constraint firstItem="MJG-CO-nnG" firstAttribute="height" secondItem="EiT-Mj-1SZ" secondAttribute="height" id="Sdy-b4-PTh"/>
+                    <constraint firstItem="MJG-CO-nnG" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="kvA-Lj-lpq"/>
+                    <constraint firstItem="MJG-CO-nnG" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="wla-CD-b2f"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="244" y="314"/>
         </window>
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="awq-PE-ook"/>
+        <menu id="hNe-Y4-bGW">
+            <items>
+                <menuItem title="Remove" id="h0u-Se-BR4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="removeColor:" target="-2" id="zD8-3e-8EJ"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="delegate" destination="-2" id="OO8-nc-bW0"/>
+            </connections>
+            <point key="canvasLocation" x="-381" y="296"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="128" height="128"/>

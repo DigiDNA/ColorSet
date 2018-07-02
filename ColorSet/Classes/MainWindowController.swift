@@ -52,6 +52,8 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     override func windowDidLoad()
     {
+        self.window?.title = ( self.url == nil ) ? "Untitled.colorset" : ( self.url!.path as NSString ).lastPathComponent
+        
         guard let colorView = self.window?.contentView?.subviewWithIdentifier( "Color" ) as? ColorView else
         {
             return
@@ -177,7 +179,8 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             
             self.save( to: url )
             
-            self.url = url
+            self.url           = url
+            self.window?.title = ( self.url == nil ) ? "Untitled.colorset" : ( self.url!.path as NSString ).lastPathComponent
         }
     }
     

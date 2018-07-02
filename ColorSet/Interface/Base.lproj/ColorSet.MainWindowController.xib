@@ -72,11 +72,11 @@
                                                                                     </constraints>
                                                                                 </customView>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-iu-dXF">
-                                                                                    <rect key="frame" x="31" y="7" width="168" height="17"/>
-                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ksN-hR-I69">
+                                                                                    <rect key="frame" x="33" y="7" width="164" height="17"/>
+                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" drawsBackground="YES" id="ksN-hR-I69">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                                                     </textFieldCell>
                                                                                     <connections>
                                                                                         <binding destination="HWU-jy-aYp" name="value" keyPath="objectValue.name" id="R62-Td-oib"/>
@@ -194,6 +194,25 @@
                                                     </binding>
                                                 </connections>
                                             </imageView>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WxH-Cw-E69">
+                                                <rect key="frame" x="18" y="116" width="561" height="36"/>
+                                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="Ft1-4f-AVs">
+                                                    <font key="font" metaFont="systemThin" size="30"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <allowedInputSourceLocales>
+                                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                    </allowedInputSourceLocales>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="-2" name="hidden" keyPath="selectedColor" id="xCI-Bo-QRm">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                    <binding destination="-2" name="value" keyPath="window.title" id="9YV-S0-QSh"/>
+                                                </connections>
+                                            </textField>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="htQ-RR-Cub">
                                                 <rect key="frame" x="0.0" y="311" width="597" height="225"/>
                                                 <subviews>
@@ -870,17 +889,21 @@
                                         <constraints>
                                             <constraint firstItem="yMG-Op-8D1" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="1d5-5J-vYE"/>
                                             <constraint firstItem="JBA-E9-cei" firstAttribute="top" secondItem="htQ-RR-Cub" secondAttribute="bottom" constant="8" id="2Bb-e3-C81"/>
+                                            <constraint firstItem="WxH-Cw-E69" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bH4-hY-KH6" secondAttribute="leading" id="2OL-rN-2fg"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JBA-E9-cei" secondAttribute="trailing" constant="8" symbolic="YES" id="4W9-il-yhc"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="6dg-qn-rMt"/>
                                             <constraint firstItem="yMG-Op-8D1" firstAttribute="top" secondItem="bH4-hY-KH6" secondAttribute="top" constant="20" id="9TS-mu-uJI"/>
                                             <constraint firstItem="LNB-i1-V76" firstAttribute="width" secondItem="nRN-KA-cl8" secondAttribute="width" id="Cya-LG-mMd"/>
                                             <constraint firstItem="JBA-E9-cei" firstAttribute="leading" secondItem="bH4-hY-KH6" secondAttribute="leading" constant="20" id="DW1-4g-29U"/>
+                                            <constraint firstAttribute="trailing" secondItem="WxH-Cw-E69" secondAttribute="trailing" constant="20" id="Htr-MK-RV5"/>
+                                            <constraint firstItem="WxH-Cw-E69" firstAttribute="centerX" secondItem="p4I-Zg-0zJ" secondAttribute="centerX" id="J3u-u9-9H2"/>
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="KBQ-WJ-Fy0"/>
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="width" secondItem="bH4-hY-KH6" secondAttribute="width" id="MG4-GE-iZD"/>
                                             <constraint firstItem="O9O-h1-xXA" firstAttribute="width" secondItem="bH4-hY-KH6" secondAttribute="width" id="V9U-da-d4l"/>
                                             <constraint firstItem="O9O-h1-xXA" firstAttribute="top" secondItem="JBA-E9-cei" secondAttribute="bottom" constant="8" id="W1n-5J-4Iy"/>
                                             <constraint firstItem="O9O-h1-xXA" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="aJX-K9-afJ"/>
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="top" secondItem="yMG-Op-8D1" secondAttribute="bottom" constant="8" id="ktc-Sf-IwO"/>
+                                            <constraint firstItem="WxH-Cw-E69" firstAttribute="top" secondItem="p4I-Zg-0zJ" secondAttribute="bottom" constant="20" id="m2e-4l-HMb"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yMG-Op-8D1" secondAttribute="trailing" id="n8h-jc-Rep"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerY" secondItem="bH4-hY-KH6" secondAttribute="centerY" id="p4x-iP-b5x"/>
                                             <constraint firstItem="yMG-Op-8D1" firstAttribute="leading" secondItem="bH4-hY-KH6" secondAttribute="leading" constant="20" id="r7B-Ew-prX"/>

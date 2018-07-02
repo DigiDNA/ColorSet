@@ -35,13 +35,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="202" height="600"/>
                                         <subviews>
                                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsJ-Zp-VF3">
-                                                <rect key="frame" x="0.0" y="0.0" width="202" height="580"/>
+                                                <rect key="frame" x="0.0" y="62" width="202" height="518"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Bjf-9S-0pg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="202" height="580"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="202" height="518"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView identifier="TableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="2DC-L7-gI3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="580"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="518"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -73,7 +73,7 @@
                                                                                 </customView>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-iu-dXF">
                                                                                     <rect key="frame" x="31" y="7" width="168" height="17"/>
-                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="ksN-hR-I69">
+                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ksN-hR-I69">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -109,7 +109,7 @@
                                                     </subviews>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="G6e-gb-2N3">
-                                                    <rect key="frame" x="0.0" y="559" width="100" height="16"/>
+                                                    <rect key="frame" x="0.0" y="564" width="202" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="FaE-KJ-6rR">
@@ -117,12 +117,31 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
+                                            <searchField identifier="SearchField" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPf-cQ-68w">
+                                                <rect key="frame" x="20" y="20" width="162" height="22"/>
+                                                <searchFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="8BW-lR-C8t">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </searchFieldCell>
+                                                <connections>
+                                                    <binding destination="awq-PE-ook" name="predicate" keyPath="filterPredicate" id="eYD-d0-Y6G">
+                                                        <dictionary key="options">
+                                                            <string key="NSDisplayName">predicate</string>
+                                                            <string key="NSPredicateFormat">name contains[c] $value</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </searchField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="SsJ-Zp-VF3" firstAttribute="top" secondItem="YHx-KD-BVy" secondAttribute="top" constant="20" id="84P-SS-EHl"/>
                                             <constraint firstItem="SsJ-Zp-VF3" firstAttribute="width" secondItem="YHx-KD-BVy" secondAttribute="width" id="Vkl-Le-dkc"/>
-                                            <constraint firstAttribute="bottom" secondItem="SsJ-Zp-VF3" secondAttribute="bottom" id="gEf-RI-iv4"/>
+                                            <constraint firstItem="EPf-cQ-68w" firstAttribute="top" secondItem="SsJ-Zp-VF3" secondAttribute="bottom" constant="20" id="aQt-es-Uo8"/>
+                                            <constraint firstItem="EPf-cQ-68w" firstAttribute="leading" secondItem="YHx-KD-BVy" secondAttribute="leading" constant="20" id="cUC-fV-i6M"/>
+                                            <constraint firstAttribute="trailing" secondItem="EPf-cQ-68w" secondAttribute="trailing" constant="20" id="gj8-DE-lLP"/>
                                             <constraint firstItem="SsJ-Zp-VF3" firstAttribute="centerX" secondItem="YHx-KD-BVy" secondAttribute="centerX" id="i3E-nS-tYr"/>
+                                            <constraint firstAttribute="bottom" secondItem="EPf-cQ-68w" secondAttribute="bottom" constant="20" id="poi-39-ueV"/>
                                         </constraints>
                                     </visualEffectView>
                                 </subviews>
@@ -141,6 +160,25 @@
                                     <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-hY-KH6">
                                         <rect key="frame" x="0.0" y="0.0" width="597" height="600"/>
                                         <subviews>
+                                            <textField identifier="ColorNameTextField" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Op-8D1">
+                                                <rect key="frame" x="18" y="544" width="561" height="36"/>
+                                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="B9Y-7F-72Z">
+                                                    <font key="font" metaFont="systemThin" size="30"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <allowedInputSourceLocales>
+                                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                    </allowedInputSourceLocales>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="-2" name="hidden" keyPath="selectedColor" id="ZOF-Wg-oJh">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSIsNil</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                    <binding destination="-2" name="value" keyPath="selectedColor.name" id="gDU-0Q-TwO"/>
+                                                </connections>
+                                            </textField>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4I-Zg-0zJ">
                                                 <rect key="frame" x="170" y="172" width="256" height="256"/>
                                                 <constraints>
@@ -157,18 +195,18 @@
                                                 </connections>
                                             </imageView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="htQ-RR-Cub">
-                                                <rect key="frame" x="0.0" y="363" width="597" height="237"/>
+                                                <rect key="frame" x="0.0" y="311" width="597" height="225"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-Nc-lUe">
-                                                        <rect key="frame" x="18" y="181" width="137" height="36"/>
+                                                        <rect key="frame" x="18" y="181" width="94" height="24"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Light Color" id="Yjr-Op-5Py">
-                                                            <font key="font" metaFont="systemThin" size="30"/>
+                                                            <font key="font" metaFont="systemThin" size="20"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <customView identifier="Color" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-93-3sA" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
-                                                        <rect key="frame" x="537" y="179" width="40" height="40"/>
+                                                        <rect key="frame" x="537" y="173" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="1qJ-qz-Hfa"/>
                                                             <constraint firstAttribute="width" constant="40" id="EwU-KJ-dIC"/>
@@ -425,7 +463,7 @@
                                                         </constraints>
                                                     </customView>
                                                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRN-KA-cl8">
-                                                        <rect key="frame" x="433" y="188" width="96" height="22"/>
+                                                        <rect key="frame" x="433" y="182" width="96" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="96" id="Hsv-2K-xVL"/>
                                                         </constraints>
@@ -483,7 +521,7 @@
                                                 </connections>
                                             </customView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-E9-cei">
-                                                <rect key="frame" x="18" y="339" width="141" height="18"/>
+                                                <rect key="frame" x="18" y="287" width="141" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Enable Dark Variant" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OfE-qm-sKb">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -498,18 +536,18 @@
                                                 </connections>
                                             </button>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="O9O-h1-xXA">
-                                                <rect key="frame" x="0.0" y="96" width="597" height="237"/>
+                                                <rect key="frame" x="0.0" y="56" width="597" height="225"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4cq-Cm-I0h">
-                                                        <rect key="frame" x="18" y="181" width="134" height="36"/>
+                                                        <rect key="frame" x="18" y="181" width="92" height="24"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dark Color" id="nXb-rH-Xq2">
-                                                            <font key="font" metaFont="systemThin" size="30"/>
+                                                            <font key="font" metaFont="systemThin" size="20"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <customView identifier="Variant" translatesAutoresizingMaskIntoConstraints="NO" id="dhB-Uw-TWF" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
-                                                        <rect key="frame" x="537" y="179" width="40" height="40"/>
+                                                        <rect key="frame" x="537" y="173" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="Gvr-5W-2Oh"/>
                                                             <constraint firstAttribute="height" constant="40" id="SLc-W0-tb4"/>
@@ -765,7 +803,7 @@
                                                         </constraints>
                                                     </customView>
                                                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-i1-V76">
-                                                        <rect key="frame" x="433" y="188" width="96" height="22"/>
+                                                        <rect key="frame" x="433" y="182" width="96" height="22"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="sEj-ce-aUK">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -830,9 +868,11 @@
                                             </customView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="yMG-Op-8D1" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="1d5-5J-vYE"/>
                                             <constraint firstItem="JBA-E9-cei" firstAttribute="top" secondItem="htQ-RR-Cub" secondAttribute="bottom" constant="8" id="2Bb-e3-C81"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JBA-E9-cei" secondAttribute="trailing" constant="8" symbolic="YES" id="4W9-il-yhc"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="6dg-qn-rMt"/>
+                                            <constraint firstItem="yMG-Op-8D1" firstAttribute="top" secondItem="bH4-hY-KH6" secondAttribute="top" constant="20" id="9TS-mu-uJI"/>
                                             <constraint firstItem="LNB-i1-V76" firstAttribute="width" secondItem="nRN-KA-cl8" secondAttribute="width" id="Cya-LG-mMd"/>
                                             <constraint firstItem="JBA-E9-cei" firstAttribute="leading" secondItem="bH4-hY-KH6" secondAttribute="leading" constant="20" id="DW1-4g-29U"/>
                                             <constraint firstItem="htQ-RR-Cub" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="KBQ-WJ-Fy0"/>
@@ -840,8 +880,10 @@
                                             <constraint firstItem="O9O-h1-xXA" firstAttribute="width" secondItem="bH4-hY-KH6" secondAttribute="width" id="V9U-da-d4l"/>
                                             <constraint firstItem="O9O-h1-xXA" firstAttribute="top" secondItem="JBA-E9-cei" secondAttribute="bottom" constant="8" id="W1n-5J-4Iy"/>
                                             <constraint firstItem="O9O-h1-xXA" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="aJX-K9-afJ"/>
-                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="top" secondItem="bH4-hY-KH6" secondAttribute="top" id="b8S-Kn-y7z"/>
+                                            <constraint firstItem="htQ-RR-Cub" firstAttribute="top" secondItem="yMG-Op-8D1" secondAttribute="bottom" constant="8" id="ktc-Sf-IwO"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yMG-Op-8D1" secondAttribute="trailing" id="n8h-jc-Rep"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerY" secondItem="bH4-hY-KH6" secondAttribute="centerY" id="p4x-iP-b5x"/>
+                                            <constraint firstItem="yMG-Op-8D1" firstAttribute="leading" secondItem="bH4-hY-KH6" secondAttribute="leading" constant="20" id="r7B-Ew-prX"/>
                                         </constraints>
                                     </visualEffectView>
                                 </subviews>
@@ -869,7 +911,11 @@
             </view>
             <point key="canvasLocation" x="244" y="314"/>
         </window>
-        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="awq-PE-ook"/>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="awq-PE-ook">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="colors" id="QRv-zn-nre"/>
+            </connections>
+        </arrayController>
         <menu id="hNe-Y4-bGW">
             <items>
                 <menuItem title="Remove" id="h0u-Se-BR4">

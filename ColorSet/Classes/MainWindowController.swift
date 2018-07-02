@@ -26,14 +26,16 @@ import Cocoa
 
 class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSMenuDelegate
 {
-    @objc private dynamic var selectedColor: ColorItem?
-    @objc private dynamic var hasVariant = false
+    @objc private dynamic var               selectedColor: ColorItem?
+    @objc private dynamic var               hasVariant:    Bool          = false
+    @objc public private( set ) dynamic var colors:        [ ColorItem ] = []
     
-    public var                url:          URL?
-    public private( set ) var colors:       [ ColorItem ]             = []
-    private var               observations: [ NSKeyValueObservation ] = []
+    public  var url:                URL?
+    private var observations:       [ NSKeyValueObservation ] = []
+    private var tableView:          NSTableView?
+    private var colorNameTextField: NSTextField?
+    private var searchField:        NSSearchField?
     
-    @IBOutlet public var tableView:       NSTableView?
     @IBOutlet public var arrayController: NSArrayController?
     
     convenience init( colors: [ ColorItem ] )
@@ -70,12 +72,19 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        self.tableView = tableView
-        
-        for color in self.colors
+        guard let colorNameTextField = self.window?.contentView?.subviewWithIdentifier( "ColorNameTextField" ) as? NSTextField else
         {
-            controller.addObject( color )
+            return
         }
+        
+        guard let searchField = self.window?.contentView?.subviewWithIdentifier( "SearchField" ) as? NSSearchField else
+        {
+            return
+        }
+        
+        self.tableView          = tableView
+        self.colorNameTextField = colorNameTextField
+        self.searchField        = searchField
         
         controller.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true ) ]
         controller.selectsInsertedObjects = true
@@ -121,6 +130,11 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         self.observations.append( contentsOf: [ o1, o2 ] )
+    }
+    
+    @IBAction public func performFindPanelAction( _ sender: Any? )
+    {
+        self.window?.makeFirstResponder( self.searchField )
     }
     
     @IBAction public func saveDocument( _ sender: Any? ) 
@@ -169,14 +183,9 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     public func save( to url: URL )
     {
-        guard let colors = self.arrayController?.arrangedObjects as? [ ColorItem ] else
-        {
-            return
-        }
-        
         let set = ColorSet()
         
-        for color in colors
+        for color in self.colors
         {
             set.addColor( color.color, variant: color.variant, forName: color.name )
         }
@@ -205,12 +214,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         var i     = 0
         let color = ColorItem()
         
-        guard let items = self.arrayController?.arrangedObjects as? [ ColorItem ] else
-        {
-            return
-        }
-        
-        for item in items
+        for item in self.colors
         {
             if( item.name.hasPrefix( "Untitled" ) )
             {
@@ -221,6 +225,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         color.name = ( i > 0 ) ? "Untitled-" + String( describing: i ) : "Untitled"
         
         self.arrayController?.addObject( color )
+        self.window?.makeFirstResponder( self.colorNameTextField )
     }
     
     @IBAction public func removeColor( _ sender: Any? )
@@ -259,14 +264,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         return view
     }
     
-    func tableView( _ tableView: NSTableView, didAdd rowView: NSTableRowView, forRow row: Int )
-    {
-        if( self.window?.isVisible ?? false )
-        {
-            tableView.editColumn( 0, row: row, with: nil, select: true )
-        }
-    }
-    
     func control( _ control: NSControl, textShouldBeginEditing fieldEditor: NSText ) -> Bool
     {
         return true
@@ -274,11 +271,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     func control( _ control: NSControl, textShouldEndEditing fieldEditor: NSText ) -> Bool
     {
-        guard let items = self.arrayController?.arrangedObjects as? [ ColorItem ] else
-        {
-            return false
-        }
-        
         guard let textField = control as? NSTextField else
         {
             return false
@@ -294,7 +286,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return false
         }
         
-        for item in items
+        for item in self.colors
         {
             if( item == color )
             {

@@ -54,6 +54,28 @@ static NSLock   * Lock         = nil;
     
     [ Lock unlock ];
     
+    if( [ name hasPrefix: @"NS" ] )
+    {
+        {
+            NSMutableString * selectorName;
+            SEL               sel;
+            
+            selectorName = [ name substringFromIndex: 2 ].mutableCopy;
+            
+            if( selectorName.length > 0 )
+            {
+                [ selectorName replaceCharactersInRange: NSMakeRange( 0, 1 ) withString: [ selectorName substringToIndex: 1 ].lowercaseString ];
+                
+                sel = NSSelectorFromString( selectorName );
+                
+                if( sel && [ NSColor respondsToSelector: sel ] )
+                {
+                    return [ NSColor performSelector: sel ];
+                }
+            }
+        }
+    }
+    
     {
         ColorPair * pair;
         

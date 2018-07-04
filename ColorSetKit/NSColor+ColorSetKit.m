@@ -49,7 +49,16 @@ static NSLock   * Lock         = nil;
     
     if( MainColorSet == nil )
     {
-        MainColorSet = [ [ ColorSet alloc ] initWithPath: [ [ NSBundle mainBundle ] pathForResource: @"Colors" ofType: @"colorset" ] ];
+        {
+            NSString * path;
+            
+            path = [ [ NSBundle mainBundle ] pathForResource: @"Colors" ofType: @"colorset" ];
+            
+            if( path != nil && [ [ NSFileManager defaultManager ] fileExistsAtPath: path ] )
+            {
+                MainColorSet = [ [ ColorSet alloc ] initWithPath: path ];
+            }
+        }
     }
     
     [ Lock unlock ];

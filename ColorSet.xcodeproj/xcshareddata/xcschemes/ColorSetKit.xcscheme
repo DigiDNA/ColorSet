@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0509122520E55CB5009EF90C"
-               BuildableName = "libColorSetKit.a"
+               BlueprintIdentifier = "05CD4AB920ED7CD100DBDE99"
+               BuildableName = "ColorSetKit.framework"
                BlueprintName = "ColorSetKit"
                ReferencedContainer = "container:ColorSet.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0509122520E55CB5009EF90C"
-            BuildableName = "libColorSetKit.a"
+            BlueprintIdentifier = "05CD4AB920ED7CD100DBDE99"
+            BuildableName = "ColorSetKit.framework"
             BlueprintName = "ColorSetKit"
             ReferencedContainer = "container:ColorSet.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0509122520E55CB5009EF90C"
-            BuildableName = "libColorSetKit.a"
+            BlueprintIdentifier = "05CD4AB920ED7CD100DBDE99"
+            BuildableName = "ColorSetKit.framework"
             BlueprintName = "ColorSetKit"
             ReferencedContainer = "container:ColorSet.xcodeproj">
          </BuildableReference>

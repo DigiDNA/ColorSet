@@ -559,11 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -650,9 +646,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 050911DB20E559CF009EF90C /* Debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J5PR93692Y;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 			};
 			name = Debug;
@@ -661,9 +654,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 050911DC20E559CF009EF90C /* Release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J5PR93692Y;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 			};
 			name = Release;
@@ -672,7 +662,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ColorSet/ColorSet.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J5PR93692Y;
 				INFOPLIST_FILE = ColorSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -688,7 +680,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ColorSet/ColorSet.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = J5PR93692Y;
 				INFOPLIST_FILE = ColorSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

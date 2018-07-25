@@ -92,7 +92,7 @@ static NSLock   * Lock         = nil;
         
         if( @available( macOS 10.14, * ) )
         {
-            if( pair.variant != nil && [ [ NSAppearance currentAppearance ].name isEqualToString: NSAppearanceNameDarkAqua ] )
+            if( pair.variant != nil && [ NSApp.effectiveAppearance.name isEqualToString: NSAppearanceNameDarkAqua ] )
             {
                 return pair.variant;
             }

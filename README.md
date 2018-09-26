@@ -16,7 +16,7 @@ About
 ### Rationale
 
 As of macOS 10.14 Mojave, Apple introduced a system-wide dark-mode.  
-Applications linked with the macOS 10.14 SDK now needs to react to the system appearance changes.
+Applications linked with the macOS 10.14 SDK now need to react to system appearance changes.
 
 While built-in AppKit UI elements handle this perfectly, an application often relies on custom controls, custom drawing code, or at last custom colors.
 
@@ -41,9 +41,9 @@ If you need to support macOS 10.12 or below, **Apple's official recommendation (
 
 ### ColorSet & ColorSetKit
 
-`ColorSet` comes as a macOS application and as a macOS framework.
+`ColorSet` is both a macOS application and a macOS Swift framework, `ColorSetKit`.
 
-The application lets you create files containing colors and variants, just as an Asset Catalog File, while the framework allows you, in your application, to retrieve colors from the `.colorset` file using names, just as the macOS 10.13 SDK.
+The application lets you create files containing colors and variants, just as an Asset Catalog File, while the framework allows you, in your application, to retrieve colors from the `.colorset` file using names, just like the macOS 10.13 SDK.
 
 ### Creating a `.colorset` file
 

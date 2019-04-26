@@ -305,7 +305,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         return true
     }
     
-    override func validateMenuItem( _ item: NSMenuItem ) -> Bool
+    func validateMenuItem( _ item: NSMenuItem ) -> Bool
     {
         guard let tableView = self.tableView else
         {

@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_END
             && [ self read: 8 in: &a ]
         )
         {
-            return [ NSColor colorWithRed: r green: g blue: b alpha: a ];
+            return [ NSColor colorWithDeviceRed: r green: g blue: b alpha: a ];
         }
         
         return nil;

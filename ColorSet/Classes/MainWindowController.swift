@@ -23,6 +23,7 @@
  ******************************************************************************/
 
 import Cocoa
+import ColorSetKit
 
 class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSMenuDelegate
 {
@@ -190,7 +191,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         for color in self.colors
         {
-            set.addColor( color.color, variant: color.variant, forName: color.name )
+            set.add( color: color.color, variant: color.variant, forName: color.name )
         }
         
         do

@@ -22,37 +22,26 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "ColorPair.h"
+import Cocoa
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface ColorPair()
-
-@end
-
-NS_ASSUME_NONNULL_END
-
-@implementation ColorPair
-
-- ( instancetype )init
+@objc public class ColorPair: NSObject
 {
-    return [ self initWithColor: nil ];
-}
-
-- ( instancetype )initWithColor: ( nullable NSColor * )color
-{
-    return [ self initWithColor: color variant: nil ];
-}
-
-- ( instancetype )initWithColor: ( nullable NSColor * )color variant: ( nullable NSColor * )variant
-{
-    if( ( self = [ super init ] ) )
+    @objc public dynamic var color:   NSColor?
+    @objc public dynamic var variant: NSColor?
+    
+    @objc public convenience override init()
     {
-        self.color   = color;
-        self.variant = variant;
+        self.init( color: nil, variant: nil )
     }
     
-    return self;
+    @objc public convenience init( color: NSColor? )
+    {
+        self.init( color: color, variant: nil )
+    }
+    
+    @objc public init( color: NSColor?, variant: NSColor? )
+    {
+        self.color   = color
+        self.variant = variant
+    }
 }
-
-@end

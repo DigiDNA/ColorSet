@@ -24,6 +24,7 @@
 
 import Cocoa
 import GitHubUpdates
+import ColorSetKit
 
 @NSApplicationMain
 

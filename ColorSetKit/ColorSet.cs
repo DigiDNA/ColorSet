@@ -1,0 +1,133 @@
+﻿/*******************************************************************************
+ * The MIT License (MIT)
+ * 
+ * Copyright (c) 2018 Jean-David Gadina - www.imazing.com
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ ******************************************************************************/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Media;
+
+namespace ColorSetKit
+{
+    public partial class ColorSet
+    {
+        private static readonly ulong Magic = 0x434F4C4F52534554;
+        
+        public Dictionary< string, ColorPair > Colors
+        {
+            get;
+            private set;
+        }
+        = new Dictionary< string, ColorPair >();
+
+        private object Lock
+        {
+            get;
+        }
+        = new object();
+
+        public ColorSet( string path ): this( new Data( path ) )
+        {}
+
+        public ColorSet( Data data )
+        {
+            if( data.Count == 0 )
+            {
+                return;
+            }
+
+            ColorSetStream stream = new ColorSetStream( data );
+
+            if( stream.ReadUInt64() != Magic )
+            {
+                return;
+            }
+
+            if( stream.ReadUInt32() == 0 )
+            {
+                return;
+            }
+
+            stream.ReadUInt32();
+
+            ulong n = stream.ReadUInt64();
+
+            for( ulong i = 0; i < n; i++ )
+            {
+                if( !( stream.ReadString() is string name ) )
+                {
+                    return;
+                }
+
+                bool hasVariant = stream.ReadBool();
+
+                if( !( stream.ReadColor() is SolidColorBrush color ) )
+                {
+                    return;
+                }
+
+                if( !( stream.ReadColor() is SolidColorBrush variant ) )
+                {
+                    return;
+                }
+
+                this.Add( color, ( hasVariant ) ? variant : null, name );
+            }
+        }
+
+        public void Add( SolidColorBrush color, string name )
+        {
+            this.Add( color, null, name );
+        }
+
+        public void Set( SolidColorBrush color, string name )
+        {
+            this.Set( color, null, name );
+        }
+
+        public void Add( SolidColorBrush color, SolidColorBrush variant, string name )
+        {
+            lock( this.Lock )
+            {
+                if( this.Colors.ContainsKey( name ) == false )
+                {
+                    this.Set( color, variant, name );
+                }
+            }
+        }
+        
+        public void Set( SolidColorBrush color, SolidColorBrush variant, string name )
+        {
+            if( name == null )
+            {
+                return;
+            }
+
+            lock( this.Lock )
+            {
+                this.Colors[ name ] = new ColorPair( color, variant );
+            }
+        }
+    }
+}

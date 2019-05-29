@@ -25,6 +25,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Media;
 
@@ -33,15 +34,46 @@ namespace ColorSetKit
     public partial class ColorSet
     {
         private static readonly ulong Magic = 0x434F4C4F52534554;
+        private static ColorSet _Shared     = null;
+        private static object   _SharedLock = new object();
+
+        public static ColorSet Shared
+        {
+            get
+            {
+                lock( _SharedLock )
+                {
+                    if( _Shared == null )
+                    {
+                        string path = Assembly.GetExecutingAssembly().Location;
+                        
+                        _Shared = new ColorSet( System.IO.Path.Combine( System.IO.Path.GetDirectoryName( path ), "Colors.colorset" )  );
+                    }
+
+                    return _Shared;
+                }
+            }
+        }
         
         public Dictionary< string, ColorPair > Colors
         {
+            get
+            {
+                lock( this._Lock )
+                {
+                    return new Dictionary< string, ColorPair >( this._Colors );
+                }
+            }
+        }
+        
+        private Dictionary< string, ColorPair > _Colors
+        {
             get;
-            private set;
+            set;
         }
         = new Dictionary< string, ColorPair >();
 
-        private object Lock
+        private object _Lock
         {
             get;
         }
@@ -96,6 +128,19 @@ namespace ColorSetKit
             }
         }
 
+        public SolidColorBrush ColorNamed( string name )
+        {
+            lock( this._Lock )
+            {
+                if( this._Colors.ContainsKey( name ) )
+                {
+                    return this._Colors[ name ].Color;
+                }
+
+                return null;
+            }
+        }
+
         public void Add( SolidColorBrush color, string name )
         {
             this.Add( color, null, name );
@@ -108,9 +153,9 @@ namespace ColorSetKit
 
         public void Add( SolidColorBrush color, SolidColorBrush variant, string name )
         {
-            lock( this.Lock )
+            lock( this._Lock )
             {
-                if( this.Colors.ContainsKey( name ) == false )
+                if( this._Colors.ContainsKey( name ) == false )
                 {
                     this.Set( color, variant, name );
                 }
@@ -124,9 +169,9 @@ namespace ColorSetKit
                 return;
             }
 
-            lock( this.Lock )
+            lock( this._Lock )
             {
-                this.Colors[ name ] = new ColorPair( color, variant );
+                this._Colors[ name ] = new ColorPair( color, variant );
             }
         }
     }

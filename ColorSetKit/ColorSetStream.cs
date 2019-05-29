@@ -79,6 +79,11 @@ namespace ColorSetKit
                         return "";
                     }
 
+                    if( data.Last() == 0 )
+                    {
+                        data = data.Take( data.Length - 1 ).ToArray();
+                    }
+
                     return Encoding.UTF8.GetString( data ) ?? "";
                 }
 

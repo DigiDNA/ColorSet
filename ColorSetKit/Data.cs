@@ -63,7 +63,7 @@ namespace ColorSetKit
         {
             for( ulong i = offset; i < offset + size; i++ )
             {
-                buffer[ i ] = this.Bytes[ i ];
+                buffer[ i - offset ] = this.Bytes[ i ];
             }
         }
     }

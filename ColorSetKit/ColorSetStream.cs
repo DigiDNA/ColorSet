@@ -113,7 +113,7 @@ namespace ColorSetKit
 
                 return new SolidColorBrush
                 (
-                    Color.FromArgb
+                    System.Windows.Media.Color.FromArgb
                     (
                         ( byte )Math.Round( a * 255 ),
                         ( byte )Math.Round( r * 255 ),

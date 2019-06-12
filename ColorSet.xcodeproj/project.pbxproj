@@ -24,6 +24,9 @@
 		0544CBF62273199C004A2499 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CBF52273199C004A2499 /* ColorSet.swift */; };
 		0544CC0D2273466C004A2499 /* ColorSetStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CC0C2273466C004A2499 /* ColorSetStream.swift */; };
 		0564590220E4DDFD001EA86F /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564590120E4DDFD001EA86F /* HexColor.swift */; };
+		057DC44E22B1492200BA6727 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057DC44D22B1492200BA6727 /* Test.swift */; };
+		057DC45022B1492200BA6727 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
+		057DC45822B14CC300BA6727 /* Colors.colorset in Resources */ = {isa = PBXBuildFile; fileRef = 057DC45722B14CC300BA6727 /* Colors.colorset */; };
 		05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
 		05CD4AC220ED7CD100DBDE99 /* ColorSetKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05D11EC120E1359C00A621B5 /* ColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11EC020E1359C00A621B5 /* ColorComponent.swift */; };
@@ -54,6 +57,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 05F82B241EF32EA700EC8A93;
 			remoteInfo = GitHubUpdates;
+		};
+		057DC45122B1492200BA6727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0543AE5A20DC33BC00284E99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05CD4AB920ED7CD100DBDE99;
+			remoteInfo = ColorSetKit;
 		};
 		05CD4ABF20ED7CD100DBDE99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -141,6 +151,10 @@
 		0544CBF52273199C004A2499 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		0544CC0C2273466C004A2499 /* ColorSetStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSetStream.swift; sourceTree = "<group>"; };
 		0564590120E4DDFD001EA86F /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
+		057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ColorSetKit-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		057DC44D22B1492200BA6727 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		057DC44F22B1492200BA6727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		057DC45722B14CC300BA6727 /* Colors.colorset */ = {isa = PBXFileReference; lastKnownFileType = file; path = Colors.colorset; sourceTree = "<group>"; };
 		05CD4AB220ED7B2200DBDE99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CD4AC620ED7CE000DBDE99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +172,14 @@
 			files = (
 				05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */,
 				0509121520E55A7F009EF90C /* GitHubUpdates.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		057DC44822B1492200BA6727 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DC45022B1492200BA6727 /* ColorSetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +342,7 @@
 				050911D720E559CF009EF90C /* xcconfig */,
 				0543AE6420DC33BC00284E99 /* ColorSet */,
 				0509122720E55CB5009EF90C /* ColorSetKit */,
+				057DC44C22B1492200BA6727 /* ColorSetKit-Test */,
 				0543AE6320DC33BC00284E99 /* Products */,
 				0509121420E55A7F009EF90C /* Frameworks */,
 			);
@@ -330,6 +353,7 @@
 			children = (
 				0543AE6220DC33BC00284E99 /* ColorSet.app */,
 				05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */,
+				057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,6 +401,16 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		057DC44C22B1492200BA6727 /* ColorSetKit-Test */ = {
+			isa = PBXGroup;
+			children = (
+				057DC45722B14CC300BA6727 /* Colors.colorset */,
+				057DC44D22B1492200BA6727 /* Test.swift */,
+				057DC44F22B1492200BA6727 /* Info.plist */,
+			);
+			path = "ColorSetKit-Test";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -411,6 +445,24 @@
 			productReference = 0543AE6220DC33BC00284E99 /* ColorSet.app */;
 			productType = "com.apple.product-type.application";
 		};
+		057DC44A22B1492200BA6727 /* ColorSetKit-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 057DC45622B1492200BA6727 /* Build configuration list for PBXNativeTarget "ColorSetKit-Test" */;
+			buildPhases = (
+				057DC44722B1492200BA6727 /* Sources */,
+				057DC44822B1492200BA6727 /* Frameworks */,
+				057DC44922B1492200BA6727 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				057DC45222B1492200BA6727 /* PBXTargetDependency */,
+			);
+			name = "ColorSetKit-Test";
+			productName = "ColorSetKit-Test";
+			productReference = 057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		05CD4AB920ED7CD100DBDE99 /* ColorSetKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05CD4AC320ED7CD100DBDE99 /* Build configuration list for PBXNativeTarget "ColorSetKit" */;
@@ -435,7 +487,7 @@
 		0543AE5A20DC33BC00284E99 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
@@ -450,6 +502,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					057DC44A22B1492200BA6727 = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 					05CD4AB920ED7CD100DBDE99 = {
 						CreatedOnToolsVersion = 10.0;
@@ -478,6 +533,7 @@
 			targets = (
 				0543AE6120DC33BC00284E99 /* ColorSet */,
 				05CD4AB920ED7CD100DBDE99 /* ColorSetKit */,
+				057DC44A22B1492200BA6727 /* ColorSetKit-Test */,
 			);
 		};
 /* End PBXProject section */
@@ -509,6 +565,14 @@
 				05D11ECE20E165FB00A621B5 /* File.icns in Resources */,
 				0543AE7B20DC33DF00284E99 /* MainMenu.xib in Resources */,
 				05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		057DC44922B1492200BA6727 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DC45822B14CC300BA6727 /* Colors.colorset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +620,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		057DC44722B1492200BA6727 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DC44E22B1492200BA6727 /* Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05CD4AB620ED7CD100DBDE99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -574,6 +646,11 @@
 			isa = PBXTargetDependency;
 			name = GitHubUpdates;
 			targetProxy = 0509121220E55A7B009EF90C /* PBXContainerItemProxy */;
+		};
+		057DC45222B1492200BA6727 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05CD4AB920ED7CD100DBDE99 /* ColorSetKit */;
+			targetProxy = 057DC45122B1492200BA6727 /* PBXContainerItemProxy */;
 		};
 		05CD4AC020ED7CD100DBDE99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -666,6 +743,34 @@
 			};
 			name = Release;
 		};
+		057DC45322B1492200BA6727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "ColorSetKit-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.ColorSetKit-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		057DC45422B1492200BA6727 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "ColorSetKit-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.ColorSetKit-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		05CD4AC420ED7CD100DBDE99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -740,6 +845,15 @@
 			buildConfigurations = (
 				0543AE7120DC33BD00284E99 /* Debug */,
 				0543AE7220DC33BD00284E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		057DC45622B1492200BA6727 /* Build configuration list for PBXNativeTarget "ColorSetKit-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				057DC45322B1492200BA6727 /* Debug */,
+				057DC45422B1492200BA6727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

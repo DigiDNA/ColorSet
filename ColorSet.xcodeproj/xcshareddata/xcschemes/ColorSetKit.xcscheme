@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "057DC44A22B1492200BA6727"
+               BuildableName = "ColorSetKit-Test.xctest"
+               BlueprintName = "ColorSetKit-Test"
+               ReferencedContainer = "container:ColorSet.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "05CD4AB920ED7CD100DBDE99"
+            BuildableName = "ColorSetKit.framework"
+            BlueprintName = "ColorSetKit"
+            ReferencedContainer = "container:ColorSet.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

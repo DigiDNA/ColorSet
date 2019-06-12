@@ -28,6 +28,33 @@ import Cocoa
 {
     private static let magic: UInt64 = 0x434F4C4F52534554
     
+    public static var shared: ColorSet =
+    {
+        var set: ColorSet?
+        
+        if let path = Bundle.main.path( forResource: "Colors", ofType: "colorset" )
+        {
+            if FileManager.default.fileExists( atPath: path )
+            {
+                set = ColorSet( path: path )
+            }
+        }
+        
+        #if DEBUG
+        
+        if set == nil, let path = Bundle( identifier: "com.xs-labs.ColorSetKit-Test" )?.path( forResource: "Colors", ofType: "colorset" )
+        {
+            if FileManager.default.fileExists( atPath: path )
+            {
+                set = ColorSet( path: path )
+            }
+        }
+        
+        #endif
+        
+        return set ?? ColorSet()
+    }()
+    
     @objc public private( set ) dynamic var colors = [ String : ColorPair ]()
     
     @objc public override init()

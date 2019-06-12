@@ -26,26 +26,8 @@ import Cocoa
 
 @objc public extension NSColor
 {
-    private static var mainColorSet: ColorSet?
-    private static var lock        = NSLock()
-    
     @objc class func colorFrom( colorSet name: String ) -> NSColor?
     {
-        lock.lock()
-        
-        if mainColorSet == nil
-        {
-            if let path = Bundle.main.path( forResource: "Colors", ofType: "colorset" )
-            {
-                if FileManager.default.fileExists( atPath: path )
-                {
-                    mainColorSet = ColorSet( path:  path )
-                }
-            }
-        }
-        
-        lock.unlock()
-        
         if name.hasPrefix( "NS" )
         {
             var selectorName = String( name[ name.index( name.startIndex, offsetBy: 2 )... ] )
@@ -64,7 +46,7 @@ import Cocoa
             
         }
         
-        let pair = mainColorSet?.colors[ name ]
+        let pair = ColorSet.shared.colors[ name ]
         
         if #available( macOS 10.14, * )
         {

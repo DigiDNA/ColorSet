@@ -63,129 +63,141 @@ namespace ColorSetKit_Test
             ColorPair p1 = ColorSet.Shared.Colors[ "NoVariant" ];
             ColorPair p2 = ColorSet.Shared.Colors[ "Variant" ];
 
-            if( p1.Color is SolidColorBrush c )
             {
-                Assert.AreEqual( c.Color.R,  50 );
-                Assert.AreEqual( c.Color.G, 100 );
-                Assert.AreEqual( c.Color.B, 150 );
-                Assert.AreEqual( ( double )( c.Color.A ) / 256, 0.5 );
-            }
-            else
-            {
-                Assert.Fail( "Color is not defined" );
+                if( p1.Color is SolidColorBrush c )
+                {
+                    Assert.AreEqual( c.Color.R, 50 );
+                    Assert.AreEqual( c.Color.G, 100 );
+                    Assert.AreEqual( c.Color.B, 150 );
+                    Assert.AreEqual( c.Color.A, 128 );
+                }
+                else
+                {
+                    Assert.Fail( "Color is not defined" );
+                }
             }
 
             if( p1.Variant != null )
             {
                 Assert.Fail( "No variant should be defined" );
             }
+
+            {
+                if( p2.Color is SolidColorBrush c )
+                {
+                    Assert.AreEqual( c.Color.R, 250 );
+                    Assert.AreEqual( c.Color.G, 200 );
+                    Assert.AreEqual( c.Color.B, 150 );
+                    Assert.AreEqual( c.Color.A, 191 );
+                }
+                else
+                {
+                    Assert.Fail( "Color is not defined" );
+                }
+            }
+
+            {
+                if( p2.Variant is SolidColorBrush c )
+                {
+                    Assert.AreEqual( c.Color.R, 200 );
+                    Assert.AreEqual( c.Color.G, 150 );
+                    Assert.AreEqual( c.Color.B, 250 );
+                    Assert.AreEqual( c.Color.A, 64 );
+                }
+                else
+                {
+                    Assert.Fail( "Color is not defined" );
+                }
+            }
         }
 
-        /*
-        func testShared()
+        [TestMethod]
+        public void TestColor()
         {
-            if let c = p2.color
+            if( new ColorSetKit.Color( "NoVariant" ).ProvideValue( null ) is SolidColorBrush c )
             {
-                XCTAssertEqual( c.redComponent   * 255, 250.0 )
-                XCTAssertEqual( c.greenComponent * 255, 200.0 )
-                XCTAssertEqual( c.blueComponent  * 255, 150.0 )
-                XCTAssertEqual( c.alphaComponent,       0.75 )
+                Assert.AreEqual( c.Color.R, 50 );
+                Assert.AreEqual( c.Color.G, 100 );
+                Assert.AreEqual( c.Color.B, 150 );
+                Assert.AreEqual( c.Color.A, 128 );
             }
             else
             {
-                XCTFail( "Color is not defined" )
-            }
-        
-            if let c = p2.variant
-            {
-                XCTAssertEqual( c.redComponent   * 255, 200.0 )
-                XCTAssertEqual( c.greenComponent * 255, 150.0 )
-                XCTAssertEqual( c.blueComponent  * 255, 250.0 )
-                XCTAssertEqual( c.alphaComponent,       0.25 )
-            }
-            else
-            {
-                XCTFail( "Color is not defined" )
+                Assert.Fail( "Cannot retrieve color from NSColor" );
             }
         }
-    
-        func testNSColor()
+
+        [TestMethod]
+        public void TestCreate()
         {
-            if let c = NSColor.colorFrom( colorSet: "NoVariant" )
+            ColorSet                   set = new ColorSet();
+            System.Windows.Media.Color c1  = new System.Windows.Media.Color();
+            System.Windows.Media.Color c2  = new System.Windows.Media.Color();
+            System.Windows.Media.Color c3  = new System.Windows.Media.Color();
+            
+            c1.R =  50; c1.G = 100; c1.B = 150; c1.A = 128;
+            c2.R = 250; c2.G = 200; c2.B = 150; c2.A = 191;
+            c3.R = 200; c3.G = 150; c3.B = 250; c3.A =  64;
+
+            set.Add( new SolidColorBrush( c1 ), "NoVariant" );
+            set.Add( new SolidColorBrush( c2 ), new SolidColorBrush( c3 ), "Variant" );
+
+            set = new ColorSet( set.Data );
+            
+            Assert.AreEqual( set.Colors.Count, 2 );
+
+            Assert.IsTrue( set.Colors.ContainsKey( "NoVariant" ) );
+            Assert.IsTrue( set.Colors.ContainsKey( "Variant" ) );
+
+            ColorPair p1 = set.Colors[ "NoVariant" ];
+            ColorPair p2 = set.Colors[ "Variant" ];
+
             {
-                XCTAssertEqual( c.redComponent   * 255,  50.0 )
-                XCTAssertEqual( c.greenComponent * 255, 100.0 )
-                XCTAssertEqual( c.blueComponent  * 255, 150.0 )
-                XCTAssertEqual( c.alphaComponent,         0.5 )
+                if( p1.Color is SolidColorBrush c )
+                {
+                    Assert.AreEqual( c.Color.R, 50 );
+                    Assert.AreEqual( c.Color.G, 100 );
+                    Assert.AreEqual( c.Color.B, 150 );
+                    Assert.AreEqual( c.Color.A, 128 );
+                }
+                else
+                {
+                    Assert.Fail( "Color is not defined" );
+                }
             }
-            else
+
+            if( p1.Variant != null )
             {
-                XCTFail( "Cannot retrieve color from NSColor" ); return
+                Assert.Fail( "No variant should be defined" );
+            }
+
+            {
+                if( p2.Color is SolidColorBrush c )
+                {
+                    Assert.AreEqual( c.Color.R, 250 );
+                    Assert.AreEqual( c.Color.G, 200 );
+                    Assert.AreEqual( c.Color.B, 150 );
+                    Assert.AreEqual( c.Color.A, 191 );
+                }
+                else
+                {
+                    Assert.Fail( "Color is not defined" );
+                }
+            }
+
+            {
+                if( p2.Variant is SolidColorBrush c )
+                {
+                    Assert.AreEqual( c.Color.R, 200 );
+                    Assert.AreEqual( c.Color.G, 150 );
+                    Assert.AreEqual( c.Color.B, 250 );
+                    Assert.AreEqual( c.Color.A, 64 );
+                }
+                else
+                {
+                    Assert.Fail( "Color is not defined" );
+                }
             }
         }
-    
-        func testCreate()
-        {
-            var set = ColorSet()
-        
-            set.add( color: NSColor( red: 0.1, green: 0.2, blue: 0.3, alpha: 0.4 ), forName: "NoVariant" )
-            set.add( color: NSColor( red: 0.5, green: 0.6, blue: 0.7, alpha: 0.8 ), variant: NSColor( red: 0.8, green: 0.7, blue: 0.6, alpha: 0.5 ), forName: "Variant" )
-        
-            set = ColorSet( data: set.data ) ?? ColorSet()
-        
-            XCTAssertEqual( set.colors.count, 2 )
-        
-            guard let p1 = set.colors[ "NoVariant" ] else
-            {
-                XCTFail( "Cannot retrieve color from shared color set file" ); return
-            }
-        
-            guard let p2 = set.colors[ "Variant" ] else
-            {
-                XCTFail( "Cannot retrieve color from shared color set file" ); return
-            }
-        
-            if let c = p1.color
-            {
-                XCTAssertEqual( c.redComponent,   0.1 )
-                XCTAssertEqual( c.greenComponent, 0.2 )
-                XCTAssertEqual( c.blueComponent,  0.3 )
-                XCTAssertEqual( c.alphaComponent, 0.4 )
-            }
-            else
-            {
-                XCTFail( "Color is not defined" )
-            }
-        
-            if let _ = p1.variant
-            {
-                XCTFail( "No variant should be defined" )
-            }
-        
-            if let c = p2.color
-            {
-                XCTAssertEqual( c.redComponent,   0.5 )
-                XCTAssertEqual( c.greenComponent, 0.6 )
-                XCTAssertEqual( c.blueComponent,  0.7 )
-                XCTAssertEqual( c.alphaComponent, 0.8 )
-            }
-            else
-            {
-                XCTFail( "Color is not defined" )
-            }
-        
-            if let c = p2.variant
-            {
-                XCTAssertEqual( c.redComponent,   0.8 )
-                XCTAssertEqual( c.greenComponent, 0.7 )
-                XCTAssertEqual( c.blueComponent,  0.6 )
-                XCTAssertEqual( c.alphaComponent, 0.5 )
-            }
-            else
-            {
-                XCTFail( "Color is not defined" )
-            }
-        }
-         */
     }
 }

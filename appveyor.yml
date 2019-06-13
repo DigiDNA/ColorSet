@@ -1,0 +1,9 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Debug
+platform: Any CPU
+before_build:
+- cmd: nuget restore
+build:
+  project: ColorSet.sln
+  verbosity: minimal

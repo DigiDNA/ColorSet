@@ -34,28 +34,33 @@ namespace ColorSetKit
     {
         public ulong Count
         {
-            get;
-            private set;
+            get
+            {
+                return ( ulong )( this.Bytes.Count );
+            }
         }
-        = 0;
 
-        private byte[] Bytes
+        private List< byte > Bytes
         {
             get;
             set;
+        }
+
+        public Data()
+        {
+            this.Bytes = new List< byte >();
         }
 
         public Data( string path )
         {
             try
             {
-                this.Bytes = File.ReadAllBytes( path );
-                this.Count = ( ulong )this.Bytes.Length;
+                this.Bytes = File.ReadAllBytes( path ).ToList();
             }
             catch
             {
 
-                this.Count = 0;
+                this.Bytes = new List< byte >();
             }
         }
 
@@ -63,7 +68,15 @@ namespace ColorSetKit
         {
             for( ulong i = offset; i < offset + size; i++ )
             {
-                buffer[ i - offset ] = this.Bytes[ i ];
+                buffer[ i - offset ] = this.Bytes[ ( int )i ];
+            }
+        }
+
+        public void Append( byte[] data )
+        {
+            foreach( byte b in data )
+            {
+                this.Bytes.Add( b );
             }
         }
     }

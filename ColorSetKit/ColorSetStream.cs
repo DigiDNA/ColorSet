@@ -25,6 +25,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Media;
 
@@ -32,10 +33,10 @@ namespace ColorSetKit
 {
     public partial class ColorSetStream
     {
-        private Data Data
+        public Data Data
         {
             get;
-            set;
+            private set;
         }
 
         private ulong Pos
@@ -50,6 +51,11 @@ namespace ColorSetKit
             get;
         }
         = new object();
+
+        public ColorSetStream()
+        {
+            this.Data = new Data();
+        }
 
         public ColorSetStream( Data data )
         {
@@ -231,6 +237,173 @@ namespace ColorSetKit
                     return false;
                 }
             }
+        }
+
+        public void Append( string value )
+        {
+            lock( this.Lock )
+            {
+                byte[] data = Encoding.ASCII.GetBytes( value );
+
+                this.Append( ( ulong )( value.Length + 1 ) );
+                this.Data.Append( data );
+                this.Append( 0 );
+            }
+        }
+
+        public void Append( SolidColorBrush value )
+        {
+            lock( this.Lock )
+            {
+                double r = value.Color.R;
+                double g = value.Color.G;
+                double b = value.Color.B;
+                double a = value.Color.A;
+
+                r /= 255;
+                g /= 255;
+                b /= 255;
+                a /= 255;
+
+                this.Append( r );
+                this.Append( g );
+                this.Append( b );
+                this.Append( a );
+            }
+        }
+
+        public void Append( byte value )
+        {
+            lock( this.Lock )
+            {
+                this.Data.Append( new byte[] { value } );
+            }
+        }
+
+        public void Append( ushort value )
+        {
+            lock( this.Lock )
+            {
+                if( BitConverter.IsLittleEndian == false )
+                {
+                    value = ( ushort )IPAddress.HostToNetworkOrder( ( short )value );
+                }
+
+                this.Data.Append( BitConverter.GetBytes( value ) );
+            }
+        }
+
+        public void Append( uint value )
+        {
+            lock( this.Lock )
+            {
+                if( BitConverter.IsLittleEndian == false )
+                {
+                    value = ( uint )IPAddress.HostToNetworkOrder( ( int )value );
+                }
+
+                this.Data.Append( BitConverter.GetBytes( value ) );
+            }
+        }
+
+        public void Append( ulong value )
+        {
+            lock( this.Lock )
+            {
+                if( BitConverter.IsLittleEndian == false )
+                {
+                    value = ( ulong )IPAddress.HostToNetworkOrder( ( long )value );
+                }
+
+                this.Data.Append( BitConverter.GetBytes( value ) );
+            }
+        }
+
+        public void Append( float value )
+        {
+            lock( this.Lock )
+            {
+                this.Data.Append( BitConverter.GetBytes( value ) );
+            }
+        }
+
+        public void Append( double value )
+        {
+            lock( this.Lock )
+            {
+                this.Data.Append( BitConverter.GetBytes( value ) );
+            }
+        }
+
+        public void Append( bool value )
+        {
+            lock( this.Lock )
+            {
+                this.Append( ( value ) ? ( byte )1 : ( byte )0 );
+            }
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, string value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, SolidColorBrush value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, byte value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, ushort value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, uint value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, ulong value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, float value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, double value )
+        {
+            s.Append( value );
+
+            return s;
+        }
+
+        public static ColorSetStream operator +( ColorSetStream s, bool value )
+        {
+            s.Append( value );
+
+            return s;
         }
     }
 }

@@ -79,6 +79,9 @@ namespace ColorSetKit
         }
         = new object();
 
+        public ColorSet()
+        {}
+
         public ColorSet( string path ): this( new Data( path ) )
         {}
 
@@ -172,6 +175,36 @@ namespace ColorSetKit
             lock( this._Lock )
             {
                 this._Colors[ name ] = new ColorPair( color, variant );
+            }
+        }
+
+        public Data Data
+        {
+            get
+            {
+                Dictionary< string, ColorPair > colors = this.Colors;
+                ColorSetStream                  stream = new ColorSetStream();
+                System.Windows.Media.Color      clear  = new System.Windows.Media.Color();
+
+                clear.R = 0;
+                clear.G = 0;
+                clear.B = 0;
+                clear.A = 0;
+
+                stream += Magic;                     /* COLORSET */
+                stream += ( uint )1;                 /* Major */
+                stream += ( uint )0;                 /* Minor */
+                stream += ( ulong )( colors.Count ); /* Count */
+
+                foreach( KeyValuePair< string, ColorPair > p in colors )
+                {
+                    stream += p.Key;
+                    stream += p.Value.Variant != null;
+                    stream += p.Value.Color   ?? new SolidColorBrush( clear );
+                    stream += p.Value.Variant ?? new SolidColorBrush( clear );
+                }
+
+                return stream.Data;
             }
         }
     }

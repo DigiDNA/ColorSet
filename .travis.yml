@@ -1,0 +1,21 @@
+language: objective-c
+cache:
+    directories:
+    - $HOME/.ccache
+install:
+- gem install xcpretty
+- brew install ccache
+- PATH=$PATH:/usr/local/opt/ccache/libexec
+- export PYTHONUSERBASE=~/.local
+- easy_install --user scan-build
+script:
+- set -o pipefail && xcodebuild -project "ColorSet.xcodeproj" -scheme "ColorSetKit" build test | xcpretty
+before_script:
+- ccache -s
+- ccache -z
+after_script:
+- ccache -s
+after_success:
+- bash Scripts/travis-after.sh
+notifications:
+    slack: xs-labs:FXh1yLXNkpcVxKZhZU6icdhI

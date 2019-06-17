@@ -19,4 +19,4 @@ after_script:
 after_success:
 - bash Scripts/travis-after.sh
 notifications:
-    slack: xs-labs:FXh1yLXNkpcVxKZhZU6icdhI
+    slack: digidna:JnibNY2kbGTqfDWH33jMdcMj

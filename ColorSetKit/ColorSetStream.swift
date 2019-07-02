@@ -40,7 +40,8 @@ import Cocoa
         self.data = data ?? Data()
     }
     
-    @objc public func append( string: String )
+    @objc( appendString: )
+    public func append( string: String )
     {
         self.synchronized
         {
@@ -55,7 +56,8 @@ import Cocoa
         }
     }
     
-    @objc public func append( color: NSColor )
+    @objc( appendColor: )
+    public func append( color: NSColor )
     {
         self.synchronized
         {
@@ -78,7 +80,8 @@ import Cocoa
         }
     }
     
-    @objc public func append( uInt8: UInt8 )
+    @objc( appendUInt8: )
+    public func append( uInt8: UInt8 )
     {
         self.synchronized
         {
@@ -88,7 +91,8 @@ import Cocoa
         }
     }
     
-    @objc public func append( uInt16: UInt16 )
+    @objc( appendUInt16: )
+    public func append( uInt16: UInt16 )
     {
         self.synchronized
         {
@@ -98,7 +102,8 @@ import Cocoa
         }
     }
     
-    @objc public func append( uInt32: UInt32 )
+    @objc( appendUInt32: )
+    public func append( uInt32: UInt32 )
     {
         self.synchronized
         {
@@ -108,7 +113,8 @@ import Cocoa
         }
     }
     
-    @objc public func append( uInt64: UInt64 )
+    @objc( appendUInt64: )
+    public func append( uInt64: UInt64 )
     {
         self.synchronized
         {
@@ -118,7 +124,8 @@ import Cocoa
         }
     }
     
-    @objc public func append( float: Float )
+    @objc( appendFloat: )
+    public func append( float: Float )
     {
         self.synchronized
         {
@@ -128,6 +135,7 @@ import Cocoa
         }
     }
     
+    @objc( appendDouble: )
     public func append( double: Double )
     {
         self.synchronized
@@ -138,6 +146,7 @@ import Cocoa
         }
     }
     
+    @objc( appendBool: )
     public func append( bool: Bool )
     {
         self.synchronized

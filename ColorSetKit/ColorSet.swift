@@ -122,17 +122,20 @@ import Cocoa
         }
     }
     
-    @objc public func add( color: NSColor, forName name: String )
+    @objc( addColor:forName: )
+    public func add( color: NSColor, forName name: String )
     {
         self.add( color: color, variant: nil, forName: name )
     }
     
-    @objc public func set( color: NSColor, forName name: String )
+    @objc( setColor:forName: )
+    public func set( color: NSColor, forName name: String )
     {
         self.set( color: color, variant: nil, forName: name )
     }
     
-    @objc public func add( color: NSColor, variant: NSColor?, forName name: String )
+    @objc( addColor:variant:forName: )
+    public func add( color: NSColor, variant: NSColor?, forName name: String )
     {
         self.synchronized
         {
@@ -143,7 +146,8 @@ import Cocoa
         }
     }
     
-    @objc public func set( color: NSColor, variant: NSColor?, forName name: String )
+    @objc( setColor:variant:forName: )
+    public func set( color: NSColor, variant: NSColor?, forName name: String )
     {
         self.synchronized
         {
@@ -181,7 +185,7 @@ import Cocoa
         }
     }
     
-    @objc public func write( to url: URL ) throws
+    @objc public func writeTo( url: URL ) throws
     {
         do
         {

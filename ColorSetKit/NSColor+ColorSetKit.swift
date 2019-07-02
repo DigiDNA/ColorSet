@@ -26,7 +26,7 @@ import Cocoa
 
 @objc public extension NSColor
 {
-    @objc class func colorFrom( colorSet name: String ) -> NSColor?
+    @objc class func from( colorSet name: String ) -> NSColor?
     {
         if name.hasPrefix( "NS" )
         {

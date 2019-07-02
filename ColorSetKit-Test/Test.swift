@@ -80,14 +80,14 @@ class Test: XCTestCase
     
     func testShared()
     {
-        XCTAssertEqual( ColorSet.shared.colors.count, 2 )
+        XCTAssertEqual( ColorSet.shared.count, 2 )
         
-        guard let p1 = ColorSet.shared.colors[ "NoVariant" ] else
+        guard let p1 = ColorSet.shared[ "NoVariant" ] else
         {
             XCTFail( "Cannot retrieve color from shared color set file" ); return
         }
         
-        guard let p2 = ColorSet.shared.colors[ "Variant" ] else
+        guard let p2 = ColorSet.shared[ "Variant" ] else
         {
             XCTFail( "Cannot retrieve color from shared color set file" ); return
         }
@@ -158,14 +158,14 @@ class Test: XCTestCase
         
         set = ColorSet( data: set.data ) ?? ColorSet()
         
-        XCTAssertEqual( set.colors.count, 2 )
+        XCTAssertEqual( set.count, 2 )
         
-        guard let p1 = set.colors[ "NoVariant" ] else
+        guard let p1 = set[ "NoVariant" ] else
         {
             XCTFail( "Cannot retrieve color from shared color set file" ); return
         }
         
-        guard let p2 = set.colors[ "Variant" ] else
+        guard let p2 = set[ "Variant" ] else
         {
             XCTFail( "Cannot retrieve color from shared color set file" ); return
         }

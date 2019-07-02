@@ -46,7 +46,7 @@ import Cocoa
             
         }
         
-        let pair = ColorSet.shared.colors[ name ]
+        let pair = ColorSet.shared[ name ]
         
         if #available( macOS 10.14, * )
         {

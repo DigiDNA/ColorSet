@@ -55,7 +55,15 @@ import Cocoa
         return set ?? ColorSet()
     }()
     
-    @objc public private( set ) dynamic var colors = [ String : ColorPair ]()
+    private var colors = [ String : ColorPair ]()
+    
+    @objc public var count: Int
+    {
+        return self.synchronized
+        {
+            return self.colors.count
+        }
+    }
     
     @objc public override init()
     {}
@@ -119,6 +127,19 @@ import Cocoa
             }
             
             self.add( color: color, variant: hasVariant ? variant : nil, forName: name )
+        }
+    }
+    
+    @objc public subscript( key: String ) -> ColorPair?
+    {
+        return self.colorWith( name: key )
+    }
+    
+    @objc public func colorWith( name: String ) -> ColorPair?
+    {
+        return self.synchronized
+        {
+            return self.colors[ name ]
         }
     }
     

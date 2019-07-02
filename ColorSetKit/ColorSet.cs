@@ -61,6 +61,13 @@ namespace ColorSetKit
             set;
         }
         = new Dictionary< string, ColorPair >();
+        
+        private List< ColorSet > Children
+        {
+            get;
+            set;
+        }
+        = new List< ColorSet >();
 
         private object Lock
         {
@@ -148,7 +155,29 @@ namespace ColorSetKit
                     return this.Colors[ name ];
                 }
 
+                foreach( ColorSet child in this.Children )
+                {
+                    if( child[ name ] is ColorPair color )
+                    {
+                        return color;
+                    }
+                }
+
                 return null;
+            }
+        }
+
+        public void Add( ColorSet child )
+        {
+            if( ReferenceEquals( this, child ) )
+            {
+                return;
+            }
+
+            lock( this.Lock )
+            {
+
+                this.Children.Add( child );
             }
         }
 

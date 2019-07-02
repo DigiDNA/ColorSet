@@ -128,6 +128,31 @@ namespace ColorSetKit_Test
         }
 
         [TestMethod]
+        public void TestChild()
+        {
+            ColorSet set   = new ColorSet();
+            ColorSet child = new ColorSet();
+            SolidColorBrush clear = new SolidColorBrush( System.Windows.Media.Color.FromArgb( 0,   0,   0, 0 ) );
+            SolidColorBrush red   = new SolidColorBrush( System.Windows.Media.Color.FromArgb( 255, 255, 0, 0 ) );
+
+            Assert.IsNull( set[ "foo" ] );
+
+            set.Add( child );
+
+            Assert.IsNull( set[ "foo" ] );
+
+            child.Add( red, "foo" );
+
+            Assert.IsNotNull( set[ "foo" ] );
+            Assert.IsTrue( ReferenceEquals( set[ "foo" ].Color, red ) );
+
+            set.Add( clear, "foo" );
+
+            Assert.IsNotNull( set[ "foo" ] );
+            Assert.IsTrue( ReferenceEquals( set[ "foo" ].Color, clear ) );
+        }
+
+        [TestMethod]
         public void TestCreate()
         {
             ColorSet                   set = new ColorSet();

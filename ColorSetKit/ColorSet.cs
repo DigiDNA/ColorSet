@@ -33,24 +33,24 @@ namespace ColorSetKit
 {
     public partial class ColorSet
     {
-        private static readonly ulong Magic = 0x434F4C4F52534554;
-        private static ColorSet _Shared     = null;
-        private static object   _SharedLock = new object();
+        private static readonly ulong  Magic          = 0x434F4C4F52534554;
+        private static ColorSet        SharedInstance = null;
+        private static readonly object SharedLock     = new object();
 
         public static ColorSet Shared
         {
             get
             {
-                lock( _SharedLock )
+                lock( SharedLock )
                 {
-                    if( _Shared == null )
+                    if( SharedInstance == null )
                     {
                         string path = Assembly.GetExecutingAssembly().Location;
-                        
-                        _Shared = new ColorSet( System.IO.Path.Combine( System.IO.Path.GetDirectoryName( path ), "Colors.colorset" )  );
+
+                        SharedInstance = new ColorSet( System.IO.Path.Combine( System.IO.Path.GetDirectoryName( path ), "Colors.colorset" )  );
                     }
 
-                    return _Shared;
+                    return SharedInstance;
                 }
             }
         }
@@ -192,12 +192,13 @@ namespace ColorSetKit
             {
                 Dictionary< string, ColorPair > colors = this.Colors;
                 ColorSetStream                  stream = new ColorSetStream();
-                System.Windows.Media.Color      clear  = new System.Windows.Media.Color();
-
-                clear.R = 0;
-                clear.G = 0;
-                clear.B = 0;
-                clear.A = 0;
+                System.Windows.Media.Color clear       = new System.Windows.Media.Color
+                {
+                    R = 0,
+                    G = 0,
+                    B = 0,
+                    A = 0
+                };
 
                 stream += Magic;                     /* COLORSET */
                 stream += ( uint )1;                 /* Major */

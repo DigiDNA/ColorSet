@@ -39,7 +39,7 @@ namespace ColorSetKit_Test
             string path  = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ), "Colors.colorset" );
             ColorSet set = new ColorSet( path );
 
-            Assert.IsTrue( set.Colors.Count > 0 );
+            Assert.IsTrue( set.Count > 0 );
         }
 
         [TestMethod]
@@ -49,19 +49,19 @@ namespace ColorSetKit_Test
             Data data    = new Data( path );
             ColorSet set = new ColorSet( data );
 
-            Assert.IsTrue( set.Colors.Count > 0 );
+            Assert.IsTrue( set.Count > 0 );
         }
 
         [TestMethod]
         public void TestShared()
         {
-            Assert.AreEqual( ColorSet.Shared.Colors.Count, 2 );
+            Assert.AreEqual( ColorSet.Shared.Count, 2 );
 
-            Assert.IsTrue( ColorSet.Shared.Colors.ContainsKey( "NoVariant" ) );
-            Assert.IsTrue( ColorSet.Shared.Colors.ContainsKey( "Variant" ) );
+            Assert.IsTrue( ColorSet.Shared[ "NoVariant" ] != null );
+            Assert.IsTrue( ColorSet.Shared[ "Variant" ] != null );
 
-            ColorPair p1 = ColorSet.Shared.Colors[ "NoVariant" ];
-            ColorPair p2 = ColorSet.Shared.Colors[ "Variant" ];
+            ColorPair p1 = ColorSet.Shared[ "NoVariant" ];
+            ColorPair p2 = ColorSet.Shared[ "Variant" ];
 
             {
                 if( p1.Color is SolidColorBrush c )
@@ -144,13 +144,13 @@ namespace ColorSetKit_Test
 
             set = new ColorSet( set.Data );
             
-            Assert.AreEqual( set.Colors.Count, 2 );
+            Assert.AreEqual( set.Count, 2 );
 
-            Assert.IsTrue( set.Colors.ContainsKey( "NoVariant" ) );
-            Assert.IsTrue( set.Colors.ContainsKey( "Variant" ) );
+            Assert.IsTrue( set[ "NoVariant" ] != null );
+            Assert.IsTrue( set[ "Variant" ] != null );
 
-            ColorPair p1 = set.Colors[ "NoVariant" ];
-            ColorPair p2 = set.Colors[ "Variant" ];
+            ColorPair p1 = set[ "NoVariant" ];
+            ColorPair p2 = set[ "Variant" ];
 
             {
                 if( p1.Color is SolidColorBrush c )

@@ -41,7 +41,7 @@ namespace ColorSetKit
 
         public override object ProvideValue( IServiceProvider provider )
         {
-            return ColorSet.Shared.ColorNamed( this.Name );
+            return ColorSet.Shared.ColorNamed( this.Name )?.Color;
         }
 
         [ConstructorArgument( "name" )]

@@ -55,29 +55,29 @@ namespace ColorSetKit
             }
         }
         
-        public Dictionary< string, ColorPair > Colors
-        {
-            get
-            {
-                lock( this._Lock )
-                {
-                    return new Dictionary< string, ColorPair >( this._Colors );
-                }
-            }
-        }
-        
-        private Dictionary< string, ColorPair > _Colors
+        private Dictionary< string, ColorPair > Colors
         {
             get;
             set;
         }
         = new Dictionary< string, ColorPair >();
 
-        private object _Lock
+        private object Lock
         {
             get;
         }
         = new object();
+
+        public int Count
+        {
+            get
+            {
+                lock( this.Lock )
+                {
+                    return this.Colors.Count;
+                }
+            }
+        }
 
         public ColorSet()
         {}
@@ -131,13 +131,21 @@ namespace ColorSetKit
             }
         }
 
-        public SolidColorBrush ColorNamed( string name )
+        public ColorPair this[ string key ]
         {
-            lock( this._Lock )
+            get
             {
-                if( this._Colors.ContainsKey( name ) )
+                return this.ColorNamed( key );
+            }
+        }
+
+        public ColorPair ColorNamed( string name )
+        {
+            lock( this.Lock )
+            {
+                if( this.Colors.ContainsKey( name ) )
                 {
-                    return this._Colors[ name ].Color;
+                    return this.Colors[ name ];
                 }
 
                 return null;
@@ -156,9 +164,9 @@ namespace ColorSetKit
 
         public void Add( SolidColorBrush color, SolidColorBrush variant, string name )
         {
-            lock( this._Lock )
+            lock( this.Lock )
             {
-                if( this._Colors.ContainsKey( name ) == false )
+                if( this.Colors.ContainsKey( name ) == false )
                 {
                     this.Set( color, variant, name );
                 }
@@ -172,9 +180,9 @@ namespace ColorSetKit
                 return;
             }
 
-            lock( this._Lock )
+            lock( this.Lock )
             {
-                this._Colors[ name ] = new ColorPair( color, variant );
+                this.Colors[ name ] = new ColorPair( color, variant );
             }
         }
 

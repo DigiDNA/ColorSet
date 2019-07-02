@@ -55,7 +55,8 @@ import Cocoa
         return set ?? ColorSet()
     }()
     
-    private var colors = [ String : ColorPair ]()
+    private var colors   = [ String : ColorPair ]()
+    private var children = [ ColorSet ]()
     
     @objc public var count: Int
     {
@@ -139,7 +140,34 @@ import Cocoa
     {
         return self.synchronized
         {
-            return self.colors[ name ]
+            if let color = self.colors[ name ]
+            {
+                return color
+            }
+            
+            for child in self.children
+            {
+                if let color = child[ name ]
+                {
+                    return color
+                }
+            }
+            
+            return nil
+        }
+    }
+    
+    @objc( addChild: )
+    public func add( child: ColorSet )
+    {
+        if child === self
+        {
+            return
+        }
+        
+        self.synchronized
+        {
+            self.children.append( child )
         }
     }
     

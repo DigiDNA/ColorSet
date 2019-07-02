@@ -149,6 +149,30 @@ class Test: XCTestCase
         }
     }
     
+    func testChild()
+    {
+        let set   = ColorSet()
+        let child = ColorSet()
+        let clear = NSColor.clear
+        let red   = NSColor.red
+        
+        XCTAssertNil( set[ "foo" ] )
+        
+        set.add( child: child )
+        
+        XCTAssertNil( set[ "foo" ] )
+        
+        child.add( color: red, forName: "foo" )
+        
+        XCTAssertNotNil( set[ "foo" ] )
+        XCTAssertTrue( set[ "foo" ]!.color === red )
+        
+        set.add( color: clear, forName: "foo" )
+        
+        XCTAssertNotNil( set[ "foo" ] )
+        XCTAssertTrue( set[ "foo" ]!.color === clear )
+    }
+    
     func testCreate()
     {
         var set = ColorSet()

@@ -51,6 +51,11 @@ namespace ColorSetKit
             this.Bytes = new List< byte >();
         }
 
+        public Data( byte[] data )
+        {
+            this.Bytes = data.ToList();
+        }
+
         public Data( string path )
         {
             try

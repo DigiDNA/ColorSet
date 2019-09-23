@@ -45,9 +45,35 @@ namespace ColorSetKit
                 {
                     if( SharedInstance == null )
                     {
-                        string path = Assembly.GetExecutingAssembly().Location;
+                        if( !( Assembly.GetEntryAssembly() is Assembly assembly ) )
+                        {
+                            throw new ApplicationException( "Cannot get entry assembly" );
+                        }
 
-                        SharedInstance = new ColorSet( System.IO.Path.Combine( System.IO.Path.GetDirectoryName( path ), "Colors.colorset" )  );
+                        if( !( assembly.GetName() is AssemblyName name ) )
+                        {
+                            throw new ApplicationException( "Cannot get entry assembly name" );
+                        }
+
+                        string path = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( assembly.Location ), "Colors.colorset" );
+
+                        if( System.IO.File.Exists( path ) )
+                        {
+                            SharedInstance = new ColorSet( path );
+                        }
+                        else
+                        {
+                            System.Resources.ResourceManager manager = new System.Resources.ResourceManager( name.Name + ".Properties.Resources", assembly );
+
+                            if( !( manager.GetObject( "Colors" ) is byte[] data ) || data.Length == 0 )
+                            {
+                                SharedInstance = new ColorSet();
+                            }
+                            else
+                            {
+                                SharedInstance = new ColorSet( new Data( data ) );
+                            }
+                        }
                     }
 
                     return SharedInstance;

@@ -34,18 +34,31 @@ namespace ColorSetKit
     [MarkupExtensionReturnType( typeof( SolidColorBrush ) )]
     public partial class Color: MarkupExtension
     {
-        public Color( string name )
+        public Color( string name ): this( name, false )
+        {}
+
+        public Color( string name, bool variant )
         {
-            this.Name = name;
+            this.Name    = name;
+            this.Variant = variant;
         }
 
         public override object ProvideValue( IServiceProvider provider )
         {
-            return ColorSet.Shared.ColorNamed( this.Name )?.Color;
+            ColorPair color = ColorSet.Shared.ColorNamed( this.Name );
+
+            return this.Variant && color?.Variant is SolidColorBrush variant ? variant : color?.Color;
         }
 
         [ConstructorArgument( "name" )]
         public string Name
+        {
+            get;
+            set;
+        }
+
+        [ConstructorArgument( "variant" )]
+        public bool Variant
         {
             get;
             set;

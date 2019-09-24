@@ -34,20 +34,35 @@ namespace ColorSetKit
     [MarkupExtensionReturnType( typeof( SolidColorBrush ) )]
     public partial class Color: MarkupExtension
     {
-        public Color( string name ): this( name, false )
+        public Color( string name ): this( name, false, null )
         {}
 
-        public Color( string name, bool variant )
+        public Color( string name, SolidColorBrush fallback ): this( name, false, fallback )
+        {}
+
+        public Color( string name, bool variant ): this( name, variant, null )
+        {}
+
+        public Color( string name, bool variant, SolidColorBrush fallback )
         {
-            this.Name    = name;
-            this.Variant = variant;
+            this.Name     = name;
+            this.Variant  = variant;
+            this.Fallback = fallback;
         }
 
         public override object ProvideValue( IServiceProvider provider )
         {
-            ColorPair color = ColorSet.Shared.ColorNamed( this.Name );
+            if( ColorSet.Shared.ColorNamed( this.Name ) is ColorPair pair )
+            {
+                if( this.Variant && pair.Variant != null )
+                {
+                    return pair.Variant;
+                }
 
-            return this.Variant && color?.Variant is SolidColorBrush variant ? variant : color?.Color;
+                return pair.Color ?? this.Fallback;
+            }
+
+            return this.Fallback;
         }
 
         [ConstructorArgument( "name" )]
@@ -59,6 +74,13 @@ namespace ColorSetKit
 
         [ConstructorArgument( "variant" )]
         public bool Variant
+        {
+            get;
+            set;
+        }
+
+        [ConstructorArgument( "fallback" )]
+        public SolidColorBrush Fallback
         {
             get;
             set;

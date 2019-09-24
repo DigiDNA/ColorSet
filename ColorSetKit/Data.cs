@@ -34,10 +34,7 @@ namespace ColorSetKit
     {
         public ulong Count
         {
-            get
-            {
-                return ( ulong )( this.Bytes.Count );
-            }
+            get => ( ulong )( this.Bytes.Count );
         }
 
         private List< byte > Bytes

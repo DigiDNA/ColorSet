@@ -45,7 +45,9 @@ namespace ColorSetKit
                 {
                     if( SharedInstance == null )
                     {
-                        if( !( Assembly.GetEntryAssembly() is Assembly assembly ) )
+                        Assembly assembly = Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly();
+
+                        if( assembly == null )
                         {
                             throw new ApplicationException( "Cannot get entry assembly" );
                         }
@@ -65,14 +67,7 @@ namespace ColorSetKit
                         {
                             System.Resources.ResourceManager manager = new System.Resources.ResourceManager( name.Name + ".Properties.Resources", assembly );
 
-                            if( !( manager.GetObject( "Colors" ) is byte[] data ) || data.Length == 0 )
-                            {
-                                SharedInstance = new ColorSet();
-                            }
-                            else
-                            {
-                                SharedInstance = new ColorSet( new Data( data ) );
-                            }
+                            SharedInstance = !( manager.GetObject( "Colors" ) is byte[] data ) || data.Length == 0 ? new ColorSet() : new ColorSet( new Data( data ) );
                         }
                     }
 
@@ -166,10 +161,7 @@ namespace ColorSetKit
 
         public ColorPair this[ string key ]
         {
-            get
-            {
-                return this.ColorNamed( key );
-            }
+            get => this.ColorNamed( key );
         }
 
         public ColorPair ColorNamed( string name )

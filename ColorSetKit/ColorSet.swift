@@ -55,8 +55,8 @@ import Cocoa
         return set ?? ColorSet()
     }()
     
-    private var colors   = [ String : ColorPair ]()
-    private var children = [ ColorSet ]()
+    public private( set ) var colors   = [ String : ColorPair ]()
+    private               var children = [ ColorSet ]()
     
     @objc public var count: Int
     {

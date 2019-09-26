@@ -196,7 +196,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         do
         {
-            try set.write( to: url )
+            try set.writeTo( url: url )
         }
         catch let error as NSError
         {

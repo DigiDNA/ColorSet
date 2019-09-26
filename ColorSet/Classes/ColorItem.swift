@@ -32,15 +32,21 @@ class ColorItem: NSObject
     @objc public dynamic var color:   NSColor = NSColor.black
     @objc public dynamic var variant: NSColor?
     
-    @objc public dynamic var red:   CGFloat = 0.0
-    @objc public dynamic var green: CGFloat = 0.0
-    @objc public dynamic var blue:  CGFloat = 0.0
-    @objc public dynamic var alpha: CGFloat = 1.0
+    @objc public dynamic var red:        CGFloat = 0.0
+    @objc public dynamic var green:      CGFloat = 0.0
+    @objc public dynamic var blue:       CGFloat = 0.0
+    @objc public dynamic var hue:        CGFloat = 0.0
+    @objc public dynamic var saturation: CGFloat = 0.0
+    @objc public dynamic var lightness:  CGFloat = 0.0
+    @objc public dynamic var alpha:      CGFloat = 1.0
     
-    @objc public dynamic var red2:   CGFloat = 0.0
-    @objc public dynamic var green2: CGFloat = 0.0
-    @objc public dynamic var blue2:  CGFloat = 0.0
-    @objc public dynamic var alpha2: CGFloat = 1.0
+    @objc public dynamic var red2:        CGFloat = 0.0
+    @objc public dynamic var green2:      CGFloat = 0.0
+    @objc public dynamic var blue2:       CGFloat = 0.0
+    @objc public dynamic var hue2:        CGFloat = 0.0
+    @objc public dynamic var saturation2: CGFloat = 0.0
+    @objc public dynamic var lightness2:  CGFloat = 0.0
+    @objc public dynamic var alpha2:      CGFloat = 1.0
     
     private var observations: [ NSKeyValueObservation ] = []
     private var updating                                = false
@@ -53,19 +59,25 @@ class ColorItem: NSObject
     
     private func observe()
     {
-        let o1 = self.observe( \.red   ) { ( o, c ) in self.updateColorFromRGB() }
-        let o2 = self.observe( \.green ) { ( o, c ) in self.updateColorFromRGB() }
-        let o3 = self.observe( \.blue  ) { ( o, c ) in self.updateColorFromRGB() }
-        let o4 = self.observe( \.alpha ) { ( o, c ) in self.updateColorFromRGB() }
-        let o5 = self.observe( \.color ) { ( o, c ) in self.updateColorFromColor() }
+        let o1 = self.observe( \.red         ) { ( o, c ) in self.updateColorFromRGB() }
+        let o2 = self.observe( \.green       ) { ( o, c ) in self.updateColorFromRGB() }
+        let o3 = self.observe( \.blue        ) { ( o, c ) in self.updateColorFromRGB() }
+        let o4 = self.observe( \.hue         ) { ( o, c ) in self.updateColorFromHSL() }
+        let o5 = self.observe( \.saturation  ) { ( o, c ) in self.updateColorFromHSL() }
+        let o6 = self.observe( \.lightness   ) { ( o, c ) in self.updateColorFromHSL() }
+        let o7 = self.observe( \.alpha       ) { ( o, c ) in self.updateColorFromRGB() }
+        let o8 = self.observe( \.color       ) { ( o, c ) in self.updateColorFromColor( updateHSL: true ) }
         
-        let o6  = self.observe( \.red2    ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o7  = self.observe( \.green2  ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o8  = self.observe( \.blue2   ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o9  = self.observe( \.alpha2  ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o10 = self.observe( \.variant ) { ( o, c ) in self.updateVariantFromColor() }
+        let o9  = self.observe( \.red2        ) { ( o, c ) in self.updateVariantFromRGB() }
+        let o10 = self.observe( \.green2      ) { ( o, c ) in self.updateVariantFromRGB() }
+        let o11 = self.observe( \.blue2       ) { ( o, c ) in self.updateVariantFromRGB() }
+        let o12 = self.observe( \.hue2        ) { ( o, c ) in self.updateVariantFromHSL() }
+        let o13 = self.observe( \.saturation2 ) { ( o, c ) in self.updateVariantFromHSL() }
+        let o14 = self.observe( \.lightness2  ) { ( o, c ) in self.updateVariantFromHSL() }
+        let o15 = self.observe( \.alpha2      ) { ( o, c ) in self.updateVariantFromRGB() }
+        let o16 = self.observe( \.variant     ) { ( o, c ) in self.updateVariantFromColor( updateHSL: true ) }
         
-        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10 ] )
+        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16 ] )
     }
     
     private func updateColorFromRGB()
@@ -78,9 +90,25 @@ class ColorItem: NSObject
         self.updating = true
         self.color    = NSColor( srgbRed: self.red, green: self.green, blue: self.blue, alpha: self.alpha )
         self.updating = false
+        
+        self.updateColorFromColor( updateHSL: true )
     }
     
-    private func updateColorFromColor()
+    private func updateColorFromHSL()
+    {
+        if( self.updating )
+        {
+            return
+        }
+        
+        self.updating = true
+        self.color    = NSColor( hue: self.hue, saturation: self.saturation, lightness: self.lightness, alpha: self.alpha )
+        self.updating = false
+        
+        self.updateColorFromColor( updateHSL: false )
+    }
+    
+    private func updateColorFromColor( updateHSL: Bool )
     {
         if( self.updating )
         {
@@ -94,14 +122,25 @@ class ColorItem: NSObject
                 var r: CGFloat = 0.0
                 var g: CGFloat = 0.0
                 var b: CGFloat = 0.0
+                var h: CGFloat = 0.0
+                var s: CGFloat = 0.0
+                var l: CGFloat = 0.0
                 var a: CGFloat = 0.0
                 
                 self.color.getRed( &r, green: &g, blue: &b, alpha: &a )
+                self.color.getHue( &h, saturation: &s, lightness: &l, alpha: nil )
                 
-                self.red   = r
-                self.green = g
-                self.blue  = b
-                self.alpha = a
+                self.red        = r
+                self.green      = g
+                self.blue       = b
+                self.alpha      = a
+                
+                if updateHSL
+                {
+                    self.hue        = h
+                    self.saturation = s
+                    self.lightness  = l
+                }
             },
             {
                 ( e ) in
@@ -109,14 +148,25 @@ class ColorItem: NSObject
                 var r: CGFloat = 0.0
                 var g: CGFloat = 0.0
                 var b: CGFloat = 0.0
+                var h: CGFloat = 0.0
+                var s: CGFloat = 0.0
+                var l: CGFloat = 0.0
                 var a: CGFloat = 0.0
                 
                 self.color.usingColorSpace( NSColorSpace.sRGB )?.getRed( &r, green: &g, blue: &b, alpha: &a )
+                self.color.usingColorSpace( NSColorSpace.sRGB )?.getHue( &h, saturation: &s, lightness: &l, alpha: nil )
                 
-                self.red   = r
-                self.green = g
-                self.blue  = b
-                self.alpha = a
+                self.red        = r
+                self.green      = g
+                self.blue       = b
+                self.alpha      = a
+                
+                if updateHSL
+                {
+                    self.hue        = h
+                    self.saturation = s
+                    self.lightness  = l
+                }
             }
         )
         
@@ -133,9 +183,25 @@ class ColorItem: NSObject
         self.updating = true
         self.variant  = NSColor( srgbRed: self.red2, green: self.green2, blue: self.blue2, alpha: self.alpha2 )
         self.updating = false
+        
+        self.updateVariantFromColor( updateHSL: true )
     }
     
-    private func updateVariantFromColor()
+    private func updateVariantFromHSL()
+    {
+        if( self.updating )
+        {
+            return
+        }
+        
+        self.updating = true
+        self.variant  = NSColor( hue: self.hue2, saturation: self.saturation2, lightness: self.lightness2, alpha: self.alpha2 )
+        self.updating = false
+        
+        self.updateVariantFromColor( updateHSL: false )
+    }
+    
+    private func updateVariantFromColor( updateHSL: Bool )
     {
         if( self.updating )
         {
@@ -149,14 +215,25 @@ class ColorItem: NSObject
                 var r: CGFloat = 0.0
                 var g: CGFloat = 0.0
                 var b: CGFloat = 0.0
+                var h: CGFloat = 0.0
+                var s: CGFloat = 0.0
+                var l: CGFloat = 0.0
                 var a: CGFloat = 0.0
                 
                 self.variant?.getRed( &r, green: &g, blue: &b, alpha: &a )
+                self.variant?.getHue( &h, saturation: &s, lightness: &l, alpha: nil )
                 
-                self.red2   = r
-                self.green2 = g
-                self.blue2  = b
-                self.alpha2 = a
+                self.red2        = r
+                self.green2      = g
+                self.blue2       = b
+                self.alpha2      = a
+                
+                if updateHSL
+                {
+                    self.hue2        = h
+                    self.saturation2 = s
+                    self.lightness2  = l
+                }
             },
             {
                 ( e ) in
@@ -164,14 +241,25 @@ class ColorItem: NSObject
                 var r: CGFloat = 0.0
                 var g: CGFloat = 0.0
                 var b: CGFloat = 0.0
+                var h: CGFloat = 0.0
+                var s: CGFloat = 0.0
+                var l: CGFloat = 0.0
                 var a: CGFloat = 0.0
                 
                 self.variant?.usingColorSpace( NSColorSpace.sRGB )?.getRed( &r, green: &g, blue: &b, alpha: &a )
+                self.variant?.usingColorSpace( NSColorSpace.sRGB )?.getHue( &h, saturation: &s, lightness: &l, alpha: nil )
                 
-                self.red2   = r
-                self.green2 = g
-                self.blue2  = b
-                self.alpha2 = a
+                self.red2        = r
+                self.green2      = g
+                self.blue2       = b
+                self.alpha2      = a
+                
+                if updateHSL
+                {
+                    self.hue2        = h
+                    self.saturation2 = s
+                    self.lightness2  = l
+                }
             }
         )
         

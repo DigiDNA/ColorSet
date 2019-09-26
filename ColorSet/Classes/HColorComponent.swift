@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc class ColorComponent: ValueTransformer
+@objc class HColorComponent: ValueTransformer
 {
     @objc public override static func allowsReverseTransformation() -> Bool
     {
@@ -43,7 +43,7 @@ import Cocoa
             return NSNumber( value: 0 )
         }
         
-        return NSNumber( value: 255 * n.doubleValue )
+        return NSNumber( value: 360 * n.doubleValue )
     }
     
     override func reverseTransformedValue( _ value: Any? ) -> Any?
@@ -53,6 +53,6 @@ import Cocoa
             return NSNumber( value: 0 )
         }
         
-        return NSNumber( value: n.doubleValue / 255 )
+        return NSNumber( value: n.doubleValue / 360 )
     }
 }

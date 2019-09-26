@@ -37,6 +37,14 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
     func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.updater?.checkForUpdatesInBackground()
+        
+        DispatchQueue.main.asyncAfter( deadline: .now() + .milliseconds( 500 ) )
+        {
+            if self.controllers.count == 0
+            {
+                self.newDocument( nil )
+            }
+        }
     }
 
     func applicationWillTerminate( _ notification: Notification )

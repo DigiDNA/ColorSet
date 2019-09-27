@@ -142,7 +142,7 @@
                                                     </subviews>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="G6e-gb-2N3">
-                                                    <rect key="frame" x="0.0" y="564" width="202" height="16"/>
+                                                    <rect key="frame" x="0.0" y="650" width="202" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="FaE-KJ-6rR">
@@ -265,6 +265,24 @@
                                                         </textFieldCell>
                                                         <connections>
                                                             <binding destination="-2" name="value" keyPath="selectedColor.primaryTitle" id="ovD-tm-Bww"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRN-KA-cl8">
+                                                        <rect key="frame" x="433" y="182" width="96" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="96" id="Hsv-2K-xVL"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="yxY-rN-KPw">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="self.selectedColor.color" id="KwM-By-51w">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">ColorSet.HexColor</string>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <customView identifier="Color" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-93-3sA" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
@@ -774,24 +792,6 @@
                                                             <constraint firstAttribute="trailing" secondItem="VnC-jX-CQa" secondAttribute="trailing" id="uWs-UJ-TtT"/>
                                                         </constraints>
                                                     </customView>
-                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRN-KA-cl8">
-                                                        <rect key="frame" x="433" y="182" width="96" height="22"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="96" id="Hsv-2K-xVL"/>
-                                                        </constraints>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="yxY-rN-KPw">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                        <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.selectedColor.color" id="KwM-By-51w">
-                                                                <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">ColorSet.HexColor</string>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </textField>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="x9k-gn-x5G" firstAttribute="leading" secondItem="htQ-RR-Cub" secondAttribute="leading" constant="12" id="3go-M2-JPb"/>
@@ -847,6 +847,21 @@
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
+                                                    </textField>
+                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-i1-V76">
+                                                        <rect key="frame" x="433" y="182" width="96" height="22"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="sEj-ce-aUK">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="self.selectedColor.variant" id="KTU-WA-a0P">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">ColorSet.HexColor</string>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
                                                     </textField>
                                                     <customView identifier="Variant" translatesAutoresizingMaskIntoConstraints="NO" id="dhB-Uw-TWF" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
                                                         <rect key="frame" x="537" y="173" width="40" height="40"/>
@@ -1353,21 +1368,6 @@
                                                             <constraint firstItem="bTe-up-sd0" firstAttribute="leading" secondItem="fB6-af-rXS" secondAttribute="trailing" constant="10" id="tNv-1w-NgT"/>
                                                         </constraints>
                                                     </customView>
-                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-i1-V76">
-                                                        <rect key="frame" x="433" y="182" width="96" height="22"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="sEj-ce-aUK">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                        <connections>
-                                                            <binding destination="-2" name="value" keyPath="self.selectedColor.variant" id="KTU-WA-a0P">
-                                                                <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">ColorSet.HexColor</string>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </textField>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="YY9-pw-lpx" secondAttribute="trailing" constant="20" id="1mJ-Jc-wDt"/>

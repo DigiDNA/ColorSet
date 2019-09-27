@@ -36,6 +36,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     private var tableView:          NSTableView?
     private var colorNameTextField: NSTextField?
     private var searchField:        NSSearchField?
+    private var timer:              Timer?
     
     @IBOutlet public var arrayController: NSArrayController?
     
@@ -44,6 +45,11 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         self.init()
         
         self.colors = colors
+    }
+    
+    deinit
+    {
+        self.timer?.invalidate()
     }
     
     override var windowNibName: NSNib.Name?
@@ -89,7 +95,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         self.colorNameTextField = colorNameTextField
         self.searchField        = searchField
         
-        controller.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true ) ]
+        controller.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ) ]
         controller.selectsInsertedObjects = true
         
         colorView.bind(   NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color",   options: nil )
@@ -133,6 +139,11 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         self.observations.append( contentsOf: [ o1, o2 ] )
+        
+        self.timer = Timer.scheduledTimer( withTimeInterval: 0.1, repeats: true )
+        {
+            [ weak self ] t in self?.arrayController?.didChangeArrangementCriteria()
+        }
     }
     
     @IBAction public func performFindPanelAction( _ sender: Any? )

@@ -45,6 +45,8 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
                 self.newDocument( nil )
             }
         }
+        
+        NotificationCenter.default.addObserver( self, selector: #selector( windowWillClose( _: ) ), name: NSWindow.willCloseNotification, object: nil )
     }
 
     func applicationWillTerminate( _ notification: Notification )
@@ -141,5 +143,20 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         self.controllers.append( controller )
         
         return true
+    }
+    
+    @objc private func windowWillClose( _ notification: Notification )
+    {
+        self.controllers.removeAll
+        {
+            c in
+            
+            guard let window = notification.object as? NSWindow else
+            {
+                return false
+            }
+            
+            return c.window == window
+        }
     }
 }

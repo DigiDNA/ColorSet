@@ -42,9 +42,9 @@
                                                 </constraints>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="File" id="hZs-2u-WU5"/>
                                             </imageView>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AJD-kz-hOs">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="AJD-kz-hOs">
                                                 <rect key="frame" x="45" y="546" width="37" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="kof-Vn-jSS">
+                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="kof-Vn-jSS">
                                                     <font key="font" metaFont="systemThin" size="13"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -53,6 +53,20 @@
                                                     <binding destination="-2" name="value" keyPath="window.title" id="TOw-UZ-5NK"/>
                                                 </connections>
                                             </textField>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="CyV-0T-tBt">
+                                                <rect key="frame" x="182" y="549" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="SEL-t5-0L6"/>
+                                                    <constraint firstAttribute="height" constant="10" id="Vbl-N4-CN6"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="1oA-Fv-Jdy">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="newColor:" target="-2" id="qT5-ah-Lsc"/>
+                                                </connections>
+                                            </button>
                                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsJ-Zp-VF3">
                                                 <rect key="frame" x="0.0" y="62" width="202" height="466"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Bjf-9S-0pg">
@@ -154,16 +168,18 @@
                                             </searchField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AJD-kz-hOs" secondAttribute="trailing" constant="20" id="D5L-DF-wLh"/>
+                                            <constraint firstItem="CyV-0T-tBt" firstAttribute="centerY" secondItem="AJD-kz-hOs" secondAttribute="centerY" id="88l-W1-q5a"/>
                                             <constraint firstItem="AJD-kz-hOs" firstAttribute="centerY" secondItem="uTA-aa-xke" secondAttribute="centerY" id="IfA-Jf-S79"/>
                                             <constraint firstItem="SsJ-Zp-VF3" firstAttribute="width" secondItem="YHx-KD-BVy" secondAttribute="width" id="Vkl-Le-dkc"/>
                                             <constraint firstItem="uTA-aa-xke" firstAttribute="top" secondItem="YHx-KD-BVy" secondAttribute="top" constant="30" id="aAd-GN-DnE"/>
                                             <constraint firstItem="EPf-cQ-68w" firstAttribute="top" secondItem="SsJ-Zp-VF3" secondAttribute="bottom" constant="20" id="aQt-es-Uo8"/>
+                                            <constraint firstItem="CyV-0T-tBt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AJD-kz-hOs" secondAttribute="trailing" constant="20" id="b3J-dw-klY"/>
                                             <constraint firstItem="SsJ-Zp-VF3" firstAttribute="top" secondItem="uTA-aa-xke" secondAttribute="bottom" constant="10" id="bGn-YE-tmO"/>
                                             <constraint firstItem="EPf-cQ-68w" firstAttribute="leading" secondItem="YHx-KD-BVy" secondAttribute="leading" constant="20" id="cUC-fV-i6M"/>
                                             <constraint firstAttribute="trailing" secondItem="EPf-cQ-68w" secondAttribute="trailing" constant="20" id="gj8-DE-lLP"/>
                                             <constraint firstItem="SsJ-Zp-VF3" firstAttribute="centerX" secondItem="YHx-KD-BVy" secondAttribute="centerX" id="i3E-nS-tYr"/>
                                             <constraint firstAttribute="bottom" secondItem="EPf-cQ-68w" secondAttribute="bottom" constant="20" id="poi-39-ueV"/>
+                                            <constraint firstAttribute="trailing" secondItem="CyV-0T-tBt" secondAttribute="trailing" constant="10" id="qqp-gh-KoP"/>
                                             <constraint firstItem="AJD-kz-hOs" firstAttribute="leading" secondItem="uTA-aa-xke" secondAttribute="trailing" constant="5" id="snb-H8-hOb"/>
                                             <constraint firstItem="uTA-aa-xke" firstAttribute="leading" secondItem="YHx-KD-BVy" secondAttribute="leading" constant="10" id="xmc-4g-Moz"/>
                                         </constraints>
@@ -1462,6 +1478,7 @@
     </objects>
     <resources>
         <image name="File" width="512" height="512"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSApplicationIcon" width="32" height="32"/>
     </resources>
 </document>

@@ -22,7 +22,7 @@
             <value key="minSize" type="size" width="1000" height="800"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1000" height="800"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-CO-nnG">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="800"/>
@@ -817,13 +817,6 @@
                                                             <constraint firstAttribute="trailing" secondItem="tIj-93-3sA" secondAttribute="trailing" id="yVW-4e-jAw"/>
                                                             <constraint firstItem="x9k-gn-x5G" firstAttribute="top" secondItem="ZWe-Nc-lUe" secondAttribute="bottom" constant="8" id="z8a-oA-sGQ"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <binding destination="-2" name="hidden" keyPath="selectedColor" id="4RS-BV-ySe">
-                                                                <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">NSIsNil</string>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
                                                     </customView>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-E9-cei">
                                                         <rect key="frame" x="-2" y="202" width="135" height="18"/>
@@ -833,11 +826,6 @@
                                                         </buttonCell>
                                                         <connections>
                                                             <binding destination="-2" name="value" keyPath="hasVariant" id="WMJ-WM-NO1"/>
-                                                            <binding destination="-2" name="hidden" keyPath="selectedColor" id="dzv-je-LIj">
-                                                                <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">NSIsNil</string>
-                                                                </dictionary>
-                                                            </binding>
                                                         </connections>
                                                     </button>
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="O9O-h1-xXA">
@@ -1394,17 +1382,8 @@
                                                             <constraint firstItem="dhB-Uw-TWF" firstAttribute="leading" secondItem="LNB-i1-V76" secondAttribute="trailing" constant="8" id="tU9-T4-fxp"/>
                                                         </constraints>
                                                         <connections>
-                                                            <binding destination="-2" name="hidden" keyPath="selectedColor" id="yqB-ho-k8d">
+                                                            <binding destination="-2" name="hidden" keyPath="selectedColor.variant" id="Yqi-Jn-tA4">
                                                                 <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">NSIsNil</string>
-                                                                </dictionary>
-                                                            </binding>
-                                                            <binding destination="-2" name="hidden2" keyPath="selectedColor.variant" previousBinding="yqB-ho-k8d" id="cQZ-Bu-E1x">
-                                                                <dictionary key="options">
-                                                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                                                    <integer key="NSNullPlaceholder" value="-1"/>
                                                                     <string key="NSValueTransformerName">NSIsNil</string>
                                                                 </dictionary>
                                                             </binding>
@@ -1426,6 +1405,13 @@
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
+                                                <connections>
+                                                    <binding destination="-2" name="hidden" keyPath="selectedColor" id="AW1-bt-phU">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSIsNil</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
                                             </stackView>
                                         </subviews>
                                         <constraints>

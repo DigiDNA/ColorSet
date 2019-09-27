@@ -97,7 +97,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             
         let o1 = controller.observe( \.selectionIndexes, options: .new )
         {
-            ( o, c ) in
+            [ weak self ] o, c in guard let self = self else { return }
             
             guard let color = controller.selectedObjects.first as? ColorItem else
             {
@@ -113,7 +113,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         let o2 = self.observe( \.hasVariant, options: .new )
         {
-            ( o, c ) in
+            [ weak self ] o, c in guard let self = self else { return }
             
             guard let color = controller.selectedObjects.first as? ColorItem else
             {

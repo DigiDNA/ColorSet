@@ -34,8 +34,8 @@ class ColorView: NSView
     {
         super.init( frame: frame )
         
-        let o1 = ( self as ColorView ).observe( \.color   ) { ( o, c ) in self.display() }
-        let o2 = ( self as ColorView ).observe( \.variant ) { ( o, c ) in self.display() }
+        let o1 = ( self as ColorView ).observe( \.color   ) { [ weak self ] o, c in self?.display() }
+        let o2 = ( self as ColorView ).observe( \.variant ) { [ weak self ] o, c in self?.display() }
         
         self.observations.append( contentsOf: [ o1, o2 ] )
     }
@@ -44,8 +44,8 @@ class ColorView: NSView
     {
         super.init( coder: coder )
         
-        let o1 = ( self as ColorView ).observe( \.color   ) { ( o, c ) in self.display() }
-        let o2 = ( self as ColorView ).observe( \.variant ) { ( o, c ) in self.display() }
+        let o1 = ( self as ColorView ).observe( \.color   ) { [ weak self ] o, c in self?.display() }
+        let o2 = ( self as ColorView ).observe( \.variant ) { [ weak self ] o, c in self?.display() }
         
         self.observations.append( contentsOf: [ o1, o2 ] )
     }

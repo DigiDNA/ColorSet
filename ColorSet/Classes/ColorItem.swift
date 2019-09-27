@@ -26,8 +26,8 @@ import Cocoa
 
 class ColorItem: NSObject
 {
-    @objc public dynamic var name       = "Untitled"
-    @objc public dynamic var hasVariant = false
+    @objc public dynamic var name         = "Untitled"
+    @objc public dynamic var hasVariant   = false
     
     @objc public dynamic var color:   NSColor = NSColor.black
     @objc public dynamic var variant: NSColor?
@@ -48,6 +48,8 @@ class ColorItem: NSObject
     @objc public dynamic var lightness2:  CGFloat = 0.0
     @objc public dynamic var alpha2:      CGFloat = 1.0
     
+    @objc public private( set ) dynamic var primaryTitle = "Color"
+    
     private var observations: [ NSKeyValueObservation ] = []
     private var updating                                = false
     
@@ -59,25 +61,30 @@ class ColorItem: NSObject
     
     private func observe()
     {
-        let o1 = self.observe( \.red         ) { ( o, c ) in self.updateColorFromRGB() }
-        let o2 = self.observe( \.green       ) { ( o, c ) in self.updateColorFromRGB() }
-        let o3 = self.observe( \.blue        ) { ( o, c ) in self.updateColorFromRGB() }
-        let o4 = self.observe( \.hue         ) { ( o, c ) in self.updateColorFromHSL() }
-        let o5 = self.observe( \.saturation  ) { ( o, c ) in self.updateColorFromHSL() }
-        let o6 = self.observe( \.lightness   ) { ( o, c ) in self.updateColorFromHSL() }
-        let o7 = self.observe( \.alpha       ) { ( o, c ) in self.updateColorFromRGB() }
-        let o8 = self.observe( \.color       ) { ( o, c ) in self.updateColorFromColor( updateHSL: true ) }
+        let o1 = self.observe( \.red         ) { [ weak self ] ( o, c ) in self?.updateColorFromRGB() }
+        let o2 = self.observe( \.green       ) { [ weak self ] ( o, c ) in self?.updateColorFromRGB() }
+        let o3 = self.observe( \.blue        ) { [ weak self ] ( o, c ) in self?.updateColorFromRGB() }
+        let o4 = self.observe( \.hue         ) { [ weak self ] ( o, c ) in self?.updateColorFromHSL() }
+        let o5 = self.observe( \.saturation  ) { [ weak self ] ( o, c ) in self?.updateColorFromHSL() }
+        let o6 = self.observe( \.lightness   ) { [ weak self ] ( o, c ) in self?.updateColorFromHSL() }
+        let o7 = self.observe( \.alpha       ) { [ weak self ] ( o, c ) in self?.updateColorFromRGB() }
+        let o8 = self.observe( \.color       ) { [ weak self ] ( o, c ) in self?.updateColorFromColor( updateHSL: true ) }
         
-        let o9  = self.observe( \.red2        ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o10 = self.observe( \.green2      ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o11 = self.observe( \.blue2       ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o12 = self.observe( \.hue2        ) { ( o, c ) in self.updateVariantFromHSL() }
-        let o13 = self.observe( \.saturation2 ) { ( o, c ) in self.updateVariantFromHSL() }
-        let o14 = self.observe( \.lightness2  ) { ( o, c ) in self.updateVariantFromHSL() }
-        let o15 = self.observe( \.alpha2      ) { ( o, c ) in self.updateVariantFromRGB() }
-        let o16 = self.observe( \.variant     ) { ( o, c ) in self.updateVariantFromColor( updateHSL: true ) }
+        let o9  = self.observe( \.red2        ) { [ weak self ] ( o, c ) in self?.updateVariantFromRGB() }
+        let o10 = self.observe( \.green2      ) { [ weak self ] ( o, c ) in self?.updateVariantFromRGB() }
+        let o11 = self.observe( \.blue2       ) { [ weak self ] ( o, c ) in self?.updateVariantFromRGB() }
+        let o12 = self.observe( \.hue2        ) { [ weak self ] ( o, c ) in self?.updateVariantFromHSL() }
+        let o13 = self.observe( \.saturation2 ) { [ weak self ] ( o, c ) in self?.updateVariantFromHSL() }
+        let o14 = self.observe( \.lightness2  ) { [ weak self ] ( o, c ) in self?.updateVariantFromHSL() }
+        let o15 = self.observe( \.alpha2      ) { [ weak self ] ( o, c ) in self?.updateVariantFromRGB() }
+        let o16 = self.observe( \.variant     ) { [ weak self ] ( o, c ) in self?.updateVariantFromColor( updateHSL: true ) }
         
-        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16 ] )
+        let o17 = self.observe( \.hasVariant )
+        {
+            [ weak self ] o, c in self?.primaryTitle = ( self?.hasVariant ?? false ) ? "Light Mode Color" : "Color"
+        }
+        
+        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17 ] )
     }
     
     private func updateColorFromRGB()

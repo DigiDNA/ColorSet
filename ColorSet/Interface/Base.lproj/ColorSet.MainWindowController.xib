@@ -217,12 +217,15 @@
                                                 <rect key="frame" x="0.0" y="313" width="597" height="224"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-Nc-lUe">
-                                                        <rect key="frame" x="18" y="181" width="94" height="23"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Light Color" id="Yjr-Op-5Py">
+                                                        <rect key="frame" x="18" y="181" width="49" height="23"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Yjr-Op-5Py">
                                                             <font key="font" metaFont="systemThin" size="20"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="-2" name="value" keyPath="selectedColor.primaryTitle" id="ovD-tm-Bww"/>
+                                                        </connections>
                                                     </textField>
                                                     <customView identifier="Color" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-93-3sA" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
                                                         <rect key="frame" x="537" y="173" width="40" height="40"/>
@@ -780,8 +783,8 @@
                                                 </connections>
                                             </customView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-E9-cei">
-                                                <rect key="frame" x="18" y="289" width="141" height="18"/>
-                                                <buttonCell key="cell" type="check" title="Enable Dark Variant" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OfE-qm-sKb">
+                                                <rect key="frame" x="18" y="289" width="135" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Dark Mode Variant" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OfE-qm-sKb">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -798,8 +801,8 @@
                                                 <rect key="frame" x="0.0" y="59" width="597" height="224"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4cq-Cm-I0h">
-                                                        <rect key="frame" x="18" y="181" width="92" height="23"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dark Color" id="nXb-rH-Xq2">
+                                                        <rect key="frame" x="18" y="181" width="145" height="23"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dark Mode Color" id="nXb-rH-Xq2">
                                                             <font key="font" metaFont="systemThin" size="20"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

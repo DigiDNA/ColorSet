@@ -29,7 +29,6 @@
 		057DC45822B14CC300BA6727 /* Colors.colorset in Resources */ = {isa = PBXBuildFile; fileRef = 057DC45722B14CC300BA6727 /* Colors.colorset */; };
 		059F8C79233CDB3300C9B83F /* HColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059F8C77233CDB3300C9B83F /* HColorComponent.swift */; };
 		059F8C7A233CDB3300C9B83F /* SLColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059F8C78233CDB3300C9B83F /* SLColorComponent.swift */; };
-		059F8C7C233CDD5600C9B83F /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059F8C7B233CDD5500C9B83F /* NSColor.swift */; };
 		05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
 		05CD4AC220ED7CD100DBDE99 /* ColorSetKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05D11EC120E1359C00A621B5 /* RGBColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */; };
@@ -160,7 +159,6 @@
 		057DC45722B14CC300BA6727 /* Colors.colorset */ = {isa = PBXFileReference; lastKnownFileType = file; path = Colors.colorset; sourceTree = "<group>"; };
 		059F8C77233CDB3300C9B83F /* HColorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HColorComponent.swift; sourceTree = "<group>"; };
 		059F8C78233CDB3300C9B83F /* SLColorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLColorComponent.swift; sourceTree = "<group>"; };
-		059F8C7B233CDD5500C9B83F /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		05CD4AB220ED7B2200DBDE99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CD4AC620ED7CE000DBDE99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 				0564590120E4DDFD001EA86F /* HexColor.swift */,
 				0543AE7C20DC345200284E99 /* MainWindowController.swift */,
 				0530C42220E1213500F5B259 /* NSView.swift */,
-				059F8C7B233CDD5500C9B83F /* NSColor.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -619,7 +616,6 @@
 				0530C42320E1213500F5B259 /* NSView.swift in Sources */,
 				05D11ECC20E13E0900A621B5 /* AboutWindowController.swift in Sources */,
 				0564590220E4DDFD001EA86F /* HexColor.swift in Sources */,
-				059F8C7C233CDD5600C9B83F /* NSColor.swift in Sources */,
 				0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */,
 				0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */,
 				0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */,

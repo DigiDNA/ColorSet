@@ -30,11 +30,6 @@ import Cocoa
     {
         @objc public dynamic var name:      String?
         @objc public dynamic var lightness: CGFloat = 0
-        @objc public private( set ) dynamic var color1:     NSColor?
-        @objc public private( set ) dynamic var name1:      String?
-        @objc public private( set ) dynamic var name2:      String?
-        @objc public private( set ) dynamic var lightness1: CGFloat = 0
-        @objc public private( set ) dynamic var lightness2: CGFloat = 0
     }
     
     @objc public private( set ) dynamic var lightness1 = LightnessVariant()

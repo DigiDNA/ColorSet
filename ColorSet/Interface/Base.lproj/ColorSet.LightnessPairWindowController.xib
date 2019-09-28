@@ -44,8 +44,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="textColor" keyPath="label1Color" id="c2J-5A-nf1"/>
-                                    <binding destination="-2" name="value" keyPath="self.lightness1" id="jWw-eA-vmq">
+                                    <binding destination="-2" name="textColor" keyPath="item.lightness1.labelColor" id="tPW-u3-EPS"/>
+                                    <binding destination="-2" name="value" keyPath="item.lightness1.lightness" id="Zgx-Us-Vi4">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">ColorSet.LightnessString</string>
                                         </dictionary>
@@ -67,7 +67,7 @@
                         </constraints>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="below" numberOfTickMarks="100" sliderType="linear" id="fTM-QW-yqt"/>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="lightness1" id="h40-lc-KDE"/>
+                            <binding destination="-2" name="value" keyPath="item.lightness1.lightness" id="NZ4-XK-rta"/>
                         </connections>
                     </slider>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-mG-DlU">
@@ -78,7 +78,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="name1" id="acK-wa-dTf">
+                            <binding destination="-2" name="value" keyPath="item.lightness1.name" id="DhW-hf-CeB">
                                 <dictionary key="options">
                                     <string key="NSNullPlaceholder">Custom Name</string>
                                 </dictionary>
@@ -96,8 +96,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="textColor" keyPath="label2Color" id="kFh-0N-0GF"/>
-                                    <binding destination="-2" name="value" keyPath="lightness2" id="wsc-TJ-rWv">
+                                    <binding destination="-2" name="textColor" keyPath="item.lightness2.labelColor" id="eca-l9-SK3"/>
+                                    <binding destination="-2" name="value" keyPath="item.lightness2.lightness" id="fUA-Uu-Io4">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">ColorSet.LightnessString</string>
                                         </dictionary>
@@ -114,7 +114,7 @@
                         <rect key="frame" x="74" y="83" width="404" height="24"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="below" numberOfTickMarks="100" sliderType="linear" id="tOw-p3-QP4"/>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="lightness2" id="oK7-SD-NWm"/>
+                            <binding destination="-2" name="value" keyPath="item.lightness2.lightness" id="aXu-g6-eFn"/>
                         </connections>
                     </slider>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="b2J-xK-NxU">
@@ -154,7 +154,7 @@ Gw
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="name2" id="imD-EG-nvs">
+                            <binding destination="-2" name="value" keyPath="item.lightness2.name" id="6qx-pv-tk4">
                                 <dictionary key="options">
                                     <string key="NSNullPlaceholder">Custom Name</string>
                                 </dictionary>

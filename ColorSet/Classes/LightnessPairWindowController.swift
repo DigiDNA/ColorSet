@@ -26,24 +26,14 @@ import Cocoa
 
 class LightnessPairWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var baseColor:  NSColor?
-    @objc public private( set ) dynamic var color1:     NSColor?
-    @objc public private( set ) dynamic var color2:     NSColor?
-    @objc public private( set ) dynamic var name1:      String?
-    @objc public private( set ) dynamic var name2:      String?
-    @objc public private( set ) dynamic var lightness1: CGFloat = 0
-    @objc public private( set ) dynamic var lightness2: CGFloat = 0
+    @objc public private( set ) dynamic var item = LightnessPairItem()
     
-    @objc private dynamic var label1Color: NSColor?
-    @objc private dynamic var label2Color: NSColor?
-    
-    private var observations: [ NSKeyValueObservation ] = []
-    
-    convenience init( color: NSColor? )
+    convenience init( base: NSColor? )
     {
         self.init()
         
-        self.baseColor = color?.usingColorSpace( .sRGB )
+        self.item.lightness1.base = base
+        self.item.lightness2.base = base
     }
     
     override var windowNibName: NSNib.Name?
@@ -55,31 +45,14 @@ class LightnessPairWindowController: NSWindowController
     {
         super.windowDidLoad()
         
-        let o1 = self.observe( \.lightness1 )
-        {
-            [ weak self ] o, c in self?.update()
-        }
-        
-        let o2 = self.observe( \.lightness2 )
-        {
-            [ weak self ] o, c in self?.update()
-        }
-        
-        self.observations.append( contentsOf: [ o1, o2 ] )
-        
-        self.lightness1 = 0.8
-        self.lightness2 = 0.2
-        self.color1     = self.baseColor?.byChangingLightness( self.lightness1 )
-        self.color2     = self.baseColor?.byChangingLightness( self.lightness2 )
-        
         if let colorView1 = self.window?.contentView?.subviewWithIdentifier( "Color1" ) as? ColorView
         {
-            colorView1.bind( NSBindingName( "color" ), to: self, withKeyPath: "color1",   options: nil )
+            colorView1.bind( NSBindingName( "color" ), to: self, withKeyPath: "self.item.lightness1.color",   options: nil )
         }
         
         if let colorView2 = self.window?.contentView?.subviewWithIdentifier( "Color2" ) as? ColorView
         {
-            colorView2.bind( NSBindingName( "color" ), to: self, withKeyPath: "color2", options: nil )
+            colorView2.bind( NSBindingName( "color" ), to: self, withKeyPath: "self.item.lightness2.color", options: nil )
         }
     }
     
@@ -106,14 +79,5 @@ class LightnessPairWindowController: NSWindowController
         }
         
         parent.endSheet( window, returnCode: .cancel )
-    }
-    
-    private func update()
-    {
-        self.label1Color = ( self.lightness1 < 0.5 ) ? NSColor.white : NSColor.black
-        self.label2Color = ( self.lightness2 < 0.5 ) ? NSColor.white : NSColor.black
-        
-        self.color1 = self.baseColor?.byChangingLightness( self.lightness1 )
-        self.color2 = self.baseColor?.byChangingLightness( self.lightness2 )
     }
 }

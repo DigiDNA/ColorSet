@@ -357,7 +357,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        let sheetController = LightnessPairWindowController( color: base )
+        let sheetController = LightnessPairWindowController( base: base )
         
         guard let sheet = sheetController.window else
         {
@@ -379,13 +379,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 return
             }
             
-            let item                  = LightnessPairItem()
-            item.lightness1.lightness = sheetController.lightness1
-            item.lightness2.lightness = sheetController.lightness1
-            item.lightness1.name      = sheetController.name1
-            item.lightness2.name      = sheetController.name2
-            
-            self.lightnessPairsArrayController?.addObject( item )
+            self.lightnessPairsArrayController?.addObject( sheetController.item )
         }
     }
 }

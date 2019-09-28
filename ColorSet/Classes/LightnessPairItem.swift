@@ -28,8 +28,41 @@ import Cocoa
 {
     @objc class LightnessVariant: NSObject
     {
-        @objc public dynamic var name:      String?
-        @objc public dynamic var lightness: CGFloat = 0
+        @objc public dynamic      var lightness: CGFloat = 0
+        @objc public dynamic weak var base:      NSColor?
+        @objc public dynamic      var name:      String?
+        
+        @objc public private( set ) dynamic var labelColor: NSColor?
+        @objc public private( set ) dynamic var color:      NSColor?
+        
+        private var observations = [ NSKeyValueObservation ]()
+        
+        override init()
+        {
+            super.init()
+            
+            let o1 = self.observe( \.lightness ) { [ weak self ] o, c in self?.update() }
+            let o2 = self.observe( \.base      ) { [ weak self ] o, c in self?.update() }
+            
+            self.observations.append( contentsOf: [ o1, o2 ] )
+        }
+        
+        convenience init( base: NSColor )
+        {
+            self.init()
+            
+            self.base = base
+        }
+        
+        private func update()
+        {
+            self.labelColor = ( self.lightness < 0.5 ) ? NSColor.white : NSColor.black
+            
+            if let base = self.base
+            {
+                self.color = base.usingColorSpace( .sRGB )?.byChangingLightness( self.lightness )
+            }
+        }
     }
     
     @objc public private( set ) dynamic var lightness1 = LightnessVariant()

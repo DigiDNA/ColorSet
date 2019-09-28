@@ -31,14 +31,16 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     @objc private dynamic var               hasVariant:    Bool          = false
     @objc public private( set ) dynamic var colors:        [ ColorItem ] = []
     
-    public  var url:                URL?
-    private var observations:       [ NSKeyValueObservation ] = []
-    private var tableView:          NSTableView?
-    private var colorNameTextField: NSTextField?
-    private var searchField:        NSSearchField?
-    private var timer:              Timer?
+    public  var url:                           URL?
+    private var observations:                  [ NSKeyValueObservation ] = []
+    private var tableView:                     NSTableView?
+    private var colorNameTextField:            NSTextField?
+    private var searchField:                   NSSearchField?
+    private var timer:                         Timer?
+    private var lightnessPairWindowController: LightnessPairWindowController?
     
-    @IBOutlet public var arrayController: NSArrayController?
+    @IBOutlet public var colorsArrayController:         NSArrayController?
+    @IBOutlet public var lightnessPairsArrayController: NSArrayController?
     
     convenience init( colors: [ ColorItem ] )
     {
@@ -71,7 +73,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        guard let controller = self.arrayController else
+        guard let controller = self.colorsArrayController else
         {
             return
         }
@@ -100,7 +102,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         colorView.bind(   NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color",   options: nil )
         variantView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.variant", options: nil )
-            
+        
         let o1 = controller.observe( \.selectionIndexes, options: .new )
         {
             [ weak self ] o, c in guard let self = self else { return }
@@ -142,7 +144,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         self.timer = Timer.scheduledTimer( withTimeInterval: 0.1, repeats: true )
         {
-            [ weak self ] t in self?.arrayController?.didChangeArrangementCriteria()
+            [ weak self ] t in self?.colorsArrayController?.didChangeArrangementCriteria()
         }
     }
     
@@ -239,7 +241,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         color.name = ( i > 0 ) ? "Untitled-" + String( describing: i ) : "Untitled"
         
-        self.arrayController?.addObject( color )
+        self.colorsArrayController?.addObject( color )
         self.window?.makeFirstResponder( self.colorNameTextField )
     }
     
@@ -252,7 +254,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         if( tableView.clickedRow >= 0 )
         {
-            self.arrayController?.remove( atArrangedObjectIndex: tableView.clickedRow )
+            self.colorsArrayController?.remove( atArrangedObjectIndex: tableView.clickedRow )
         }
     }
     
@@ -330,5 +332,60 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         return true
+    }
+    
+    @IBAction func addLightnessPair( _ sender: Any? )
+    {
+        guard let base = self.selectedColor?.color else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        if self.lightnessPairWindowController != nil
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        guard let window = self.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let sheetController = LightnessPairWindowController( color: base )
+        
+        guard let sheet = sheetController.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        self.lightnessPairWindowController = sheetController
+        
+        window.beginSheet( sheet )
+        {
+            [ weak self ] r in guard let self = self else { return }
+            
+            self.lightnessPairWindowController = nil
+            
+            if r != .OK
+            {
+                return
+            }
+            
+            let item                  = LightnessPairItem()
+            item.lightness1.lightness = sheetController.lightness1
+            item.lightness2.lightness = sheetController.lightness1
+            item.lightness1.name      = sheetController.name1
+            item.lightness2.name      = sheetController.name2
+            
+            self.lightnessPairsArrayController?.addObject( item )
+        }
     }
 }

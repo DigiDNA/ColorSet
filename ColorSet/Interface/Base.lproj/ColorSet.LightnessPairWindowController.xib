@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="LightnessPairWindowController" customModule="ColorSet" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="S0R-Nv-zJA"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Lightness Pair" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="677" height="474"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="677" height="246"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BoO-Q1-H3R">
+                        <rect key="frame" x="252" y="191" width="174" height="35"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Lightness Pair" id="RcI-0l-ehQ">
+                            <font key="font" metaFont="systemThin" size="30"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-FH-XBH">
+                        <rect key="frame" x="12" y="180" width="653" height="5"/>
+                    </box>
+                    <customView identifier="Color1" translatesAutoresizingMaskIntoConstraints="NO" id="FKJ-qR-Ax7" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
+                        <rect key="frame" x="20" y="126" width="48" height="48"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="It4-jg-JUP">
+                                <rect key="frame" x="6" y="16" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="4Mx-cO-VwA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="textColor" keyPath="label1Color" id="c2J-5A-nf1"/>
+                                    <binding destination="-2" name="value" keyPath="self.lightness1" id="jWw-eA-vmq">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">ColorSet.LightnessString</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="5WK-C4-yi4"/>
+                            <constraint firstItem="It4-jg-JUP" firstAttribute="centerY" secondItem="FKJ-qR-Ax7" secondAttribute="centerY" id="MFN-K2-HWB"/>
+                            <constraint firstItem="It4-jg-JUP" firstAttribute="centerX" secondItem="FKJ-qR-Ax7" secondAttribute="centerX" id="bIw-c2-HRU"/>
+                            <constraint firstAttribute="height" constant="48" id="jkh-7i-gLd"/>
+                        </constraints>
+                    </customView>
+                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTo-ut-rLM">
+                        <rect key="frame" x="74" y="139" width="404" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="400" id="Yen-x5-byj"/>
+                        </constraints>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="below" numberOfTickMarks="100" sliderType="linear" id="fTM-QW-yqt"/>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="lightness1" id="h40-lc-KDE"/>
+                        </connections>
+                    </slider>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wbk-mG-DlU">
+                        <rect key="frame" x="484" y="140" width="173" height="21"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Custom Name" drawsBackground="YES" id="hqm-JX-c1d">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="name1" id="acK-wa-dTf">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Custom Name</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
+                    <customView identifier="Color2" translatesAutoresizingMaskIntoConstraints="NO" id="5Oc-7I-acW" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
+                        <rect key="frame" x="20" y="70" width="48" height="48"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mda-8p-ggQ">
+                                <rect key="frame" x="6" y="16" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="fJW-tl-KCX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="textColor" keyPath="label2Color" id="kFh-0N-0GF"/>
+                                    <binding destination="-2" name="value" keyPath="lightness2" id="wsc-TJ-rWv">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">ColorSet.LightnessString</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Mda-8p-ggQ" firstAttribute="centerX" secondItem="5Oc-7I-acW" secondAttribute="centerX" id="gZ9-q0-NtZ"/>
+                            <constraint firstItem="Mda-8p-ggQ" firstAttribute="centerY" secondItem="5Oc-7I-acW" secondAttribute="centerY" id="x6v-vB-NKl"/>
+                        </constraints>
+                    </customView>
+                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-fX-YBa">
+                        <rect key="frame" x="74" y="83" width="404" height="24"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="below" numberOfTickMarks="100" sliderType="linear" id="tOw-p3-QP4"/>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="lightness2" id="oK7-SD-NWm"/>
+                        </connections>
+                    </slider>
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="b2J-xK-NxU">
+                        <rect key="frame" x="12" y="59" width="653" height="5"/>
+                    </box>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-9G-AmR">
+                        <rect key="frame" x="604" y="13" width="59" height="32"/>
+                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VRX-qz-dPz">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="ok:" target="-2" id="MXp-qc-zx1"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qok-VM-uZ9">
+                        <rect key="frame" x="522" y="13" width="82" height="32"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q6u-4F-x9r">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancel:" target="-2" id="rp8-dz-q8t"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TmC-yv-xJB">
+                        <rect key="frame" x="484" y="84" width="173" height="21"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Custom Name" drawsBackground="YES" id="yNR-GY-ZdY">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="name2" id="imD-EG-nvs">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Custom Name</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wbk-mG-DlU" firstAttribute="leading" secondItem="bTo-ut-rLM" secondAttribute="trailing" constant="8" id="0Fl-v0-kQC"/>
+                    <constraint firstItem="5Oc-7I-acW" firstAttribute="height" secondItem="FKJ-qR-Ax7" secondAttribute="height" id="3bl-OB-5B4"/>
+                    <constraint firstItem="FKJ-qR-Ax7" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="3km-BB-PZM"/>
+                    <constraint firstItem="bTo-ut-rLM" firstAttribute="leading" secondItem="FKJ-qR-Ax7" secondAttribute="trailing" constant="8" id="3nh-7W-GEY"/>
+                    <constraint firstAttribute="trailing" secondItem="Kio-FH-XBH" secondAttribute="trailing" constant="12" id="67F-dO-pGq"/>
+                    <constraint firstItem="5Oc-7I-acW" firstAttribute="width" secondItem="FKJ-qR-Ax7" secondAttribute="width" id="DWO-lw-CkC"/>
+                    <constraint firstItem="vRy-9G-AmR" firstAttribute="top" secondItem="b2J-xK-NxU" secondAttribute="bottom" constant="20" id="JBE-ma-IbH"/>
+                    <constraint firstItem="qok-VM-uZ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="LVh-qo-SMp"/>
+                    <constraint firstItem="TmC-yv-xJB" firstAttribute="centerY" secondItem="YUI-fX-YBa" secondAttribute="centerY" id="N8J-1G-K1n"/>
+                    <constraint firstItem="wbk-mG-DlU" firstAttribute="centerY" secondItem="bTo-ut-rLM" secondAttribute="centerY" id="O4i-sM-bcn"/>
+                    <constraint firstItem="Kio-FH-XBH" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" id="OZu-vU-ahZ"/>
+                    <constraint firstItem="TmC-yv-xJB" firstAttribute="leading" secondItem="YUI-fX-YBa" secondAttribute="trailing" constant="8" id="PeP-Pz-Zyn"/>
+                    <constraint firstAttribute="trailing" secondItem="b2J-xK-NxU" secondAttribute="trailing" constant="12" id="Pxb-sb-vAF"/>
+                    <constraint firstAttribute="trailing" secondItem="wbk-mG-DlU" secondAttribute="trailing" constant="20" id="RMh-51-xL2"/>
+                    <constraint firstItem="bTo-ut-rLM" firstAttribute="centerY" secondItem="FKJ-qR-Ax7" secondAttribute="centerY" id="W0O-nO-cG8"/>
+                    <constraint firstItem="5Oc-7I-acW" firstAttribute="top" secondItem="FKJ-qR-Ax7" secondAttribute="bottom" constant="8" id="YQl-fa-Eyb"/>
+                    <constraint firstItem="YUI-fX-YBa" firstAttribute="centerY" secondItem="5Oc-7I-acW" secondAttribute="centerY" id="Yg2-Os-62m"/>
+                    <constraint firstItem="Kio-FH-XBH" firstAttribute="top" secondItem="BoO-Q1-H3R" secondAttribute="bottom" constant="8" id="aB7-g6-yAX"/>
+                    <constraint firstItem="YUI-fX-YBa" firstAttribute="leading" secondItem="5Oc-7I-acW" secondAttribute="trailing" constant="8" id="b0x-ci-dQf"/>
+                    <constraint firstItem="FKJ-qR-Ax7" firstAttribute="top" secondItem="Kio-FH-XBH" secondAttribute="bottom" constant="8" id="du7-Gk-x0J"/>
+                    <constraint firstItem="b2J-xK-NxU" firstAttribute="top" secondItem="5Oc-7I-acW" secondAttribute="bottom" constant="8" id="edt-xf-NvB"/>
+                    <constraint firstAttribute="trailing" secondItem="vRy-9G-AmR" secondAttribute="trailing" constant="20" id="hDd-oL-Zpx"/>
+                    <constraint firstItem="BoO-Q1-H3R" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="jU8-VX-mTf"/>
+                    <constraint firstItem="qok-VM-uZ9" firstAttribute="centerY" secondItem="vRy-9G-AmR" secondAttribute="centerY" id="n8t-YN-j1s"/>
+                    <constraint firstItem="b2J-xK-NxU" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" id="ozG-RO-bPo"/>
+                    <constraint firstAttribute="bottom" secondItem="vRy-9G-AmR" secondAttribute="bottom" constant="20" id="p8q-kX-etE"/>
+                    <constraint firstItem="vRy-9G-AmR" firstAttribute="leading" secondItem="qok-VM-uZ9" secondAttribute="trailing" constant="12" id="qDG-Td-yib"/>
+                    <constraint firstItem="5Oc-7I-acW" firstAttribute="leading" secondItem="FKJ-qR-Ax7" secondAttribute="leading" id="uER-kl-1sG"/>
+                    <constraint firstAttribute="trailing" secondItem="TmC-yv-xJB" secondAttribute="trailing" constant="20" id="uYM-bm-b1i"/>
+                    <constraint firstItem="BoO-Q1-H3R" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="uuu-oQ-q4l"/>
+                    <constraint firstItem="YUI-fX-YBa" firstAttribute="width" secondItem="bTo-ut-rLM" secondAttribute="width" id="xL7-bb-ic6"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="initialFirstResponder" destination="BoO-Q1-H3R" id="Ayj-a4-HA4"/>
+            </connections>
+            <point key="canvasLocation" x="237.5" y="249"/>
+        </window>
+    </objects>
+</document>

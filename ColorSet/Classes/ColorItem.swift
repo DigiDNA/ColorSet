@@ -26,8 +26,9 @@ import Cocoa
 
 class ColorItem: NSObject
 {
-    @objc public dynamic var name         = "Untitled"
-    @objc public dynamic var hasVariant   = false
+    @objc public dynamic var name           = "Untitled"
+    @objc public dynamic var hasVariant     = false
+    @objc public dynamic var lightnessPairs = [ LightnessPairItem ]()
     
     @objc public dynamic var color:   NSColor = NSColor.black
     @objc public dynamic var variant: NSColor?

@@ -217,7 +217,11 @@
                                                             <string key="NSValueTransformerName">NSIsNil</string>
                                                         </dictionary>
                                                     </binding>
-                                                    <binding destination="-2" name="value" keyPath="selectedColor.name" id="gDU-0Q-TwO"/>
+                                                    <binding destination="-2" name="value" keyPath="selectedColor.name" id="G4h-yn-X3X">
+                                                        <dictionary key="options">
+                                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                        </dictionary>
+                                                    </binding>
                                                 </connections>
                                             </textField>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4I-Zg-0zJ">

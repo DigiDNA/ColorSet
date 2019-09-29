@@ -126,9 +126,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 return
             }
             
-            print( color )
-            print( color.variant ?? "<nil>" )
-            
             if( self.hasVariant == false )
             {
                 color.variant = nil

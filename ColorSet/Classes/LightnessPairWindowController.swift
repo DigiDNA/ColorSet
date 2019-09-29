@@ -28,7 +28,7 @@ class LightnessPairWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var item = LightnessPairItem()
     
-    convenience init( base: NSColor? )
+    convenience init( base: ColorItem )
     {
         self.init()
         

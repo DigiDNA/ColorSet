@@ -334,7 +334,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     @IBAction func addLightnessPair( _ sender: Any? )
     {
-        guard let base = self.selectedColor?.color else
+        guard let selectedColor = self.selectedColor else
         {
             NSSound.beep()
             
@@ -355,7 +355,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        let sheetController = LightnessPairWindowController( base: base )
+        let sheetController = LightnessPairWindowController( base: selectedColor )
         
         guard let sheet = sheetController.window else
         {

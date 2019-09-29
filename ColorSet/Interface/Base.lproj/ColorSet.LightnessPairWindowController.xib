@@ -78,8 +78,9 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="item.lightness1.name" id="DhW-hf-CeB">
+                            <binding destination="-2" name="value" keyPath="item.lightness1.name" id="wUH-FU-4HC">
                                 <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                     <string key="NSNullPlaceholder">Custom Name</string>
                                 </dictionary>
                             </binding>
@@ -155,8 +156,9 @@ Gw
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="item.lightness2.name" id="6qx-pv-tk4">
+                            <binding destination="-2" name="value" keyPath="item.lightness2.name" id="1ld-7U-RCK">
                                 <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                     <string key="NSNullPlaceholder">Custom Name</string>
                                 </dictionary>
                             </binding>

@@ -24,25 +24,8 @@
 
 import Cocoa
 
-@objc public class ColorPair: NSObject
+@objc public class LightnessPair: NSObject
 {
-    @objc public dynamic var color:       NSColor?
-    @objc public dynamic var variant:     NSColor?
-    @objc public dynamic var lightnesses: [ LightnessPair ] = []
-    
-    @objc public convenience override init()
-    {
-        self.init( color: nil, variant: nil )
-    }
-    
-    @objc public convenience init( color: NSColor? )
-    {
-        self.init( color: color, variant: nil )
-    }
-    
-    @objc public init( color: NSColor?, variant: NSColor? )
-    {
-        self.color   = color
-        self.variant = variant
-    }
+    @objc public dynamic var lightness1 = LightnessVariant()
+    @objc public dynamic var lightness2 = LightnessVariant()
 }

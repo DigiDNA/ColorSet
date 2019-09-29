@@ -35,6 +35,8 @@
 		05A6D899233F8E6C0079AF3B /* LightnessPairItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D898233F8E6C0079AF3B /* LightnessPairItem.swift */; };
 		05A6D8C22340EA740079AF3B /* LightnessPairCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D8C12340EA740079AF3B /* LightnessPairCollectionViewItem.swift */; };
 		05A6D8C52340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A6D8C32340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib */; };
+		05A6D8C7234107A40079AF3B /* LightnessVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D8C6234107A40079AF3B /* LightnessVariant.swift */; };
+		05A6D8C9234107B30079AF3B /* LightnessPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D8C8234107B30079AF3B /* LightnessPair.swift */; };
 		05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
 		05CD4AC220ED7CD100DBDE99 /* ColorSetKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05D11EC120E1359C00A621B5 /* RGBColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */; };
@@ -171,6 +173,8 @@
 		05A6D898233F8E6C0079AF3B /* LightnessPairItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessPairItem.swift; sourceTree = "<group>"; };
 		05A6D8C12340EA740079AF3B /* LightnessPairCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessPairCollectionViewItem.swift; sourceTree = "<group>"; };
 		05A6D8C42340EA880079AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.LightnessPairCollectionViewItem.xib; sourceTree = "<group>"; };
+		05A6D8C6234107A40079AF3B /* LightnessVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessVariant.swift; sourceTree = "<group>"; };
+		05A6D8C8234107B30079AF3B /* LightnessPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessPair.swift; sourceTree = "<group>"; };
 		05CD4AB220ED7B2200DBDE99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CD4AC620ED7CE000DBDE99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 				05CD4AC620ED7CE000DBDE99 /* Info.plist */,
 				0544CBF12273197D004A2499 /* NSColor+ColorSetKit.swift */,
 				0544CBF322731990004A2499 /* ColorPair.swift */,
+				05A6D8C6234107A40079AF3B /* LightnessVariant.swift */,
+				05A6D8C8234107B30079AF3B /* LightnessPair.swift */,
 				0544CC0C2273466C004A2499 /* ColorSetStream.swift */,
 				0544CBF52273199C004A2499 /* ColorSet.swift */,
 			);
@@ -667,6 +673,8 @@
 				0544CBF62273199C004A2499 /* ColorSet.swift in Sources */,
 				0544CBF422731990004A2499 /* ColorPair.swift in Sources */,
 				0544CC0D2273466C004A2499 /* ColorSetStream.swift in Sources */,
+				05A6D8C9234107B30079AF3B /* LightnessPair.swift in Sources */,
+				05A6D8C7234107A40079AF3B /* LightnessVariant.swift in Sources */,
 				0544CBF22273197D004A2499 /* NSColor+ColorSetKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

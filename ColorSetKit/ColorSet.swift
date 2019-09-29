@@ -100,13 +100,15 @@ import Cocoa
             return nil
         }
         
-        if stream.readUInt32() == 0
+        let major = stream.readUInt32()
+        
+        if major == 0
         {
             return nil
         }
         
-        let _ = stream.readUInt32()
-        let n = stream.readUInt64()
+        let minor = stream.readUInt32()
+        let n     = stream.readUInt64()
         
         for _ in 0 ..< n
         {
@@ -127,7 +129,26 @@ import Cocoa
                 return nil
             }
             
-            self.add( color: color, variant: hasVariant ? variant : nil, forName: name )
+            var lightnesses = [ LightnessPair ]()
+            
+            if major > 1 || minor > 1
+            {
+                let n = stream.readUInt64()
+                
+                for _ in 0 ..< n
+                {
+                    let p = LightnessPair()
+                    
+                    p.lightness1.lightness = CGFloat( stream.readDouble() )
+                    p.lightness1.name      = stream.readString() ?? ""
+                    p.lightness2.lightness = CGFloat( stream.readDouble() )
+                    p.lightness2.name      = stream.readString() ?? ""
+                    
+                    lightnesses.append( p )
+                }
+            }
+            
+            self.add( color: color, variant: hasVariant ? variant : nil, lightnesses: lightnesses, forName: name )
         }
     }
     
@@ -186,6 +207,18 @@ import Cocoa
     @objc( addColor:variant:forName: )
     public func add( color: NSColor, variant: NSColor?, forName name: String )
     {
+        self.add( color: color, variant: variant, lightnesses: [], forName: name )
+    }
+    
+    @objc( setColor:variant:forName: )
+    public func set( color: NSColor, variant: NSColor?, forName name: String )
+    {
+        self.set( color: color, variant: variant, lightnesses: [], forName: name )
+    }
+    
+    @objc( addColor:variant:lightnesses:forName: )
+    public func add( color: NSColor, variant: NSColor?, lightnesses: [ LightnessPair ], forName name: String )
+    {
         self.synchronized
         {
             if self.colors.keys.contains( name ) == false
@@ -195,12 +228,14 @@ import Cocoa
         }
     }
     
-    @objc( setColor:variant:forName: )
-    public func set( color: NSColor, variant: NSColor?, forName name: String )
+    @objc( setColor:variant:lightnesses:forName: )
+    public func set( color: NSColor, variant: NSColor?, lightnesses: [ LightnessPair ], forName name: String )
     {
         self.synchronized
         {
-            self.colors[ name ] = ColorPair( color: color, variant: variant )
+            let p               = ColorPair( color: color, variant: variant )
+            p.lightnesses       = lightnesses
+            self.colors[ name ] = p
         }
     }
     
@@ -219,7 +254,7 @@ import Cocoa
             
             stream += ColorSet.magic         /* COLORSET */
             stream += UInt32( 1 )            /* Major */
-            stream += UInt32( 0 )            /* Minor */
+            stream += UInt32( 2 )            /* Minor */
             stream += UInt64( colors.count ) /* Count */
             
             for p in colors
@@ -228,6 +263,15 @@ import Cocoa
                 stream += p.value.variant != nil
                 stream += p.value.color   ?? NSColor.clear
                 stream += p.value.variant ?? NSColor.clear
+                stream += UInt64( p.value.lightnesses.count )
+                
+                for lp in p.value.lightnesses
+                {
+                    stream += Double( lp.lightness1.lightness )
+                    stream += lp.lightness1.name
+                    stream += Double( lp.lightness2.lightness )
+                    stream += lp.lightness2.name
+                }
             }
             
             return stream.data

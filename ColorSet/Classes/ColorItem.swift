@@ -27,7 +27,6 @@ import Cocoa
 class ColorItem: NSObject
 {
     @objc public dynamic var name           = "Untitled"
-    @objc public dynamic var hasVariant     = false
     @objc public dynamic var lightnessPairs = [ LightnessPairItem ]()
     
     @objc public dynamic var color:   NSColor = NSColor.black
@@ -78,14 +77,17 @@ class ColorItem: NSObject
         let o13 = self.observe( \.saturation2 ) { [ weak self ] ( o, c ) in self?.updateVariantFromHSL() }
         let o14 = self.observe( \.lightness2  ) { [ weak self ] ( o, c ) in self?.updateVariantFromHSL() }
         let o15 = self.observe( \.alpha2      ) { [ weak self ] ( o, c ) in self?.updateVariantFromRGB() }
-        let o16 = self.observe( \.variant     ) { [ weak self ] ( o, c ) in self?.updateVariantFromColor( updateHSL: true ) }
         
-        let o17 = self.observe( \.hasVariant )
+        let o16 = self.observe( \.variant )
         {
-            [ weak self ] o, c in self?.primaryTitle = ( self?.hasVariant ?? false ) ? "Light Mode Color" : "Color"
+            [ weak self ] ( o, c ) in guard let self = self else { return }
+            
+            self.updateVariantFromColor( updateHSL: true )
+            
+            self.primaryTitle = ( self.variant != nil ) ? "Light Mode Color" : "Color"
         }
         
-        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17 ] )
+        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16 ] )
     }
     
     private func updateColorFromRGB()

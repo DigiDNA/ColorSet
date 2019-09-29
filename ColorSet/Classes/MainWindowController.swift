@@ -134,8 +134,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             {
                 color.variant = color.color
             }
-            
-            color.hasVariant = self.hasVariant
         }
         
         self.observations.append( contentsOf: [ o1, o2 ] )

@@ -33,6 +33,8 @@
 		05A6D895233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */; };
 		05A6D897233F8A300079AF3B /* LightnessString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D896233F8A300079AF3B /* LightnessString.swift */; };
 		05A6D899233F8E6C0079AF3B /* LightnessPairItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D898233F8E6C0079AF3B /* LightnessPairItem.swift */; };
+		05A6D8C22340EA740079AF3B /* LightnessPairCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D8C12340EA740079AF3B /* LightnessPairCollectionViewItem.swift */; };
+		05A6D8C52340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A6D8C32340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib */; };
 		05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
 		05CD4AC220ED7CD100DBDE99 /* ColorSetKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05D11EC120E1359C00A621B5 /* RGBColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */; };
@@ -167,6 +169,8 @@
 		05A6D894233F805C0079AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.LightnessPairWindowController.xib; sourceTree = "<group>"; };
 		05A6D896233F8A300079AF3B /* LightnessString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessString.swift; sourceTree = "<group>"; };
 		05A6D898233F8E6C0079AF3B /* LightnessPairItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessPairItem.swift; sourceTree = "<group>"; };
+		05A6D8C12340EA740079AF3B /* LightnessPairCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessPairCollectionViewItem.swift; sourceTree = "<group>"; };
+		05A6D8C42340EA880079AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.LightnessPairCollectionViewItem.xib; sourceTree = "<group>"; };
 		05CD4AB220ED7B2200DBDE99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CD4AC620ED7CE000DBDE99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -388,20 +392,21 @@
 				0543AE7420DC33DF00284E99 /* ApplicationDelegate.swift */,
 				0530C41E20E10FEA00F5B259 /* ArrayIsEmpty.swift */,
 				0530C42020E1112C00F5B259 /* ArrayIsNotEmpty.swift */,
-				05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */,
-				059F8C77233CDB3300C9B83F /* HColorComponent.swift */,
-				059F8C78233CDB3300C9B83F /* SLColorComponent.swift */,
-				05A6D896233F8A300079AF3B /* LightnessString.swift */,
 				0543AE8120DC382A00284E99 /* ColorItem.swift */,
-				05A6D898233F8E6C0079AF3B /* LightnessPairItem.swift */,
 				0530C42420E1305B00F5B259 /* ColorSet-Bridging-Header.h */,
 				0543AE9D20E0FFD000284E99 /* ColorView.swift */,
 				0530C42520E1305B00F5B259 /* Exception.h */,
 				0530C42620E1305B00F5B259 /* Exception.m */,
+				059F8C77233CDB3300C9B83F /* HColorComponent.swift */,
 				0564590120E4DDFD001EA86F /* HexColor.swift */,
-				0543AE7C20DC345200284E99 /* MainWindowController.swift */,
+				05A6D8C12340EA740079AF3B /* LightnessPairCollectionViewItem.swift */,
+				05A6D898233F8E6C0079AF3B /* LightnessPairItem.swift */,
 				05A6D890233F80430079AF3B /* LightnessPairWindowController.swift */,
+				05A6D896233F8A300079AF3B /* LightnessString.swift */,
+				0543AE7C20DC345200284E99 /* MainWindowController.swift */,
 				0530C42220E1213500F5B259 /* NSView.swift */,
+				05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */,
+				059F8C78233CDB3300C9B83F /* SLColorComponent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -409,12 +414,13 @@
 		0543AE7520DC33DF00284E99 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				05D11EC620E13B9400A621B5 /* Icon.icns */,
-				05D11ECD20E165FB00A621B5 /* File.icns */,
-				0543AE7720DC33DF00284E99 /* MainMenu.xib */,
-				0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */,
-				05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */,
 				05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */,
+				05A6D8C32340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib */,
+				05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */,
+				0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */,
+				05D11ECD20E165FB00A621B5 /* File.icns */,
+				05D11EC620E13B9400A621B5 /* Icon.icns */,
+				0543AE7720DC33DF00284E99 /* MainMenu.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A6D8C52340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib in Resources */,
 				05D11EC720E13B9400A621B5 /* Icon.icns in Resources */,
 				0543AE8020DC35CC00284E99 /* ColorSet.MainWindowController.xib in Resources */,
 				05D11ECE20E165FB00A621B5 /* File.icns in Resources */,
@@ -633,6 +640,7 @@
 				0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */,
 				0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */,
 				05A6D897233F8A300079AF3B /* LightnessString.swift in Sources */,
+				05A6D8C22340EA740079AF3B /* LightnessPairCollectionViewItem.swift in Sources */,
 				0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */,
 				059F8C79233CDB3300C9B83F /* HColorComponent.swift in Sources */,
 				0530C42120E1112C00F5B259 /* ArrayIsNotEmpty.swift in Sources */,
@@ -706,6 +714,14 @@
 				05A6D894233F805C0079AF3B /* Base */,
 			);
 			name = ColorSet.LightnessPairWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05A6D8C32340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05A6D8C42340EA880079AF3B /* Base */,
+			);
+			name = ColorSet.LightnessPairCollectionViewItem.xib;
 			sourceTree = "<group>";
 		};
 		05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */ = {

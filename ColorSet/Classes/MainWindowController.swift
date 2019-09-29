@@ -39,8 +39,9 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     private var timer:                         Timer?
     private var lightnessPairWindowController: LightnessPairWindowController?
     
-    @IBOutlet public var colorsArrayController:         NSArrayController?
-    @IBOutlet public var lightnessPairsArrayController: NSArrayController?
+    @IBOutlet public var colorsArrayController:         NSArrayController!
+    @IBOutlet public var lightnessPairsArrayController: NSArrayController!
+    @IBOutlet public var collectionView:                NSCollectionView!
     
     convenience init( colors: [ ColorItem ] )
     {
@@ -73,11 +74,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        guard let controller = self.colorsArrayController else
-        {
-            return
-        }
-        
         guard let tableView = self.window?.contentView?.subviewWithIdentifier( "TableView" ) as? NSTableView else
         {
             return
@@ -97,17 +93,19 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         self.colorNameTextField = colorNameTextField
         self.searchField        = searchField
         
-        controller.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ) ]
-        controller.selectsInsertedObjects = true
+        self.colorsArrayController.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ) ]
+        self.colorsArrayController.selectsInsertedObjects = true
         
         colorView.bind(   NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color",   options: nil )
         variantView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.variant", options: nil )
         
-        let o1 = controller.observe( \.selectionIndexes, options: .new )
+        self.collectionView.register( LightnessPairCollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier( rawValue: "LightnessPairCollectionViewItem" ) )
+        
+        let o1 = self.colorsArrayController.observe( \.selectionIndexes, options: .new )
         {
             [ weak self ] o, c in guard let self = self else { return }
             
-            guard let color = controller.selectedObjects.first as? ColorItem else
+            guard let color = self.colorsArrayController.selectedObjects.first as? ColorItem else
             {
                 self.selectedColor = nil
                 self.hasVariant    = false
@@ -123,7 +121,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         {
             [ weak self ] o, c in guard let self = self else { return }
             
-            guard let color = controller.selectedObjects.first as? ColorItem else
+            guard let color = self.colorsArrayController.selectedObjects.first as? ColorItem else
             {
                 return
             }
@@ -379,7 +377,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 return
             }
             
-            self.lightnessPairsArrayController?.addObject( sheetController.item )
+            self.lightnessPairsArrayController.addObject( sheetController.item )
         }
     }
 }

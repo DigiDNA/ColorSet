@@ -83,6 +83,7 @@
                                     <string key="NSNullPlaceholder">Custom Name</string>
                                 </dictionary>
                             </binding>
+                            <outlet property="nextKeyView" destination="TmC-yv-xJB" id="lRX-dJ-Qcr"/>
                         </connections>
                     </textField>
                     <customView identifier="Color2" translatesAutoresizingMaskIntoConstraints="NO" id="5Oc-7I-acW" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
@@ -159,6 +160,7 @@ Gw
                                     <string key="NSNullPlaceholder">Custom Name</string>
                                 </dictionary>
                             </binding>
+                            <outlet property="nextKeyView" destination="wbk-mG-DlU" id="Yrr-Uu-i59"/>
                         </connections>
                     </textField>
                 </subviews>
@@ -197,7 +199,7 @@ Gw
                 </constraints>
             </view>
             <connections>
-                <outlet property="initialFirstResponder" destination="BoO-Q1-H3R" id="Ayj-a4-HA4"/>
+                <outlet property="initialFirstResponder" destination="wbk-mG-DlU" id="I1r-a9-Vm5"/>
             </connections>
             <point key="canvasLocation" x="237.5" y="249"/>
         </window>

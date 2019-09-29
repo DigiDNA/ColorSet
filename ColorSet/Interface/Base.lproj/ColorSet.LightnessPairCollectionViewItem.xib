@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="LightnessPairCollectionViewItem" customModule="ColorSet" customModuleProvider="target">
+            <connections>
+                <outlet property="color1" destination="tQ1-DE-98J" id="H8i-Up-Pao"/>
+                <outlet property="color2" destination="2Zs-NC-huo" id="1G3-Yn-sfy"/>
+                <outlet property="view" destination="c22-O7-iKe" id="WYa-RP-1JY"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-DE-98J" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="25" width="120" height="25"/>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="M5b-Qc-VMo">
+                    <rect key="frame" x="27" y="31" width="66" height="14"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-Q5-7kS">
+                            <rect key="frame" x="-2" y="0.0" width="33" height="14"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Label" id="Lm6-Bo-0rM">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="textColor" keyPath="representedObject.lightness1.labelColor" id="N6T-7s-qwQ"/>
+                                <binding destination="-2" name="value" keyPath="representedObject.lightness1.lightness" id="nWd-6O-Oz9">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">ColorSet.LightnessString</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tju-yd-Fqs">
+                            <rect key="frame" x="35" y="0.0" width="33" height="14"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Label" id="Anz-Hj-QlV">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="textColor" keyPath="representedObject.lightness1.labelColor" id="S0X-lI-u1n"/>
+                                <binding destination="-2" name="value" keyPath="representedObject.lightness1.name" id="RoV-9l-2gr"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Tju-yd-Fqs" firstAttribute="leading" secondItem="Xbw-Q5-7kS" secondAttribute="trailing" constant="8" id="4n4-6i-0bm"/>
+                        <constraint firstItem="Xbw-Q5-7kS" firstAttribute="top" secondItem="M5b-Qc-VMo" secondAttribute="top" id="WNR-j9-WlR"/>
+                        <constraint firstAttribute="trailing" secondItem="Tju-yd-Fqs" secondAttribute="trailing" id="Wvf-XX-Gzs"/>
+                        <constraint firstAttribute="bottom" secondItem="Xbw-Q5-7kS" secondAttribute="bottom" id="cFJ-z5-XFf"/>
+                        <constraint firstItem="Xbw-Q5-7kS" firstAttribute="leading" secondItem="M5b-Qc-VMo" secondAttribute="leading" id="efn-L5-llR"/>
+                        <constraint firstItem="Tju-yd-Fqs" firstAttribute="centerY" secondItem="Xbw-Q5-7kS" secondAttribute="centerY" id="vvd-kg-vZc"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="2Zs-NC-huo" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="25"/>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="nc5-o0-Gmi">
+                    <rect key="frame" x="27" y="6" width="66" height="14"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="17j-NK-ddg">
+                            <rect key="frame" x="-2" y="0.0" width="33" height="14"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Label" id="dG3-vw-dzn">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="textColor" keyPath="representedObject.lightness2.labelColor" id="4qz-G3-LZH"/>
+                                <binding destination="-2" name="value" keyPath="representedObject.lightness2.lightness" id="COo-GK-Nwi">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">ColorSet.LightnessString</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0ag-iZ-tRP">
+                            <rect key="frame" x="35" y="0.0" width="33" height="14"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Label" id="5GA-5m-WQH">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="textColor" keyPath="representedObject.lightness2.labelColor" id="9Jh-V1-r9J"/>
+                                <binding destination="-2" name="value" keyPath="representedObject.lightness2.name" id="9fU-9b-PHu"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="17j-NK-ddg" firstAttribute="leading" secondItem="nc5-o0-Gmi" secondAttribute="leading" id="DM7-Bj-avh"/>
+                        <constraint firstItem="17j-NK-ddg" firstAttribute="top" secondItem="nc5-o0-Gmi" secondAttribute="top" id="Khu-NC-uyK"/>
+                        <constraint firstItem="0ag-iZ-tRP" firstAttribute="leading" secondItem="17j-NK-ddg" secondAttribute="trailing" constant="8" id="M51-Xe-z0e"/>
+                        <constraint firstItem="0ag-iZ-tRP" firstAttribute="centerY" secondItem="17j-NK-ddg" secondAttribute="centerY" id="be3-bO-3qk"/>
+                        <constraint firstAttribute="trailing" secondItem="0ag-iZ-tRP" secondAttribute="trailing" id="keZ-3I-8N9"/>
+                        <constraint firstAttribute="bottom" secondItem="17j-NK-ddg" secondAttribute="bottom" id="oBw-LJ-Xu6"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="M5b-Qc-VMo" firstAttribute="centerX" secondItem="tQ1-DE-98J" secondAttribute="centerX" id="2ca-yP-QWH"/>
+                <constraint firstItem="2Zs-NC-huo" firstAttribute="height" secondItem="c22-O7-iKe" secondAttribute="height" multiplier="0.5" id="4ZN-J0-JiK"/>
+                <constraint firstAttribute="trailing" secondItem="2Zs-NC-huo" secondAttribute="trailing" id="Fp2-7B-plH"/>
+                <constraint firstItem="tQ1-DE-98J" firstAttribute="height" secondItem="c22-O7-iKe" secondAttribute="height" multiplier="0.5" id="HYY-E7-ICV"/>
+                <constraint firstItem="tQ1-DE-98J" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="IvP-nV-Ibo"/>
+                <constraint firstAttribute="bottom" secondItem="2Zs-NC-huo" secondAttribute="bottom" id="OWP-Qb-K7L"/>
+                <constraint firstItem="2Zs-NC-huo" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="a4G-vb-yLK"/>
+                <constraint firstItem="nc5-o0-Gmi" firstAttribute="centerX" secondItem="2Zs-NC-huo" secondAttribute="centerX" id="c6Y-ip-hDH"/>
+                <constraint firstItem="M5b-Qc-VMo" firstAttribute="centerY" secondItem="tQ1-DE-98J" secondAttribute="centerY" id="jd2-Ih-u8x"/>
+                <constraint firstItem="tQ1-DE-98J" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ufM-Dk-ByK"/>
+                <constraint firstItem="nc5-o0-Gmi" firstAttribute="centerY" secondItem="2Zs-NC-huo" secondAttribute="centerY" id="vjc-bo-W29"/>
+                <constraint firstAttribute="trailing" secondItem="tQ1-DE-98J" secondAttribute="trailing" id="yOg-WX-fDY"/>
+            </constraints>
+            <point key="canvasLocation" x="28" y="112"/>
+        </customView>
+    </objects>
+</document>

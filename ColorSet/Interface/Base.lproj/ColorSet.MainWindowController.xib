@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="ColorSet" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="mhX-g4-VRX" id="rTI-iD-w0B"/>
                 <outlet property="colorsArrayController" destination="awq-PE-ook" id="yeb-ma-uCR"/>
                 <outlet property="lightnessPairsArrayController" destination="DHM-XC-Kf0" id="ZXr-Fj-3gp"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="OIr-lX-POC"/>
@@ -1422,26 +1423,28 @@
                                                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FjG-R9-e6Q">
                                                                 <rect key="frame" x="0.0" y="141" width="706" height="5"/>
                                                             </box>
-                                                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-Ab-UeL">
+                                                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-Ab-UeL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="706" height="135"/>
-                                                                <clipView key="contentView" id="MmE-Nj-hfv">
-                                                                    <rect key="frame" x="1" y="1" width="704" height="133"/>
+                                                                <clipView key="contentView" drawsBackground="NO" id="MmE-Nj-hfv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="706" height="135"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <collectionView id="mhX-g4-VRX">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="704" height="83"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="706" height="135"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                            <collectionViewFlowLayout key="collectionViewLayout" id="Vs9-bz-2M6">
+                                                                                <size key="itemSize" width="120" height="50"/>
+                                                                            </collectionViewFlowLayout>
+                                                                            <color key="primaryBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <connections>
                                                                                 <binding destination="DHM-XC-Kf0" name="content" keyPath="arrangedObjects" id="B9Y-Jc-b1w"/>
                                                                                 <binding destination="DHM-XC-Kf0" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="B9Y-Jc-b1w" id="igk-BB-GZt"/>
-                                                                                <outlet property="itemPrototype" destination="GeP-76-z1G" id="ZWE-IB-uVU"/>
                                                                             </connections>
                                                                         </collectionView>
                                                                     </subviews>
                                                                 </clipView>
                                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="sn3-GV-cuC">
-                                                                    <rect key="frame" x="1" y="68" width="684" height="16"/>
+                                                                    <rect key="frame" x="-100" y="-100" width="684" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="PfT-fw-PkR">
@@ -1560,25 +1563,20 @@
             <point key="canvasLocation" x="-381" y="296"/>
         </menu>
         <customView id="AHt-8C-Vzp">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+            <rect key="frame" x="0.0" y="0.0" width="325" height="174"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVE-9m-Zn2">
-                    <rect key="frame" x="41" y="30" width="81" height="32"/>
+                <customView identifier="LightnessColor1" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0c3-dg-u6Y" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
+                    <rect key="frame" x="12" y="106" width="92" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m3K-sf-rmA">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
+                </customView>
+                <customView identifier="LightnessColor2" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aq-3S-YdM" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
+                    <rect key="frame" x="12" y="40" width="92" height="58"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
             </subviews>
-            <point key="canvasLocation" x="-428" y="76"/>
+            <point key="canvasLocation" x="-131.5" y="-197"/>
         </customView>
-        <collectionViewItem id="GeP-76-z1G">
-            <connections>
-                <outlet property="view" destination="AHt-8C-Vzp" id="OjX-om-XoK"/>
-            </connections>
-        </collectionViewItem>
     </objects>
     <resources>
         <image name="File" width="512" height="512"/>

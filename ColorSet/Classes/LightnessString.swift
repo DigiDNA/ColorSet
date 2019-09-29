@@ -28,7 +28,7 @@ import Cocoa
 {
     @objc public override static func allowsReverseTransformation() -> Bool
     {
-        return false
+        return true
     }
     
     @objc public override static func transformedValueClass() -> Swift.AnyClass
@@ -41,5 +41,22 @@ import Cocoa
         let n = ( ( value as? NSNumber )?.doubleValue ?? 0 ) * 100
         
         return String( describing: Int( n ) )
+    }
+    
+    @objc public override func reverseTransformedValue( _ value: Any? ) -> Any?
+    {
+        let s = value as? String ?? "0"
+        var i = Int( s ) ?? 0
+        
+        if i > 100
+        {
+            i = 100
+        }
+        else if i < 0
+        {
+            i = 0
+        }
+        
+        return NSNumber( floatLiteral: Double( i ) / 100.0 )
     }
 }

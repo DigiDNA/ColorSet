@@ -202,7 +202,21 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         for color in self.colors
         {
-            set.add( color: color.color, variant: color.variant, forName: color.name )
+            var lightnesses = [ LightnessPair ]()
+            
+            for p in color.lightnessPairs
+            {
+                let lightness = LightnessPair()
+                
+                lightness.lightness1.lightness = p.lightness1.lightness
+                lightness.lightness1.name      = p.lightness1.name ?? ""
+                lightness.lightness2.lightness = p.lightness2.lightness
+                lightness.lightness2.name      = p.lightness2.name ?? ""
+                
+                lightnesses.append( lightness )
+            }
+            
+            set.add( color: color.color, variant: color.variant, lightnesses: lightnesses, forName: color.name )
         }
         
         do

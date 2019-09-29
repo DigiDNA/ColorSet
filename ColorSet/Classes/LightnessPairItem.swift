@@ -37,21 +37,16 @@ import Cocoa
         
         private var observations = [ NSKeyValueObservation ]()
         
-        override init()
+        init( base: ColorItem? )
         {
+            self.base = base
+            
             super.init()
             
             let o1 = self.observe( \.lightness   ) { [ weak self ] o, c in self?.update() }
             let o2 = self.observe( \.base?.color ) { [ weak self ] o, c in self?.update() }
             
             self.observations.append( contentsOf: [ o1, o2 ] )
-        }
-        
-        convenience init( base: ColorItem )
-        {
-            self.init()
-            
-            self.base = base
         }
         
         private func update()
@@ -65,6 +60,12 @@ import Cocoa
         }
     }
     
-    @objc public private( set ) dynamic var lightness1 = LightnessVariant()
-    @objc public private( set ) dynamic var lightness2 = LightnessVariant()
+    @objc public private( set ) dynamic var lightness1: LightnessVariant
+    @objc public private( set ) dynamic var lightness2: LightnessVariant
+    
+    init( base: ColorItem? )
+    {
+        self.lightness1 = LightnessVariant( base: base )
+        self.lightness2 = LightnessVariant( base: base )
+    }
 }

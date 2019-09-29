@@ -26,12 +26,13 @@ import Cocoa
 
 class LightnessPairWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var item = LightnessPairItem()
+    @objc public private( set ) dynamic var item = LightnessPairItem( base: nil )
     
     convenience init( base: ColorItem )
     {
         self.init()
         
+        self.item                = LightnessPairItem( base: base )
         self.item.lightness1.base = base
         self.item.lightness2.base = base
     }

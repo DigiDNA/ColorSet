@@ -223,7 +223,7 @@ import Cocoa
         {
             if self.colors.keys.contains( name ) == false
             {
-                self.set( color: color, variant: variant, forName: name )
+                self.set( color: color, variant: variant, lightnesses: lightnesses, forName: name )
             }
         }
     }

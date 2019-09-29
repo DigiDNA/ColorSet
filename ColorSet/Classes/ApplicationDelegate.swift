@@ -131,6 +131,18 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
             item.color   = color
             item.variant = p.value.variant
             
+            for lp in p.value.lightnesses
+            {
+                let lightness = LightnessPairItem( base: item )
+                
+                lightness.lightness1.lightness = lp.lightness1.lightness
+                lightness.lightness1.name      = lp.lightness1.name
+                lightness.lightness2.lightness = lp.lightness2.lightness
+                lightness.lightness2.name      = lp.lightness2.name
+                
+                item.lightnessPairs.append( lightness )
+            }
+            
             colors.append( item )
         }
         

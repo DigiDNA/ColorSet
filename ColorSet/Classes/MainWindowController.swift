@@ -126,6 +126,9 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 return
             }
             
+            print( color )
+            print( color.variant ?? "<nil>" )
+            
             if( self.hasVariant == false )
             {
                 color.variant = nil
@@ -139,11 +142,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         self.observations.append( contentsOf: [ o1, o2 ] )
-        
-        self.timer = Timer.scheduledTimer( withTimeInterval: 0.1, repeats: true )
-        {
-            [ weak self ] t in self?.colorsArrayController?.didChangeArrangementCriteria()
-        }
     }
     
     @IBAction public func performFindPanelAction( _ sender: Any? )

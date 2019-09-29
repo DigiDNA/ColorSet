@@ -1538,7 +1538,7 @@
             </view>
             <point key="canvasLocation" x="244" y="314"/>
         </window>
-        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="awq-PE-ook">
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="awq-PE-ook">
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="colors" id="QRv-zn-nre"/>
             </connections>

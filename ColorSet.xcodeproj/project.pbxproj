@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0509121520E55A7F009EF90C /* GitHubUpdates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0509120F20E55A6A009EF90C /* GitHubUpdates.framework */; };
-		0509121720E55A93009EF90C /* GitHubUpdates.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0509120F20E55A6A009EF90C /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530C41E20E10FEA00F5B259 /* ArrayIsEmpty.swift */; };
 		0530C42120E1112C00F5B259 /* ArrayIsNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530C42020E1112C00F5B259 /* ArrayIsNotEmpty.swift */; };
 		0530C42320E1213500F5B259 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530C42220E1213500F5B259 /* NSView.swift */; };
@@ -58,27 +56,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0509120E20E55A6A009EF90C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0509120920E55A6A009EF90C /* GitHubUpdates.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05F82B251EF32EA700EC8A93;
-			remoteInfo = GitHubUpdates;
-		};
-		0509121020E55A6A009EF90C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0509120920E55A6A009EF90C /* GitHubUpdates.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0555EBA01EF3DDA10016167F;
-			remoteInfo = Relauncher;
-		};
-		0509121220E55A7B009EF90C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0509120920E55A6A009EF90C /* GitHubUpdates.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 05F82B241EF32EA700EC8A93;
-			remoteInfo = GitHubUpdates;
-		};
 		0556FA082342101900EB91DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0543AE5A20DC33BC00284E99 /* Project object */;
@@ -110,7 +87,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				05CD4AC220ED7CD100DBDE99 /* ColorSetKit.framework in CopyFiles */,
-				0509121720E55A93009EF90C /* GitHubUpdates.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +144,6 @@
 		0509120520E559CF009EF90C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0509120720E559CF009EF90C /* ccache-config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ccache-config.sh"; sourceTree = "<group>"; };
 		0509120820E559CF009EF90C /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
-		0509120920E55A6A009EF90C /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
 		0530C41E20E10FEA00F5B259 /* ArrayIsEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsEmpty.swift; sourceTree = "<group>"; };
 		0530C42020E1112C00F5B259 /* ArrayIsNotEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsNotEmpty.swift; sourceTree = "<group>"; };
 		0530C42220E1213500F5B259 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
@@ -231,7 +206,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */,
-				0509121520E55A7F009EF90C /* GitHubUpdates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,15 +348,6 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
-		0509120A20E55A6A009EF90C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0509120F20E55A6A009EF90C /* GitHubUpdates.framework */,
-				0509121120E55A6A009EF90C /* Relauncher */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0509121420E55A7F009EF90C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,7 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				05CD4AB220ED7B2200DBDE99 /* README.md */,
-				0509120920E55A6A009EF90C /* GitHubUpdates.xcodeproj */,
 				050911D720E559CF009EF90C /* xcconfig */,
 				0543AE6420DC33BC00284E99 /* ColorSet */,
 				0509122720E55CB5009EF90C /* ColorSetKit */,
@@ -551,7 +515,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0509121320E55A7B009EF90C /* PBXTargetDependency */,
 				05CD4AC020ED7CD100DBDE99 /* PBXTargetDependency */,
 			);
 			name = ColorSet;
@@ -656,12 +619,6 @@
 			mainGroup = 0543AE5920DC33BC00284E99;
 			productRefGroup = 0543AE6320DC33BC00284E99 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0509120A20E55A6A009EF90C /* Products */;
-					ProjectRef = 0509120920E55A6A009EF90C /* GitHubUpdates.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0543AE6120DC33BC00284E99 /* ColorSet */,
@@ -671,23 +628,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		0509120F20E55A6A009EF90C /* GitHubUpdates.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GitHubUpdates.framework;
-			remoteRef = 0509120E20E55A6A009EF90C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0509121120E55A6A009EF90C /* Relauncher */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = Relauncher;
-			remoteRef = 0509121020E55A6A009EF90C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0543AE6020DC33BC00284E99 /* Resources */ = {
@@ -809,11 +749,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0509121320E55A7B009EF90C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GitHubUpdates;
-			targetProxy = 0509121220E55A7B009EF90C /* PBXContainerItemProxy */;
-		};
 		0556FA072342101900EB91DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05CD4AB920ED7CD100DBDE99 /* ColorSetKit */;

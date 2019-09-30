@@ -23,7 +23,6 @@
  ******************************************************************************/
 
 import Cocoa
-import GitHubUpdates
 import ColorSetKit
 
 @NSApplicationMain
@@ -31,12 +30,9 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
 {
     private var controllers = [ NSWindowController ]()
     private var aboutWindowController: NSWindowController?
-    @IBOutlet private var updater: GitHubUpdater?
     
     func applicationDidFinishLaunching( _ notification: Notification )
     {
-        self.updater?.checkForUpdatesInBackground()
-        
         DispatchQueue.main.asyncAfter( deadline: .now() + .milliseconds( 500 ) )
         {
             if self.controllers.count == 0

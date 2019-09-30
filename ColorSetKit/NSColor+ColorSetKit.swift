@@ -141,6 +141,13 @@ import Cocoa
         self.init( srgbRed: rgb.0, green: rgb.1, blue: rgb.2, alpha: alpha )
     }
     
+    @objc var hexString: String
+    {
+        let rgb = self.rgb()
+        
+        return String( format: "#%02X%02X%02X", Int( rgb.red * 255 ), Int( rgb.green * 255 ), Int( rgb.blue * 255 ) )
+    }
+    
     @objc func getHue( _ hue: UnsafeMutablePointer< CGFloat >?, saturation: UnsafeMutablePointer< CGFloat >?, lightness: UnsafeMutablePointer< CGFloat >?, alpha: UnsafeMutablePointer< CGFloat >? )
     {
         var r: CGFloat = 0.0

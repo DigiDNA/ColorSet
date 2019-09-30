@@ -11,6 +11,7 @@
                 <outlet property="collectionView" destination="mhX-g4-VRX" id="rTI-iD-w0B"/>
                 <outlet property="colorsArrayController" destination="awq-PE-ook" id="yeb-ma-uCR"/>
                 <outlet property="lightnessPairsArrayController" destination="DHM-XC-Kf0" id="ZXr-Fj-3gp"/>
+                <outlet property="paletteViewContainer" destination="de0-Td-j1L" id="9Te-ze-tdZ"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="OIr-lX-POC"/>
             </connections>
         </customObject>
@@ -202,6 +203,25 @@
                                     <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-hY-KH6">
                                         <rect key="frame" x="0.0" y="0.0" width="746" height="700"/>
                                         <subviews>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="de0-Td-j1L">
+                                                <rect key="frame" x="0.0" y="0.0" width="746" height="700"/>
+                                                <connections>
+                                                    <binding destination="awq-PE-ook" name="hidden2" keyPath="arrangedObjects" previousBinding="5ih-ct-4gf" id="qKl-pX-mO7">
+                                                        <dictionary key="options">
+                                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                                            <string key="NSValueTransformerName">ColorSet.ArrayIsEmpty</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                    <binding destination="-2" name="hidden" keyPath="selectedColor" id="5ih-ct-4gf">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </customView>
                                             <textField identifier="ColorNameTextField" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Op-8D1">
                                                 <rect key="frame" x="18" y="645" width="710" height="35"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="B9Y-7F-72Z">
@@ -233,6 +253,15 @@
                                                 </constraints>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="File" id="BOZ-Aq-hR9"/>
                                                 <connections>
+                                                    <binding destination="awq-PE-ook" name="hidden2" keyPath="arrangedObjects" previousBinding="z0Z-cg-1c7" id="0st-iJ-HhA">
+                                                        <dictionary key="options">
+                                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                                            <string key="NSValueTransformerName">ColorSet.ArrayIsNotEmpty</string>
+                                                        </dictionary>
+                                                    </binding>
                                                     <binding destination="awq-PE-ook" name="hidden" keyPath="selectedObjects" id="z0Z-cg-1c7">
                                                         <dictionary key="options">
                                                             <string key="NSValueTransformerName">ColorSet.ArrayIsNotEmpty</string>
@@ -251,6 +280,15 @@
                                                     </allowedInputSourceLocales>
                                                 </textFieldCell>
                                                 <connections>
+                                                    <binding destination="awq-PE-ook" name="hidden2" keyPath="arrangedObjects" previousBinding="xCI-Bo-QRm" id="uqS-hM-i0W">
+                                                        <dictionary key="options">
+                                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                                            <string key="NSValueTransformerName">ColorSet.ArrayIsNotEmpty</string>
+                                                        </dictionary>
+                                                    </binding>
                                                     <binding destination="-2" name="hidden" keyPath="selectedColor" id="xCI-Bo-QRm">
                                                         <dictionary key="options">
                                                             <string key="NSValueTransformerName">NSIsNotNil</string>
@@ -1501,7 +1539,10 @@
                                             <constraint firstItem="WxH-Cw-E69" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bH4-hY-KH6" secondAttribute="leading" id="2OL-rN-2fg"/>
                                             <constraint firstAttribute="trailing" secondItem="yIK-pa-iAO" secondAttribute="trailing" constant="20" id="2UG-Pc-aJV"/>
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="6dg-qn-rMt"/>
+                                            <constraint firstItem="de0-Td-j1L" firstAttribute="centerY" secondItem="bH4-hY-KH6" secondAttribute="centerY" id="7Yp-ex-0Jr"/>
                                             <constraint firstItem="yMG-Op-8D1" firstAttribute="top" secondItem="bH4-hY-KH6" secondAttribute="top" constant="20" id="9TS-mu-uJI"/>
+                                            <constraint firstItem="de0-Td-j1L" firstAttribute="centerX" secondItem="bH4-hY-KH6" secondAttribute="centerX" id="Auk-oC-jsO"/>
+                                            <constraint firstItem="de0-Td-j1L" firstAttribute="width" secondItem="bH4-hY-KH6" secondAttribute="width" id="Ees-tG-0a3"/>
                                             <constraint firstAttribute="trailing" secondItem="WxH-Cw-E69" secondAttribute="trailing" constant="20" id="Htr-MK-RV5"/>
                                             <constraint firstItem="WxH-Cw-E69" firstAttribute="centerX" secondItem="p4I-Zg-0zJ" secondAttribute="centerX" id="J3u-u9-9H2"/>
                                             <constraint firstItem="yIK-pa-iAO" firstAttribute="top" secondItem="yMG-Op-8D1" secondAttribute="bottom" constant="8" id="Jaz-Bh-621"/>
@@ -1511,6 +1552,7 @@
                                             <constraint firstItem="p4I-Zg-0zJ" firstAttribute="centerY" secondItem="bH4-hY-KH6" secondAttribute="centerY" id="p4x-iP-b5x"/>
                                             <constraint firstAttribute="bottom" secondItem="yIK-pa-iAO" secondAttribute="bottom" constant="20" id="pXg-Jj-sjV"/>
                                             <constraint firstItem="yMG-Op-8D1" firstAttribute="leading" secondItem="bH4-hY-KH6" secondAttribute="leading" constant="20" id="r7B-Ew-prX"/>
+                                            <constraint firstItem="de0-Td-j1L" firstAttribute="height" secondItem="bH4-hY-KH6" secondAttribute="height" id="rco-uc-nxL"/>
                                         </constraints>
                                     </visualEffectView>
                                 </subviews>

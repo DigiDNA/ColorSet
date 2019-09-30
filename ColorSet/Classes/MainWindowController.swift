@@ -38,10 +38,12 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     private var searchField:                   NSSearchField?
     private var timer:                         Timer?
     private var lightnessPairWindowController: LightnessPairWindowController?
+    private var paletteViewController:         PaletteViewController?
     
     @IBOutlet public var colorsArrayController:         NSArrayController!
     @IBOutlet public var lightnessPairsArrayController: NSArrayController!
     @IBOutlet public var collectionView:                NSCollectionView!
+    @IBOutlet public var paletteViewContainer:          NSView!
     
     convenience init( colors: [ ColorItem ] )
     {
@@ -110,6 +112,8 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 self.selectedColor = nil
                 self.hasVariant    = false
                 
+                self.paletteViewController?.reload()
+                
                 return
             }
             
@@ -144,6 +148,21 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         self.observations.append( contentsOf: [ o1, o2, o3 ] )
+        
+        self.paletteViewController = PaletteViewController()
+        
+        if let view = self.paletteViewController?.view
+        {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.frame                                     = self.paletteViewContainer.bounds
+            
+            self.paletteViewContainer.addSubview( view )
+            
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .centerX, relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .centerX, multiplier: 1, constant: 0 ) )
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .centerY, relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .centerY, multiplier: 1, constant: 0 ) )
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .width,   relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .width  , multiplier: 1, constant: 0 ) )
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .height,  relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .height,  multiplier: 1, constant: 0 ) )
+        }
     }
     
     private func updateLightnesses()

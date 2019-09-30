@@ -148,17 +148,18 @@ import Cocoa
     
     @objc class func bestTextColorForBackgroundColor( _ background: NSColor, lightTextColor: NSColor, darkTextColor: NSColor ) -> NSColor
     {
-        guard let hsl = background.usingColorSpace( .sRGB )?.hsl() else
+        guard var rgb = background.usingColorSpace( .sRGB )?.rgb() else
         {
             return NSColor.textColor
         }
         
-        if hsl.hue > 40.0 / 360.0 && hsl.hue < 180.0 / 360.0
-        {
-            return ( hsl.lightness > 0.3 ) ? darkTextColor : lightTextColor
-        }
+        rgb.red   *= 255
+        rgb.green *= 255
+        rgb.blue  *= 255
         
-        return ( hsl.lightness > 0.5 ) ? darkTextColor : lightTextColor
+        let contrast = ( ( rgb.red * 299 ) + ( rgb.green * 587 ) + ( rgb.blue * 114 ) ) / 1000
+        
+        return ( contrast > 123 ) ? darkTextColor : lightTextColor
     }
     
     @objc var hexString: String

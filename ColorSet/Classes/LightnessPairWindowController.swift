@@ -28,11 +28,16 @@ class LightnessPairWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var item = LightnessPairItem( base: nil )
     
+    private var originalLightness1 = CGFloat( 0 )
+    private var originalLightness2 = CGFloat( 0 )
+    
     convenience init( base: ColorItem, item: LightnessPairItem )
     {
         self.init()
         
-        self.item = item
+        self.item               = item
+        self.originalLightness1 = item.lightness1.lightness
+        self.originalLightness2 = item.lightness2.lightness
     }
     
     override var windowNibName: NSNib.Name?
@@ -70,6 +75,9 @@ class LightnessPairWindowController: NSWindowController
     
     @IBAction func cancel( _ sender: Any? )
     {
+        self.item.lightness1.lightness = self.originalLightness1
+        self.item.lightness2.lightness = self.originalLightness2
+        
         guard let window = self.window, let parent = self.window?.sheetParent else
         {
             NSSound.beep()

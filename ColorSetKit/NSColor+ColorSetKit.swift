@@ -351,7 +351,7 @@ import Cocoa
     {
         if #available( macOS 10.14, * )
         {
-            if NSApp.effectiveAppearance.name == NSAppearance.Name.darkAqua
+            if NSApp != nil && NSApp.effectiveAppearance.name == NSAppearance.Name.darkAqua
             {
                 return true
             }

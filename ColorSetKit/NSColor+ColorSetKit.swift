@@ -141,6 +141,26 @@ import Cocoa
         self.init( srgbRed: rgb.0, green: rgb.1, blue: rgb.2, alpha: alpha )
     }
     
+    @objc class func bestTextColorForBackgroundColor( _ background: NSColor ) -> NSColor
+    {
+        return NSColor.bestTextColorForBackgroundColor( background, lightTextColor: NSColor.white, darkTextColor: NSColor.black )
+    }
+    
+    @objc class func bestTextColorForBackgroundColor( _ background: NSColor, lightTextColor: NSColor, darkTextColor: NSColor ) -> NSColor
+    {
+        guard let hsl = background.usingColorSpace( .sRGB )?.hsl() else
+        {
+            return NSColor.textColor
+        }
+        
+        if hsl.hue > 40.0 / 360.0 && hsl.hue < 180.0 / 360.0
+        {
+            return ( hsl.lightness > 0.3 ) ? darkTextColor : lightTextColor
+        }
+        
+        return ( hsl.lightness > 0.5 ) ? darkTextColor : lightTextColor
+    }
+    
     @objc var hexString: String
     {
         let rgb = self.rgb()

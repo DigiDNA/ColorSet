@@ -66,7 +66,7 @@ import ColorSetKit
         rect.fill()
         
         let hsl       = base.hsl()
-        let textColor = ( hsl.lightness >= 0.5 ) ? NSColor.black : NSColor.white
+        let textColor = NSColor.bestTextColorForBackgroundColor( base )
         var p         = NSMakePoint( rect.origin.x + 10, rect.origin.y + 10 )
         
         ( info.name as NSString ).draw( at: p, withAttributes: [ .foregroundColor : textColor, .font : NSFont.systemFont( ofSize: 25, weight: .thin ) ] )

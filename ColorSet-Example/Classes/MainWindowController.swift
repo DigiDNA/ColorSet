@@ -73,15 +73,12 @@ class MainWindowController: NSWindowController
             }
             
             var variants = [ CGFloat ]()
-            var l        = CGFloat( 0 )
             
-            color.getHue( nil, saturation: nil, lightness: &l, alpha: nil )
-            variants.append( l )
+            variants.append( color.hsl().lightness )
             
             if let variant = p.value.variant
             {
-                variant.getHue( nil, saturation: nil, lightness: &l, alpha: nil )
-                variants.append( l )
+                variants.append( variant.hsl().lightness )
             }
             
             for l in p.value.lightnesses

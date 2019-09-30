@@ -28,11 +28,11 @@ class LightnessPairWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var item = LightnessPairItem( base: nil )
     
-    convenience init( base: ColorItem )
+    convenience init( base: ColorItem, item: LightnessPairItem )
     {
         self.init()
         
-        self.item = LightnessPairItem( base: base )
+        self.item = item
     }
     
     override var windowNibName: NSNib.Name?

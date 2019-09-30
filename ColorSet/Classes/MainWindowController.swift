@@ -172,6 +172,16 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         {
             l.lightness1.base = self.selectedColor
             l.lightness2.base = self.selectedColor
+            
+            l.onEdit =
+            {
+                [ weak self ] item in self?.editLightnessPair( item )
+            }
+            
+            l.onDelete =
+            {
+                [ weak self ] item in self?.lightnessPairsArrayController.removeObject( item )
+            }
         }
     }
     
@@ -384,6 +394,19 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     @IBAction func addLightnessPair( _ sender: Any? )
     {
+        self.editLightnessPair( nil )
+        {
+            [ weak self ] c, r in
+            
+            if r == .OK
+            {
+                self?.lightnessPairsArrayController.addObject( c.item )
+            }
+        }
+    }
+    
+    func editLightnessPair( _ item: LightnessPairItem?, completion: ( ( LightnessPairWindowController, NSApplication.ModalResponse ) -> Void )? = nil )
+    {
         guard let selectedColor = self.selectedColor else
         {
             NSSound.beep()
@@ -405,7 +428,9 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        let sheetController = LightnessPairWindowController( base: selectedColor )
+        let o = item ?? LightnessPairItem( base: selectedColor )
+        
+        let sheetController = LightnessPairWindowController( base: selectedColor, item: o )
         
         guard let sheet = sheetController.window else
         {
@@ -424,10 +449,13 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             
             if r != .OK
             {
+                completion?( sheetController, r )
+                
                 return
             }
             
-            self.lightnessPairsArrayController.addObject( sheetController.item )
+            completion?( sheetController, r )
+            self.updateLightnesses()
         }
     }
 }

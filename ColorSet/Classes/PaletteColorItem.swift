@@ -101,12 +101,12 @@ import ColorSetKit
             lightnesses.append( ( l2, c2 ) )
         }
         
-        if let color = info.colorPair.color
+        if let color = info.colorPair.color?.usingColorSpace( .sRGB )
         {
             lightnesses.append( ( color.hsl().lightness, color ) )
         }
         
-        if let variant = info.colorPair.variant
+        if let variant = info.colorPair.variant?.usingColorSpace( .sRGB )
         {
             lightnesses.append( ( variant.hsl().lightness, variant ) )
         }

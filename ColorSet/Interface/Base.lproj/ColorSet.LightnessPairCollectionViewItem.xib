@@ -121,7 +121,27 @@
                 <constraint firstItem="nc5-o0-Gmi" firstAttribute="centerY" secondItem="2Zs-NC-huo" secondAttribute="centerY" id="vjc-bo-W29"/>
                 <constraint firstAttribute="trailing" secondItem="tQ1-DE-98J" secondAttribute="trailing" id="yOg-WX-fDY"/>
             </constraints>
+            <connections>
+                <outlet property="menu" destination="8VB-Yx-MB9" id="MSF-8c-Y2e"/>
+            </connections>
             <point key="canvasLocation" x="28" y="112"/>
         </customView>
+        <menu id="8VB-Yx-MB9">
+            <items>
+                <menuItem title="Edit..." id="UIj-Rw-Vni">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="edit:" target="-2" id="GH8-c8-DsD"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Delete" id="qRQ-V5-aS8">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="delete:" target="-2" id="VaS-JE-ToR"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="139" y="238"/>
+        </menu>
     </objects>
 </document>

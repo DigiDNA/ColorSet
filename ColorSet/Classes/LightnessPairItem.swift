@@ -63,6 +63,9 @@ import Cocoa
     @objc public private( set ) dynamic var lightness1: LightnessVariant
     @objc public private( set ) dynamic var lightness2: LightnessVariant
     
+    public var onEdit:   ( ( LightnessPairItem ) -> Void )?
+    public var onDelete: ( ( LightnessPairItem ) -> Void )?
+    
     init( base: ColorItem? )
     {
         self.lightness1 = LightnessVariant( base: base )

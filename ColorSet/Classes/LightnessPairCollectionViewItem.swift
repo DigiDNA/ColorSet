@@ -34,4 +34,20 @@ public class LightnessPairCollectionViewItem: NSCollectionViewItem
         self.color1.bind( NSBindingName( "color" ), to: self, withKeyPath: "representedObject.lightness1.color", options: nil )
         self.color2.bind( NSBindingName( "color" ), to: self, withKeyPath: "representedObject.lightness2.color", options: nil )
     }
+    
+    @IBAction func edit( _ sender: Any? )
+    {
+        if let item = self.representedObject as? LightnessPairItem
+        {
+            item.onEdit?( item )
+        }
+    }
+    
+    @IBAction func delete( _ sender: Any? )
+    {
+        if let item = self.representedObject as? LightnessPairItem
+        {
+            item.onDelete?( item )
+        }
+    }
 }

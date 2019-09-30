@@ -27,7 +27,6 @@ import GitHubUpdates
 import ColorSetKit
 
 @NSApplicationMain
-
 class ApplicationDelegate: NSResponder, NSApplicationDelegate
 {
     private var controllers = [ NSWindowController ]()

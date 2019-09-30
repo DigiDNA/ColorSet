@@ -27,6 +27,8 @@ import Cocoa
 @objc public class ColorSet: NSObject
 {
     private static let magic: UInt64 = 0x434F4C4F52534554
+    private static let major: UInt32 = 1
+    private static let minor: UInt32 = 2
     
     public static var shared: ColorSet =
     {
@@ -127,7 +129,13 @@ import Cocoa
         }
         
         let minor = stream.readUInt32()
-        let n     = stream.readUInt64()
+        
+        if major > ColorSet.major || minor > ColorSet.minor
+        {
+            return nil
+        }
+        
+        let n = stream.readUInt64()
         
         for _ in 0 ..< n
         {
@@ -291,9 +299,9 @@ import Cocoa
             
             let stream = ColorSetStream()
             
-            stream += ColorSet.magic         /* COLORSET */
-            stream += UInt32( 1 )            /* Major */
-            stream += UInt32( 2 )            /* Minor */
+            stream += ColorSet.magic
+            stream += UInt32( ColorSet.major )
+            stream += UInt32( ColorSet.minor )
             stream += UInt64( colors.count ) /* Count */
             
             for p in colors

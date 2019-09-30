@@ -23,6 +23,17 @@
 		0544CBF422731990004A2499 /* ColorPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CBF322731990004A2499 /* ColorPair.swift */; };
 		0544CBF62273199C004A2499 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CBF52273199C004A2499 /* ColorSet.swift */; };
 		0544CC0D2273466C004A2499 /* ColorSetStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CC0C2273466C004A2499 /* ColorSetStream.swift */; };
+		0556FA1C2342101900EB91DB /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
+		0556FA282342101900EB91DB /* ColorSetKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0556FA372342111800EB91DB /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA332342111800EB91DB /* ApplicationDelegate.swift */; };
+		0556FA552342116900EB91DB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556FA532342116900EB91DB /* MainMenu.xib */; };
+		0556FA57234211A600EB91DB /* Colors.colorset in Resources */ = {isa = PBXBuildFile; fileRef = 0556FA56234211A600EB91DB /* Colors.colorset */; };
+		0556FA59234211FE00EB91DB /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA58234211FE00EB91DB /* MainWindowController.swift */; };
+		0556FA5C2342124500EB91DB /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556FA5A2342124500EB91DB /* MainWindowController.xib */; };
+		0556FA5E234213A600EB91DB /* ColorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA5D234213A600EB91DB /* ColorInfo.swift */; };
+		0556FA602342156500EB91DB /* ColorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA5F2342156500EB91DB /* ColorItem.swift */; };
+		0556FA63234215A100EB91DB /* ColorItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556FA61234215A100EB91DB /* ColorItem.xib */; };
+		0556FA652342169D00EB91DB /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA642342169D00EB91DB /* DrawingView.swift */; };
 		0564590220E4DDFD001EA86F /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564590120E4DDFD001EA86F /* HexColor.swift */; };
 		057DC44E22B1492200BA6727 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057DC44D22B1492200BA6727 /* Test.swift */; };
 		057DC45022B1492200BA6727 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
@@ -68,6 +79,13 @@
 			remoteGlobalIDString = 05F82B241EF32EA700EC8A93;
 			remoteInfo = GitHubUpdates;
 		};
+		0556FA082342101900EB91DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0543AE5A20DC33BC00284E99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05CD4AB920ED7CD100DBDE99;
+			remoteInfo = ColorSetKit;
+		};
 		057DC45122B1492200BA6727 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0543AE5A20DC33BC00284E99 /* Project object */;
@@ -93,6 +111,16 @@
 			files = (
 				05CD4AC220ED7CD100DBDE99 /* ColorSetKit.framework in CopyFiles */,
 				0509121720E55A93009EF90C /* GitHubUpdates.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0556FA272342101900EB91DB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0556FA282342101900EB91DB /* ColorSetKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +188,18 @@
 		0544CBF322731990004A2499 /* ColorPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPair.swift; sourceTree = "<group>"; };
 		0544CBF52273199C004A2499 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		0544CC0C2273466C004A2499 /* ColorSetStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSetStream.swift; sourceTree = "<group>"; };
+		0556FA2D2342101900EB91DB /* ColorSet Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorSet Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0556FA2E2342101900EB91DB /* ColorSet copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ColorSet copy-Info.plist"; path = "/Users/macmade/Documents/Macmade/DigiDNA/GitHub/ColorSet/ColorSet copy-Info.plist"; sourceTree = "<absolute>"; };
+		0556FA31234210E800EB91DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0556FA332342111800EB91DB /* ApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		0556FA542342116900EB91DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0556FA56234211A600EB91DB /* Colors.colorset */ = {isa = PBXFileReference; lastKnownFileType = file; path = Colors.colorset; sourceTree = "<group>"; };
+		0556FA58234211FE00EB91DB /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		0556FA5B2342124500EB91DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
+		0556FA5D234213A600EB91DB /* ColorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfo.swift; sourceTree = "<group>"; };
+		0556FA5F2342156500EB91DB /* ColorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorItem.swift; sourceTree = "<group>"; };
+		0556FA62234215A100EB91DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorItem.xib; sourceTree = "<group>"; };
+		0556FA642342169D00EB91DB /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		0564590120E4DDFD001EA86F /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ColorSetKit-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		057DC44D22B1492200BA6727 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -192,6 +232,14 @@
 			files = (
 				05CD4AC120ED7CD100DBDE99 /* ColorSetKit.framework in Frameworks */,
 				0509121520E55A7F009EF90C /* GitHubUpdates.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0556FA1B2342101900EB91DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0556FA1C2342101900EB91DB /* ColorSetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,9 +412,11 @@
 				050911D720E559CF009EF90C /* xcconfig */,
 				0543AE6420DC33BC00284E99 /* ColorSet */,
 				0509122720E55CB5009EF90C /* ColorSetKit */,
+				0556FA30234210E800EB91DB /* ColorSet-Example */,
 				057DC44C22B1492200BA6727 /* ColorSetKit-Test */,
 				0543AE6320DC33BC00284E99 /* Products */,
 				0509121420E55A7F009EF90C /* Frameworks */,
+				0556FA2E2342101900EB91DB /* ColorSet copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -376,6 +426,7 @@
 				0543AE6220DC33BC00284E99 /* ColorSet.app */,
 				05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */,
 				057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */,
+				0556FA2D2342101900EB91DB /* ColorSet Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -431,6 +482,39 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		0556FA30234210E800EB91DB /* ColorSet-Example */ = {
+			isa = PBXGroup;
+			children = (
+				0556FA322342111800EB91DB /* Classes */,
+				0556FA342342111800EB91DB /* Interface */,
+				0556FA31234210E800EB91DB /* Info.plist */,
+			);
+			path = "ColorSet-Example";
+			sourceTree = "<group>";
+		};
+		0556FA322342111800EB91DB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0556FA332342111800EB91DB /* ApplicationDelegate.swift */,
+				0556FA58234211FE00EB91DB /* MainWindowController.swift */,
+				0556FA5D234213A600EB91DB /* ColorInfo.swift */,
+				0556FA5F2342156500EB91DB /* ColorItem.swift */,
+				0556FA642342169D00EB91DB /* DrawingView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0556FA342342111800EB91DB /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0556FA56234211A600EB91DB /* Colors.colorset */,
+				0556FA532342116900EB91DB /* MainMenu.xib */,
+				0556FA5A2342124500EB91DB /* MainWindowController.xib */,
+				0556FA61234215A100EB91DB /* ColorItem.xib */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		057DC44C22B1492200BA6727 /* ColorSetKit-Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +557,25 @@
 			name = ColorSet;
 			productName = ColorSet;
 			productReference = 0543AE6220DC33BC00284E99 /* ColorSet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0556FA042342101900EB91DB /* ColorSet Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0556FA2A2342101900EB91DB /* Build configuration list for PBXNativeTarget "ColorSet Example" */;
+			buildPhases = (
+				0556FA092342101900EB91DB /* Sources */,
+				0556FA1B2342101900EB91DB /* Frameworks */,
+				0556FA1F2342101900EB91DB /* Resources */,
+				0556FA272342101900EB91DB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0556FA072342101900EB91DB /* PBXTargetDependency */,
+			);
+			name = "ColorSet Example";
+			productName = ColorSet;
+			productReference = 0556FA2D2342101900EB91DB /* ColorSet Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 		057DC44A22B1492200BA6727 /* ColorSetKit-Test */ = {
@@ -564,6 +667,7 @@
 				0543AE6120DC33BC00284E99 /* ColorSet */,
 				05CD4AB920ED7CD100DBDE99 /* ColorSetKit */,
 				057DC44A22B1492200BA6727 /* ColorSetKit-Test */,
+				0556FA042342101900EB91DB /* ColorSet Example */,
 			);
 		};
 /* End PBXProject section */
@@ -597,6 +701,17 @@
 				0543AE7B20DC33DF00284E99 /* MainMenu.xib in Resources */,
 				05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */,
 				05A6D895233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0556FA1F2342101900EB91DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0556FA63234215A100EB91DB /* ColorItem.xib in Resources */,
+				0556FA57234211A600EB91DB /* Colors.colorset in Resources */,
+				0556FA552342116900EB91DB /* MainMenu.xib in Resources */,
+				0556FA5C2342124500EB91DB /* MainWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +773,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0556FA092342101900EB91DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0556FA602342156500EB91DB /* ColorItem.swift in Sources */,
+				0556FA5E234213A600EB91DB /* ColorInfo.swift in Sources */,
+				0556FA652342169D00EB91DB /* DrawingView.swift in Sources */,
+				0556FA59234211FE00EB91DB /* MainWindowController.swift in Sources */,
+				0556FA372342111800EB91DB /* ApplicationDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		057DC44722B1492200BA6727 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -687,6 +814,11 @@
 			name = GitHubUpdates;
 			targetProxy = 0509121220E55A7B009EF90C /* PBXContainerItemProxy */;
 		};
+		0556FA072342101900EB91DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05CD4AB920ED7CD100DBDE99 /* ColorSetKit */;
+			targetProxy = 0556FA082342101900EB91DB /* PBXContainerItemProxy */;
+		};
 		057DC45222B1492200BA6727 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05CD4AB920ED7CD100DBDE99 /* ColorSetKit */;
@@ -714,6 +846,30 @@
 				0543AE7F20DC35CC00284E99 /* Base */,
 			);
 			name = ColorSet.MainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		0556FA532342116900EB91DB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0556FA542342116900EB91DB /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		0556FA5A2342124500EB91DB /* MainWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0556FA5B2342124500EB91DB /* Base */,
+			);
+			name = MainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		0556FA61234215A100EB91DB /* ColorItem.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0556FA62234215A100EB91DB /* Base */,
+			);
+			name = ColorItem.xib;
 			sourceTree = "<group>";
 		};
 		05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */ = {
@@ -796,6 +952,46 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ColorSet/Classes/ColorSet-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		0556FA2B2342101900EB91DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = J5PR93692Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "ColorSet-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DigiDNA.ColorSet-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0556FA2C2342101900EB91DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = J5PR93692Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "ColorSet-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DigiDNA.ColorSet-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -901,6 +1097,15 @@
 			buildConfigurations = (
 				0543AE7120DC33BD00284E99 /* Debug */,
 				0543AE7220DC33BD00284E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0556FA2A2342101900EB91DB /* Build configuration list for PBXNativeTarget "ColorSet Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0556FA2B2342101900EB91DB /* Debug */,
+				0556FA2C2342101900EB91DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

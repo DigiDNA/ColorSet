@@ -159,7 +159,7 @@ import Cocoa
         
         let contrast = ( ( rgb.red * 299 ) + ( rgb.green * 587 ) + ( rgb.blue * 114 ) ) / 1000
         
-        return ( contrast > 123 ) ? darkTextColor : lightTextColor
+        return ( contrast > 150 ) ? darkTextColor : lightTextColor
     }
     
     @objc var hexString: String

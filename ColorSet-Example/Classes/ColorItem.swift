@@ -67,7 +67,7 @@ import ColorSetKit
         base.getHue( &h, saturation: &s, lightness: &l, alpha: nil )
         base.getRed( &r, green: &g, blue: &b, alpha: nil )
         
-        let textColor = ( l > 0.55 ) ? NSColor.black : NSColor.white
+        let textColor = ( l > 0.65 ) ? NSColor.black : NSColor.white
         var p         = NSMakePoint( rect.origin.x + 10, rect.origin.y + 10 )
         
         ( info.name as NSString ).draw( at: p, withAttributes: [ .foregroundColor : textColor, .font : NSFont.systemFont( ofSize: 25, weight: .thin ) ] )
@@ -82,15 +82,33 @@ import ColorSetKit
         
         ( hsl as NSString ).draw( at: p, withAttributes: [ .foregroundColor : textColor, .font : NSFont.systemFont( ofSize: 12, weight: .thin ) ] )
         
-        if info.variants.count > 0
+        var variants = info.variants
+        
+        if variants.count > 0
         {
-            let width     = rect.size.width / CGFloat( info.variants.count )
+            if let pair = ColorSet.shared[ info.name ]
+            {
+                if let color = pair.color
+                {
+                    variants.append( color.hsl().lightness )
+                }
+                
+                if let variant = pair.variant
+                {
+                    variants.append( variant.hsl().lightness )
+                }
+                
+                variants.sort()
+                variants.reverse()
+            }
+            
+            let width     = rect.size.width / CGFloat( variants.count )
             var r         = rect
             r.size.width  = width
             r.size.height = r.size.height / 4
             r.origin.y    = rect.size.height - r.size.height
             
-            for lightness in info.variants
+            for lightness in variants
             {
                 guard let color = NSColor.from( colorSet: info.name + "." + String( format: "%.0f", lightness * 100 ) ) else
                 {

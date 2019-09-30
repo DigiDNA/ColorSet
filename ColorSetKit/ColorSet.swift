@@ -55,14 +55,33 @@ import Cocoa
         return set ?? ColorSet()
     }()
     
-    public private( set ) var colors   = [ String : ColorPair ]()
-    private               var children = [ ColorSet ]()
+    public private( set ) var colorPairs  = [ String : ColorPair ]()
+    private               var children    = [ ColorSet ]()
+    private               var accentNames = [ String ]()
+    
+    @objc public var colors: [ String : ColorPair ]
+    {
+        return self.synchronized
+        {
+            var colors = [ String : ColorPair ]()
+            
+            for p in self.colorPairs
+            {
+                if let color = self.colorWith( name: p.key )
+                {
+                    colors[ p.key ] = color
+                }
+            }
+            
+            return colors
+        }
+    }
     
     @objc public var count: Int
     {
         return self.synchronized
         {
-            return self.colors.count
+            return self.colorPairs.count
         }
     }
     
@@ -157,12 +176,32 @@ import Cocoa
         return self.colorWith( name: key )
     }
     
+    @objc public func useAccentColorForColor( name: String )
+    {
+        self.synchronized
+        {
+            self.accentNames.append( name )
+        }
+    }
+    
     @objc public func colorWith( name: String ) -> ColorPair?
     {
         return self.synchronized
         {
-            if let color = self.colors[ name ]
+            if let color = self.colorPairs[ name ]
             {
+                if #available( macOS 10.14, * )
+                {
+                    if self.accentNames.contains( name )
+                    {
+                        let accent    = NSColor.controlAccentColor.usingColorSpace( .sRGB )
+                        let p         = ColorPair( color: accent, variant: ( color.variant != nil ) ? accent : nil )
+                        p.lightnesses = color.lightnesses
+                        
+                        return p
+                    }
+                }
+                
                 return color
             }
             
@@ -221,7 +260,7 @@ import Cocoa
     {
         self.synchronized
         {
-            if self.colors.keys.contains( name ) == false
+            if self.colorPairs.keys.contains( name ) == false
             {
                 self.set( color: color, variant: variant, lightnesses: lightnesses, forName: name )
             }
@@ -233,9 +272,9 @@ import Cocoa
     {
         self.synchronized
         {
-            let p               = ColorPair( color: color, variant: variant )
-            p.lightnesses       = lightnesses
-            self.colors[ name ] = p
+            let p                   = ColorPair( color: color, variant: variant )
+            p.lightnesses           = lightnesses
+            self.colorPairs[ name ] = p
         }
     }
     
@@ -247,7 +286,7 @@ import Cocoa
             
             self.synchronized
             {
-                colors = self.colors
+                colors = self.colorPairs
             }
             
             let stream = ColorSetStream()

@@ -65,21 +65,15 @@ class MainWindowController: NSWindowController
     
     private func load()
     {
+        if let accent = ColorSet.shared[ "Accent" ], let color = accent.color
+        {
+            ColorSet.shared.add( color: color, variant: accent.variant, lightnesses: accent.lightnesses, forName: "Accent (macOS)" )
+            ColorSet.shared.useAccentColorForColor( name: "Accent (macOS)" )
+        }
+        
         for p in ColorSet.shared.colors
         {
-            guard let color = p.value.color else
-            {
-                continue
-            }
-            
             var variants = [ CGFloat ]()
-            
-            variants.append( color.hsl().lightness )
-            
-            if let variant = p.value.variant
-            {
-                variants.append( variant.hsl().lightness )
-            }
             
             for l in p.value.lightnesses
             {

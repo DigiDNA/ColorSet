@@ -34,6 +34,10 @@
 		0556FA652342169D00EB91DB /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA642342169D00EB91DB /* DrawingView.swift */; };
 		0556FA67234275CF00EB91DB /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA66234275CF00EB91DB /* PaletteViewController.swift */; };
 		0556FA6A2342761000EB91DB /* ColorSet.PaletteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556FA682342761000EB91DB /* ColorSet.PaletteViewController.xib */; };
+		0556FA6E2342796C00EB91DB /* PaletteColorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA6B2342796C00EB91DB /* PaletteColorItem.swift */; };
+		0556FA6F2342796C00EB91DB /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA6C2342796C00EB91DB /* DrawingView.swift */; };
+		0556FA702342796C00EB91DB /* PaletteColorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FA6D2342796C00EB91DB /* PaletteColorInfo.swift */; };
+		0556FA7323427DE500EB91DB /* PaletteColorItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556FA7123427DE500EB91DB /* PaletteColorItem.xib */; };
 		0564590220E4DDFD001EA86F /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564590120E4DDFD001EA86F /* HexColor.swift */; };
 		057DC44E22B1492200BA6727 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057DC44D22B1492200BA6727 /* Test.swift */; };
 		057DC45022B1492200BA6727 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
@@ -179,6 +183,10 @@
 		0556FA642342169D00EB91DB /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		0556FA66234275CF00EB91DB /* PaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
 		0556FA692342761000EB91DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.PaletteViewController.xib; sourceTree = "<group>"; };
+		0556FA6B2342796C00EB91DB /* PaletteColorItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteColorItem.swift; sourceTree = "<group>"; };
+		0556FA6C2342796C00EB91DB /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		0556FA6D2342796C00EB91DB /* PaletteColorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteColorInfo.swift; sourceTree = "<group>"; };
+		0556FA7223427DE500EB91DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PaletteColorItem.xib; sourceTree = "<group>"; };
 		0564590120E4DDFD001EA86F /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ColorSetKit-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		057DC44D22B1492200BA6727 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -433,6 +441,9 @@
 				05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */,
 				059F8C78233CDB3300C9B83F /* SLColorComponent.swift */,
 				0556FA66234275CF00EB91DB /* PaletteViewController.swift */,
+				0556FA6D2342796C00EB91DB /* PaletteColorInfo.swift */,
+				0556FA6B2342796C00EB91DB /* PaletteColorItem.swift */,
+				0556FA6C2342796C00EB91DB /* DrawingView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -444,6 +455,7 @@
 				05A6D8C32340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib */,
 				05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */,
 				0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */,
+				0556FA7123427DE500EB91DB /* PaletteColorItem.xib */,
 				0556FA682342761000EB91DB /* ColorSet.PaletteViewController.xib */,
 				05D11ECD20E165FB00A621B5 /* File.icns */,
 				05D11EC620E13B9400A621B5 /* Icon.icns */,
@@ -644,6 +656,7 @@
 				05D11EC720E13B9400A621B5 /* Icon.icns in Resources */,
 				0556FA6A2342761000EB91DB /* ColorSet.PaletteViewController.xib in Resources */,
 				0543AE8020DC35CC00284E99 /* ColorSet.MainWindowController.xib in Resources */,
+				0556FA7323427DE500EB91DB /* PaletteColorItem.xib in Resources */,
 				05D11ECE20E165FB00A621B5 /* File.icns in Resources */,
 				0543AE7B20DC33DF00284E99 /* MainMenu.xib in Resources */,
 				05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */,
@@ -700,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0556FA702342796C00EB91DB /* PaletteColorInfo.swift in Sources */,
 				059F8C7A233CDB3300C9B83F /* SLColorComponent.swift in Sources */,
 				05A6D891233F80430079AF3B /* LightnessPairWindowController.swift in Sources */,
 				0530C42320E1213500F5B259 /* NSView.swift in Sources */,
@@ -707,6 +721,8 @@
 				0564590220E4DDFD001EA86F /* HexColor.swift in Sources */,
 				0543AE9E20E0FFD000284E99 /* ColorView.swift in Sources */,
 				0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */,
+				0556FA6F2342796C00EB91DB /* DrawingView.swift in Sources */,
+				0556FA6E2342796C00EB91DB /* PaletteColorItem.swift in Sources */,
 				05A6D897233F8A300079AF3B /* LightnessString.swift in Sources */,
 				05A6D8C22340EA740079AF3B /* LightnessPairCollectionViewItem.swift in Sources */,
 				0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */,
@@ -821,6 +837,14 @@
 				0556FA692342761000EB91DB /* Base */,
 			);
 			name = ColorSet.PaletteViewController.xib;
+			sourceTree = "<group>";
+		};
+		0556FA7123427DE500EB91DB /* PaletteColorItem.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0556FA7223427DE500EB91DB /* Base */,
+			);
+			name = PaletteColorItem.xib;
 			sourceTree = "<group>";
 		};
 		05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */ = {

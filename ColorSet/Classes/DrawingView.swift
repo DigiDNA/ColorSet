@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2018 Jean-David Gadina - www.imazing.com
+ * Copyright (c) 2019 Jean-David Gadina - www.xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,19 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Foundation;
+import Cocoa
 
-void ObjCTryCatch( void ( ^ tryBlock )( void ), void ( ^ catchBlock )( NSException * ) );
+public class DrawingView: NSView
+{
+    public var onDraw: ( ( NSRect ) -> Void )?
+    
+    public override func draw( _ rect: NSRect )
+    {
+        self.onDraw?( self.bounds )
+    }
+    
+    public override var isFlipped: Bool
+    {
+        return true
+    }
+}

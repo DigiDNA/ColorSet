@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2018 Jean-David Gadina - www.imazing.com
+ * Copyright (c) 2019 Jean-David Gadina - www.xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,24 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Foundation;
+import Cocoa
+import ColorSetKit
 
-void ObjCTryCatch( void ( ^ tryBlock )( void ), void ( ^ catchBlock )( NSException * ) );
+@objc public class PaletteColorInfo: NSObject
+{
+    @objc public dynamic var colorSet:  ColorSet
+    @objc public dynamic var name:      String
+    @objc public dynamic var colorPair: ColorPair
+    
+    @objc public init?( colorSet: ColorSet, name: String, variants: [ CGFloat ] )
+    {
+        guard let pair = colorSet[ name ] else
+        {
+            return nil
+        }
+        
+        self.colorSet  = colorSet
+        self.name      = name
+        self.colorPair = pair
+    }
+}

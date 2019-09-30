@@ -42,6 +42,10 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         }
         
         NotificationCenter.default.addObserver( self, selector: #selector( windowWillClose( _: ) ), name: NSWindow.willCloseNotification, object: nil )
+        
+        #if DEBUG
+        UserDefaults.standard.register( defaults: [ "NSApplicationCrashOnExceptions" : true ] )
+        #endif
     }
 
     func applicationWillTerminate( _ notification: Notification )

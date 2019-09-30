@@ -23,14 +23,84 @@
  ******************************************************************************/
 
 import Cocoa
+import ColorSetKit
 
 class PaletteViewController: NSViewController
 {
+    @IBOutlet var arrayController: NSArrayController!
+    @IBOutlet var collectionView:  NSCollectionView!
+    
+    @objc private dynamic var supportsDarkMode = false
+    @objc private dynamic var appearanceIndex  = 0
+          private         var observations     = [ NSKeyValueObservation ]()
+    
+    @objc public dynamic var colorSet: ColorSet?
+    
     override var nibName: NSNib.Name?
     {
         return NSNib.Name( NSStringFromClass( type( of: self ) ) )
     }
     
+    override func viewDidLoad()
+    {
+        if #available( macOS 10.14, * )
+        {
+            self.supportsDarkMode = true
+            self.appearanceIndex  = ( NSApp.effectiveAppearance.name == NSAppearance.Name.darkAqua ) ? 1 : 0
+            
+            let o = self.observe( \.appearanceIndex )
+            {
+                [ weak self ] o, c in guard let self = self else { return }
+                
+                NSApp.appearance = ( self.appearanceIndex == 0 ) ? NSAppearance( named: .aqua ) : NSAppearance( named: .darkAqua )
+            }
+            
+            self.observations.append( o )
+        }
+        
+        let o = self.observe( \.colorSet )
+        {
+            [ weak self ] o, c in self?.reload()
+        }
+        
+        self.observations.append( o )
+        
+        self.collectionView.register( PaletteColorItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier( "PaletteColorItem" ) )
+        
+        self.arrayController.sortDescriptors = [ NSSortDescriptor( key: "name", ascending: true ) ]
+        
+        self.reload()
+    }
+    
     public func reload()
-    {}
+    {
+        if let items = self.arrayController.content as? [ Any ]
+        {
+            self.arrayController.remove( contentsOf: items )
+        }
+        
+        guard let set = self.colorSet else
+        {
+            return
+        }
+        
+        for p in set.colors
+        {
+            var variants = [ CGFloat ]()
+            
+            for l in p.value.lightnesses
+            {
+                variants.append( l.lightness1.lightness )
+                variants.append( l.lightness2.lightness )
+            }
+            
+            variants.sort()
+            variants.reverse()
+            
+            if let info = PaletteColorInfo( colorSet: set, name: p.key, variants: variants )
+            {
+                self.arrayController.addObject( info )
+            }
+        }
+    }
 }

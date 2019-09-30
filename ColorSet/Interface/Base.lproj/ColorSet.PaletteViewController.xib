@@ -8,30 +8,83 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PaletteViewController" customModule="ColorSet" customModuleProvider="target">
             <connections>
+                <outlet property="arrayController" destination="NIF-bz-yZo" id="fM1-By-riP"/>
+                <outlet property="collectionView" destination="Wvb-SF-Ze4" id="AID-fw-6ri"/>
                 <outlet property="view" destination="c22-O7-iKe" id="aTU-XF-Vsx"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="654" height="465"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-TI-EqP">
-                    <rect key="frame" x="18" y="217" width="159" height="35"/>
+                    <rect key="frame" x="18" y="410" width="159" height="35"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Color Palette" id="xbJ-E2-aFX">
                         <font key="font" metaFont="systemThin" size="30"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YZr-ib-2Fa">
+                    <rect key="frame" x="530" y="414" width="107" height="25"/>
+                    <popUpButtonCell key="cell" type="push" title="Light Mode" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="DyU-F5-AUt" id="l6J-84-HYV">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" id="DoY-Tb-DFe">
+                            <items>
+                                <menuItem title="Light Mode" state="on" id="DyU-F5-AUt"/>
+                                <menuItem title="Dark Mode" id="7pg-MR-yZc"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedIndex" keyPath="appearanceIndex" id="cOm-cN-MPQ"/>
+                    </connections>
+                </popUpButton>
+                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gb-Td-Ua6">
+                    <rect key="frame" x="20" y="20" width="614" height="382"/>
+                    <clipView key="contentView" drawsBackground="NO" id="uSH-1x-Kb0">
+                        <rect key="frame" x="0.0" y="0.0" width="614" height="382"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView id="Wvb-SF-Ze4">
+                                <rect key="frame" x="0.0" y="0.0" width="614" height="158"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" id="35z-f8-tya">
+                                    <size key="itemSize" width="235" height="150"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <binding destination="NIF-bz-yZo" name="content" keyPath="arrangedObjects" id="Sbp-ha-hu4"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="48A-Pd-T2q">
+                        <rect key="frame" x="0.0" y="366" width="614" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="rsB-l6-m3m">
+                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="4Gb-Td-Ua6" secondAttribute="trailing" constant="20" id="2Jx-Yr-jrm"/>
                 <constraint firstItem="eUV-TI-EqP" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="9YQ-3V-Hh5"/>
+                <constraint firstItem="YZr-ib-2Fa" firstAttribute="centerY" secondItem="eUV-TI-EqP" secondAttribute="centerY" id="ABl-xn-EGz"/>
+                <constraint firstAttribute="bottom" secondItem="4Gb-Td-Ua6" secondAttribute="bottom" constant="20" id="AO3-Nu-4Jg"/>
+                <constraint firstItem="YZr-ib-2Fa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eUV-TI-EqP" secondAttribute="trailing" constant="20" id="Af9-9B-ZWz"/>
                 <constraint firstItem="eUV-TI-EqP" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="bb2-Vp-8RP"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eUV-TI-EqP" secondAttribute="trailing" constant="20" id="ov7-Ci-Omy"/>
+                <constraint firstItem="4Gb-Td-Ua6" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="h7J-d1-epS"/>
+                <constraint firstAttribute="trailing" secondItem="YZr-ib-2Fa" secondAttribute="trailing" constant="20" id="loG-Hr-8KB"/>
+                <constraint firstItem="4Gb-Td-Ua6" firstAttribute="top" secondItem="eUV-TI-EqP" secondAttribute="bottom" constant="8" id="z8Z-P8-lhg"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="223" y="57.5"/>
         </customView>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="NIF-bz-yZo"/>
     </objects>
 </document>

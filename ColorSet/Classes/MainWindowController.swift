@@ -112,7 +112,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 self.selectedColor = nil
                 self.hasVariant    = false
                 
-                self.paletteViewController?.reload()
+                self.paletteViewController?.colorSet = self.generateColorSet()
                 
                 return
             }
@@ -149,7 +149,8 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         self.observations.append( contentsOf: [ o1, o2, o3 ] )
         
-        self.paletteViewController = PaletteViewController()
+        self.paletteViewController           = PaletteViewController()
+        self.paletteViewController?.colorSet = self.generateColorSet()
         
         if let view = self.paletteViewController?.view
         {
@@ -226,6 +227,29 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     public func save( to url: URL )
     {
+        let set = self.generateColorSet()
+        
+        do
+        {
+            try set.writeTo( url: url )
+        }
+        catch let error as NSError
+        {
+            let alert = NSAlert( error: error )
+            
+            guard let window = self.window else
+            {
+                alert.runModal()
+                
+                return
+            }
+            
+            alert.beginSheetModal( for: window, completionHandler: nil )
+        }
+    }
+    
+    public func generateColorSet() -> ColorSet
+    {
         let set = ColorSet()
         
         for color in self.colors
@@ -247,23 +271,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             set.add( color: color.color, variant: color.variant, lightnesses: lightnesses, forName: color.name )
         }
         
-        do
-        {
-            try set.writeTo( url: url )
-        }
-        catch let error as NSError
-        {
-            let alert = NSAlert( error: error )
-            
-            guard let window = self.window else
-            {
-                alert.runModal()
-                
-                return
-            }
-            
-            alert.beginSheetModal( for: window, completionHandler: nil )
-        }
+        return set
     }
     
     @IBAction public func newColor( _ sender: Any? )

@@ -43,8 +43,8 @@ import Cocoa
             
             super.init()
             
-            let o1 = self.observe( \.lightness   ) { [ weak self ] o, c in self?.update() }
-            let o2 = self.observe( \.base?.color ) { [ weak self ] o, c in self?.update() }
+            let o1 = self.observe( \.lightness ) { [ weak self ] o, c in self?.update() }
+            let o2 = self.observe( \.base      ) { [ weak self ] o, c in self?.update() }
             
             self.observations.append( contentsOf: [ o1, o2 ] )
         }

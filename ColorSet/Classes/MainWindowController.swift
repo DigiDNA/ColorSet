@@ -115,6 +115,8 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             
             self.selectedColor = color
             self.hasVariant    = color.variant != nil
+            
+            self.updateLightnesses()
         }
         
         let o2 = self.observe( \.hasVariant, options: .new )
@@ -136,7 +138,21 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             }
         }
         
-        self.observations.append( contentsOf: [ o1, o2 ] )
+        let o3 = self.observe( \.selectedColor?.color )
+        {
+            [ weak self ] o, c in self?.updateLightnesses()
+        }
+        
+        self.observations.append( contentsOf: [ o1, o2, o3 ] )
+    }
+    
+    private func updateLightnesses()
+    {
+        for l in self.lightnessPairsArrayController.content as? [ LightnessPairItem ] ?? []
+        {
+            l.lightness1.base = self.selectedColor
+            l.lightness2.base = self.selectedColor
+        }
     }
     
     @IBAction public func performFindPanelAction( _ sender: Any? )

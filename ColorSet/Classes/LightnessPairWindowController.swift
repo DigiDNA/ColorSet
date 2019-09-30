@@ -32,9 +32,7 @@ class LightnessPairWindowController: NSWindowController
     {
         self.init()
         
-        self.item                = LightnessPairItem( base: base )
-        self.item.lightness1.base = base
-        self.item.lightness2.base = base
+        self.item = LightnessPairItem( base: base )
     }
     
     override var windowNibName: NSNib.Name?

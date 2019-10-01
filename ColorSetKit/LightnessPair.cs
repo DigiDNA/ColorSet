@@ -30,37 +30,24 @@ using System.Windows.Media;
 
 namespace ColorSetKit
 {
-    public partial class ColorPair
+    public partial class LightnessPair
     {
-        public SolidColorBrush Color
+        public LightnessVariant Lightness1
         {
             get;
             set;
         }
 
-        public SolidColorBrush Variant
+        public LightnessVariant Lightness2
         {
             get;
             set;
         }
 
-        public List< LightnessPair > Lightnesses
+        public LightnessPair()
         {
-            get;
-            set;
-        }
-
-        public ColorPair(): this( null )
-        {}
-
-        public ColorPair( SolidColorBrush color ): this( color, null )
-        {}
-
-        public ColorPair( SolidColorBrush color, SolidColorBrush variant )
-        {
-            this.Color       = color;
-            this.Variant     = variant;
-            this.Lightnesses = new List< LightnessPair >();
+            this.Lightness1 = new LightnessVariant();
+            this.Lightness2 = new LightnessVariant();
         }
     }
 }

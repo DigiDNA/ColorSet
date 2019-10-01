@@ -39,7 +39,7 @@ namespace ColorSetKit_Test
             string path  = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ), "Colors.colorset" );
             ColorSet set = new ColorSet( path );
 
-            Assert.IsTrue( set.Count > 0 );
+            Assert.IsTrue( set.Colors.Count > 0 );
         }
 
         [TestMethod]
@@ -49,13 +49,13 @@ namespace ColorSetKit_Test
             Data data    = new Data( path );
             ColorSet set = new ColorSet( data );
 
-            Assert.IsTrue( set.Count > 0 );
+            Assert.IsTrue( set.Colors.Count > 0 );
         }
 
         [TestMethod]
         public void TestShared()
         {
-            Assert.AreEqual( ColorSet.Shared.Count, 2 );
+            Assert.AreEqual( ColorSet.Shared.Colors.Count, 2 );
 
             Assert.IsTrue( ColorSet.Shared[ "NoVariant" ] != null );
             Assert.IsTrue( ColorSet.Shared[ "Variant" ] != null );
@@ -169,7 +169,7 @@ namespace ColorSetKit_Test
 
             set = new ColorSet( set.Data );
             
-            Assert.AreEqual( set.Count, 2 );
+            Assert.AreEqual( set.Colors.Count, 2 );
 
             Assert.IsTrue( set[ "NoVariant" ] != null );
             Assert.IsTrue( set[ "Variant" ] != null );

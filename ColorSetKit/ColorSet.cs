@@ -34,6 +34,8 @@ namespace ColorSetKit
     public partial class ColorSet
     {
         private static readonly ulong  Magic          = 0x434F4C4F52534554;
+        private static readonly uint   Major          = 1;
+        private static readonly uint   Minor          = 2;
         private static ColorSet        SharedInstance = null;
         private static readonly object SharedLock     = new object();
 
@@ -76,7 +78,7 @@ namespace ColorSetKit
             }
         }
         
-        private Dictionary< string, ColorPair > Colors
+        private Dictionary< string, ColorPair > ColorPairs
         {
             get;
             set;
@@ -96,13 +98,23 @@ namespace ColorSetKit
         }
         = new object();
 
-        public int Count
+        public Dictionary< string, ColorPair > Colors
         {
             get
             {
                 lock( this.Lock )
                 {
-                    return this.Colors.Count;
+                    Dictionary< string, ColorPair > colors = new Dictionary< string, ColorPair >();
+
+                    foreach( KeyValuePair< string, ColorPair > p in this.ColorPairs )
+                    {
+                        if( this.ColorNamed( p.Key ) is ColorPair color )
+                        {
+                            colors[ p.Key ] = color;
+                        }
+                    }
+
+                    return colors;
                 }
             }
         }
@@ -127,13 +139,20 @@ namespace ColorSetKit
                 return;
             }
 
-            if( stream.ReadUInt32() == 0 )
+            uint major = stream.ReadUInt32();
+
+            if( major == 0 )
             {
                 return;
             }
 
-            stream.ReadUInt32();
+            uint minor = stream.ReadUInt32();
 
+            if( major > Major || minor > Minor )
+            {
+                return;
+            }
+            
             ulong n = stream.ReadUInt64();
 
             for( ulong i = 0; i < n; i++ )
@@ -155,7 +174,26 @@ namespace ColorSetKit
                     return;
                 }
 
-                this.Add( color, ( hasVariant ) ? variant : null, name );
+                List< LightnessPair > lightnesses = new List< LightnessPair >();
+
+                if( major > 1 || minor > 1 )
+                {
+                    ulong nn = stream.ReadUInt64();
+
+                    for( ulong j = 0; j < nn; j++ )
+                    {
+                        LightnessPair p = new LightnessPair();
+
+                        p.Lightness1.Lightness = stream.ReadDouble();
+                        p.Lightness1.Name      = stream.ReadString() ?? "";
+                        p.Lightness2.Lightness = stream.ReadDouble();
+                        p.Lightness2.Name      = stream.ReadString() ?? "";
+
+                        lightnesses.Add( p );
+                    }
+                }
+
+                this.Add( color, ( hasVariant ) ? variant : null, lightnesses, name );
             }
         }
 
@@ -168,9 +206,9 @@ namespace ColorSetKit
         {
             lock( this.Lock )
             {
-                if( this.Colors.ContainsKey( name ) )
+                if( this.ColorPairs.ContainsKey( name ) )
                 {
-                    return this.Colors[ name ];
+                    return this.ColorPairs[ name ];
                 }
 
                 foreach( ColorSet child in this.Children )
@@ -211,16 +249,26 @@ namespace ColorSetKit
 
         public void Add( SolidColorBrush color, SolidColorBrush variant, string name )
         {
+            this.Add( color, variant, null, name );
+        }
+        
+        public void Set( SolidColorBrush color, SolidColorBrush variant, string name )
+        {
+            this.Set( color, variant, null, name );
+        }
+
+        public void Add( SolidColorBrush color, SolidColorBrush variant, List< LightnessPair > lightnesses, string name )
+        {
             lock( this.Lock )
             {
-                if( this.Colors.ContainsKey( name ) == false )
+                if( this.ColorPairs.ContainsKey( name ) == false )
                 {
-                    this.Set( color, variant, name );
+                    this.Set( color, variant, lightnesses, name );
                 }
             }
         }
         
-        public void Set( SolidColorBrush color, SolidColorBrush variant, string name )
+        public void Set( SolidColorBrush color, SolidColorBrush variant, List< LightnessPair > lightnesses, string name )
         {
             if( name == null )
             {
@@ -229,7 +277,11 @@ namespace ColorSetKit
 
             lock( this.Lock )
             {
-                this.Colors[ name ] = new ColorPair( color, variant );
+                ColorPair p = new ColorPair( color, variant )
+                {
+                    Lightnesses = lightnesses ?? new List< LightnessPair >()
+                };
+                this.ColorPairs[ name ] = p;
             }
         }
 
@@ -237,7 +289,7 @@ namespace ColorSetKit
         {
             get
             {
-                Dictionary< string, ColorPair > colors = this.Colors;
+                Dictionary< string, ColorPair > colors = this.ColorPairs;
                 ColorSetStream                  stream = new ColorSetStream();
                 System.Windows.Media.Color clear       = new System.Windows.Media.Color
                 {
@@ -247,10 +299,10 @@ namespace ColorSetKit
                     A = 0
                 };
 
-                stream += Magic;                     /* COLORSET */
-                stream += ( uint )1;                 /* Major */
-                stream += ( uint )0;                 /* Minor */
-                stream += ( ulong )( colors.Count ); /* Count */
+                stream += Magic;
+                stream += Major;
+                stream += Minor;
+                stream += ( ulong )( colors.Count );
 
                 foreach( KeyValuePair< string, ColorPair > p in colors )
                 {
@@ -258,6 +310,18 @@ namespace ColorSetKit
                     stream += p.Value.Variant != null;
                     stream += p.Value.Color   ?? new SolidColorBrush( clear );
                     stream += p.Value.Variant ?? new SolidColorBrush( clear );
+                    stream += ( ulong )( p.Value.Lightnesses?.Count ?? 0 );
+
+                    foreach( LightnessPair lp in p.Value.Lightnesses )
+                    {
+                        LightnessVariant l1 = lp.Lightness1 ?? new LightnessVariant();
+                        LightnessVariant l2 = lp.Lightness2 ?? new LightnessVariant();
+
+                        stream += l1.Lightness;
+                        stream += l1.Name ?? "";
+                        stream += l2.Lightness;
+                        stream += l2.Name ?? "";
+                    }
                 }
 
                 return stream.Data;

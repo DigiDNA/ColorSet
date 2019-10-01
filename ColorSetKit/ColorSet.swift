@@ -54,6 +54,19 @@ import Cocoa
             }
         }
         
+        #if DEBUG
+        
+        /* For unit tests... */
+        if set == nil, let path = Bundle( identifier: "com.xs-labs.ColorSetKit-Test" )?.path( forResource: "Colors", ofType: "colorset" )
+        {
+            if FileManager.default.fileExists( atPath: path )
+            {
+                set = ColorSet( path: path )
+            }
+        }
+        
+        #endif
+        
         return set ?? ColorSet()
     }()
     

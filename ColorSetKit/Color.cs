@@ -34,6 +34,13 @@ namespace ColorSetKit
     [MarkupExtensionReturnType( typeof( SolidColorBrush ) )]
     public partial class Color: MarkupExtension
     {
+        private struct NameComponents
+        {
+            public string  Name;
+            public double? Lightness;
+            public string  Variant;
+        }
+
         public Color( string name ): this( name, false, null )
         {}
 
@@ -50,19 +57,97 @@ namespace ColorSetKit
             this.Fallback = fallback;
         }
 
-        public override object ProvideValue( IServiceProvider provider )
+        private NameComponents ComponentsForColorName( string name )
         {
-            if( ColorSet.Shared.ColorNamed( this.Name ) is ColorPair pair )
-            {
-                if( this.Variant && pair.Variant != null )
-                {
-                    return pair.Variant;
-                }
+            int index = name.LastIndexOf( '.' );
 
-                return pair.Color ?? this.Fallback;
+            if( index < 0 )
+            {
+                return new NameComponents { Name = name, Lightness = null, Variant = null };
             }
 
-            return this.Fallback;
+            string s1 = name.Substring( 0, index );
+            string s2 = name.Substring( index + 1 );
+
+            if( int.TryParse( s2, out int i ) )
+            {
+                return new NameComponents { Name = s1, Lightness = i / 100.0, Variant = null };
+            }
+
+            return new NameComponents { Name = s1, Lightness = null, Variant = s2 };
+        }
+
+        public override object ProvideValue( IServiceProvider provider )
+        {
+            NameComponents components = this.ComponentsForColorName( this.Name );
+
+            if( !( ColorSet.Shared.ColorNamed( this.Name ) is ColorPair pair ) )
+            {
+                return this.Fallback;
+            }
+
+            ColorExtension.HSLComponents hsl       = pair.Color?.Color.GetHSL() ?? new ColorExtension.HSLComponents { Hue = 0, Saturation = 0, Lightness = 0, Alpha = 0 };
+            double?                      lightness = components.Lightness;
+
+            if( components.Variant is string v )
+            {
+                foreach( LightnessPair lp in pair.Lightnesses )
+                {
+                    if( v == lp.Lightness1.Name )
+                    {
+                        lightness = lp.Lightness1.Lightness;
+
+                        break;
+                    }
+
+                    if( v == lp.Lightness2.Name )
+                    {
+                        lightness = lp.Lightness2.Lightness;
+
+                        break;
+                    }
+                }
+            }
+
+            if( lightness.HasValue && lightness.Value is double l && Math.Abs( hsl.Lightness - l ) > 0.001 )
+            {
+                if( this.Variant )
+                {
+                    bool found = false;
+
+                    foreach( LightnessPair lp in pair.Lightnesses )
+                    {
+                        if( Math.Abs( lp.Lightness1.Lightness - l ) < 0.001 )
+                        {
+                            l     = lp.Lightness2.Lightness;
+                            found = true;
+
+                            break;
+                        }
+                        else if( Math.Abs( lp.Lightness1.Lightness - l ) < 0.001 )
+                        {
+                            l     = lp.Lightness1.Lightness;
+                            found = true;
+
+                            break;
+                        }
+                    }
+
+                    if( found == false )
+                    {
+                        l = 1.0 - l;
+                    }
+                }
+                
+                return ( pair.Color == null ) ? null : new SolidColorBrush( pair.Color.Color.ByChangingLightness( l ) );
+            }
+
+            if( this.Variant && pair.Variant is SolidColorBrush variant )
+            {
+                return variant;
+            }
+
+            return pair.Color;
         }
 
         [ConstructorArgument( "name" )]

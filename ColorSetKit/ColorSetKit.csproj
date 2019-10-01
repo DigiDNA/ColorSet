@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Color.cs" />
+    <Compile Include="ColorExtension.cs" />
     <Compile Include="ColorPair.cs" />
     <Compile Include="ColorSet.cs" />
     <Compile Include="ColorSetStream.cs" />

@@ -80,7 +80,7 @@ class Test: XCTestCase
     
     func testShared()
     {
-        XCTAssertEqual( ColorSet.shared.count, 2 )
+        XCTAssertEqual( ColorSet.shared.colors.count, 2 )
         
         guard let p1 = ColorSet.shared[ "NoVariant" ] else
         {
@@ -182,7 +182,7 @@ class Test: XCTestCase
         
         set = ColorSet( data: set.data ) ?? ColorSet()
         
-        XCTAssertEqual( set.count, 2 )
+        XCTAssertEqual( set.colors.count, 2 )
         
         guard let p1 = set[ "NoVariant" ] else
         {

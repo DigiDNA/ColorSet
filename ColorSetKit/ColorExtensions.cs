@@ -29,7 +29,7 @@ using System.Text;
 
 namespace ColorSetKit
 {
-    public static class ColorExtension
+    public static class ColorExtensions
     {
         private struct HSL
         {
@@ -70,7 +70,7 @@ namespace ColorSetKit
                 R = ( byte )( Math.Floor( rgb.Red   * 255 ) ),
                 G = ( byte )( Math.Floor( rgb.Green * 255 ) ),
                 B = ( byte )( Math.Floor( rgb.Blue  * 255 ) ),
-                A = ( byte )( Math.Floor( alpha     * 255 ) )
+                A = ( byte )( Math.Floor( alpha     * 100 ) )
             };
         }
 

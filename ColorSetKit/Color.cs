@@ -81,13 +81,13 @@ namespace ColorSetKit
         {
             NameComponents components = this.ComponentsForColorName( this.Name );
 
-            if( !( ColorSet.Shared.ColorNamed( this.Name ) is ColorPair pair ) )
+            if( !( ColorSet.Shared.ColorNamed( components.Name ) is ColorPair pair ) )
             {
                 return this.Fallback;
             }
 
-            ColorExtension.HSLComponents hsl       = pair.Color?.Color.GetHSL() ?? new ColorExtension.HSLComponents { Hue = 0, Saturation = 0, Lightness = 0, Alpha = 0 };
-            double?                      lightness = components.Lightness;
+            ColorExtensions.HSLComponents hsl       = pair.Color?.Color.GetHSL() ?? new ColorExtensions.HSLComponents { Hue = 0, Saturation = 0, Lightness = 0, Alpha = 0 };
+            double?                       lightness = components.Lightness;
 
             if( components.Variant is string v )
             {
@@ -139,7 +139,7 @@ namespace ColorSetKit
                     }
                 }
                 
-                return ( pair.Color == null ) ? null : new SolidColorBrush( pair.Color.Color.ByChangingLightness( l ) );
+                return ( pair.Color == null ) ? this.Fallback : new SolidColorBrush( pair.Color.Color.ByChangingLightness( l ) );
             }
 
             if( this.Variant && pair.Variant is SolidColorBrush variant )
@@ -156,7 +156,7 @@ namespace ColorSetKit
             get;
             set;
         }
-
+        
         [ConstructorArgument( "variant" )]
         public bool Variant
         {

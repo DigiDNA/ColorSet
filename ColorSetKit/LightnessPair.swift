@@ -24,8 +24,30 @@
 
 import Cocoa
 
+/**
+ * Represents a pair of lightness variants for a specific color.
+ * 
+ * Lightness means the `L` component in the `HSL` color representation.
+ * 
+ * Lightness variants are used in pairs, making it easy to handle dark
+ * mode for user interfaces.  
+ * Requestting a specific lightness variant for a color will automatically
+ * return the corresponding value in the pair if dark mode is on.
+ * 
+ * - Authors:
+ *      Jean-David Gadina
+ * 
+ * - Seealso: `LightnessVariant`
+ */
 @objc public class LightnessPair: NSObject
 {
+    /**
+     * The first lightness variant.
+     */
     @objc public dynamic var lightness1 = LightnessVariant()
+    
+    /**
+     * The second lightness variant.
+     */
     @objc public dynamic var lightness2 = LightnessVariant()
 }

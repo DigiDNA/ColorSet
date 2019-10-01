@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ColorSetKit  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="ColorSetKit  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">ColorSetKit Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/DigiDNA/ColorSetKit"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">ColorSetKit Reference</a>
+        <img id="carat" src="img/carat.png" />
+        ColorSetKit  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorPair.html">ColorPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ColorSet.html">ColorSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ColorSetStream.html">ColorSetStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LightnessPair.html">LightnessPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LightnessVariant.html">LightnessVariant</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSColor.html">NSColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SStF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SbtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SdtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SftF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_So7NSColorCtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s5UInt8VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt16VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt32VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt64VtF">+=(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='colorset' class='heading'>ColorSet</h1>
+
+<p><a href="https://travis-ci.org/DigiDNA/ColorSet"><img src="https://img.shields.io/travis/DigiDNA/ColorSet.svg?branch=master&style=flat" alt="Build Status"></a>
+<a href="https://coveralls.io/r/DigiDNA/ColorSet?branch=master"><img src="https://img.shields.io/coveralls/DigiDNA/ColorSet.svg?branch=master&style=flat" alt="Coverage Status"></a>
+<a href="https://github.com/DigiDNA/ColorSet/issues"><img src="http://img.shields.io/github/issues/DigiDNA/ColorSet.svg?style=flat" alt="Issues"></a>
+<img src="https://img.shields.io/badge/status-active-brightgreen.svg?style=flat" alt="Status">
+<img src="https://img.shields.io/badge/license-mit-brightgreen.svg?style=flat" alt="License">
+<a href="https://twitter.com/DigiDNA"><img src="https://img.shields.io/badge/contact-@DigiDNA-blue.svg?style=flat" alt="Contact"></a></p>
+<h2 id='about' class='heading'>About</h2>
+
+<p><strong><code><a href="Classes/ColorSet.html">ColorSet</a></code> is a macOS utility and framework allowing developers to manage custom interface colors with ease.</strong></p>
+<h3 id='rationale' class='heading'>Rationale</h3>
+
+<p>As of macOS 10.14 Mojave, Apple introduced a system-wide dark-mode.<br>
+Applications linked with the macOS 10.14 SDK now need to react to system appearance changes.</p>
+
+<p>While built-in AppKit UI elements handle this perfectly, an application often relies on custom controls, custom drawing code, or at last custom colors.</p>
+
+<p>As an example, the following code will perfectly react to the dark mode.<br>
+This is a system color, so everything is handled automatically by AppKit:</p>
+<pre class="highlight plaintext"><code>let color = NSColor.textColor
+</code></pre>
+
+<p>While the following won&rsquo;t change, as the color components are hard-coded:</p>
+<pre class="highlight plaintext"><code> let color = NSColor( deviceRed: 1, green: 0, blue: 0, alpha: 1 )
+</code></pre>
+
+<p>Apple provides a nice solution, relying on Asset Catalog files.<br>
+As of Xcode 10, you can create custom colors in Asset Catalogs, identified by a name, and optionally containing variants for a specific UI theme or device.</p>
+
+<p><strong>Unfortunately, this feature is only available for applications running on macOS 10.13 and later.</strong><br>
+It basically means you&rsquo;ll have to drop support for macOS 10.12 and below.</p>
+
+<p>If you need to support macOS 10.12 or below, <strong>Apple&rsquo;s official recommendation (as seen during WWDC18) is to actually hard-code colors using conditional platform-detection code</strong>.</p>
+
+<p><strong>So here comes <code><a href="Classes/ColorSet.html">ColorSet</a></code>.</strong></p>
+<h3 id='colorset-amp-colorsetkit' class='heading'>ColorSet &amp; ColorSetKit</h3>
+
+<p><code><a href="Classes/ColorSet.html">ColorSet</a></code> is both a macOS application and a macOS Swift framework, <code>ColorSetKit</code>.</p>
+
+<p>The application lets you create files containing colors and variants, just as an Asset Catalog File, while the framework allows you, in your application, to retrieve colors from the <code>.colorset</code> file using names, just like the macOS 10.13 SDK.</p>
+<h3 id='creating-a-code-colorset-code-file' class='heading'>Creating a <code>.colorset</code> file</h3>
+
+<p>The application lets you create as many colors as you want, each with a unique name.<br>
+For each color, an optional dark variant can be set:</p>
+
+<p><img src="Assets/ColorSet.png" alt="ColorSet" title="ColorSet"></p>
+<h3 id='using-colorsetkit' class='heading'>Using ColorSetKit</h3>
+
+<p>By default, <code>ColorSetKit</code> will look for a file named <code>Colors.colorset</code> in your application&rsquo;s bundle.</p>
+
+<p>Colors can be retrieved using a custom method on <code>NSColor</code>:</p>
+<pre class="highlight plaintext"><code>let color = NSColor.colorFromColorSet( "MyCustomColor" )
+</code></pre>
+
+<p>By themselves, colors won&rsquo;t react to UI theme changes.<br>
+But the <code>colorFromColorSet</code> method will return the correct color, based on the current UI theme.</p>
+
+<p>This means that if you use custom drawing code, you shouldn&rsquo;t cache color objects, but instead call <code>colorFromColorSet</code> directly from your drawing code.<br>
+This way, the correct color will be used each time your view is redrawn (which happens automatically when the UI theme changes).</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p><strong><code><a href="Classes/ColorSet.html">ColorSet</a></code> is released under the terms of the MIT license.</strong></p>
+<h2 id='repository-infos' class='heading'>Repository Infos</h2>
+<pre class="highlight plaintext"><code>Owner:   DigiDNA
+Web:     www.digidna.net
+Blog:    imazing.com/blog
+Twitter: @DigiDNA
+GitHub:  github.com/DigiDNA
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>(c) 2019 DigiDNA - <a class="link" href="http://www.imazing.com" target="_blank" rel="external">www.imazing.com</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

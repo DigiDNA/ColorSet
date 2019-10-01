@@ -20,12 +20,50 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- ******************************************************************************/
+******************************************************************************/
 
 import Cocoa
 
+/**
+ * Extension for `NSColor` to support colorset files.
+ * 
+ * - Authors:
+ *      Jean-David Gadina
+ */
 @objc public extension NSColor
 {
+    /**
+     * Gets a color from the shared `ColorSet` instance.
+     * 
+     * This methods will return the correct color, depending on the current
+     * user interface mode.  
+     * If the requested color is found and has a dark mode variant, and if
+     * dark mode is on, the variant will be returned instead of the main color.
+     * 
+     * For this reason, you should never store color objects returned by this
+     * method, but instead ask for the color each time you need it (eg. in
+     * drawing code).  
+     * This is because the user interface mode may change while the application
+     * is running. As all views will be redrawned, this is to ensure the correct
+     * color is used.
+     * 
+     * Lightness variants may be requested by adding a `.` (dot) and a lightness
+     * value from `0` to `100` in the name, such as `SomeColor.75`.  
+     * This will return the base color, with the lightness changed to 75%.  
+     * Note that the lightness will be automatically reversed in dark mode
+     * (if the lightness value coresponds to a predefined lightness pair, the
+     * corresponding lightness will be used.
+     * 
+     * It's also possible to refer to lightness variants using names, if custom
+     * names were added, such as `SomeColor.SomeVariant`.
+     * 
+     * Standard Cocoa colors can also be retrieved using the `NS` prefix,
+     * such as `NSSecondaryLabelColor` for `NSColor.secondaryLabelColor`.
+     * 
+     * - parameter name:    The name of the color to retrieve.
+     * 
+     * - returns:   The color object, if found.
+     */
     @objc class func from( colorSet name: String ) -> NSColor?
     {
         if name.hasPrefix( "NS" )
@@ -116,24 +154,17 @@ import Cocoa
         return pair.color
     }
     
-    @nonobjc private class func componentsForColorName( _ name: String ) -> ( name: String, lightness: CGFloat?, variant: String? )
-    {
-        guard let r = name.range( of: ".", options: .backwards ) else
-        {
-            return ( name: name, lightness: nil, variant: nil )
-        }
-        
-        let s1 = String( name[ name.index( name.startIndex, offsetBy: 0 ) ..< name.index( r.lowerBound, offsetBy: 0 ) ] )
-        let s2 = String( name[ name.index( r.lowerBound, offsetBy: 1 )... ] )
-        
-        if let i = Int( s2 )
-        {
-            return ( name: s1, lightness: CGFloat( i ) / 100.0, variant: s2 )
-        }
-        
-        return ( name: s1, lightness: nil, variant: s2 )
-    }
-    
+    /**
+     * Creates a color from `HSL` components.
+     * 
+     * Note that the `HSL` values will be converted to `RGB`.  
+     * The color object will be created using `sRGB` values.
+     * 
+     * - parameter hue:         The hue component - `0` to `1`.
+     * - parameter saturation:  The saturation component - `0` to `1`.
+     * - parameter lightness:   The lightness component - `0` to `1`.
+     * - parameter alpha:       The alpha component - `0` to `1`.
+     */
     @objc convenience init( hue: CGFloat, saturation: CGFloat, lightness: CGFloat, alpha: CGFloat )
     {
         let rgb = NSColor.hslToRGB( hue, saturation, lightness )
@@ -141,11 +172,45 @@ import Cocoa
         self.init( srgbRed: rgb.0, green: rgb.1, blue: rgb.2, alpha: alpha )
     }
     
+    /**
+     * Finds the best text color for a specific background color, to
+     * ensure a good contrast ration between the text and the background
+     * color.
+     * 
+     * Note that the returned text color will either be black or white,
+     * depending on the background color.
+     * 
+     * - parameter background:  The background color
+     * 
+     * - returns:   A suitable text color for the background color.
+     * 
+     * - Seealso: `bestTextColorForBackgroundColor(_:lightTextColor:darkTextColor:)`
+     */
     @objc class func bestTextColorForBackgroundColor( _ background: NSColor ) -> NSColor
     {
         return NSColor.bestTextColorForBackgroundColor( background, lightTextColor: NSColor.white, darkTextColor: NSColor.black )
     }
     
+    /**
+     * Finds the best text color for a specific background color, to
+     * ensure a good contrast ration between the text and the background
+     * color.
+     * 
+     * The caller is responsible for passing two alternative text colors.  
+     * The light one will be choosen on dark backgrounds, while the dark one
+     * will be chosen on light backgrounds.
+     * 
+     * In order to ensure a good contrast ratio, these two colors should be
+     * close to black and white.
+     * 
+     * - parameter background:      The background color
+     * - parameter lightTextColor:  The light text color (for use on dark backgrounds).
+     * - parameter darkTextColor:   The dark text color (for use on light backgrounds).
+     * 
+     * - returns:   Depending on the background color, either the `lightTextColor` or the `darkTextColor` parameter.
+     * 
+     * - Seealso: `bestTextColorForBackgroundColor(_:)`
+     */
     @objc class func bestTextColorForBackgroundColor( _ background: NSColor, lightTextColor: NSColor, darkTextColor: NSColor ) -> NSColor
     {
         guard var rgb = background.usingColorSpace( .sRGB )?.rgb() else
@@ -162,6 +227,9 @@ import Cocoa
         return ( contrast > 150 ) ? darkTextColor : lightTextColor
     }
     
+    /**
+     * Gets the color as an RGB hexadecimal string, prefixed with `#`.
+     */
     @objc var hexString: String
     {
         let rgb = self.rgb()
@@ -169,6 +237,14 @@ import Cocoa
         return String( format: "#%02X%02X%02X", Int( rgb.red * 255 ), Int( rgb.green * 255 ), Int( rgb.blue * 255 ) )
     }
     
+    /**
+     * Gets the `HSL` components of the color.
+     * 
+     * - parameter hue:         Upon return, contains the hue component of the color object - `0` to `1`.
+     * - parameter saturation:  Upon return, contains the saturation component of the color object - `0` to `1`.
+     * - parameter lightness:   Upon return, contains the lightness component of the color object - `0` to `1`.
+     * - parameter alpha:       Upon return, contains the alphas component of the color object - `0` to `1`.
+     */
     @objc func getHue( _ hue: UnsafeMutablePointer< CGFloat >?, saturation: UnsafeMutablePointer< CGFloat >?, lightness: UnsafeMutablePointer< CGFloat >?, alpha: UnsafeMutablePointer< CGFloat >? )
     {
         var r: CGFloat = 0.0
@@ -186,6 +262,11 @@ import Cocoa
         alpha?.pointee      = a
     }
     
+    /**
+     * Gets the `RGB` components of the color as a tuple.
+     * 
+     * - returns:   A tuple with the `RGB` components.
+     */
     @nonobjc func rgb() -> ( red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat )
     {
         var r: CGFloat = 0.0
@@ -198,6 +279,11 @@ import Cocoa
         return ( red: r, green: g, blue: b, alpha: a )
     }
     
+    /**
+     * Gets the `HSB` components of the color as a tuple.
+     * 
+     * - returns:   A tuple with the `HSB` components.
+     */
     @nonobjc func hsb() -> ( hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat )
     {
         var h: CGFloat = 0.0
@@ -210,6 +296,11 @@ import Cocoa
         return ( hue: h, saturation: s, brightness: b, alpha: a )
     }
     
+    /**
+     * Gets the `HSL` components of the color as a tuple.
+     * 
+     * - returns:   A tuple with the `HSL` components.
+     */
     @nonobjc func hsl() -> ( hue: CGFloat, saturation: CGFloat, lightness: CGFloat, alpha: CGFloat )
     {
         var h: CGFloat = 0.0
@@ -222,6 +313,12 @@ import Cocoa
         return ( hue: h, saturation: s, lightness: l, alpha: a )
     }
     
+    /**
+     * Creates a new color by modifying the hue components of the `HSL`
+     * representation.
+     * 
+     * - returns:   The new color
+     */
     @objc func byChangingHue( _ h: CGFloat ) -> NSColor
     {
         var r: CGFloat = 0.0
@@ -236,6 +333,12 @@ import Cocoa
         return NSColor( hue: h, saturation: hsl.1, lightness: hsl.2, alpha: a )
     }
     
+    /**
+     * Creates a new color by modifying the saturation components of the `HSL`
+     * representation.
+     * 
+     * - returns:   The new color
+     */
     @objc func byChangingSaturation( _ s: CGFloat ) -> NSColor
     {
         var r: CGFloat = 0.0
@@ -250,6 +353,12 @@ import Cocoa
         return NSColor( hue: hsl.0, saturation: s, lightness: hsl.2, alpha: a )
     }
     
+    /**
+     * Creates a new color by modifying the lightness components of the `HSL`
+     * representation.
+     * 
+     * - returns:   The new color
+     */
     @objc func byChangingLightness( _ l: CGFloat ) -> NSColor
     {
         var r: CGFloat = 0.0
@@ -262,6 +371,24 @@ import Cocoa
         let hsl = NSColor.rgbToHSL( r, g, b )
         
         return NSColor( hue: hsl.0, saturation: hsl.1, lightness: l, alpha: a )
+    }
+    
+    @nonobjc private class func componentsForColorName( _ name: String ) -> ( name: String, lightness: CGFloat?, variant: String? )
+    {
+        guard let r = name.range( of: ".", options: .backwards ) else
+        {
+            return ( name: name, lightness: nil, variant: nil )
+        }
+        
+        let s1 = String( name[ name.index( name.startIndex, offsetBy: 0 ) ..< name.index( r.lowerBound, offsetBy: 0 ) ] )
+        let s2 = String( name[ name.index( r.lowerBound, offsetBy: 1 )... ] )
+        
+        if let i = Int( s2 )
+        {
+            return ( name: s1, lightness: CGFloat( i ) / 100.0, variant: s2 )
+        }
+        
+        return ( name: s1, lightness: nil, variant: s2 )
     }
     
     @nonobjc private class func hslToRGB( _ h: CGFloat, _ s: CGFloat, _ l: CGFloat ) -> ( CGFloat, CGFloat, CGFloat )

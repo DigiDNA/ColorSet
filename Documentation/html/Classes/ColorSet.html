@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ColorSet Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ColorSet" class="dashAnchor"></a>
+    <a title="ColorSet Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ColorSetKit Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/DigiDNA/ColorSetKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ColorSetKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ColorSet Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPair.html">ColorPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorSet.html">ColorSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorSetStream.html">ColorSetStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightnessPair.html">LightnessPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightnessVariant.html">LightnessVariant</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSColor.html">NSColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SStF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SbtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SdtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SftF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_So7NSColorCtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s5UInt8VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt16VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt32VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt64VtF">+=(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ColorSet</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">ColorSet</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a <code>colorset</code> file.</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    Jean-David Gadina
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB0C6sharedACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB0C6sharedACvpZ">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the shared (main) instance for the running application.</p>
+
+<p>If the application&rsquo;s bundle contains a file named <code>Colors.colorset</code>,
+this file will be automatically loaded into the shared instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">ColorSet</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB0C10colorPairsSDySSAA0A4PairCGvp"></a>
+                    <a name="//apple_ref/swift/Property/colorPairs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB0C10colorPairsSDySSAA0A4PairCGvp">colorPairs</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The dictionary of color pairs contained in the colorset.</p>
+
+<p>This property contains only the color pairs defined in this instance,
+not including colors defined in child colorsets.<br>
+To get all colors, please use the <code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(py)colors">colors</a></code> property instead.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(py)colors">colors</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">colorPairs</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Classes/ColorPair.html">ColorPair</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(py)colors"></a>
+                    <a name="//apple_ref/swift/Property/colors" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(py)colors">colors</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The dictionary of color pairs contained in the colorset, including
+colors in child colorsets, if any.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">colors</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Classes/ColorPair.html">ColorPair</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes an empty colorset object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithPath:"></a>
+                    <a name="//apple_ref/swift/Method/init(path:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithPath:">init(path:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a colorset object from a file.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithUrl:">init(url:)</a></code></p>
+
+</div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithData:">init(data:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file&rsquo;s path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithUrl:"></a>
+                    <a name="//apple_ref/swift/Method/init(url:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithUrl:">init(url:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a colorset object from a file.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithData:">init(data:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file&rsquo;s URL.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithData:"></a>
+                    <a name="//apple_ref/swift/Method/init(data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)initWithData:">init(data:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a colorset object from data.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code>init(data:)</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The colorset data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB0CyAA0A4PairCSgSScip"></a>
+                    <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB0CyAA0A4PairCSgSScip">subscript(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a named color from the colorset.
+ If the color name is not found in the colorset, it will be searched in
+ child colorsets, if any.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)colorWithName:">colorWith(name:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ColorPair.html">ColorPair</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The <code><a href="../Classes/ColorPair.html">ColorPair</a></code> object corresponding to the name, or <code>nil</code> if it&rsquo;s not found.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)useAccentColorForColorWithName:"></a>
+                    <a name="//apple_ref/swift/Method/useAccentColorForColor(name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)useAccentColorForColorWithName:">useAccentColorForColor(name:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Substitutes a specific color with the system&rsquo;s accent color.</p>
+
+<p>On macOS 10.14 and later, this method allows you to use the system&rsquo;s
+accent color instead of a specific color contained in the colorset.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">useAccentColorForColor</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the color for which the system&rsquo;s accent color will be substituded.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)colorWithName:"></a>
+                    <a name="//apple_ref/swift/Method/colorWith(name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)colorWithName:">colorWith(name:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a named color from the colorset.
+If the color name is not found in the colorset, it will be searched in
+child colorsets, if any.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">colorWith</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ColorPair.html">ColorPair</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The <code><a href="../Classes/ColorPair.html">ColorPair</a></code> object corresponding to the name, or <code>nil</code> if it&rsquo;s not found.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)addChild:"></a>
+                    <a name="//apple_ref/swift/Method/add(child:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addChild:">add(child:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a child colorset.</p>
+
+<p>If a specific color is not found in the parnet colorset, it will be
+searched in the children.<br>
+This allows you to combine multiple colorsets into a single one
+(usually the main/shared instance).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">addChild</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">ColorSet</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The colorset to add as a child.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:forName:"></a>
+                    <a name="//apple_ref/swift/Method/add(color:forName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:forName:">add(color:forName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a color to the colorset.<br>
+The color will be only added if no color exists with the same name.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:forName:">set(color:forName:)</a></code></p>
+
+</div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:forName:">add(color:variant:forName:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">addColor</span><span class="p">:</span><span class="nv">forName</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="n">forName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The main/primary color.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:forName:"></a>
+                    <a name="//apple_ref/swift/Method/set(color:forName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:forName:">set(color:forName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a color to the colorset.<br>
+If a color already exists with the same name, it will be replaced by
+the new one.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:forName:">add(color:forName:)</a></code></p>
+
+</div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:forName:">set(color:variant:forName:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">setColor</span><span class="p">:</span><span class="nv">forName</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="n">forName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The main/primary color.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:forName:"></a>
+                    <a name="//apple_ref/swift/Method/add(color:variant:forName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:forName:">add(color:variant:forName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a color to the colorset.<br>
+The color will be only added if no color exists with the same name.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:forName:">set(color:variant:forName:)</a></code></p>
+
+</div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:lightnesses:forName:">add(color:variant:lightnesses:forName:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">addColor</span><span class="p">:</span><span class="nv">variant</span><span class="p">:</span><span class="nv">forName</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">?,</span> <span class="n">forName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The main/primary color.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>variant</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional variant for the dark mode.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name. </p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:forName:"></a>
+                    <a name="//apple_ref/swift/Method/set(color:variant:forName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:forName:">set(color:variant:forName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a color to the colorset.<br>
+If a color already exists with the same name, it will be replaced by
+the new one.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:forName:">add(color:variant:forName:)</a></code></p>
+
+</div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:lightnesses:forName:">set(color:variant:lightnesses:forName:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">setColor</span><span class="p">:</span><span class="nv">variant</span><span class="p">:</span><span class="nv">forName</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">?,</span> <span class="n">forName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The main/primary color.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>variant</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional variant for the dark mode.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:lightnesses:forName:"></a>
+                    <a name="//apple_ref/swift/Method/add(color:variant:lightnesses:forName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)addColor:variant:lightnesses:forName:">add(color:variant:lightnesses:forName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a color to the colorset.<br>
+The color will be only added if no color exists with the same name.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ColorSet.html#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:lightnesses:forName:">set(color:variant:lightnesses:forName:)</a></code></p>
+
+</div>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/LightnessPair.html">LightnessPair</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">addColor</span><span class="p">:</span><span class="nv">variant</span><span class="p">:</span><span class="nv">lightnesses</span><span class="p">:</span><span class="nv">forName</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">?,</span> <span class="nv">lightnesses</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/LightnessPair.html">LightnessPair</a></span><span class="p">],</span> <span class="n">forName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The main/primary color.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>variant</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional variant for the dark mode.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lightnesses</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code><a href="../Classes/LightnessPair.html">LightnessPair</a></code>. Can be empty.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color&rsquo;s name. </p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:lightnesses:forName:"></a>
+                    <a name="//apple_ref/swift/Method/set(color:variant:lightnesses:forName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)setColor:variant:lightnesses:forName:">set(color:variant:lightnesses:forName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a color to the colorset.<br>
+If a color already exists with the same name, it will be replaced by
+the new one.    </p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/LightnessPair.html">LightnessPair</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">setColor</span><span class="p">:</span><span class="nv">variant</span><span class="p">:</span><span class="nv">lightnesses</span><span class="p">:</span><span class="nv">forName</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">?,</span> <span class="nv">lightnesses</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/LightnessPair.html">LightnessPair</a></span><span class="p">],</span> <span class="n">forName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(py)data"></a>
+                    <a name="//apple_ref/swift/Property/data" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(py)data">data</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generates binary data representing the colorset.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSet(im)writeToUrl:error:"></a>
+                    <a name="//apple_ref/swift/Method/writeTo(url:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSet(im)writeToUrl:error:">writeTo(url:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Writes the colorset to a file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">writeTo</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL at which to write the colorset file.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>(c) 2019 DigiDNA - <a class="link" href="http://www.imazing.com" target="_blank" rel="external">www.imazing.com</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

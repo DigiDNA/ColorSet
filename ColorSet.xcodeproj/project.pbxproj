@@ -437,6 +437,23 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
+/* Begin PBXLegacyTarget section */
+		0556FA752343510900EB91DB /* ColorSetKit-Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "";
+			buildConfigurationList = 0556FA782343510900EB91DB /* Build configuration list for PBXLegacyTarget "ColorSetKit-Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = Documentation;
+			dependencies = (
+			);
+			name = "ColorSetKit-Documentation";
+			passBuildSettingsInEnvironment = 1;
+			productName = "ColorSetKit-Documentation";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		0543AE6120DC33BC00284E99 /* ColorSet */ = {
 			isa = PBXNativeTarget;
@@ -516,6 +533,9 @@
 							};
 						};
 					};
+					0556FA752343510900EB91DB = {
+						CreatedOnToolsVersion = 11.0;
+					};
 					057DC44A22B1492200BA6727 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -541,6 +561,7 @@
 				0543AE6120DC33BC00284E99 /* ColorSet */,
 				05CD4AB920ED7CD100DBDE99 /* ColorSetKit */,
 				057DC44A22B1492200BA6727 /* ColorSetKit-Test */,
+				0556FA752343510900EB91DB /* ColorSetKit-Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -778,6 +799,18 @@
 			};
 			name = Release;
 		};
+		0556FA762343510900EB91DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		0556FA772343510900EB91DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
 		057DC45322B1492200BA6727 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -880,6 +913,15 @@
 			buildConfigurations = (
 				0543AE7120DC33BD00284E99 /* Debug */,
 				0543AE7220DC33BD00284E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0556FA782343510900EB91DB /* Build configuration list for PBXLegacyTarget "ColorSetKit-Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0556FA762343510900EB91DB /* Debug */,
+				0556FA772343510900EB91DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

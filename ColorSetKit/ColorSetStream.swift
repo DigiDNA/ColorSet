@@ -24,22 +24,45 @@
 
 import Cocoa
 
+/**
+ * Represents a binary data stream for `colorset` files.  
+ * Note that stream objects are thread-safe.
+ * 
+ * - Authors:
+ *      Jean-David Gadina
+ */
 @objc public class ColorSetStream: NSObject
 {
+    /**
+     * The binary data contained in the stream.
+     */
     @objc public private( set ) dynamic var data: Data
     
     private var pos: size_t = 0
     
+    /**
+     * Default convenience initializer.
+     */
     @objc public convenience override init()
     {
         self.init( data: nil )
     }
     
+    /**
+     * Designated initializer.
+     * 
+     * - parameter data: The data to use as stream. 
+     */
     @objc public init( data: Data? )
     {
         self.data = data ?? Data()
     }
     
+    /**
+     * Appends a string object to the stream.
+     * 
+     * - parameter string:  The string object to append. 
+     */
     @objc( appendString: )
     public func append( string: String )
     {
@@ -56,6 +79,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a color object to the stream.
+     * 
+     * - parameter color:   The color object to append. 
+     */
     @objc( appendColor: )
     public func append( color: NSColor )
     {
@@ -80,6 +108,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt8` value to the stream.
+     * 
+     * - parameter uInt8:   The `UInt8` value to append. 
+     */
     @objc( appendUInt8: )
     public func append( uInt8: UInt8 )
     {
@@ -91,6 +124,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt16` value to the stream.
+     * 
+     * - parameter uInt16:  The `UInt16` value to append. 
+     */
     @objc( appendUInt16: )
     public func append( uInt16: UInt16 )
     {
@@ -102,6 +140,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt32` value to the stream.
+     * 
+     * - parameter uInt32:  The `UInt32` value to append. 
+     */
     @objc( appendUInt32: )
     public func append( uInt32: UInt32 )
     {
@@ -113,6 +156,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt64` value to the stream.
+     * 
+     * - parameter uInt64:  The `UInt64` value to append. 
+     */
     @objc( appendUInt64: )
     public func append( uInt64: UInt64 )
     {
@@ -124,6 +172,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a float value to the stream.
+     * 
+     * - parameter float:   The float value to append. 
+     */
     @objc( appendFloat: )
     public func append( float: Float )
     {
@@ -135,6 +188,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a double value to the stream.
+     * 
+     * - parameter double:  The double value to append. 
+     */
     @objc( appendDouble: )
     public func append( double: Double )
     {
@@ -146,6 +204,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a boolean value to the stream.
+     * 
+     * - parameter bool:    The boolean value to append. 
+     */
     @objc( appendBool: )
     public func append( bool: Bool )
     {
@@ -155,6 +218,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt8` value to the stream.
+     * 
+     * - parameter uInt8:   The `UInt8` value to append. 
+     */
     public func append( value: UInt8 )
     {
         self.synchronized
@@ -163,6 +231,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt16` value to the stream.
+     * 
+     * - parameter uInt16:  The `UInt16` value to append. 
+     */
     public func append( value: UInt16 )
     {
         self.synchronized
@@ -171,6 +244,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt32` value to the stream.
+     * 
+     * - parameter uInt32:  The `UInt32` value to append. 
+     */
     public func append( value: UInt32 )
     {
         self.synchronized
@@ -179,6 +257,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a `UInt64` value to the stream.
+     * 
+     * - parameter uInt64:  The `UInt64` value to append. 
+     */
     public func append( value: UInt64 )
     {
         self.synchronized
@@ -187,6 +270,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a float value to the stream.
+     * 
+     * - parameter float:   The float value to append. 
+     */
     public func append( value: Float )
     {
         self.synchronized
@@ -195,6 +283,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a double value to the stream.
+     * 
+     * - parameter double:  The double value to append. 
+     */
     public func append( value: Double )
     {
         self.synchronized
@@ -203,6 +296,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Appends a boolean value to the stream.
+     * 
+     * - parameter bool:    The boolean value to append. 
+     */
     public func append( value: Bool )
     {
         self.synchronized
@@ -211,6 +309,13 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a string object from the stream at the current position.  
+     * If the stream has not enough data available or if there is no valid
+     * string, `nil` will be returned.
+     * 
+     * - returns:   An optional string object.
+     */
     @objc public func readString() -> String?
     {
         return self.synchronized
@@ -246,6 +351,13 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a color object from the stream at the current position.  
+     * If the stream has not enough data available or if there is no valid
+     * color, `nil` will be returned.
+     * 
+     * - returns:   An optional color object.
+     */
     @objc public func readColor() -> NSColor?
     {
         return self.synchronized
@@ -276,6 +388,13 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads data from the stream at the current position.
+     * 
+     * - parameter length:  THe number of bytes to read.
+     * 
+     * - returns:   A data object or nil if the stream has not enough data available.
+     */
     @objc public func readData( ofLength length: size_t ) -> Data?
     {
         return self.synchronized
@@ -291,6 +410,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a `UInt8` value from the stream at the current position.  
+     * If the stream has not enough data available, `0` will be returned.
+     * 
+     * - returns:   A `UInt8` value.
+     */
     @objc public func readUInt8() -> UInt8
     {
         return self.synchronized
@@ -306,6 +431,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a `UInt16` value from the stream at the current position.  
+     * If the stream has not enough data available, `0` will be returned.
+     * 
+     * - returns:   A `UInt16` value.
+     */
     @objc public func readUInt16() -> UInt16
     {
         return self.synchronized
@@ -321,6 +452,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a `UInt32` value from the stream at the current position.  
+     * If the stream has not enough data available, `0` will be returned.
+     * 
+     * - returns:   A `UInt32` value.
+     */
     @objc public func readUInt32() -> UInt32
     {
         return self.synchronized
@@ -336,6 +473,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a `UInt64` value from the stream at the current position.  
+     * If the stream has not enough data available, `0` will be returned.
+     * 
+     * - returns:   A `UInt64` value.
+     */
     @objc public func readUInt64() -> UInt64
     {
         return self.synchronized
@@ -351,6 +494,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a float value from the stream at the current position.  
+     * If the stream has not enough data available, `0` will be returned.
+     * 
+     * - returns:   A float value.
+     */
     @objc public func readFloat() -> Float
     {
         return self.synchronized
@@ -366,6 +515,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a double value from the stream at the current position.  
+     * If the stream has not enough data available, `0` will be returned.
+     * 
+     * - returns:   A double value.
+     */
     @objc public func readDouble() -> Double
     {
         return self.synchronized
@@ -381,6 +536,12 @@ import Cocoa
         }
     }
     
+    /**
+     * Reads a boolean value from the stream at the current position.  
+     * If the stream has not enough data available, `false` will be returned.
+     * 
+     * - returns:   A boolean value.
+     */
     @objc public func readBool() -> Bool
     {
         return self.synchronized
@@ -418,46 +579,100 @@ import Cocoa
     }
 }
 
+/**
+ * Appends a string object to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The string object to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: String )
 {
     lhs.append( string: rhs )
 }
 
+/**
+ * Appends a color object to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The color object to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: NSColor )
 {
     lhs.append( color: rhs )
 }
 
+/**
+ * Appends a `UInt8` value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The `UInt8` value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: UInt8 )
 {
     lhs.append( value: rhs )
 }
 
+/**
+ * Appends a `UInt16` value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The `UInt16` value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: UInt16 )
 {
     lhs.append( value: rhs )
 }
 
+/**
+ * Appends a `UInt32` value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The `UInt32` value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: UInt32 )
 {
     lhs.append( value: rhs )
 }
 
+/**
+ * Appends a `UInt64` value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The `UInt64` value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: UInt64 )
 {
     lhs.append( value: rhs )
 }
 
+/**
+ * Appends a float value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The float value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: Float )
 {
     lhs.append( value: rhs )
 }
 
+/**
+ * Appends a double value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The double value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: Double )
 {
     lhs.append( value: rhs )
 }
 
+/**
+ * Appends a boolean value to a stream.
+ * 
+ * - parameter lhs: The stream object.
+ * - parameter rhs: The boolean value to append. 
+ */
 public func +=( lhs: ColorSetStream, rhs: Bool )
 {
     lhs.append( value: rhs )

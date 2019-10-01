@@ -24,8 +24,23 @@
 
 import Cocoa
 
+/**
+ * Represents a lightness variant for a specific color.
+ * 
+ * Lightness means the `L` component in the `HSL` color representation.
+ * 
+ * - Authors:
+ *      Jean-David Gadina
+ */
 @objc public class LightnessVariant: NSObject
 {
+    /**
+     * The lightness value - `0` to `1`.
+     */
     @objc public dynamic var lightness: CGFloat = 0
-    @objc public dynamic var name:      String  = ""
+    
+    /**
+     * An optional name for the lightness variant.
+     */
+    @objc public dynamic var name: String  = ""
 }

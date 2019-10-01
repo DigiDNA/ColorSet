@@ -24,12 +24,24 @@
 
 import Cocoa
 
+/**
+ * Represents a `colorset` file.
+ * 
+ * - Authors:
+ *      Jean-David Gadina
+ */
 @objc public class ColorSet: NSObject
 {
     private static let magic: UInt64 = 0x434F4C4F52534554
     private static let major: UInt32 = 1
     private static let minor: UInt32 = 2
     
+    /**
+     * Returns the shared (main) instance for the running application.
+     * 
+     * If the application's bundle contains a file named `Colors.colorset`,
+     * this file will be automatically loaded into the shared instance.
+     */
     public static var shared: ColorSet =
     {
         var set: ColorSet?
@@ -42,25 +54,26 @@ import Cocoa
             }
         }
         
-        #if DEBUG
-        
-        if set == nil, let path = Bundle( identifier: "com.xs-labs.ColorSetKit-Test" )?.path( forResource: "Colors", ofType: "colorset" )
-        {
-            if FileManager.default.fileExists( atPath: path )
-            {
-                set = ColorSet( path: path )
-            }
-        }
-        
-        #endif
-        
         return set ?? ColorSet()
     }()
     
+    /**
+     * The dictionary of color pairs contained in the colorset.
+     * 
+     * This property contains only the color pairs defined in this instance,
+     * not including colors defined in child colorsets.  
+     * To get all colors, please use the `colors` property instead.
+     * 
+     * - Seealso: `colors`
+     */
     public private( set ) var colorPairs  = [ String : ColorPair ]()
     private               var children    = [ ColorSet ]()
     private               var accentNames = [ String ]()
     
+    /**
+     * The dictionary of color pairs contained in the colorset, including
+     * colors in child colorsets, if any.
+     */
     @objc public var colors: [ String : ColorPair ]
     {
         return self.synchronized
@@ -79,22 +92,32 @@ import Cocoa
         }
     }
     
-    @objc public var count: Int
-    {
-        return self.synchronized
-        {
-            return self.colorPairs.count
-        }
-    }
-    
+    /**
+     * Initializes an empty colorset object.
+     */
     @objc public override init()
     {}
     
+    /**
+     * Initializes a colorset object from a file.
+     * 
+     * - parameter path:    The file's path.
+     * 
+     * - Seealso: `init(url:)`
+     * - Seealso: `init(data:)` 
+     */
     @objc public convenience init?( path: String )
     {
         self.init( url: URL.init( fileURLWithPath: path ) )
     }
     
+    /**
+     * Initializes a colorset object from a file.
+     * 
+     * - parameter url: The file's URL.
+     * 
+     * - Seealso: `init(data:)`  
+     */
     @objc public convenience init?( url: URL )
     {
         guard let data = try? Data( contentsOf: url ) else
@@ -105,6 +128,13 @@ import Cocoa
         self.init( data: data )
     }
     
+    /**
+     * Initializes a colorset object from data.
+     * 
+     * - parameter data: The colorset data.
+     * 
+     * - Seealso: `init(data:)`  
+     */
     @objc public init?( data: Data )
     {
         if data.count == 0
@@ -179,11 +209,30 @@ import Cocoa
         }
     }
     
+    /**
+     * Gets a named color from the colorset.
+     * If the color name is not found in the colorset, it will be searched in
+     * child colorsets, if any.
+     * 
+     * - parameter key:    The color's name
+     * 
+     * - returns: The `ColorPair` object corresponding to the name, or `nil` if it's not found.
+     *
+     * - Seealso: `colorWith(name:)`
+     */
     @objc public subscript( key: String ) -> ColorPair?
     {
         return self.colorWith( name: key )
     }
     
+    /**
+     * Substitutes a specific color with the system's accent color.
+     * 
+     * On macOS 10.14 and later, this method allows you to use the system's
+     * accent color instead of a specific color contained in the colorset.
+     * 
+     * - parameter name:    The name of the color for which the system's accent color will be substituded.
+     */
     @objc public func useAccentColorForColor( name: String )
     {
         self.synchronized
@@ -192,6 +241,15 @@ import Cocoa
         }
     }
     
+    /**
+     * Gets a named color from the colorset.
+     * If the color name is not found in the colorset, it will be searched in
+     * child colorsets, if any.
+     * 
+     * - parameter name:    The color's name
+     * 
+     * - returns: The `ColorPair` object corresponding to the name, or `nil` if it's not found.
+     */
     @objc public func colorWith( name: String ) -> ColorPair?
     {
         return self.synchronized
@@ -225,6 +283,16 @@ import Cocoa
         }
     }
     
+    /**
+     * Adds a child colorset.
+     * 
+     * If a specific color is not found in the parnet colorset, it will be
+     * searched in the children.  
+     * This allows you to combine multiple colorsets into a single one
+     * (usually the main/shared instance).
+     * 
+     * - parameter child:   The colorset to add as a child.
+     */
     @objc( addChild: )
     public func add( child: ColorSet )
     {
@@ -239,30 +307,86 @@ import Cocoa
         }
     }
     
+    /**
+     * Adds a color to the colorset.  
+     * The color will be only added if no color exists with the same name.
+     * 
+     * - parameter color:   The main/primary color.
+     * - parameter name:    The color's name.
+     * 
+     * - Seealso: `set(color:forName:)`
+     * - Seealso: `add(color:variant:forName:)` 
+     */
     @objc( addColor:forName: )
     public func add( color: NSColor, forName name: String )
     {
         self.add( color: color, variant: nil, forName: name )
     }
     
+    /**
+     * Sets a color to the colorset.  
+     * If a color already exists with the same name, it will be replaced by
+     * the new one.
+     * 
+     * - parameter color:   The main/primary color.
+     * - parameter name:    The color's name.
+     * 
+     * - Seealso: `add(color:forName:)`
+     * - Seealso: `set(color:variant:forName:)` 
+     */
     @objc( setColor:forName: )
     public func set( color: NSColor, forName name: String )
     {
         self.set( color: color, variant: nil, forName: name )
     }
     
+    /**
+     * Adds a color to the colorset.  
+     * The color will be only added if no color exists with the same name.
+     * 
+     * - parameter color:   The main/primary color.
+     * - parameter variant: An optional variant for the dark mode.
+     * - parameter name:    The color's name. 
+     * 
+     * - Seealso: `set(color:variant:forName:)`
+     * - Seealso: `add(color:variant:lightnesses:forName:)` 
+     */
     @objc( addColor:variant:forName: )
     public func add( color: NSColor, variant: NSColor?, forName name: String )
     {
         self.add( color: color, variant: variant, lightnesses: [], forName: name )
     }
     
+    /**
+     * Sets a color to the colorset.  
+     * If a color already exists with the same name, it will be replaced by
+     * the new one.
+     * 
+     * - parameter color:   The main/primary color.
+     * - parameter variant: An optional variant for the dark mode. 
+     * - parameter name:    The color's name.
+     * 
+     * - Seealso: `add(color:variant:forName:)`
+     * - Seealso: `set(color:variant:lightnesses:forName:)`  
+     */
     @objc( setColor:variant:forName: )
     public func set( color: NSColor, variant: NSColor?, forName name: String )
     {
         self.set( color: color, variant: variant, lightnesses: [], forName: name )
     }
     
+    /**
+     * Adds a color to the colorset.  
+     * The color will be only added if no color exists with the same name.
+     * 
+     * - parameter color:       The main/primary color.
+     * - parameter variant:     An optional variant for the dark mode. 
+     * - parameter lightnesses: An array of `LightnessPair`. Can be empty.
+     * - parameter name:        The color's name. 
+     * 
+     * - Seealso: `set(color:variant:lightnesses:forName:)`
+     * - Seealso: `LightnessPair` 
+     */
     @objc( addColor:variant:lightnesses:forName: )
     public func add( color: NSColor, variant: NSColor?, lightnesses: [ LightnessPair ], forName name: String )
     {
@@ -275,6 +399,18 @@ import Cocoa
         }
     }
     
+    /**
+    * Sets a color to the colorset.  
+    * If a color already exists with the same name, it will be replaced by
+    * the new one.    
+     * 
+     * - parameter color:       The main/primary color.
+     * - parameter variant:     An optional variant for the dark mode. 
+     * - parameter lightnesses: An array of `LightnessPair`. Can be empty.
+     * - parameter name:        The color's name. 
+     * 
+     * - Seealso: `LightnessPair` 
+     */
     @objc( setColor:variant:lightnesses:forName: )
     public func set( color: NSColor, variant: NSColor?, lightnesses: [ LightnessPair ], forName name: String )
     {
@@ -286,6 +422,9 @@ import Cocoa
         }
     }
     
+    /**
+     * Generates binary data representing the colorset.
+     */
     @objc public var data: Data
     {
         get
@@ -302,7 +441,7 @@ import Cocoa
             stream += ColorSet.magic
             stream += UInt32( ColorSet.major )
             stream += UInt32( ColorSet.minor )
-            stream += UInt64( colors.count ) /* Count */
+            stream += UInt64( colors.count )
             
             for p in colors
             {
@@ -325,6 +464,11 @@ import Cocoa
         }
     }
     
+    /**
+     * Writes the colorset to a file.
+     * 
+     * - parameter url: The URL at which to write the colorset file.
+     */
     @objc public func writeTo( url: URL ) throws
     {
         do

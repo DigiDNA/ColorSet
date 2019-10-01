@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ColorSetStream Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ColorSetStream" class="dashAnchor"></a>
+    <a title="ColorSetStream Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ColorSetKit Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/DigiDNA/ColorSetKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ColorSetKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ColorSetStream Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPair.html">ColorPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorSet.html">ColorSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorSetStream.html">ColorSetStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightnessPair.html">LightnessPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightnessVariant.html">LightnessVariant</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSColor.html">NSColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SStF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SbtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SdtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SftF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_So7NSColorCtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s5UInt8VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt16VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt32VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt64VtF">+=(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ColorSetStream</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">ColorSetStream</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a binary data stream for <code>colorset</code> files.<br>
+Note that stream objects are thread-safe.</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    Jean-David Gadina
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(py)data"></a>
+                    <a name="//apple_ref/swift/Property/data" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(py)data">data</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The binary data contained in the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">dynamic</span> <span class="k">var</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default convenience initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">convenience</span> <span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)initWithData:"></a>
+                    <a name="//apple_ref/swift/Method/init(data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)initWithData:">init(data:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Designated initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data to use as stream.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendString:"></a>
+                    <a name="//apple_ref/swift/Method/append(string:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendString:">append(string:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a string object to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendString</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>string</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string object to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendColor:"></a>
+                    <a name="//apple_ref/swift/Method/append(color:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendColor:">append(color:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a color object to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendColor</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color object to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt8:"></a>
+                    <a name="//apple_ref/swift/Method/append(uInt8:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt8:">append(uInt8:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt8</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendUInt8</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">uInt8</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt8</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt8</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt16:"></a>
+                    <a name="//apple_ref/swift/Method/append(uInt16:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt16:">append(uInt16:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt16</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendUInt16</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">uInt16</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt16</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt16</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt32:"></a>
+                    <a name="//apple_ref/swift/Method/append(uInt32:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt32:">append(uInt32:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt32</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendUInt32</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">uInt32</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt32</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt32</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt64:"></a>
+                    <a name="//apple_ref/swift/Method/append(uInt64:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendUInt64:">append(uInt64:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt64</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendUInt64</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">uInt64</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt64</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendFloat:"></a>
+                    <a name="//apple_ref/swift/Method/append(float:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendFloat:">append(float:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a float value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendFloat</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">float</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>float</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The float value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendDouble:"></a>
+                    <a name="//apple_ref/swift/Method/append(double:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendDouble:">append(double:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a double value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendDouble</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">double</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>double</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The double value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendBool:"></a>
+                    <a name="//apple_ref/swift/Method/append(bool:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)appendBool:">append(bool:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a boolean value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">appendBool</span><span class="p">:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">bool</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bool</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The boolean value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueys5UInt8V_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueys5UInt8V_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt8</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">UInt8</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt8</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt8</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueys6UInt16V_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueys6UInt16V_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt16</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">UInt16</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt16</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt16</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueys6UInt32V_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueys6UInt32V_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt32</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt32</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt32</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueys6UInt64V_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueys6UInt64V_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a <code>UInt64</code> value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uInt64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UInt64</code> value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueySf_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueySf_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a float value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>float</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The float value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueySd_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueySd_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a double value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>double</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The double value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11ColorSetKit0aB6StreamC6append5valueySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/append(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11ColorSetKit0aB6StreamC6append5valueySb_tF">append(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Appends a boolean value to the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bool</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The boolean value to append.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readString"></a>
+                    <a name="//apple_ref/swift/Method/readString()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readString">readString()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a string object from the stream at the current position.<br>
+If the stream has not enough data available or if there is no valid
+string, <code>nil</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readString</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An optional string object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readColor"></a>
+                    <a name="//apple_ref/swift/Method/readColor()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readColor">readColor()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a color object from the stream at the current position.<br>
+If the stream has not enough data available or if there is no valid
+color, <code>nil</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readColor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An optional color object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readDataOfLength:"></a>
+                    <a name="//apple_ref/swift/Method/readData(ofLength:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readDataOfLength:">readData(ofLength:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads data from the stream at the current position.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readData</span><span class="p">(</span><span class="n">ofLength</span> <span class="nv">length</span><span class="p">:</span> <span class="n">size_t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>length</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>THe number of bytes to read.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A data object or nil if the stream has not enough data available.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt8"></a>
+                    <a name="//apple_ref/swift/Method/readUInt8()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt8">readUInt8()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a <code>UInt8</code> value from the stream at the current position.<br>
+If the stream has not enough data available, <code>0</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readUInt8</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UInt8</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>UInt8</code> value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt16"></a>
+                    <a name="//apple_ref/swift/Method/readUInt16()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt16">readUInt16()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a <code>UInt16</code> value from the stream at the current position.<br>
+If the stream has not enough data available, <code>0</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readUInt16</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UInt16</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>UInt16</code> value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt32"></a>
+                    <a name="//apple_ref/swift/Method/readUInt32()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt32">readUInt32()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a <code>UInt32</code> value from the stream at the current position.<br>
+If the stream has not enough data available, <code>0</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readUInt32</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UInt32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>UInt32</code> value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt64"></a>
+                    <a name="//apple_ref/swift/Method/readUInt64()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readUInt64">readUInt64()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a <code>UInt64</code> value from the stream at the current position.<br>
+If the stream has not enough data available, <code>0</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readUInt64</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UInt64</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>UInt64</code> value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readFloat"></a>
+                    <a name="//apple_ref/swift/Method/readFloat()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readFloat">readFloat()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a float value from the stream at the current position.<br>
+If the stream has not enough data available, <code>0</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readFloat</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A float value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readDouble"></a>
+                    <a name="//apple_ref/swift/Method/readDouble()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readDouble">readDouble()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a double value from the stream at the current position.<br>
+If the stream has not enough data available, <code>0</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readDouble</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A double value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readBool"></a>
+                    <a name="//apple_ref/swift/Method/readBool()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@ColorSetKit@objc(cs)ColorSetStream(im)readBool">readBool()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads a boolean value from the stream at the current position.<br>
+If the stream has not enough data available, <code>false</code> will be returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">readBool</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A boolean value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>(c) 2019 DigiDNA - <a class="link" href="http://www.imazing.com" target="_blank" rel="external">www.imazing.com</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

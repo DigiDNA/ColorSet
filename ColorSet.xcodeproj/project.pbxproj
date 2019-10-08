@@ -649,6 +649,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 050911DB20E559CF009EF90C /* Debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = J5PR93692Y;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 			};
 			name = Debug;
@@ -657,6 +658,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 050911DC20E559CF009EF90C /* Release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = J5PR93692Y;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 			};
 			name = Release;
@@ -667,7 +669,6 @@
 				CODE_SIGN_ENTITLEMENTS = ColorSet/ColorSet.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = J5PR93692Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ColorSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -686,7 +687,6 @@
 				CODE_SIGN_ENTITLEMENTS = ColorSet/ColorSet.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = J5PR93692Y;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ColorSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

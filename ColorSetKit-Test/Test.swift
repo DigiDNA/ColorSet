@@ -136,7 +136,7 @@ class Test: XCTestCase
     
     func testNSColor()
     {
-        if let c = NSColor.from( colorSet: "NoVariant" )
+        if let c = NSColor.fromColorSet( name: "NoVariant" )
         {
             XCTAssertEqual( c.redComponent   * 255,  50.0 )
             XCTAssertEqual( c.greenComponent * 255, 100.0 )

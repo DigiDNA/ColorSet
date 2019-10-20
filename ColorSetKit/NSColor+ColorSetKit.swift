@@ -64,7 +64,8 @@ import Cocoa
      * 
      * - returns:   The color object, if found.
      */
-    @objc class func from( colorSet name: String ) -> NSColor?
+    @objc( colorFromColorSet: )
+    class func fromColorSet( name: String ) -> NSColor?
     {
         if name.hasPrefix( "NS" )
         {

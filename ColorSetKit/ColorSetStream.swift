@@ -73,9 +73,9 @@ import Cocoa
                 return
             }
             
-            self.append( uInt64: UInt64( string.count ) + 1 )
+            self.append( value: UInt64( string.count ) + 1 )
             self.data.append( data )
-            self.append( uInt8: 0 )
+            self.append( value: UInt8( 0 ) )
         }
     }
     
@@ -101,211 +101,120 @@ import Cocoa
             
             rgb.getRed( &r, green: &g, blue: &b, alpha: &a )
             
-            self.append( double: Double( r ) )
-            self.append( double: Double( g ) )
-            self.append( double: Double( b ) )
-            self.append( double: Double( a ) )
+            self.append( value: Double( r ) )
+            self.append( value: Double( g ) )
+            self.append( value: Double( b ) )
+            self.append( value: Double( a ) )
         }
     }
     
     /**
      * Appends a `UInt8` value to the stream.
      * 
-     * - parameter uInt8:   The `UInt8` value to append. 
+     * - parameter value:   The `UInt8` value to append. 
      */
     @objc( appendUInt8: )
-    public func append( uInt8: UInt8 )
-    {
-        self.synchronized
-        {
-            var value = uInt8.littleEndian
-            
-            self.data.append( &value, count: 1 )
-        }
-    }
-    
-    /**
-     * Appends a `UInt16` value to the stream.
-     * 
-     * - parameter uInt16:  The `UInt16` value to append. 
-     */
-    @objc( appendUInt16: )
-    public func append( uInt16: UInt16 )
-    {
-        self.synchronized
-        {
-            var value = uInt16.littleEndian
-            
-            self.data.append( UnsafeBufferPointer( start: &value, count: 1 ) )
-        }
-    }
-    
-    /**
-     * Appends a `UInt32` value to the stream.
-     * 
-     * - parameter uInt32:  The `UInt32` value to append. 
-     */
-    @objc( appendUInt32: )
-    public func append( uInt32: UInt32 )
-    {
-        self.synchronized
-        {
-            var value = uInt32.littleEndian
-            
-            self.data.append( UnsafeBufferPointer( start: &value, count: 1 ) )
-        }
-    }
-    
-    /**
-     * Appends a `UInt64` value to the stream.
-     * 
-     * - parameter uInt64:  The `UInt64` value to append. 
-     */
-    @objc( appendUInt64: )
-    public func append( uInt64: UInt64 )
-    {
-        self.synchronized
-        {
-            var value = uInt64.littleEndian
-            
-            self.data.append( UnsafeBufferPointer( start: &value, count: 1 ) )
-        }
-    }
-    
-    /**
-     * Appends a float value to the stream.
-     * 
-     * - parameter float:   The float value to append. 
-     */
-    @objc( appendFloat: )
-    public func append( float: Float )
-    {
-        self.synchronized
-        {
-            var value = float
-            
-            self.data.append( UnsafeBufferPointer( start: &value, count: 1 ) )
-        }
-    }
-    
-    /**
-     * Appends a double value to the stream.
-     * 
-     * - parameter double:  The double value to append. 
-     */
-    @objc( appendDouble: )
-    public func append( double: Double )
-    {
-        self.synchronized
-        {
-            var value = double
-            
-            self.data.append( UnsafeBufferPointer( start: &value, count: 1 ) )
-        }
-    }
-    
-    /**
-     * Appends a boolean value to the stream.
-     * 
-     * - parameter bool:    The boolean value to append. 
-     */
-    @objc( appendBool: )
-    public func append( bool: Bool )
-    {
-        self.synchronized
-        {
-            self.append( uInt8: bool ? 1 : 0 )
-        }
-    }
-    
-    /**
-     * Appends a `UInt8` value to the stream.
-     * 
-     * - parameter uInt8:   The `UInt8` value to append. 
-     */
     public func append( value: UInt8 )
     {
         self.synchronized
         {
-            self.append( uInt8: value )
+            var v = value.littleEndian
+            
+            self.data.append( &v, count: 1 )
         }
     }
     
     /**
      * Appends a `UInt16` value to the stream.
      * 
-     * - parameter uInt16:  The `UInt16` value to append. 
+     * - parameter value:  The `UInt16` value to append. 
      */
+    @objc( appendUInt16: )
     public func append( value: UInt16 )
     {
         self.synchronized
         {
-            self.append( uInt16: value )
+            var v = value.littleEndian
+            
+            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
         }
     }
     
     /**
      * Appends a `UInt32` value to the stream.
      * 
-     * - parameter uInt32:  The `UInt32` value to append. 
+     * - parameter value:   The `UInt32` value to append. 
      */
+    @objc( appendUInt32: )
     public func append( value: UInt32 )
     {
         self.synchronized
         {
-            self.append( uInt32: value )
+            var v = value.littleEndian
+            
+            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
         }
     }
     
     /**
      * Appends a `UInt64` value to the stream.
      * 
-     * - parameter uInt64:  The `UInt64` value to append. 
+     * - parameter value:   The `UInt64` value to append. 
      */
+    @objc( appendUInt64: )
     public func append( value: UInt64 )
     {
         self.synchronized
         {
-            self.append( uInt64: value )
+            var v = value.littleEndian
+            
+            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
         }
     }
     
     /**
      * Appends a float value to the stream.
      * 
-     * - parameter float:   The float value to append. 
+     * - parameter value:   The float value to append. 
      */
-    public func append( value: Float )
+    @objc( appendFloat: )
+    public func append( value:  Float )
     {
         self.synchronized
         {
-            self.append( float: value )
+            var v = value
+            
+            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
         }
     }
     
     /**
      * Appends a double value to the stream.
      * 
-     * - parameter double:  The double value to append. 
+     * - parameter value:   The double value to append. 
      */
+    @objc( appendDouble: )
     public func append( value: Double )
     {
         self.synchronized
         {
-            self.append( double: value )
+            var v = value
+            
+            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
         }
     }
     
     /**
      * Appends a boolean value to the stream.
      * 
-     * - parameter bool:    The boolean value to append. 
+     * - parameter value:   The boolean value to append. 
      */
+    @objc( appendBool: )
     public func append( value: Bool )
     {
         self.synchronized
         {
-            self.append( bool: value )
+            self.append( value: value ? UInt8( 1 ) : UInt8( 0 ) )
         }
     }
     

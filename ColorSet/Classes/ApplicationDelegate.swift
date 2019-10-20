@@ -23,19 +23,29 @@
  ******************************************************************************/
 
 import Cocoa
-import GitHubUpdates
+import ColorSetKit
 
 @NSApplicationMain
-
 class ApplicationDelegate: NSResponder, NSApplicationDelegate
 {
     private var controllers = [ NSWindowController ]()
     private var aboutWindowController: NSWindowController?
-    @IBOutlet private var updater: GitHubUpdater?
     
     func applicationDidFinishLaunching( _ notification: Notification )
     {
-        self.updater?.checkForUpdatesInBackground()
+        DispatchQueue.main.asyncAfter( deadline: .now() + .milliseconds( 500 ) )
+        {
+            if self.controllers.count == 0
+            {
+                self.newDocument( nil )
+            }
+        }
+        
+        NotificationCenter.default.addObserver( self, selector: #selector( windowWillClose( _: ) ), name: NSWindow.willCloseNotification, object: nil )
+        
+        #if DEBUG
+        UserDefaults.standard.register( defaults: [ "NSApplicationCrashOnExceptions" : true ] )
+        #endif
     }
 
     func applicationWillTerminate( _ notification: Notification )
@@ -120,6 +130,18 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
             item.color   = color
             item.variant = p.value.variant
             
+            for lp in p.value.lightnesses
+            {
+                let lightness = LightnessPairItem( base: item )
+                
+                lightness.lightness1.lightness = lp.lightness1.lightness
+                lightness.lightness1.name      = lp.lightness1.name
+                lightness.lightness2.lightness = lp.lightness2.lightness
+                lightness.lightness2.name      = lp.lightness2.name
+                
+                item.lightnessPairs.append( lightness )
+            }
+            
             colors.append( item )
         }
         
@@ -132,5 +154,20 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         self.controllers.append( controller )
         
         return true
+    }
+    
+    @objc private func windowWillClose( _ notification: Notification )
+    {
+        self.controllers.removeAll
+        {
+            c in
+            
+            guard let window = notification.object as? NSWindow else
+            {
+                return false
+            }
+            
+            return c.window == window
+        }
     }
 }

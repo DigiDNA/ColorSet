@@ -22,10 +22,6 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-NS_ASSUME_NONNULL_BEGIN
-
-FOUNDATION_EXPORT void ObjCTryCatch( void ( ^ tryBlock )( void ), void ( ^ catchBlock )( NSException * ) );
-
-NS_ASSUME_NONNULL_END
+void ObjCTryCatch( void ( ^ tryBlock )( void ), void ( ^ catchBlock )( NSException * ) );

@@ -23,5 +23,3 @@
  ******************************************************************************/
 
 #import "Exception.h"
-#import "ColorPair.h"
-#import "ColorSet.h"

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NSColor Extension Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Extension/NSColor" class="dashAnchor"></a>
+    <a title="NSColor Extension Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ColorSetKit Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/DigiDNA/ColorSetKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ColorSetKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NSColor Extension Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPair.html">ColorPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorSet.html">ColorSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorSetStream.html">ColorSetStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightnessPair.html">LightnessPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LightnessVariant.html">LightnessVariant</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSColor.html">NSColor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SStF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SbtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SdtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_SftF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_So7NSColorCtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s5UInt8VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt16VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt32VtF">+=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:11ColorSetKit2peoiyyAA0aB6StreamC_s6UInt64VtF">+=(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NSColor</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">extension</span> <span class="kt">NSColor</span></code></pre>
+
+                </div>
+              </div>
+            <p>Extension for <code>NSColor</code> to support colorset files.</p>
+<div class="aside aside-authors">
+    <p class="aside-title">Authors</p>
+    Jean-David Gadina
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)fromColorSet:"></a>
+                    <a name="//apple_ref/swift/Method/from(colorSet:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)fromColorSet:">from(colorSet:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a color from the shared <code><a href="../Classes/ColorSet.html">ColorSet</a></code> instance.</p>
+
+<p>This methods will return the correct color, depending on the current
+user interface mode.<br>
+If the requested color is found and has a dark mode variant, and if
+dark mode is on, the variant will be returned instead of the main color.</p>
+
+<p>For this reason, you should never store color objects returned by this
+method, but instead ask for the color each time you need it (eg. in
+drawing code).<br>
+This is because the user interface mode may change while the application
+is running. As all views will be redrawned, this is to ensure the correct
+color is used.</p>
+
+<p>Lightness variants may be requested by adding a <code>.</code> (dot) and a lightness
+value from <code>0</code> to <code>100</code> in the name, such as <code>SomeColor.75</code>.<br>
+This will return the base color, with the lightness changed to 75%.<br>
+Note that the lightness will be automatically reversed in dark mode
+(if the lightness value coresponds to a predefined lightness pair, the
+corresponding lightness will be used.</p>
+
+<p>It&rsquo;s also possible to refer to lightness variants using names, if custom
+names were added, such as <code>SomeColor.SomeVariant</code>.</p>
+
+<p>Standard Cocoa colors can also be retrieved using the <code>NS</code> prefix,
+such as <code>NSSecondaryLabelColor</code> for <code>NSColor.secondaryLabelColor</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">class</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">colorSet</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the color to retrieve.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The color object, if found.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(im)initWithHue:saturation:lightness:alpha:"></a>
+                    <a name="//apple_ref/swift/Method/init(hue:saturation:lightness:alpha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(im)initWithHue:saturation:lightness:alpha:">init(hue:saturation:lightness:alpha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a color from <code>HSL</code> components.</p>
+
+<p>Note that the <code>HSL</code> values will be converted to <code>RGB</code>.<br>
+The color object will be created using <code>sRGB</code> values.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">hue</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">saturation</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">lightness</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The hue component - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>saturation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The saturation component - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lightness</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The lightness component - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>alpha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The alpha component - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)bestTextColorForBackgroundColor:"></a>
+                    <a name="//apple_ref/swift/Method/bestTextColorForBackgroundColor(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)bestTextColorForBackgroundColor:">bestTextColorForBackgroundColor(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Finds the best text color for a specific background color, to
+ensure a good contrast ration between the text and the background
+color.</p>
+
+<p>Note that the returned text color will either be black or white,
+depending on the background color.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Extensions/NSColor.html#/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)bestTextColorForBackgroundColor:lightTextColor:darkTextColor:">bestTextColorForBackgroundColor(_:lightTextColor:darkTextColor:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">class</span> <span class="kd">func</span> <span class="nf">bestTextColorForBackgroundColor</span><span class="p">(</span><span class="n">_</span> <span class="nv">background</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>background</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The background color</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A suitable text color for the background color.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)bestTextColorForBackgroundColor:lightTextColor:darkTextColor:"></a>
+                    <a name="//apple_ref/swift/Method/bestTextColorForBackgroundColor(_:lightTextColor:darkTextColor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)bestTextColorForBackgroundColor:lightTextColor:darkTextColor:">bestTextColorForBackgroundColor(_:lightTextColor:darkTextColor:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Finds the best text color for a specific background color, to
+ensure a good contrast ration between the text and the background
+color.</p>
+
+<p>The caller is responsible for passing two alternative text colors.<br>
+The light one will be choosen on dark backgrounds, while the dark one
+will be chosen on light backgrounds.</p>
+
+<p>In order to ensure a good contrast ratio, these two colors should be
+close to black and white.</p>
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Extensions/NSColor.html#/c:@CM@ColorSetKit@@objc(cs)NSColor(cm)bestTextColorForBackgroundColor:">bestTextColorForBackgroundColor(_:)</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">class</span> <span class="kd">func</span> <span class="nf">bestTextColorForBackgroundColor</span><span class="p">(</span><span class="n">_</span> <span class="nv">background</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="nv">lightTextColor</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">,</span> <span class="nv">darkTextColor</span><span class="p">:</span> <span class="kt">NSColor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>background</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The background color</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lightTextColor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The light text color (for use on dark backgrounds).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>darkTextColor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The dark text color (for use on light backgrounds).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Depending on the background color, either the <code>lightTextColor</code> or the <code>darkTextColor</code> parameter.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(py)hexString"></a>
+                    <a name="//apple_ref/swift/Property/hexString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(py)hexString">hexString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the color as an RGB hexadecimal string, prefixed with <code>#</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="k">var</span> <span class="nv">hexString</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(im)getHue:saturation:lightness:alpha:"></a>
+                    <a name="//apple_ref/swift/Method/getHue(_:saturation:lightness:alpha:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(im)getHue:saturation:lightness:alpha:">getHue(_:saturation:lightness:alpha:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the <code>HSL</code> components of the color.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">func</span> <span class="nf">getHue</span><span class="p">(</span><span class="n">_</span> <span class="nv">hue</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CGFloat</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">saturation</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CGFloat</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">lightness</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CGFloat</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CGFloat</span><span class="o">&gt;</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Upon return, contains the hue component of the color object - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>saturation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Upon return, contains the saturation component of the color object - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lightness</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Upon return, contains the lightness component of the color object - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>alpha</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Upon return, contains the alphas component of the color object - <code>0</code> to <code>1</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So7NSColorC11ColorSetKitE3rgb12CoreGraphics7CGFloatV3red_AG5greenAG4blueAG5alphatyF"></a>
+                    <a name="//apple_ref/swift/Method/rgb()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7NSColorC11ColorSetKitE3rgb12CoreGraphics7CGFloatV3red_AG5greenAG4blueAG5alphatyF">rgb()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the <code>RGB</code> components of the color as a tuple.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@nonobjc</span>
+<span class="kd">func</span> <span class="nf">rgb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A tuple with the <code>RGB</code> components.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So7NSColorC11ColorSetKitE3hsb12CoreGraphics7CGFloatV3hue_AG10saturationAG10brightnessAG5alphatyF"></a>
+                    <a name="//apple_ref/swift/Method/hsb()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7NSColorC11ColorSetKitE3hsb12CoreGraphics7CGFloatV3hue_AG10saturationAG10brightnessAG5alphatyF">hsb()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the <code>HSB</code> components of the color as a tuple.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@nonobjc</span>
+<span class="kd">func</span> <span class="nf">hsb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">hue</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">saturation</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">brightness</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A tuple with the <code>HSB</code> components.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So7NSColorC11ColorSetKitE3hsl12CoreGraphics7CGFloatV3hue_AG10saturationAG9lightnessAG5alphatyF"></a>
+                    <a name="//apple_ref/swift/Method/hsl()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7NSColorC11ColorSetKitE3hsl12CoreGraphics7CGFloatV3hue_AG10saturationAG9lightnessAG5alphatyF">hsl()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the <code>HSL</code> components of the color as a tuple.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@nonobjc</span>
+<span class="kd">func</span> <span class="nf">hsl</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">hue</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">saturation</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">lightness</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A tuple with the <code>HSL</code> components.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(im)byChangingHue:"></a>
+                    <a name="//apple_ref/swift/Method/byChangingHue(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(im)byChangingHue:">byChangingHue(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new color by modifying the hue components of the <code>HSL</code>
+representation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">func</span> <span class="nf">byChangingHue</span><span class="p">(</span><span class="n">_</span> <span class="nv">h</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The new color</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(im)byChangingSaturation:"></a>
+                    <a name="//apple_ref/swift/Method/byChangingSaturation(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(im)byChangingSaturation:">byChangingSaturation(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new color by modifying the saturation components of the <code>HSL</code>
+representation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">func</span> <span class="nf">byChangingSaturation</span><span class="p">(</span><span class="n">_</span> <span class="nv">s</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The new color</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@ColorSetKit@@objc(cs)NSColor(im)byChangingLightness:"></a>
+                    <a name="//apple_ref/swift/Method/byChangingLightness(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@ColorSetKit@@objc(cs)NSColor(im)byChangingLightness:">byChangingLightness(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new color by modifying the lightness components of the <code>HSL</code>
+representation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">func</span> <span class="nf">byChangingLightness</span><span class="p">(</span><span class="n">_</span> <span class="nv">l</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSColor</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The new color</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>(c) 2019 DigiDNA - <a class="link" href="http://www.imazing.com" target="_blank" rel="external">www.imazing.com</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

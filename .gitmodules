@@ -1,6 +1,3 @@
 [submodule "Submodules/xcconfig"]
 	path = Submodules/xcconfig
 	url = https://github.com/DigiDNA/xcconfig.git
-[submodule "Submodules/GitHubUpdates"]
-	path = Submodules/GitHubUpdates
-	url = https://github.com/macmade/GitHubUpdates.git

@@ -23,6 +23,7 @@
  ******************************************************************************/
 
 import Cocoa
+import ColorSetKit
 
 class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSMenuDelegate
 {
@@ -30,19 +31,30 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     @objc private dynamic var               hasVariant:    Bool          = false
     @objc public private( set ) dynamic var colors:        [ ColorItem ] = []
     
-    public  var url:                URL?
-    private var observations:       [ NSKeyValueObservation ] = []
-    private var tableView:          NSTableView?
-    private var colorNameTextField: NSTextField?
-    private var searchField:        NSSearchField?
+    public  var url:                           URL?
+    private var observations:                  [ NSKeyValueObservation ] = []
+    private var tableView:                     NSTableView?
+    private var colorNameTextField:            NSTextField?
+    private var searchField:                   NSSearchField?
+    private var timer:                         Timer?
+    private var lightnessPairWindowController: LightnessPairWindowController?
+    private var paletteViewController:         PaletteViewController?
     
-    @IBOutlet public var arrayController: NSArrayController?
+    @IBOutlet public var colorsArrayController:         NSArrayController!
+    @IBOutlet public var lightnessPairsArrayController: NSArrayController!
+    @IBOutlet public var collectionView:                NSCollectionView!
+    @IBOutlet public var paletteViewContainer:          NSView!
     
     convenience init( colors: [ ColorItem ] )
     {
         self.init()
         
         self.colors = colors
+    }
+    
+    deinit
+    {
+        self.timer?.invalidate()
     }
     
     override var windowNibName: NSNib.Name?
@@ -60,11 +72,6 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         guard let variantView = self.window?.contentView?.subviewWithIdentifier( "Variant" ) as? ColorView else
-        {
-            return
-        }
-        
-        guard let controller = self.arrayController else
         {
             return
         }
@@ -88,33 +95,39 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         self.colorNameTextField = colorNameTextField
         self.searchField        = searchField
         
-        controller.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true ) ]
-        controller.selectsInsertedObjects = true
+        self.colorsArrayController.sortDescriptors        = [ NSSortDescriptor( key: "name", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ) ]
+        self.colorsArrayController.selectsInsertedObjects = true
         
         colorView.bind(   NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.color",   options: nil )
         variantView.bind( NSBindingName( "color" ), to: self, withKeyPath: "selectedColor.variant", options: nil )
-            
-        let o1 = controller.observe( \.selectionIndexes, options: .new )
+        
+        self.collectionView.register( LightnessPairCollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier( rawValue: "LightnessPairCollectionViewItem" ) )
+        
+        let o1 = self.colorsArrayController.observe( \.selectionIndexes, options: .new )
         {
-            ( o, c ) in
+            [ weak self ] o, c in guard let self = self else { return }
             
-            guard let color = controller.selectedObjects.first as? ColorItem else
+            guard let color = self.colorsArrayController.selectedObjects.first as? ColorItem else
             {
                 self.selectedColor = nil
                 self.hasVariant    = false
+                
+                self.paletteViewController?.colorSet = self.generateColorSet()
                 
                 return
             }
             
             self.selectedColor = color
             self.hasVariant    = color.variant != nil
+            
+            self.updateLightnesses()
         }
         
         let o2 = self.observe( \.hasVariant, options: .new )
         {
-            ( o, c ) in
+            [ weak self ] o, c in guard let self = self else { return }
             
-            guard let color = controller.selectedObjects.first as? ColorItem else
+            guard let color = self.colorsArrayController.selectedObjects.first as? ColorItem else
             {
                 return
             }
@@ -127,11 +140,49 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             {
                 color.variant = color.color
             }
-            
-            color.hasVariant = self.hasVariant
         }
         
-        self.observations.append( contentsOf: [ o1, o2 ] )
+        let o3 = self.observe( \.selectedColor?.color )
+        {
+            [ weak self ] o, c in self?.updateLightnesses()
+        }
+        
+        self.observations.append( contentsOf: [ o1, o2, o3 ] )
+        
+        self.paletteViewController           = PaletteViewController()
+        self.paletteViewController?.colorSet = self.generateColorSet()
+        
+        if let view = self.paletteViewController?.view
+        {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.frame                                     = self.paletteViewContainer.bounds
+            
+            self.paletteViewContainer.addSubview( view )
+            
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .centerX, relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .centerX, multiplier: 1, constant: 0 ) )
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .centerY, relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .centerY, multiplier: 1, constant: 0 ) )
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .width,   relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .width  , multiplier: 1, constant: 0 ) )
+            self.paletteViewContainer.addConstraint( NSLayoutConstraint( item: view, attribute: .height,  relatedBy: .equal, toItem: self.paletteViewContainer, attribute: .height,  multiplier: 1, constant: 0 ) )
+        }
+    }
+    
+    private func updateLightnesses()
+    {
+        for l in self.lightnessPairsArrayController.content as? [ LightnessPairItem ] ?? []
+        {
+            l.lightness1.base = self.selectedColor
+            l.lightness2.base = self.selectedColor
+            
+            l.onEdit =
+            {
+                [ weak self ] item in self?.editLightnessPair( item )
+            }
+            
+            l.onDelete =
+            {
+                [ weak self ] item in self?.lightnessPairsArrayController.removeObject( item )
+            }
+        }
     }
     
     @IBAction public func performFindPanelAction( _ sender: Any? )
@@ -186,16 +237,11 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     
     public func save( to url: URL )
     {
-        let set = ColorSet()
-        
-        for color in self.colors
-        {
-            set.addColor( color.color, variant: color.variant, forName: color.name )
-        }
+        let set = self.generateColorSet()
         
         do
         {
-            try set.write( to: url )
+            try set.writeTo( url: url )
         }
         catch let error as NSError
         {
@@ -210,6 +256,32 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             
             alert.beginSheetModal( for: window, completionHandler: nil )
         }
+    }
+    
+    public func generateColorSet() -> ColorSet
+    {
+        let set = ColorSet()
+        
+        for color in self.colors
+        {
+            var lightnesses = [ LightnessPair ]()
+            
+            for p in color.lightnessPairs
+            {
+                let lightness = LightnessPair()
+                
+                lightness.lightness1.lightness = p.lightness1.lightness
+                lightness.lightness1.name      = p.lightness1.name ?? ""
+                lightness.lightness2.lightness = p.lightness2.lightness
+                lightness.lightness2.name      = p.lightness2.name ?? ""
+                
+                lightnesses.append( lightness )
+            }
+            
+            set.add( color: color.color, variant: color.variant, lightnesses: lightnesses, forName: color.name )
+        }
+        
+        return set
     }
     
     @IBAction public func newColor( _ sender: Any? )
@@ -227,7 +299,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         color.name = ( i > 0 ) ? "Untitled-" + String( describing: i ) : "Untitled"
         
-        self.arrayController?.addObject( color )
+        self.colorsArrayController?.addObject( color )
         self.window?.makeFirstResponder( self.colorNameTextField )
     }
     
@@ -240,7 +312,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         
         if( tableView.clickedRow >= 0 )
         {
-            self.arrayController?.remove( atArrangedObjectIndex: tableView.clickedRow )
+            self.colorsArrayController?.remove( atArrangedObjectIndex: tableView.clickedRow )
         }
     }
     
@@ -318,5 +390,72 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
         }
         
         return true
+    }
+    
+    @IBAction func addLightnessPair( _ sender: Any? )
+    {
+        self.editLightnessPair( nil )
+        {
+            [ weak self ] c, r in
+            
+            if r == .OK
+            {
+                self?.lightnessPairsArrayController.addObject( c.item )
+            }
+        }
+    }
+    
+    func editLightnessPair( _ item: LightnessPairItem?, completion: ( ( LightnessPairWindowController, NSApplication.ModalResponse ) -> Void )? = nil )
+    {
+        guard let selectedColor = self.selectedColor else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        if self.lightnessPairWindowController != nil
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        guard let window = self.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let o = item ?? LightnessPairItem( base: selectedColor )
+        
+        let sheetController = LightnessPairWindowController( base: selectedColor, item: o )
+        
+        guard let sheet = sheetController.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        self.lightnessPairWindowController = sheetController
+        
+        window.beginSheet( sheet )
+        {
+            [ weak self ] r in guard let self = self else { return }
+            
+            self.lightnessPairWindowController = nil
+            
+            if r != .OK
+            {
+                completion?( sheetController, r )
+                
+                return
+            }
+            
+            completion?( sheetController, r )
+            self.updateLightnesses()
+        }
     }
 }

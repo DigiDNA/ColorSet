@@ -35,7 +35,7 @@ import Cocoa
  * 
  * - Seealso: `LightnessPair`
  */
-@objc public class ColorPair: NSObject
+@objc public class ColorPair: NSObject, DictionaryRepresentable
 {
     /**
      * The main/primary color.
@@ -91,5 +91,83 @@ import Cocoa
     {
         self.color   = color
         self.variant = variant
+    }
+    
+    @objc public required init?( dictionary: [ String : Any ] )
+    {
+        super.init()
+        
+        if let color = self.colorFromDictionary( dictionary[ "color" ] as? [ String : Any ] )
+        {
+            self.color = color
+        }
+        
+        if let variant = self.colorFromDictionary( dictionary[ "variant" ] as? [ String : Any ] )
+        {
+            self.variant = variant
+        }
+        
+        if let lightnesses = dictionary[ "lightnesses" ] as? [ [ String : Any ] ]
+        {
+            for l in lightnesses
+            {
+                if let lightness = LightnessPair( dictionary: l )
+                {
+                    self.lightnesses.append( lightness )
+                }
+            }
+        }
+    }
+    
+    @objc public func toDictionary() -> [ String : Any ]
+    {
+        var dict        = [ String : Any ]()
+        var lightnesses = [ [ String : Any ] ]()
+        
+        dict[ "color" ]   = self.colorToDictionary( self.color )
+        dict[ "variant" ] = self.colorToDictionary( self.variant )
+        
+        for l in self.lightnesses
+        {
+            lightnesses.append( l.toDictionary() )
+        }
+        
+        dict[ "lightnesses" ] = lightnesses
+        
+        return dict
+    }
+    
+    private func colorToDictionary( _ color: NSColor? ) -> [ String : Any ]?
+    {
+        guard let color = color else
+        {
+            return nil
+        }
+        
+        guard let hsl = color.usingColorSpace( .sRGB )?.hsl() else
+        {
+            return nil
+        }
+        
+        return [ "h" : hsl.hue, "s" : hsl.saturation, "l" : hsl.lightness, "a" : hsl.alpha ]
+    }
+    
+    private func colorFromDictionary( _ dictionary: [ String : Any ]? ) -> NSColor?
+    {
+        guard let dictionary = dictionary else
+        {
+            return nil
+        }
+        
+        guard let h = dictionary[ "h" ] as? CGFloat,
+              let s = dictionary[ "s" ] as? CGFloat,
+              let l = dictionary[ "l" ] as? CGFloat,
+              let a = dictionary[ "a" ] as? CGFloat
+        else
+        {
+            return nil
+        }
+        
+        return NSColor( hue: h, saturation: s, lightness: l, alpha: a )
     }
 }

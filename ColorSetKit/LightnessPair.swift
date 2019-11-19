@@ -39,7 +39,7 @@ import Cocoa
  * 
  * - Seealso: `LightnessVariant`
  */
-@objc public class LightnessPair: NSObject
+@objc public class LightnessPair: NSObject, DictionaryRepresentable
 {
     /**
      * The first lightness variant.
@@ -50,4 +50,37 @@ import Cocoa
      * The second lightness variant.
      */
     @objc public dynamic var lightness2 = LightnessVariant()
+    
+    @objc public override init()
+    {}
+    
+    @objc public required init?( dictionary: [ String : Any ] )
+    {
+        guard let dict1 = dictionary[ "lightness1" ] as? [ String : Any ],
+              let dict2 = dictionary[ "lightness2" ] as? [ String : Any ]
+        else
+        {
+            return nil
+        }
+        
+        guard let lightness1 = LightnessVariant( dictionary: dict1 ),
+              let lightness2 = LightnessVariant( dictionary: dict2 )
+        else
+        {
+            return nil
+        }
+        
+        self.lightness1 = lightness1
+        self.lightness2 = lightness2
+    }
+    
+    @objc public func toDictionary() -> [ String : Any ]
+    {
+        var dict = [ String : Any ]()
+        
+        dict[ "lightness1" ] = self.lightness1.toDictionary()
+        dict[ "lightness2" ] = self.lightness2.toDictionary()
+        
+        return dict
+    }
 }

@@ -39,17 +39,19 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
     private var timer:                         Timer?
     private var lightnessPairWindowController: LightnessPairWindowController?
     private var paletteViewController:         PaletteViewController?
+    private var format:                        ColorSet.Format = .binary
     
     @IBOutlet public var colorsArrayController:         NSArrayController!
     @IBOutlet public var lightnessPairsArrayController: NSArrayController!
     @IBOutlet public var collectionView:                NSCollectionView!
     @IBOutlet public var paletteViewContainer:          NSView!
     
-    convenience init( colors: [ ColorItem ] )
+    convenience init( colors: [ ColorItem ], format: ColorSet.Format )
     {
         self.init()
         
         self.colors = colors
+        self.format = format
     }
     
     deinit
@@ -199,7 +201,7 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        self.save( to: url )
+        self.save( to: url, format: self.format )
     }
     
     @IBAction public func saveDocumentAs( _ sender: Any? ) 
@@ -209,10 +211,12 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
             return
         }
         
-        let panel = NSSavePanel()
+        let panel   = NSSavePanel()
+        let options = SaveAsOptionsViewController()
         
         panel.allowedFileTypes     = [ "colorset" ]
         panel.canCreateDirectories = true
+        panel.accessoryView        = options.view
         
         panel.beginSheetModal( for: window )
         {
@@ -228,20 +232,21 @@ class MainWindowController: NSWindowController, NSTableViewDelegate, NSTableView
                 return
             }
             
-            self.save( to: url )
+            self.save( to: url, format: options.format )
             
+            self.format        = options.format
             self.url           = url
             self.window?.title = ( self.url == nil ) ? "Untitled.colorset" : ( self.url!.path as NSString ).lastPathComponent
         }
     }
     
-    public func save( to url: URL )
+    public func save( to url: URL, format: ColorSet.Format )
     {
         let set = self.generateColorSet()
         
         do
         {
-            try set.writeTo( url: url )
+            try set.writeTo( url: url, format: format )
         }
         catch let error as NSError
         {

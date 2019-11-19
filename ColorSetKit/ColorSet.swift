@@ -30,8 +30,14 @@ import Cocoa
  * - Authors:
  *      Jean-David Gadina
  */
-@objc public class ColorSet: NSObject
+@objc public class ColorSet: NSObject, DictionaryRepresentable
 {
+    @objc public enum Format: UInt
+    {
+        case binary
+        case xml
+    }
+    
     private static let magic: UInt64 = 0x434F4C4F52534554
     private static let major: UInt32 = 1
     private static let minor: UInt32 = 2
@@ -69,6 +75,8 @@ import Cocoa
         
         return set ?? ColorSet()
     }()
+    
+    @objc public var format = Format.binary
     
     /**
      * The dictionary of color pairs contained in the colorset.
@@ -148,14 +156,21 @@ import Cocoa
      * 
      * - Seealso: `init(data:)`  
      */
-    @objc public init?( data: Data )
+    @objc public convenience init?( data: Data )
     {
+        if let dict = try? PropertyListSerialization.propertyList( from: data, options: [], format: nil ) as? [ String : Any ]
+        {
+            self.init( dictionary: dict )
+            
+            return
+        }
+        
         if data.count == 0
         {
             return nil
         }
         
-        super.init()
+        self.init()
         
         let stream = ColorSetStream( data: data )
         
@@ -486,7 +501,27 @@ import Cocoa
     {
         do
         {
-            try self.data.write( to: url )
+            try self.writeTo( url: url, format: self.format )
+        }
+        catch let e
+        {
+            throw e
+        }
+    }
+    
+    @objc public func writeTo( url: URL, format: Format ) throws
+    {
+        var data: Data?
+        
+        do
+        {
+            switch format
+            {
+                case .binary: data = self.data
+                case .xml:    data = try PropertyListSerialization.data( fromPropertyList: self.toDictionary(), format: .xml, options: 0 )
+            }
+            
+            try data?.write( to: url )
         }
         catch let e
         {
@@ -503,5 +538,68 @@ import Cocoa
         objc_sync_exit( self )
         
         return r
+    }
+    
+    @objc public required init?( dictionary: [ String : Any ] )
+    {
+        guard let magic = dictionary[ "magic" ] as? UInt64,
+              let major = dictionary[ "major" ] as? UInt64,
+              let minor = dictionary[ "minor" ] as? UInt64
+        else
+        {
+            return nil
+        }
+        
+        if magic != ColorSet.magic
+        {
+            return nil
+        }
+        
+        if major < 1 || minor < 2
+        {
+            return nil
+        }
+        
+        if let colors = dictionary[ "colors" ] as? [ String : [ String : Any ] ]
+        {
+            for p in colors
+            {
+                guard let color = ColorPair( dictionary: p.value ) else
+                {
+                    continue
+                }
+                
+                self.colorPairs[ p.key ] = color
+            }
+        }
+        
+        self.format = .xml
+    }
+    
+    @objc public func toDictionary() -> [ String : Any ]
+    {
+        var colors: [ String : ColorPair ]!
+        
+        self.synchronized
+        {
+            colors = self.colorPairs
+        }
+        
+        var dict = [ String : Any ]()
+        
+        dict[ "magic" ] = ColorSet.magic
+        dict[ "major" ] = UInt32( ColorSet.major )
+        dict[ "minor" ] = UInt32( ColorSet.minor )
+        
+        var pairs = [ String : [ String : Any ] ]()
+        
+        for p in colors
+        {
+            pairs[ p.key ] = p.value.toDictionary()
+        }
+        
+        dict[ "colors" ] = pairs
+        
+        return dict
     }
 }

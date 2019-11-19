@@ -145,7 +145,7 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
             colors.append( item )
         }
         
-        let controller = MainWindowController( colors: colors )
+        let controller = MainWindowController( colors: colors, format: set.format )
         controller.url = url
         
         controller.window?.center()

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SaveAsOptionsViewController" customModule="ColorSet" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="c22-O7-iKe" id="eaE-ym-wiA"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="haU-aD-aZO">
+                    <rect key="frame" x="73" y="17" width="77" height="25"/>
+                    <popUpButtonCell key="cell" type="push" title="Binary" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fjV-lK-Zy3" id="N27-4y-rlX">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" id="oip-mY-z2k">
+                            <items>
+                                <menuItem title="Binary" state="on" id="fjV-lK-Zy3"/>
+                                <menuItem title="XML" id="ExJ-CB-XR4"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedIndex" keyPath="self.formatIndex" id="oNT-HJ-X6R"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-ZQ-etW">
+                    <rect key="frame" x="18" y="23" width="51" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Format:" id="mOe-Wb-EEP">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="haU-aD-aZO" secondAttribute="trailing" constant="20" id="XWr-Hd-pRP"/>
+                <constraint firstItem="haU-aD-aZO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="hAS-sr-kJo"/>
+                <constraint firstItem="h7d-ZQ-etW" firstAttribute="centerY" secondItem="haU-aD-aZO" secondAttribute="centerY" id="hsN-80-0PL"/>
+                <constraint firstAttribute="bottom" secondItem="haU-aD-aZO" secondAttribute="bottom" constant="20" id="ist-v8-kui"/>
+                <constraint firstItem="h7d-ZQ-etW" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="k10-Hf-eq7"/>
+                <constraint firstItem="haU-aD-aZO" firstAttribute="leading" secondItem="h7d-ZQ-etW" secondAttribute="trailing" constant="8" id="zYj-wi-hWU"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+    </objects>
+</document>

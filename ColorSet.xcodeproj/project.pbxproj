@@ -48,6 +48,9 @@
 		05D11ECA20E13DFF00A621B5 /* ColorSet.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D11EC820E13DFF00A621B5 /* ColorSet.AboutWindowController.xib */; };
 		05D11ECC20E13E0900A621B5 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */; };
 		05D11ECE20E165FB00A621B5 /* File.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05D11ECD20E165FB00A621B5 /* File.icns */; };
+		05DB415323846DCB0026C565 /* DictionaryRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */; };
+		05DB415723847CE80026C565 /* SaveAsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB415623847CE80026C565 /* SaveAsOptionsViewController.swift */; };
+		05DB415A23847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DB415823847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +174,9 @@
 		05D11EC920E13DFF00A621B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.AboutWindowController.xib; sourceTree = "<group>"; };
 		05D11ECB20E13E0800A621B5 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		05D11ECD20E165FB00A621B5 /* File.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = File.icns; sourceTree = "<group>"; };
+		05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryRepresentable.swift; sourceTree = "<group>"; };
+		05DB415623847CE80026C565 /* SaveAsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAsOptionsViewController.swift; sourceTree = "<group>"; };
+		05DB415923847CF80026C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.SaveAsOptionsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +336,7 @@
 				05A6D8C8234107B30079AF3B /* LightnessPair.swift */,
 				0544CC0C2273466C004A2499 /* ColorSetStream.swift */,
 				0544CBF52273199C004A2499 /* ColorSet.swift */,
+				05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */,
 			);
 			path = ColorSetKit;
 			sourceTree = "<group>";
@@ -379,6 +386,7 @@
 				0543AE8120DC382A00284E99 /* ColorItem.swift */,
 				0530C42420E1305B00F5B259 /* ColorSet-Bridging-Header.h */,
 				0543AE9D20E0FFD000284E99 /* ColorView.swift */,
+				0556FA6C2342796C00EB91DB /* DrawingView.swift */,
 				0530C42520E1305B00F5B259 /* Exception.h */,
 				0530C42620E1305B00F5B259 /* Exception.m */,
 				059F8C77233CDB3300C9B83F /* HColorComponent.swift */,
@@ -389,12 +397,12 @@
 				05A6D896233F8A300079AF3B /* LightnessString.swift */,
 				0543AE7C20DC345200284E99 /* MainWindowController.swift */,
 				0530C42220E1213500F5B259 /* NSView.swift */,
-				05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */,
-				059F8C78233CDB3300C9B83F /* SLColorComponent.swift */,
-				0556FA66234275CF00EB91DB /* PaletteViewController.swift */,
 				0556FA6D2342796C00EB91DB /* PaletteColorInfo.swift */,
 				0556FA6B2342796C00EB91DB /* PaletteColorItem.swift */,
-				0556FA6C2342796C00EB91DB /* DrawingView.swift */,
+				0556FA66234275CF00EB91DB /* PaletteViewController.swift */,
+				05D11EC020E1359C00A621B5 /* RGBColorComponent.swift */,
+				05DB415623847CE80026C565 /* SaveAsOptionsViewController.swift */,
+				059F8C78233CDB3300C9B83F /* SLColorComponent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -406,11 +414,12 @@
 				05A6D8C32340EA880079AF3B /* ColorSet.LightnessPairCollectionViewItem.xib */,
 				05A6D893233F805C0079AF3B /* ColorSet.LightnessPairWindowController.xib */,
 				0543AE7E20DC35CC00284E99 /* ColorSet.MainWindowController.xib */,
-				0556FA7123427DE500EB91DB /* PaletteColorItem.xib */,
 				0556FA682342761000EB91DB /* ColorSet.PaletteViewController.xib */,
+				05DB415823847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib */,
 				05D11ECD20E165FB00A621B5 /* File.icns */,
 				05D11EC620E13B9400A621B5 /* Icon.icns */,
 				0543AE7720DC33DF00284E99 /* MainMenu.xib */,
+				0556FA7123427DE500EB91DB /* PaletteColorItem.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -575,6 +584,7 @@
 				05D11EC720E13B9400A621B5 /* Icon.icns in Resources */,
 				0556FA6A2342761000EB91DB /* ColorSet.PaletteViewController.xib in Resources */,
 				0543AE8020DC35CC00284E99 /* ColorSet.MainWindowController.xib in Resources */,
+				05DB415A23847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib in Resources */,
 				0556FA7323427DE500EB91DB /* PaletteColorItem.xib in Resources */,
 				05D11ECE20E165FB00A621B5 /* File.icns in Resources */,
 				0543AE7B20DC33DF00284E99 /* MainMenu.xib in Resources */,
@@ -631,6 +641,7 @@
 				0543AE8220DC382A00284E99 /* ColorItem.swift in Sources */,
 				0556FA6F2342796C00EB91DB /* DrawingView.swift in Sources */,
 				0556FA6E2342796C00EB91DB /* PaletteColorItem.swift in Sources */,
+				05DB415723847CE80026C565 /* SaveAsOptionsViewController.swift in Sources */,
 				05A6D897233F8A300079AF3B /* LightnessString.swift in Sources */,
 				05A6D8C22340EA740079AF3B /* LightnessPairCollectionViewItem.swift in Sources */,
 				0530C41F20E10FEA00F5B259 /* ArrayIsEmpty.swift in Sources */,
@@ -659,6 +670,7 @@
 			files = (
 				0544CBF62273199C004A2499 /* ColorSet.swift in Sources */,
 				0544CBF422731990004A2499 /* ColorPair.swift in Sources */,
+				05DB415323846DCB0026C565 /* DictionaryRepresentable.swift in Sources */,
 				0544CC0D2273466C004A2499 /* ColorSetStream.swift in Sources */,
 				05A6D8C9234107B30079AF3B /* LightnessPair.swift in Sources */,
 				05A6D8C7234107A40079AF3B /* LightnessVariant.swift in Sources */,
@@ -736,6 +748,14 @@
 				05D11EC920E13DFF00A621B5 /* Base */,
 			);
 			name = ColorSet.AboutWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05DB415823847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05DB415923847CF80026C565 /* Base */,
+			);
+			name = ColorSet.SaveAsOptionsViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

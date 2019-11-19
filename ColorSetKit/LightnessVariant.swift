@@ -32,7 +32,7 @@ import Cocoa
  * - Authors:
  *      Jean-David Gadina
  */
-@objc public class LightnessVariant: NSObject
+@objc public class LightnessVariant: NSObject, DictionaryRepresentable
 {
     /**
      * The lightness value - `0` to `1`.
@@ -43,4 +43,30 @@ import Cocoa
      * An optional name for the lightness variant.
      */
     @objc public dynamic var name: String  = ""
+    
+    @objc public override init()
+    {}
+    
+    @objc public required init?( dictionary: [ String : Any ] )
+    {
+        if let lightness = dictionary[ "lightness" ] as? CGFloat
+        {
+            self.lightness = lightness
+        }
+        
+        if let name = dictionary[ "name" ] as? String
+        {
+            self.name = name
+        }
+    }
+    
+    @objc public func toDictionary() -> [ String : Any ]
+    {
+        var dict = [ String : Any ]()
+        
+        dict[ "lightness" ] = self.lightness
+        dict[ "name" ]      = self.name
+        
+        return dict
+    }
 }

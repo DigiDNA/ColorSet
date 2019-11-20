@@ -54,6 +54,7 @@
     <Compile Include="LightnessPair.cs" />
     <Compile Include="LightnessVariant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyListSerialization.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

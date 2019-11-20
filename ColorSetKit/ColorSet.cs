@@ -98,10 +98,10 @@ namespace ColorSetKit
         }
         = new List< ColorSet >();
 
-        private ColorSetFormat Format
+        public ColorSetFormat Format
         {
             get;
-            set;
+            private set;
         }
         = ColorSetFormat.Binary;
 
@@ -348,7 +348,7 @@ namespace ColorSetKit
             ulong minor;
 
             {
-                if( dictionary.TryGetValue( "magic", out object o ) == false || !( o is UInt64 u ) )
+                if( dictionary.TryGetValue( "magic", out object o ) == false || !( o is ulong u ) )
                 {
                     throw new ArgumentException();
                 }
@@ -357,7 +357,7 @@ namespace ColorSetKit
             }
 
             {
-                if( dictionary.TryGetValue( "major", out object o ) == false || !( o is UInt64 u ) )
+                if( dictionary.TryGetValue( "major", out object o ) == false || !( o is ulong u ) )
                 {
                     throw new ArgumentException();
                 }
@@ -366,7 +366,7 @@ namespace ColorSetKit
             }
 
             {
-                if( dictionary.TryGetValue( "minor", out object o ) == false || !( o is UInt64 u ) )
+                if( dictionary.TryGetValue( "minor", out object o ) == false || !( o is ulong u ) )
                 {
                     throw new ArgumentException();
                 }

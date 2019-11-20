@@ -50,6 +50,7 @@
     <Compile Include="ColorSet.cs" />
     <Compile Include="ColorSetStream.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="IDictionaryRepresentable.cs" />
     <Compile Include="LightnessPair.cs" />
     <Compile Include="LightnessVariant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

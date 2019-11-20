@@ -31,6 +31,12 @@ using System.Windows.Media;
 
 namespace ColorSetKit
 {
+    public enum ColorSetFormat
+    {
+        Binary,
+        XML
+    }
+
     public partial class ColorSet
     {
         private static readonly ulong  Magic          = 0x434F4C4F52534554;
@@ -91,6 +97,13 @@ namespace ColorSetKit
             set;
         }
         = new List< ColorSet >();
+
+        private ColorSetFormat Format
+        {
+            get;
+            set;
+        }
+        = ColorSetFormat.Binary;
 
         private object Lock
         {
@@ -326,6 +339,89 @@ namespace ColorSetKit
 
                 return stream.Data;
             }
+        }
+
+        public ColorSet( Dictionary< string, object > dictionary ): this()
+        {
+            ulong magic;
+            ulong major;
+            ulong minor;
+
+            {
+                if( dictionary.TryGetValue( "magic", out object o ) == false || !( o is UInt64 u ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                magic = u;
+            }
+
+            {
+                if( dictionary.TryGetValue( "major", out object o ) == false || !( o is UInt64 u ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                major = u;
+            }
+
+            {
+                if( dictionary.TryGetValue( "minor", out object o ) == false || !( o is UInt64 u ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                minor = u;
+            }
+
+            if( magic != Magic )
+            {
+                throw new ArgumentException();
+            }
+
+            if( major < 1 || minor < 2 )
+            {
+                throw new ArgumentException();
+            }
+
+            {
+                if( dictionary.TryGetValue( "colors", out object o ) && o is Dictionary< string, Dictionary< string, object > > colors )
+                {
+                    foreach( KeyValuePair< string, Dictionary< string, object > > p in colors )
+                    {
+                        try
+                        {
+                            this.ColorPairs[ p.Key ] = new ColorPair( p.Value );
+                        }
+                        catch
+                        {}
+                    }
+                }
+            }
+
+            this.Format = ColorSetFormat.XML;
+        }
+
+        public Dictionary< string, object > ToDictionary()
+        {
+            Dictionary< string, ColorPair > colors = this.ColorPairs;
+            Dictionary< string, object > dict      = new Dictionary< string, object >
+            {
+                { "magic", Magic },
+                { "major", Major },
+                { "minor", Minor }
+            };
+
+            Dictionary< string, Dictionary< string, object > > pairs = new Dictionary< string, Dictionary< string, object > >();
+
+            foreach( KeyValuePair< string, ColorPair > p in colors )
+            {
+                pairs[ p.Key ] = p.Value.ToDictionary(); 
+            }
+
+            dict[ "colors" ] = pairs;
+
+            return dict;
         }
     }
 }

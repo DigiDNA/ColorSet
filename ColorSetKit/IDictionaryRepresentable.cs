@@ -26,61 +26,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Media;
 
 namespace ColorSetKit
 {
-    public partial class LightnessVariant: IDictionaryRepresentable
+    public interface IDictionaryRepresentable
     {
-        public double Lightness
-        {
-            get;
-            set;
-        }
-
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        public LightnessVariant()
-        {
-            this.Lightness = 0;
-            this.Name      = "";
-        }
-
-        public LightnessVariant( Dictionary< string, object > dictionary ): this()
-        {
-            if( dictionary == null )
-            {
-                return;
-            }
-
-            {
-                if( dictionary.TryGetValue( "lightness", out object o ) && o is double lightness )
-                {
-                    this.Lightness = lightness;
-                }
-            }
-
-            {
-                if( dictionary.TryGetValue( "name", out object o ) && o is string name )
-                {
-                    this.Name = name;
-                }
-            }
-        }
-
-        public Dictionary< string, object > ToDictionary()
-        {
-            Dictionary< string, object > dict = new Dictionary< string, object >
-            {
-                { "lightness", this.Lightness },
-                { "name",      this.Name }
-            };
-
-            return dict;
-        }
+        Dictionary< string, object > ToDictionary();
     }
 }

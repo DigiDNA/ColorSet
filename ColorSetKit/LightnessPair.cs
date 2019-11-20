@@ -30,7 +30,7 @@ using System.Windows.Media;
 
 namespace ColorSetKit
 {
-    public partial class LightnessPair
+    public partial class LightnessPair: IDictionaryRepresentable
     {
         public LightnessVariant Lightness1
         {
@@ -48,6 +48,43 @@ namespace ColorSetKit
         {
             this.Lightness1 = new LightnessVariant();
             this.Lightness2 = new LightnessVariant();
+        }
+
+        public LightnessPair( Dictionary< string, object > dictionary ): this()
+        {
+            if( dictionary == null )
+            {
+                throw new ArgumentException();
+            }
+
+            {
+                if( dictionary.TryGetValue( "lightness1", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                this.Lightness1 = new LightnessVariant( dict );
+            }
+
+            {
+                if( dictionary.TryGetValue( "lightness2", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                this.Lightness2 = new LightnessVariant( dict );
+            }
+        }
+
+        public Dictionary< string, object > ToDictionary()
+        {
+            Dictionary< string, object > dict = new Dictionary< string, object >
+            {
+                { "lightness1", this.Lightness1.ToDictionary() },
+                { "lightness2", this.Lightness2.ToDictionary() }
+            };
+
+            return dict;
         }
     }
 }

@@ -50,7 +50,7 @@ namespace ColorSetKit
             set;
         }
 
-        public ColorPair(): this( null )
+        public ColorPair(): this( null, null )
         {}
 
         public ColorPair( SolidColorBrush color ): this( color, null )
@@ -61,6 +61,138 @@ namespace ColorSetKit
             this.Color       = color;
             this.Variant     = variant;
             this.Lightnesses = new List< LightnessPair >();
+        }
+
+        public ColorPair( Dictionary< string, object > dictionary ): this()
+        {
+            if( dictionary == null )
+            {
+                throw new ArgumentException();
+            }
+
+            {
+                if( dictionary.TryGetValue( "color", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                this.Color = this.ColorFromDictionary( dict );
+            }
+
+            {
+                if( dictionary.TryGetValue( "variant", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                this.Variant = this.ColorFromDictionary( dict );
+            }
+
+            {
+                if( dictionary.TryGetValue( "lightnesses", out object o ) == false || !( o is List< Dictionary< string, object > > list ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                foreach( Dictionary< string, object > l in list )
+                {
+                    try
+                    {
+                        this.Lightnesses.Add( new LightnessPair( l ) );
+                    }
+                    catch
+                    {}
+                }
+            }
+        }
+
+        public Dictionary< string, object > ToDictionary()
+        {
+            Dictionary< string, object > dict = new Dictionary< string, object >
+            {
+                { "color",   this.ColorToDictionary( this.Color ) },
+                { "variant", this.ColorToDictionary( this.Variant ) }
+            };
+
+            List< Dictionary< string, object > > lightnesses = new List< Dictionary< string, object > >();
+
+            foreach( LightnessPair l in this.Lightnesses )
+            {
+                lightnesses.Add( l.ToDictionary() );
+            }
+
+            dict[ "lightnesses" ] = lightnesses;
+
+            return dict;
+        }
+
+        private Dictionary< string, object > ColorToDictionary( SolidColorBrush color )
+        {
+            if( color == null )
+            {
+                return null;
+            }
+
+            ColorExtensions.HSLComponents hsl = color.Color.GetHSL();
+
+            return new Dictionary< string, object >
+            {
+                { "h", hsl.Hue },
+                { "s", hsl.Saturation },
+                { "l", hsl.Lightness },
+                { "a", hsl.Alpha }
+            };
+        }
+
+        private SolidColorBrush ColorFromDictionary( Dictionary< string, object > dictionary )
+        {
+            if( dictionary == null )
+            {
+                return null;
+            }
+
+            double h;
+            double s;
+            double l;
+            double a;
+
+            {
+                if( dictionary.TryGetValue( "h", out object o ) == false || !( o is double d ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                h = d;
+            }
+
+            {
+                if( dictionary.TryGetValue( "s", out object o ) == false || !( o is double d ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                s = d;
+            }
+
+            {
+                if( dictionary.TryGetValue( "l", out object o ) == false || !( o is double d ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                l = d;
+            }
+
+            {
+                if( dictionary.TryGetValue( "a", out object o ) == false || !( o is double d ) )
+                {
+                    throw new ArgumentException();
+                }
+
+                a = d;
+            }
+
+            return new SolidColorBrush( ColorExtensions.FromHSL( h, s, l, a ) );
         }
     }
 }

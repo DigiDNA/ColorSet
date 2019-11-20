@@ -71,37 +71,36 @@ namespace ColorSetKit
             }
 
             {
-                if( dictionary.TryGetValue( "color", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                if( dictionary.TryGetValue( "color", out object o ) && o is Dictionary< string, object > dict )
                 {
-                    throw new ArgumentException();
+                    this.Color = this.ColorFromDictionary( dict );
                 }
-
-                this.Color = this.ColorFromDictionary( dict );
             }
 
             {
-                if( dictionary.TryGetValue( "variant", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                if( dictionary.TryGetValue( "variant", out object o ) && o is Dictionary< string, object > dict )
                 {
-                    throw new ArgumentException();
+                    this.Variant = this.ColorFromDictionary( dict );
                 }
-
-                this.Variant = this.ColorFromDictionary( dict );
             }
 
             {
-                if( dictionary.TryGetValue( "lightnesses", out object o ) == false || !( o is List< Dictionary< string, object > > list ) )
+                if( dictionary.TryGetValue( "lightnesses", out object o ) && o is List< object > list )
                 {
-                    throw new ArgumentException();
-                }
-
-                foreach( Dictionary< string, object > l in list )
-                {
-                    try
+                    foreach( object value in list )
                     {
-                        this.Lightnesses.Add( new LightnessPair( l ) );
+                        if( !( value is Dictionary<string, object> l ) )
+                        {
+                            continue;
+                        }
+
+                        try
+                        {
+                            this.Lightnesses.Add( new LightnessPair( l ) );
+                        }
+                        catch
+                        {}
                     }
-                    catch
-                    {}
                 }
             }
         }
@@ -133,14 +132,14 @@ namespace ColorSetKit
                 return null;
             }
 
-            ColorExtensions.HSLComponents hsl = color.Color.GetHSL();
+            ColorExtensions.RGBComponents rgb = color.Color.GetRGB();
 
             return new Dictionary< string, object >
             {
-                { "h", hsl.Hue },
-                { "s", hsl.Saturation },
-                { "l", hsl.Lightness },
-                { "a", hsl.Alpha }
+                { "r", rgb.Red },
+                { "g", rgb.Green },
+                { "b", rgb.Blue },
+                { "a", rgb.Alpha }
             };
         }
 
@@ -151,36 +150,36 @@ namespace ColorSetKit
                 return null;
             }
 
-            double h;
-            double s;
-            double l;
+            double r;
+            double g;
+            double b;
             double a;
 
             {
-                if( dictionary.TryGetValue( "h", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "r", out object o ) == false || !( o is double d ) )
                 {
                     throw new ArgumentException();
                 }
 
-                h = d;
+                r = d;
             }
 
             {
-                if( dictionary.TryGetValue( "s", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "g", out object o ) == false || !( o is double d ) )
                 {
                     throw new ArgumentException();
                 }
 
-                s = d;
+                g = d;
             }
 
             {
-                if( dictionary.TryGetValue( "l", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "b", out object o ) == false || !( o is double d ) )
                 {
                     throw new ArgumentException();
                 }
 
-                l = d;
+                b = d;
             }
 
             {
@@ -192,7 +191,16 @@ namespace ColorSetKit
                 a = d;
             }
 
-            return new SolidColorBrush( ColorExtensions.FromHSL( h, s, l, a ) );
+            return new SolidColorBrush
+            (
+                System.Windows.Media.Color.FromArgb
+                (
+                    ( byte )Math.Round( a * 255 ),
+                    ( byte )Math.Round( r * 255 ),
+                    ( byte )Math.Round( g * 255 ),
+                    ( byte )Math.Round( b * 255 )
+                )
+            );
         }
     }
 }

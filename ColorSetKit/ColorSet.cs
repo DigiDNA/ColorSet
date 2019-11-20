@@ -145,6 +145,13 @@ namespace ColorSetKit
                 return;
             }
 
+            if( PropertyListSerialization.PropertyListFromData( data ) is Dictionary< string, object > dict )
+            {
+                this.InitFromDictionary( dict );
+                
+                return;
+            }
+
             ColorSetStream stream = new ColorSetStream( data );
 
             if( stream.ReadUInt64() != Magic )
@@ -341,37 +348,37 @@ namespace ColorSetKit
             }
         }
 
-        public ColorSet( Dictionary< string, object > dictionary ): this()
+        private void InitFromDictionary( Dictionary< string, object > dictionary )
         {
             ulong magic;
             ulong major;
             ulong minor;
 
             {
-                if( dictionary.TryGetValue( "magic", out object o ) == false || !( o is ulong u ) )
+                if( dictionary.TryGetValue( "magic", out object o ) == false || !( o is long u ) )
                 {
                     throw new ArgumentException();
                 }
 
-                magic = u;
+                magic = ( ulong )u;
             }
 
             {
-                if( dictionary.TryGetValue( "major", out object o ) == false || !( o is ulong u ) )
+                if( dictionary.TryGetValue( "major", out object o ) == false || !( o is long u ) )
                 {
                     throw new ArgumentException();
                 }
 
-                major = u;
+                major = ( ulong )u;
             }
 
             {
-                if( dictionary.TryGetValue( "minor", out object o ) == false || !( o is ulong u ) )
+                if( dictionary.TryGetValue( "minor", out object o ) == false || !( o is long u ) )
                 {
                     throw new ArgumentException();
                 }
 
-                minor = u;
+                minor = ( ulong )u;
             }
 
             if( magic != Magic )
@@ -385,13 +392,18 @@ namespace ColorSetKit
             }
 
             {
-                if( dictionary.TryGetValue( "colors", out object o ) && o is Dictionary< string, Dictionary< string, object > > colors )
+                if( dictionary.TryGetValue( "colors", out object o ) && o is Dictionary< string, object > colors )
                 {
-                    foreach( KeyValuePair< string, Dictionary< string, object > > p in colors )
+                    foreach( KeyValuePair< string, object > p in colors )
                     {
+                        if( !( p.Value is Dictionary< string, object > dict ) )
+                        {
+                            continue;
+                        }
+                        
                         try
                         {
-                            this.ColorPairs[ p.Key ] = new ColorPair( p.Value );
+                            this.ColorPairs[ p.Key ] = new ColorPair( dict );
                         }
                         catch
                         {}

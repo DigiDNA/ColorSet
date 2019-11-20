@@ -34,7 +34,7 @@ namespace ColorSetKit_Test
     public class Test
     {
         [TestMethod]
-        public void TestInitWithPath()
+        public void TestInitWithPathBinary()
         {
             string path  = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ), "Colors.colorset" );
             ColorSet set = new ColorSet( path );
@@ -43,9 +43,28 @@ namespace ColorSetKit_Test
         }
 
         [TestMethod]
-        public void TestInitWithData()
+        public void TestInitWithPathXML()
+        {
+            string path  = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ), "Colors-XML.colorset" );
+            ColorSet set = new ColorSet( path );
+
+            Assert.IsTrue( set.Colors.Count > 0 );
+        }
+
+        [TestMethod]
+        public void TestInitWithDataBinary()
         {
             string path  = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ), "Colors.colorset" );
+            Data data    = new Data( path );
+            ColorSet set = new ColorSet( data );
+
+            Assert.IsTrue( set.Colors.Count > 0 );
+        }
+
+        [TestMethod]
+        public void TestInitWithDataXML()
+        {
+            string path  = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ), "Colors-XML.colorset" );
             Data data    = new Data( path );
             ColorSet set = new ColorSet( data );
 

@@ -78,6 +78,7 @@
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)Colors.colorset" "$(TargetDir)Colors.colorset"</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)Colors.colorset" "$(TargetDir)Colors.colorset"
+copy "$(ProjectDir)Colors-XML.colorset" "$(TargetDir)Colors-XML.colorset"</PostBuildEvent>
   </PropertyGroup>
 </Project>

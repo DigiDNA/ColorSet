@@ -24,6 +24,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -61,22 +62,20 @@ namespace ColorSetKit
                 {
                     xml.Load( reader );
 
-                    if( xml.ChildNodes.Count != 1 )
+                    foreach( XmlNode child in xml.ChildNodes )
                     {
-                        return null;
-                    }
+                        if( child.Name != "plist" )
+                        {
+                            continue;
+                        }
 
-                    if( xml.FirstChild.Name != "plist" )
-                    {
-                        return null;
-                    }
+                        if( child.ChildNodes.Count != 1 )
+                        {
+                            return null;
+                        }
 
-                    if( xml.FirstChild.ChildNodes.Count != 1 )
-                    {
-                        return null;
+                        return PropertyListFromXmlNode( child.FirstChild );
                     }
-
-                    return PropertyListFromXmlNode( xml.FirstChild.FirstChild );
                 }
             }
             catch
@@ -110,7 +109,7 @@ namespace ColorSetKit
         {
             try
             {
-                return Convert.ToInt64( node.Value );
+                return long.Parse( node.InnerText, CultureInfo.InvariantCulture );
             }
             catch
             {}
@@ -122,7 +121,7 @@ namespace ColorSetKit
         {
             try
             {
-                return Convert.ToDouble( node.Value );
+                return double.Parse( node.InnerText, CultureInfo.InvariantCulture );
             }
             catch
             {}
@@ -166,7 +165,7 @@ namespace ColorSetKit
                 {
                     if( child.Name == "key" )
                     {
-                        key = child.Value;
+                        key = child.InnerText;
 
                         continue;
                     }

@@ -51,6 +51,7 @@
 		05DB415323846DCB0026C565 /* DictionaryRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */; };
 		05DB415723847CE80026C565 /* SaveAsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB415623847CE80026C565 /* SaveAsOptionsViewController.swift */; };
 		05DB415A23847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DB415823847CF80026C565 /* ColorSet.SaveAsOptionsViewController.xib */; };
+		05DB415C23854B2B0026C565 /* Colors-XML.colorset in Resources */ = {isa = PBXBuildFile; fileRef = 05DB415B23854B2B0026C565 /* Colors-XML.colorset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryRepresentable.swift; sourceTree = "<group>"; };
 		05DB415623847CE80026C565 /* SaveAsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAsOptionsViewController.swift; sourceTree = "<group>"; };
 		05DB415923847CF80026C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorSet.SaveAsOptionsViewController.xib; sourceTree = "<group>"; };
+		05DB415B23854B2B0026C565 /* Colors-XML.colorset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Colors-XML.colorset"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				057DC45722B14CC300BA6727 /* Colors.colorset */,
+				05DB415B23854B2B0026C565 /* Colors-XML.colorset */,
 				057DC44D22B1492200BA6727 /* Test.swift */,
 				057DC44F22B1492200BA6727 /* Info.plist */,
 			);
@@ -597,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DB415C23854B2B0026C565 /* Colors-XML.colorset in Resources */,
 				057DC45822B14CC300BA6727 /* Colors.colorset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

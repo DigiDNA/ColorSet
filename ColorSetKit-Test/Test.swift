@@ -34,7 +34,7 @@ class Test: XCTestCase
         self.bundle = Bundle( for: type( of: self ) )
     }
     
-    func testInitWithURL()
+    func testInitWithURLBinary()
     {
         guard let url = self.bundle?.url( forResource: "Colors", withExtension: "colorset" ) else
         {
@@ -47,7 +47,20 @@ class Test: XCTestCase
         }
     }
     
-    func testInitWithPath()
+    func testInitWithURLXML()
+    {
+        guard let url = self.bundle?.url( forResource: "Colors-XML", withExtension: "colorset" ) else
+        {
+            XCTFail( "Cannot get URL of colorset file" ); return
+        }
+        
+        guard let _ = ColorSet( url: url ) else
+        {
+            XCTFail( "Cannot create colorset file" ); return
+        }
+    }
+    
+    func testInitWithPathBinary()
     {
         guard let path = self.bundle?.path( forResource: "Colors", ofType: "colorset" ) else
         {
@@ -60,9 +73,40 @@ class Test: XCTestCase
         }
     }
     
-    func testInitWithData()
+    func testInitWithPathXML()
+    {
+        guard let path = self.bundle?.path( forResource: "Colors-XML", ofType: "colorset" ) else
+        {
+            XCTFail( "Cannot get URL of colorset file" ); return
+        }
+        
+        guard let _ = ColorSet( path: path ) else
+        {
+            XCTFail( "Cannot create colorset file" ); return
+        }
+    }
+    
+    func testInitWithDataBinary()
     {
         guard let path = self.bundle?.path( forResource: "Colors", ofType: "colorset" ) else
+        {
+            XCTFail( "Cannot get URL of colorset file" ); return
+        }
+        
+        guard let data = FileManager.default.contents( atPath: path ) else
+        {
+            XCTFail( "Cannot read contents of colorset file" ); return
+        }
+        
+        guard let _ = ColorSet( data: data ) else
+        {
+            XCTFail( "Cannot create colorset file" ); return
+        }
+    }
+    
+    func testInitWithDataXML()
+    {
+        guard let path = self.bundle?.path( forResource: "Colors-XML", ofType: "colorset" ) else
         {
             XCTFail( "Cannot get URL of colorset file" ); return
         }

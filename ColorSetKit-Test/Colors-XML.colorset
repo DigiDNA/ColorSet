@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<dict>
+		<key>NoVariant</key>
+		<dict>
+			<key>color</key>
+			<dict>
+				<key>a</key>
+				<real>0.5</real>
+				<key>h</key>
+				<real>0.58333333333333337</real>
+				<key>l</key>
+				<real>0.39215686274509803</real>
+				<key>s</key>
+				<real>0.50000000000000011</real>
+			</dict>
+			<key>lightnesses</key>
+			<array/>
+		</dict>
+		<key>Variant</key>
+		<dict>
+			<key>color</key>
+			<dict>
+				<key>a</key>
+				<real>0.75</real>
+				<key>h</key>
+				<real>0.083333333333333329</real>
+				<key>l</key>
+				<real>0.78431372549019607</real>
+				<key>s</key>
+				<real>0.90909090909090917</real>
+			</dict>
+			<key>lightnesses</key>
+			<array/>
+			<key>variant</key>
+			<dict>
+				<key>a</key>
+				<real>0.25</real>
+				<key>h</key>
+				<real>0.75</real>
+				<key>l</key>
+				<real>0.78431372549019607</real>
+				<key>s</key>
+				<real>0.90909090909090917</real>
+			</dict>
+		</dict>
+	</dict>
+	<key>magic</key>
+	<integer>4850179227268629844</integer>
+	<key>major</key>
+	<integer>1</integer>
+	<key>minor</key>
+	<integer>2</integer>
+</dict>
+</plist>

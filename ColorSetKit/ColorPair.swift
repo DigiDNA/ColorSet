@@ -144,12 +144,12 @@ import Cocoa
             return nil
         }
         
-        guard let hsl = color.usingColorSpace( .sRGB )?.hsl() else
+        guard let rgb = color.usingColorSpace( .sRGB )?.rgb() else
         {
             return nil
         }
         
-        return [ "h" : hsl.hue, "s" : hsl.saturation, "l" : hsl.lightness, "a" : hsl.alpha ]
+        return [ "r" : rgb.red, "g" : rgb.green, "b" : rgb.blue, "a" : rgb.alpha ]
     }
     
     private func colorFromDictionary( _ dictionary: [ String : Any ]? ) -> NSColor?
@@ -159,15 +159,15 @@ import Cocoa
             return nil
         }
         
-        guard let h = dictionary[ "h" ] as? CGFloat,
-              let s = dictionary[ "s" ] as? CGFloat,
-              let l = dictionary[ "l" ] as? CGFloat,
+        guard let r = dictionary[ "r" ] as? CGFloat,
+              let g = dictionary[ "g" ] as? CGFloat,
+              let b = dictionary[ "b" ] as? CGFloat,
               let a = dictionary[ "a" ] as? CGFloat
         else
         {
             return nil
         }
         
-        return NSColor( hue: h, saturation: s, lightness: l, alpha: a )
+        return NSColor( srgbRed: r, green: g, blue: b, alpha: a )
     }
 }

@@ -48,7 +48,7 @@ import Cocoa
      * If the application's bundle contains a file named `Colors.colorset`,
      * this file will be automatically loaded into the shared instance.
      */
-    public static var shared: ColorSet =
+    @objc public static var shared: ColorSet =
     {
         var set: ColorSet?
         

@@ -374,6 +374,16 @@ import Cocoa
         return NSColor( hue: hsl.0, saturation: hsl.1, lightness: l, alpha: a )
     }
     
+    @objc func byIncreasingLightness( _ l: CGFloat ) -> NSColor
+    {
+        return self.byChangingLightness( self.hsl().lightness + l )
+    }
+    
+    @objc func byDecreasingLightness( _ l: CGFloat ) -> NSColor
+    {
+        return self.byChangingLightness( self.hsl().lightness - l )
+    }
+    
     @nonobjc private class func componentsForColorName( _ name: String ) -> ( name: String, lightness: CGFloat?, variant: String? )
     {
         guard let r = name.range( of: ".", options: .backwards ) else

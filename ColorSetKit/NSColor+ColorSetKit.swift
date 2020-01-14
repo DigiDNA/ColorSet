@@ -173,6 +173,35 @@ import Cocoa
         self.init( srgbRed: rgb.0, green: rgb.1, blue: rgb.2, alpha: alpha )
     }
     
+    @objc convenience init( hex: UInt, alpha: CGFloat = 1 )
+    {
+        let r = CGFloat( ( hex >> 16 ) & 0xFF )
+        let g = CGFloat( ( hex >>  8 ) & 0xFF )
+        let b = CGFloat( ( hex >>  0 ) & 0xFF )
+        
+        self.init( srgbRed: r / 255, green: g / 255, blue: b / 255, alpha: alpha )
+    }
+    
+    @objc convenience init( hexString hex: String, alpha: CGFloat = 1 )
+    {
+        let s = hex.hasPrefix( "#" ) ? String( hex[ hex.index( after: hex.startIndex )... ] ) : hex
+        
+        if s.count == 3
+        {
+            let r = String( s[ s.index( s.startIndex, offsetBy: 0 ) ] )
+            let g = String( s[ s.index( s.startIndex, offsetBy: 1 ) ] )
+            let b = String( s[ s.index( s.startIndex, offsetBy: 2 ) ] )
+            
+            self.init( hexString: "\(r)\(r)\(g)\(g)\(b)\(b)", alpha: alpha )
+        }
+        else
+        {
+            let n = UInt( s, radix: 16 ) ?? 0
+            
+            self.init( hex: n, alpha: alpha )
+        }
+    }
+    
     /**
      * Finds the best text color for a specific background color, to
      * ensure a good contrast ration between the text and the background

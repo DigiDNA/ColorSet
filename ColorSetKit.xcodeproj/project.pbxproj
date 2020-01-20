@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0544CBF22273197D004A2499 /* NSColor+ColorSetKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CBF12273197D004A2499 /* NSColor+ColorSetKit.swift */; };
+		0544CBF422731990004A2499 /* ColorPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CBF322731990004A2499 /* ColorPair.swift */; };
+		0544CBF62273199C004A2499 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CBF52273199C004A2499 /* ColorSet.swift */; };
+		0544CC0D2273466C004A2499 /* ColorSetStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544CC0C2273466C004A2499 /* ColorSetStream.swift */; };
+		057DC44E22B1492200BA6727 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057DC44D22B1492200BA6727 /* Test.swift */; };
+		057DC45022B1492200BA6727 /* ColorSetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */; };
+		057DC45822B14CC300BA6727 /* Colors.colorset in Resources */ = {isa = PBXBuildFile; fileRef = 057DC45722B14CC300BA6727 /* Colors.colorset */; };
+		05A6D8C7234107A40079AF3B /* LightnessVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D8C6234107A40079AF3B /* LightnessVariant.swift */; };
+		05A6D8C9234107B30079AF3B /* LightnessPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6D8C8234107B30079AF3B /* LightnessPair.swift */; };
+		05DB415323846DCB0026C565 /* DictionaryRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */; };
+		05DB415C23854B2B0026C565 /* Colors-XML.colorset in Resources */ = {isa = PBXBuildFile; fileRef = 05DB415B23854B2B0026C565 /* Colors-XML.colorset */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		057DC45122B1492200BA6727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0543AE5A20DC33BC00284E99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05CD4AB920ED7CD100DBDE99;
+			remoteInfo = ColorSetKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0544CBF12273197D004A2499 /* NSColor+ColorSetKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+ColorSetKit.swift"; sourceTree = "<group>"; };
+		0544CBF322731990004A2499 /* ColorPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPair.swift; sourceTree = "<group>"; };
+		0544CBF52273199C004A2499 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		0544CC0C2273466C004A2499 /* ColorSetStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSetStream.swift; sourceTree = "<group>"; };
+		054D8EC3238BE45300574045 /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
+		054D8EC4238BE45300574045 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		054D8EC5238BE45300574045 /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
+		054D8EC6238BE45300574045 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		054D8EC7238BE45300574045 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		054D8EC8238BE45300574045 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		054D8EC9238BE45300574045 /* Release - Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - Library.xcconfig"; sourceTree = "<group>"; };
+		054D8ECB238BE45300574045 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		054D8ECC238BE45300574045 /* Architectures.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Architectures.xcconfig; sourceTree = "<group>"; };
+		054D8ECE238BE45300574045 /* Issues.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Issues.xcconfig; sourceTree = "<group>"; };
+		054D8ED0238BE45300574045 /* Apple-APIs.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apple-APIs.xcconfig"; sourceTree = "<group>"; };
+		054D8ED1238BE45300574045 /* Generic-Issues.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Generic-Issues.xcconfig"; sourceTree = "<group>"; };
+		054D8ED2238BE45300574045 /* Security.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Security.xcconfig; sourceTree = "<group>"; };
+		054D8ED3238BE45300574045 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		054D8ED4238BE45300574045 /* Analysis-Policy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Analysis-Policy.xcconfig"; sourceTree = "<group>"; };
+		054D8ED5238BE45300574045 /* Deployment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Deployment.xcconfig; sourceTree = "<group>"; };
+		054D8ED6238BE45300574045 /* Build-Options.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Build-Options.xcconfig"; sourceTree = "<group>"; };
+		054D8ED7238BE45300574045 /* Swift-Compiler.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Swift-Compiler.xcconfig"; sourceTree = "<group>"; };
+		054D8ED8238BE45300574045 /* Static-Analyzer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Static-Analyzer.xcconfig"; sourceTree = "<group>"; };
+		054D8EDA238BE45300574045 /* Warnings-Policies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Warnings-Policies.xcconfig"; sourceTree = "<group>"; };
+		054D8EDB238BE45300574045 /* Code-Generation.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Code-Generation.xcconfig"; sourceTree = "<group>"; };
+		054D8EDC238BE45300574045 /* Language.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Language.xcconfig; sourceTree = "<group>"; };
+		054D8EDD238BE45300574045 /* General.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = General.xcconfig; sourceTree = "<group>"; };
+		054D8EDE238BE45300574045 /* Search-Paths.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Search-Paths.xcconfig"; sourceTree = "<group>"; };
+		054D8EDF238BE45300574045 /* Apple-LLVM.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apple-LLVM.xcconfig"; sourceTree = "<group>"; };
+		054D8EE2238BE45300574045 /* Modules.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Modules.xcconfig; sourceTree = "<group>"; };
+		054D8EE3238BE45300574045 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		054D8EE4238BE45300574045 /* C++.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "C++.xcconfig"; sourceTree = "<group>"; };
+		054D8EE5238BE45300574045 /* Code-Generation.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Code-Generation.xcconfig"; sourceTree = "<group>"; };
+		054D8EE6238BE45300574045 /* Address-Sanitizer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Address-Sanitizer.xcconfig"; sourceTree = "<group>"; };
+		054D8EE7238BE45300574045 /* Language.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Language.xcconfig; sourceTree = "<group>"; };
+		054D8EE8238BE45300574045 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+		054D8EE9238BE45300574045 /* Undefined-Behavior-Sanitizer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Undefined-Behavior-Sanitizer.xcconfig"; sourceTree = "<group>"; };
+		054D8EEA238BE45300574045 /* Warning-Policies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Warning-Policies.xcconfig"; sourceTree = "<group>"; };
+		054D8EEC238BE45300574045 /* Objective-C-ARC.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C-ARC.xcconfig"; sourceTree = "<group>"; };
+		054D8EED238BE45300574045 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		054D8EEE238BE45300574045 /* C++.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "C++.xcconfig"; sourceTree = "<group>"; };
+		054D8EEF238BE45300574045 /* All-Languages.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Languages.xcconfig"; sourceTree = "<group>"; };
+		054D8EF0238BE45300574045 /* Preprocessing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Preprocessing.xcconfig; sourceTree = "<group>"; };
+		054D8EF1238BE45300574045 /* Debug - Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - Library.xcconfig"; sourceTree = "<group>"; };
+		054D8EF2238BE45300574045 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		054D8EF4238BE45300574045 /* ccache-config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ccache-config.sh"; sourceTree = "<group>"; };
+		054D8EF5238BE45300574045 /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
+		057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ColorSetKit-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		057DC44D22B1492200BA6727 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		057DC44F22B1492200BA6727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		057DC45722B14CC300BA6727 /* Colors.colorset */ = {isa = PBXFileReference; lastKnownFileType = file; path = Colors.colorset; sourceTree = "<group>"; };
+		05A6D8C6234107A40079AF3B /* LightnessVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessVariant.swift; sourceTree = "<group>"; };
+		05A6D8C8234107B30079AF3B /* LightnessPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightnessPair.swift; sourceTree = "<group>"; };
+		05CD4AB220ED7B2200DBDE99 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05CD4AC620ED7CE000DBDE99 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryRepresentable.swift; sourceTree = "<group>"; };
+		05DB415B23854B2B0026C565 /* Colors-XML.colorset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Colors-XML.colorset"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		057DC44822B1492200BA6727 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DC45022B1492200BA6727 /* ColorSetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05CD4AB720ED7CD100DBDE99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0509121420E55A7F009EF90C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0509122720E55CB5009EF90C /* ColorSetKit */ = {
+			isa = PBXGroup;
+			children = (
+				05CD4AC620ED7CE000DBDE99 /* Info.plist */,
+				0544CBF12273197D004A2499 /* NSColor+ColorSetKit.swift */,
+				0544CBF322731990004A2499 /* ColorPair.swift */,
+				05A6D8C6234107A40079AF3B /* LightnessVariant.swift */,
+				05A6D8C8234107B30079AF3B /* LightnessPair.swift */,
+				0544CC0C2273466C004A2499 /* ColorSetStream.swift */,
+				0544CBF52273199C004A2499 /* ColorSet.swift */,
+				05DB415223846DCB0026C565 /* DictionaryRepresentable.swift */,
+			);
+			path = ColorSetKit;
+			sourceTree = "<group>";
+		};
+		0543AE5920DC33BC00284E99 = {
+			isa = PBXGroup;
+			children = (
+				05CD4AB220ED7B2200DBDE99 /* README.md */,
+				054D8EC2238BE45300574045 /* xcconfig */,
+				0509122720E55CB5009EF90C /* ColorSetKit */,
+				057DC44C22B1492200BA6727 /* ColorSetKit-Test */,
+				0543AE6320DC33BC00284E99 /* Products */,
+				0509121420E55A7F009EF90C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0543AE6320DC33BC00284E99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */,
+				057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		054D8EC2238BE45300574045 /* xcconfig */ = {
+			isa = PBXGroup;
+			children = (
+				054D8EC3238BE45300574045 /* Release - ccache.xcconfig */,
+				054D8EC4238BE45300574045 /* Common.xcconfig */,
+				054D8EC5238BE45300574045 /* Debug - ccache.xcconfig */,
+				054D8EC6238BE45300574045 /* Debug.xcconfig */,
+				054D8EC7238BE45300574045 /* Release.xcconfig */,
+				054D8EC8238BE45300574045 /* README.md */,
+				054D8EC9238BE45300574045 /* Release - Library.xcconfig */,
+				054D8ECA238BE45300574045 /* Common */,
+				054D8EF1238BE45300574045 /* Debug - Library.xcconfig */,
+				054D8EF2238BE45300574045 /* .gitignore */,
+				054D8EF3238BE45300574045 /* Scripts */,
+			);
+			name = xcconfig;
+			path = Submodules/xcconfig;
+			sourceTree = "<group>";
+		};
+		054D8ECA238BE45300574045 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				054D8ECB238BE45300574045 /* Signing.xcconfig */,
+				054D8ECC238BE45300574045 /* Architectures.xcconfig */,
+				054D8ECD238BE45300574045 /* Static-Analyzer */,
+				054D8ED5238BE45300574045 /* Deployment.xcconfig */,
+				054D8ED6238BE45300574045 /* Build-Options.xcconfig */,
+				054D8ED7238BE45300574045 /* Swift-Compiler.xcconfig */,
+				054D8ED8238BE45300574045 /* Static-Analyzer.xcconfig */,
+				054D8ED9238BE45300574045 /* Swift-Compiler */,
+				054D8EDE238BE45300574045 /* Search-Paths.xcconfig */,
+				054D8EDF238BE45300574045 /* Apple-LLVM.xcconfig */,
+				054D8EE0238BE45300574045 /* Apple-LLVM */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		054D8ECD238BE45300574045 /* Static-Analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				054D8ECE238BE45300574045 /* Issues.xcconfig */,
+				054D8ECF238BE45300574045 /* Issues */,
+			);
+			path = "Static-Analyzer";
+			sourceTree = "<group>";
+		};
+		054D8ECF238BE45300574045 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				054D8ED0238BE45300574045 /* Apple-APIs.xcconfig */,
+				054D8ED1238BE45300574045 /* Generic-Issues.xcconfig */,
+				054D8ED2238BE45300574045 /* Security.xcconfig */,
+				054D8ED3238BE45300574045 /* Objective-C.xcconfig */,
+				054D8ED4238BE45300574045 /* Analysis-Policy.xcconfig */,
+			);
+			path = Issues;
+			sourceTree = "<group>";
+		};
+		054D8ED9238BE45300574045 /* Swift-Compiler */ = {
+			isa = PBXGroup;
+			children = (
+				054D8EDA238BE45300574045 /* Warnings-Policies.xcconfig */,
+				054D8EDB238BE45300574045 /* Code-Generation.xcconfig */,
+				054D8EDC238BE45300574045 /* Language.xcconfig */,
+				054D8EDD238BE45300574045 /* General.xcconfig */,
+			);
+			path = "Swift-Compiler";
+			sourceTree = "<group>";
+		};
+		054D8EE0238BE45300574045 /* Apple-LLVM */ = {
+			isa = PBXGroup;
+			children = (
+				054D8EE1238BE45300574045 /* Language */,
+				054D8EE5238BE45300574045 /* Code-Generation.xcconfig */,
+				054D8EE6238BE45300574045 /* Address-Sanitizer.xcconfig */,
+				054D8EE7238BE45300574045 /* Language.xcconfig */,
+				054D8EE8238BE45300574045 /* Warnings.xcconfig */,
+				054D8EE9238BE45300574045 /* Undefined-Behavior-Sanitizer.xcconfig */,
+				054D8EEA238BE45300574045 /* Warning-Policies.xcconfig */,
+				054D8EEB238BE45300574045 /* Warnings */,
+				054D8EF0238BE45300574045 /* Preprocessing.xcconfig */,
+			);
+			path = "Apple-LLVM";
+			sourceTree = "<group>";
+		};
+		054D8EE1238BE45300574045 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				054D8EE2238BE45300574045 /* Modules.xcconfig */,
+				054D8EE3238BE45300574045 /* Objective-C.xcconfig */,
+				054D8EE4238BE45300574045 /* C++.xcconfig */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		054D8EEB238BE45300574045 /* Warnings */ = {
+			isa = PBXGroup;
+			children = (
+				054D8EEC238BE45300574045 /* Objective-C-ARC.xcconfig */,
+				054D8EED238BE45300574045 /* Objective-C.xcconfig */,
+				054D8EEE238BE45300574045 /* C++.xcconfig */,
+				054D8EEF238BE45300574045 /* All-Languages.xcconfig */,
+			);
+			path = Warnings;
+			sourceTree = "<group>";
+		};
+		054D8EF3238BE45300574045 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				054D8EF4238BE45300574045 /* ccache-config.sh */,
+				054D8EF5238BE45300574045 /* ccache.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		057DC44C22B1492200BA6727 /* ColorSetKit-Test */ = {
+			isa = PBXGroup;
+			children = (
+				057DC45722B14CC300BA6727 /* Colors.colorset */,
+				05DB415B23854B2B0026C565 /* Colors-XML.colorset */,
+				057DC44D22B1492200BA6727 /* Test.swift */,
+				057DC44F22B1492200BA6727 /* Info.plist */,
+			);
+			path = "ColorSetKit-Test";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		05CD4AB520ED7CD100DBDE99 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		057DC44A22B1492200BA6727 /* ColorSetKit-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 057DC45622B1492200BA6727 /* Build configuration list for PBXNativeTarget "ColorSetKit-Test" */;
+			buildPhases = (
+				057DC44722B1492200BA6727 /* Sources */,
+				057DC44822B1492200BA6727 /* Frameworks */,
+				057DC44922B1492200BA6727 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				057DC45222B1492200BA6727 /* PBXTargetDependency */,
+			);
+			name = "ColorSetKit-Test";
+			productName = "ColorSetKit-Test";
+			productReference = 057DC44B22B1492200BA6727 /* ColorSetKit-Test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05CD4AB920ED7CD100DBDE99 /* ColorSetKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05CD4AC320ED7CD100DBDE99 /* Build configuration list for PBXNativeTarget "ColorSetKit" */;
+			buildPhases = (
+				05CD4AB520ED7CD100DBDE99 /* Headers */,
+				05CD4AB620ED7CD100DBDE99 /* Sources */,
+				05CD4AB720ED7CD100DBDE99 /* Frameworks */,
+				05CD4AB820ED7CD100DBDE99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorSetKit;
+			productName = ColorSetKit;
+			productReference = 05CD4ABA20ED7CD100DBDE99 /* ColorSetKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0543AE5A20DC33BC00284E99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "XS-Labs";
+				TargetAttributes = {
+					057DC44A22B1492200BA6727 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					05CD4AB920ED7CD100DBDE99 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 0543AE5D20DC33BC00284E99 /* Build configuration list for PBXProject "ColorSetKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0543AE5920DC33BC00284E99;
+			productRefGroup = 0543AE6320DC33BC00284E99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05CD4AB920ED7CD100DBDE99 /* ColorSetKit */,
+				057DC44A22B1492200BA6727 /* ColorSetKit-Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		057DC44922B1492200BA6727 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DB415C23854B2B0026C565 /* Colors-XML.colorset in Resources */,
+				057DC45822B14CC300BA6727 /* Colors.colorset in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05CD4AB820ED7CD100DBDE99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		057DC44722B1492200BA6727 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DC44E22B1492200BA6727 /* Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05CD4AB620ED7CD100DBDE99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0544CBF62273199C004A2499 /* ColorSet.swift in Sources */,
+				0544CBF422731990004A2499 /* ColorPair.swift in Sources */,
+				05DB415323846DCB0026C565 /* DictionaryRepresentable.swift in Sources */,
+				0544CC0D2273466C004A2499 /* ColorSetStream.swift in Sources */,
+				05A6D8C9234107B30079AF3B /* LightnessPair.swift in Sources */,
+				05A6D8C7234107A40079AF3B /* LightnessVariant.swift in Sources */,
+				0544CBF22273197D004A2499 /* NSColor+ColorSetKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		057DC45222B1492200BA6727 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05CD4AB920ED7CD100DBDE99 /* ColorSetKit */;
+			targetProxy = 057DC45122B1492200BA6727 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0543AE6E20DC33BD00284E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 054D8EC6238BE45300574045 /* Debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J5PR93692Y;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+			};
+			name = Debug;
+		};
+		0543AE6F20DC33BD00284E99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 054D8EC7238BE45300574045 /* Release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J5PR93692Y;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+			};
+			name = Release;
+		};
+		057DC45322B1492200BA6727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "ColorSetKit-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.ColorSetKit-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		057DC45422B1492200BA6727 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "ColorSetKit-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.ColorSetKit-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		05CD4AC420ED7CD100DBDE99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 054D8EF1238BE45300574045 /* Debug - Library.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5PR93692Y;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ColorSetKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSetKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		05CD4AC520ED7CD100DBDE99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 054D8EC9238BE45300574045 /* Release - Library.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5PR93692Y;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ColorSetKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSetKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0543AE5D20DC33BC00284E99 /* Build configuration list for PBXProject "ColorSetKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0543AE6E20DC33BD00284E99 /* Debug */,
+				0543AE6F20DC33BD00284E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		057DC45622B1492200BA6727 /* Build configuration list for PBXNativeTarget "ColorSetKit-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				057DC45322B1492200BA6727 /* Debug */,
+				057DC45422B1492200BA6727 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05CD4AC320ED7CD100DBDE99 /* Build configuration list for PBXNativeTarget "ColorSetKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05CD4AC420ED7CD100DBDE99 /* Debug */,
+				05CD4AC520ED7CD100DBDE99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0543AE5A20DC33BC00284E99 /* Project object */;
+}

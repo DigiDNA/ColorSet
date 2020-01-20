@@ -67,6 +67,12 @@ import Cocoa
     @objc( colorFromColorSet: )
     class func fromColorSet( name: String ) -> NSColor?
     {
+        return NSColor.fromColorSet( name: name, forView: nil )
+    }
+    
+    @objc( colorFromColorSet:forView: )
+    class func fromColorSet( name: String, forView view: NSView? ) -> NSColor?
+    {
         if name.hasPrefix( "NS" )
         {
             var selectorName = String( name[ name.index( name.startIndex, offsetBy: 2 )... ] )
@@ -116,7 +122,7 @@ import Cocoa
         
         if var l = lightness, abs( hsl.lightness - l ) > 0.001
         {
-            if isDarkModeOn()
+            if isDarkModeOn( forView: view )
             {
                 var found = false
                 
@@ -147,7 +153,7 @@ import Cocoa
             return pair.color?.byChangingLightness( l )
         }
         
-        if isDarkModeOn(), let variant = pair.variant
+        if isDarkModeOn( forView: view ), let variant = pair.variant
         {
             return variant
         }
@@ -542,11 +548,28 @@ import Cocoa
         return ( h, s, l )
     }
     
-    @nonobjc private class func isDarkModeOn() -> Bool
+    @nonobjc private class func isDarkModeOn( forView view: NSView? ) -> Bool
     {
         if #available( macOS 10.14, * )
         {
-            if NSApp != nil && NSApp.effectiveAppearance.name == NSAppearance.Name.darkAqua
+            let name = view?.effectiveAppearance.name ?? NSApp.effectiveAppearance.name
+            
+            if name == .darkAqua
+            {
+                return true
+            }
+            
+            if name == .vibrantDark
+            {
+                return true
+            }
+            
+            if name == .accessibilityHighContrastDarkAqua
+            {
+                return true
+            }
+            
+            if name == .accessibilityHighContrastVibrantDark
             {
                 return true
             }

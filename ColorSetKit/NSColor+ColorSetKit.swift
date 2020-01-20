@@ -550,6 +550,11 @@ import Cocoa
     
     @nonobjc private class func isDarkModeOn( forView view: NSView? ) -> Bool
     {
+        if NSApp == nil
+        {
+            return false
+        }
+        
         if #available( macOS 10.14, * )
         {
             let name = view?.effectiveAppearance.name ?? NSApp.effectiveAppearance.name

@@ -67,11 +67,17 @@ import Cocoa
     @objc( colorFromColorSet: )
     class func fromColorSet( name: String ) -> NSColor?
     {
-        return NSColor.fromColorSet( name: name, forView: nil )
+        return NSColor.fromColorSet( name: name, forAppearance: nil )
     }
     
     @objc( colorFromColorSet:forView: )
     class func fromColorSet( name: String, forView view: NSView? ) -> NSColor?
+    {
+        return NSColor.fromColorSet( name: name, forAppearance: view?.effectiveAppearance )
+    }
+    
+    @objc( colorFromColorSet:forAppearance: )
+    class func fromColorSet( name: String, forAppearance appearance: NSAppearance? ) -> NSColor?
     {
         if name.hasPrefix( "NS" )
         {
@@ -122,7 +128,7 @@ import Cocoa
         
         if var l = lightness, abs( hsl.lightness - l ) > 0.001
         {
-            if isDarkModeOn( forView: view )
+            if isDarkModeOn( forAppearance: appearance )
             {
                 var found = false
                 
@@ -153,7 +159,7 @@ import Cocoa
             return pair.color?.byChangingLightness( l )
         }
         
-        if isDarkModeOn( forView: view ), let variant = pair.variant
+        if isDarkModeOn( forAppearance: appearance ), let variant = pair.variant
         {
             return variant
         }
@@ -548,7 +554,7 @@ import Cocoa
         return ( h, s, l )
     }
     
-    @nonobjc private class func isDarkModeOn( forView view: NSView? ) -> Bool
+    @nonobjc private class func isDarkModeOn( forAppearance appearance: NSAppearance? ) -> Bool
     {
         if NSApp == nil
         {
@@ -557,7 +563,7 @@ import Cocoa
         
         if #available( macOS 10.14, * )
         {
-            let name = view?.effectiveAppearance.name ?? NSApp.effectiveAppearance.name
+            let name = appearance?.name ?? NSApp.effectiveAppearance.name
             
             if name == .darkAqua
             {

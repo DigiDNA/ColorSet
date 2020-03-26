@@ -134,9 +134,10 @@ import Cocoa
     {
         self.synchronized
         {
-            var v = value.littleEndian
-            
-            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
+            [ value.littleEndian ].withUnsafeBufferPointer
+            {
+                p in self.data.append( p )
+            }
         }
     }
     
@@ -150,9 +151,10 @@ import Cocoa
     {
         self.synchronized
         {
-            var v = value.littleEndian
-            
-            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
+            [ value.littleEndian ].withUnsafeBufferPointer
+            {
+                p in self.data.append( p )
+            }
         }
     }
     
@@ -166,9 +168,10 @@ import Cocoa
     {
         self.synchronized
         {
-            var v = value.littleEndian
-            
-            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
+            [ value.littleEndian ].withUnsafeBufferPointer
+            {
+                p in self.data.append( p )
+            }
         }
     }
     
@@ -182,9 +185,10 @@ import Cocoa
     {
         self.synchronized
         {
-            var v = value
-            
-            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
+            [ value ].withUnsafeBufferPointer
+            {
+                p in self.data.append( p )
+            }
         }
     }
     
@@ -198,9 +202,10 @@ import Cocoa
     {
         self.synchronized
         {
-            var v = value
-            
-            self.data.append( UnsafeBufferPointer( start: &v, count: 1 ) )
+            [ value ].withUnsafeBufferPointer
+            {
+                p in self.data.append( p )
+            }
         }
     }
     
@@ -329,14 +334,15 @@ import Cocoa
     {
         return self.synchronized
         {
-            var value: UInt8 = 0
+            var value   = [ UInt8( 0 ) ]
+            var success = false
             
-            if self.read( size: 1, in: UnsafeMutableBufferPointer( start: &value, count: 1  ) )
+            value.withUnsafeMutableBufferPointer
             {
-                return value.littleEndian
+                p in success = self.read( size: 1, in: p )
             }
             
-            return 0
+            return success ? value[ 0 ].littleEndian : 0
         }
     }
     
@@ -350,14 +356,15 @@ import Cocoa
     {
         return self.synchronized
         {
-            var value: UInt16 = 0
+            var value   = [ UInt16( 0 ) ]
+            var success = false
             
-            if self.read( size: 2, in: UnsafeMutableBufferPointer( start: &value, count: 1  ) )
+            value.withUnsafeMutableBufferPointer
             {
-                return value.littleEndian
+                p in success = self.read( size: 2, in: p )
             }
             
-            return 0
+            return success ? value[ 0 ].littleEndian : 0
         }
     }
     
@@ -371,14 +378,15 @@ import Cocoa
     {
         return self.synchronized
         {
-            var value: UInt32 = 0
+            var value   = [ UInt32( 0 ) ]
+            var success = false
             
-            if self.read( size: 4, in: UnsafeMutableBufferPointer( start: &value, count: 1  ) )
+            value.withUnsafeMutableBufferPointer
             {
-                return value.littleEndian
+                p in success = self.read( size: 4, in: p )
             }
             
-            return 0
+            return success ? value[ 0 ].littleEndian : 0
         }
     }
     
@@ -392,14 +400,15 @@ import Cocoa
     {
         return self.synchronized
         {
-            var value: UInt64 = 0
+            var value   = [ UInt64( 0 ) ]
+            var success = false
             
-            if self.read( size: 8, in: UnsafeMutableBufferPointer( start: &value, count: 1  ) )
+            value.withUnsafeMutableBufferPointer
             {
-                return value.littleEndian
+                p in success = self.read( size: 8, in: p )
             }
             
-            return 0
+            return success ? value[ 0 ].littleEndian : 0
         }
     }
     
@@ -413,14 +422,15 @@ import Cocoa
     {
         return self.synchronized
         {
-            var value: Float = 0
+            var value   = [ Float( 0 ) ]
+            var success = false
             
-            if self.read( size: 4, in: UnsafeMutableBufferPointer( start: &value, count: 1  ) )
+            value.withUnsafeMutableBufferPointer
             {
-                return value
+                p in success = self.read( size: 4, in: p )
             }
             
-            return 0
+            return success ? value[ 0 ] : 0
         }
     }
     
@@ -434,14 +444,15 @@ import Cocoa
     {
         return self.synchronized
         {
-            var value: Double = 0
+            var value   = [ Double( 0 ) ]
+            var success = false
             
-            if self.read( size: 8, in: UnsafeMutableBufferPointer( start: &value, count: 1  ) )
+            value.withUnsafeMutableBufferPointer
             {
-                return value
+                p in success = self.read( size: 8, in: p )
             }
             
-            return 0
+            return success ? value[ 0 ] : 0
         }
     }
     

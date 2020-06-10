@@ -73,9 +73,16 @@ namespace ColorSetKit
                         }
                         else
                         {
-                            System.Resources.ResourceManager manager = new System.Resources.ResourceManager( name.Name + ".Properties.Resources", assembly );
+                            try
+                            {
+                                System.Resources.ResourceManager manager = new System.Resources.ResourceManager( name.Name + ".Properties.Resources", assembly );
 
-                            SharedInstance = !( manager.GetObject( "Colors" ) is byte[] data ) || data.Length == 0 ? new ColorSet() : new ColorSet( new Data( data ) );
+                                SharedInstance = !( manager.GetObject( "Colors" ) is byte[] data ) || data.Length == 0 ? new ColorSet() : new ColorSet( new Data( data ) );
+                            }
+                            catch
+                            {
+                                SharedInstance = new ColorSet();
+                            }
                         }
                     }
 

@@ -131,22 +131,6 @@ namespace ColorSetKit_Test
         }
 
         [TestMethod]
-        public void TestColor()
-        {
-            if( new ColorSetKit.Color( "NoVariant" ).ProvideValue( null ) is SolidColorBrush c )
-            {
-                Assert.AreEqual( c.Color.R, 50 );
-                Assert.AreEqual( c.Color.G, 100 );
-                Assert.AreEqual( c.Color.B, 150 );
-                Assert.AreEqual( c.Color.A, 128 );
-            }
-            else
-            {
-                Assert.Fail( "Cannot retrieve color from NSColor" );
-            }
-        }
-
-        [TestMethod]
         public void TestChild()
         {
             ColorSet set   = new ColorSet();

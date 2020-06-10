@@ -44,7 +44,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Color.cs" />
     <Compile Include="ColorExtensions.cs" />
     <Compile Include="ColorPair.cs" />
     <Compile Include="ColorSet.cs" />

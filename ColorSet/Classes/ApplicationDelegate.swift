@@ -67,6 +67,7 @@ class ApplicationDelegate: NSResponder, NSApplicationDelegate
         {
             self.aboutWindowController = AboutWindowController()
             
+            self.aboutWindowController?.window?.layoutIfNeeded()
             self.aboutWindowController?.window?.center()
         }
         

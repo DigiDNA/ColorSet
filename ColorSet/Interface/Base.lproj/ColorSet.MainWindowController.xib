@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,24 +20,24 @@
         <window title="ColorSet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="MainWindowController" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="1000" height="700"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
-            <value key="minSize" type="size" width="1000" height="700"/>
+            <rect key="contentRect" x="196" y="240" width="1150" height="700"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1175"/>
+            <value key="minSize" type="size" width="1150" height="700"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="1000" height="700"/>
+                <rect key="frame" x="0.0" y="0.0" width="1150" height="700"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJG-CO-nnG">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1150" height="700"/>
                         <subviews>
                             <customView id="VFZ-fG-zHI">
-                                <rect key="frame" x="0.0" y="0.0" width="253" height="700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="700"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="YHx-KD-BVy">
-                                        <rect key="frame" x="0.0" y="0.0" width="253" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="700"/>
                                         <subviews>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uTA-aa-xke">
+                                            <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uTA-aa-xke">
                                                 <rect key="frame" x="10" y="638" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="Bcg-Lw-sNf"/>
@@ -46,7 +46,7 @@
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="File" id="hZs-2u-WU5"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="AJD-kz-hOs">
-                                                <rect key="frame" x="45" y="646" width="37" height="16"/>
+                                                <rect key="frame" x="45" y="646" width="36" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="kof-Vn-jSS">
                                                     <font key="font" metaFont="systemThin" size="13"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -57,7 +57,7 @@
                                                 </connections>
                                             </textField>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="CyV-0T-tBt">
-                                                <rect key="frame" x="233" y="649" width="10" height="10"/>
+                                                <rect key="frame" x="270" y="647.5" width="10.5" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="SEL-t5-0L6"/>
                                                     <constraint firstAttribute="height" constant="10" id="Vbl-N4-CN6"/>
@@ -71,21 +71,20 @@
                                                 </connections>
                                             </button>
                                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsJ-Zp-VF3">
-                                                <rect key="frame" x="0.0" y="62" width="253" height="566"/>
+                                                <rect key="frame" x="0.0" y="62" width="290" height="566"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Bjf-9S-0pg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="253" height="566"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="566"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView identifier="TableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="2DC-L7-gI3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="253" height="566"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="566"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                             <tableColumns>
-                                                                <tableColumn width="250" minWidth="40" maxWidth="1000" id="Av4-tJ-xYu">
+                                                                <tableColumn width="258" minWidth="40" maxWidth="1000" id="Av4-tJ-xYu">
                                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                        <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                     </tableHeaderCell>
@@ -97,7 +96,7 @@
                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                     <prototypeCellViews>
                                                                         <tableCellView identifier="Row" id="HWU-jy-aYp">
-                                                                            <rect key="frame" x="1" y="1" width="250" height="30"/>
+                                                                            <rect key="frame" x="11" y="1" width="267" height="30"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="dmU-b7-1TU" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
@@ -108,7 +107,7 @@
                                                                                     </constraints>
                                                                                 </customView>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-iu-dXF">
-                                                                                    <rect key="frame" x="33" y="7" width="215" height="16"/>
+                                                                                    <rect key="frame" x="33" y="7" width="232" height="16"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" drawsBackground="YES" id="ksN-hR-I69">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -145,7 +144,7 @@
                                                     </subviews>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="G6e-gb-2N3">
-                                                    <rect key="frame" x="0.0" y="450" width="162" height="16"/>
+                                                    <rect key="frame" x="0.0" y="550" width="290" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="FaE-KJ-6rR">
@@ -154,7 +153,7 @@
                                                 </scroller>
                                             </scrollView>
                                             <searchField identifier="SearchField" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPf-cQ-68w">
-                                                <rect key="frame" x="20" y="20" width="213" height="22"/>
+                                                <rect key="frame" x="20" y="20" width="250" height="22"/>
                                                 <searchFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="8BW-lR-C8t">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -197,14 +196,14 @@
                                 </constraints>
                             </customView>
                             <customView id="MT1-gl-csU">
-                                <rect key="frame" x="254" y="0.0" width="746" height="700"/>
+                                <rect key="frame" x="291" y="0.0" width="859" height="700"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-hY-KH6">
-                                        <rect key="frame" x="0.0" y="0.0" width="746" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="859" height="700"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="de0-Td-j1L">
-                                                <rect key="frame" x="0.0" y="0.0" width="746" height="700"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="859" height="700"/>
                                                 <connections>
                                                     <binding destination="awq-PE-ook" name="hidden2" keyPath="arrangedObjects" previousBinding="5ih-ct-4gf" id="qKl-pX-mO7">
                                                         <dictionary key="options">
@@ -223,7 +222,7 @@
                                                 </connections>
                                             </customView>
                                             <textField identifier="ColorNameTextField" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-Op-8D1">
-                                                <rect key="frame" x="18" y="645" width="710" height="35"/>
+                                                <rect key="frame" x="18" y="647" width="823" height="33"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="B9Y-7F-72Z">
                                                     <font key="font" metaFont="systemThin" size="30"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -245,8 +244,8 @@
                                                     </binding>
                                                 </connections>
                                             </textField>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4I-Zg-0zJ">
-                                                <rect key="frame" x="245" y="222" width="256" height="256"/>
+                                            <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p4I-Zg-0zJ">
+                                                <rect key="frame" x="302" y="222" width="256" height="256"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="256" id="FTz-aa-2Gy"/>
                                                     <constraint firstAttribute="width" constant="256" id="dme-r4-ikk"/>
@@ -270,7 +269,7 @@
                                                 </connections>
                                             </imageView>
                                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WxH-Cw-E69">
-                                                <rect key="frame" x="18" y="167" width="710" height="35"/>
+                                                <rect key="frame" x="18" y="167" width="823" height="35"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="Ft1-4f-AVs">
                                                     <font key="font" metaFont="systemThin" size="30"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -298,13 +297,13 @@
                                                 </connections>
                                             </textField>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIK-pa-iAO">
-                                                <rect key="frame" x="20" y="20" width="706" height="617"/>
+                                                <rect key="frame" x="20" y="20" width="819" height="619"/>
                                                 <subviews>
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="htQ-RR-Cub">
-                                                        <rect key="frame" x="0.0" y="433" width="706" height="184"/>
+                                                        <rect key="frame" x="0.0" y="435" width="819" height="184"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-Nc-lUe">
-                                                                <rect key="frame" x="-2" y="161" width="49" height="23"/>
+                                                                <rect key="frame" x="-2" y="161" width="50" height="23"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Yjr-Op-5Py">
                                                                     <font key="font" metaFont="systemThin" size="20"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -314,8 +313,8 @@
                                                                     <binding destination="-2" name="value" keyPath="selectedColor.primaryTitle" id="ovD-tm-Bww"/>
                                                                 </connections>
                                                             </textField>
-                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRN-KA-cl8">
-                                                                <rect key="frame" x="562" y="162" width="96" height="22"/>
+                                                            <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRN-KA-cl8">
+                                                                <rect key="frame" x="675" y="162" width="96" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="96" id="Hsv-2K-xVL"/>
                                                                 </constraints>
@@ -333,23 +332,23 @@
                                                                 </connections>
                                                             </textField>
                                                             <customView identifier="Color" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-93-3sA" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
-                                                                <rect key="frame" x="666" y="153" width="40" height="40"/>
+                                                                <rect key="frame" x="779" y="153" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="1qJ-qz-Hfa"/>
                                                                     <constraint firstAttribute="width" constant="40" id="EwU-KJ-dIC"/>
                                                                 </constraints>
                                                             </customView>
                                                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="x9k-gn-x5G">
-                                                                <rect key="frame" x="0.0" y="150" width="706" height="5"/>
+                                                                <rect key="frame" x="0.0" y="150" width="819" height="5"/>
                                                             </box>
                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="tpZ-NG-HGm">
-                                                                <rect key="frame" x="0.0" y="-2" width="706" height="186"/>
+                                                                <rect key="frame" x="0.0" y="-2" width="819" height="186"/>
                                                                 <subviews>
                                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="cWF-hq-AsM">
-                                                                        <rect key="frame" x="0.0" y="20" width="353" height="146"/>
+                                                                        <rect key="frame" x="0.0" y="20" width="410" height="146"/>
                                                                         <subviews>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Emv-1E-ecz">
-                                                                                <rect key="frame" x="0.0" y="96" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="96" width="410" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cso-3K-Vd8">
                                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -363,14 +362,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2SE-9x-saT">
-                                                                                        <rect key="frame" x="58" y="6" width="169" height="19"/>
+                                                                                        <rect key="frame" x="58" y="-1" width="226" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="TWw-Zl-M1v"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.red" id="lkZ-c0-ce3"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-lf-dJY">
-                                                                                        <rect key="frame" x="235" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-lf-dJY">
+                                                                                        <rect key="frame" x="292" y="4" width="75" height="22"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="75" id="8fa-wz-ZBd"/>
                                                                                         </constraints>
@@ -391,8 +390,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-Pm-Phn">
-                                                                                        <rect key="frame" x="317" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-Pm-Phn">
+                                                                                        <rect key="frame" x="374" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" id="LAr-0d-SnE"/>
                                                                                         <connections>
                                                                                             <action selector="takeIntValueFrom:" target="uyo-lf-dJY" id="ICa-Zq-iJ0"/>
@@ -418,7 +417,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="5RD-PI-Uz6">
-                                                                                <rect key="frame" x="0.0" y="58" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="58" width="410" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-cv-mir">
                                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -429,14 +428,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-Kc-u6W">
-                                                                                        <rect key="frame" x="58" y="6" width="169" height="19"/>
+                                                                                        <rect key="frame" x="58" y="-1" width="226" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="zYF-MJ-ESZ"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.green" id="D7Q-n6-qQv"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyS-qz-DEm">
-                                                                                        <rect key="frame" x="235" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyS-qz-DEm">
+                                                                                        <rect key="frame" x="292" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="3SE-l0-Vd2">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Wve-7H-IgG">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -454,8 +453,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="81J-Pj-yX0">
-                                                                                        <rect key="frame" x="317" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="81J-Pj-yX0">
+                                                                                        <rect key="frame" x="374" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" id="rCT-ro-ebY"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.green" id="QxP-V0-lFd">
@@ -480,7 +479,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Fwa-Vz-wa9">
-                                                                                <rect key="frame" x="0.0" y="20" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="20" width="410" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i3q-ww-vi0">
                                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -491,14 +490,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-5q-nwC">
-                                                                                        <rect key="frame" x="58" y="6" width="169" height="19"/>
+                                                                                        <rect key="frame" x="58" y="-1" width="226" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="aTE-et-4yQ"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.blue" id="h6X-XY-htT"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-j1-nkh">
-                                                                                        <rect key="frame" x="235" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-j1-nkh">
+                                                                                        <rect key="frame" x="292" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="fxM-RR-BZe">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="YJP-G5-3qD">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -516,8 +515,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-YN-nfV">
-                                                                                        <rect key="frame" x="317" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-YN-nfV">
+                                                                                        <rect key="frame" x="374" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" id="ZBN-Vj-eji"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.blue" id="bkK-wA-d4G">
@@ -560,10 +559,10 @@
                                                                         </constraints>
                                                                     </customView>
                                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="cwB-OY-8D4">
-                                                                        <rect key="frame" x="353" y="20" width="353" height="146"/>
+                                                                        <rect key="frame" x="410" y="20" width="409" height="146"/>
                                                                         <subviews>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="sLv-TF-s4T">
-                                                                                <rect key="frame" x="0.0" y="96" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="96" width="409" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wGJ-Dy-4Mg">
                                                                                         <rect key="frame" x="-2" y="7" width="71" height="16"/>
@@ -577,14 +576,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WcO-Wd-mpP">
-                                                                                        <rect key="frame" x="75" y="6" width="172" height="19"/>
+                                                                                        <rect key="frame" x="75" y="-1" width="228" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="zrT-ls-IwY"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.hue" id="RX9-ai-f55"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zOH-hL-Hj5">
-                                                                                        <rect key="frame" x="255" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zOH-hL-Hj5">
+                                                                                        <rect key="frame" x="311" y="4" width="75" height="22"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="75" id="Sr0-4a-d9F"/>
                                                                                         </constraints>
@@ -605,8 +604,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jwp-4J-imh">
-                                                                                        <rect key="frame" x="337" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jwp-4J-imh">
+                                                                                        <rect key="frame" x="393" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="360" id="5n6-qF-Tca"/>
                                                                                         <connections>
                                                                                             <action selector="takeIntValueFrom:" target="zOH-hL-Hj5" id="bwH-r7-QZa"/>
@@ -632,7 +631,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="jup-Sf-LSC">
-                                                                                <rect key="frame" x="0.0" y="58" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="58" width="409" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cVQ-rf-y3H">
                                                                                         <rect key="frame" x="-2" y="7" width="71" height="16"/>
@@ -643,14 +642,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nwK-b1-eid">
-                                                                                        <rect key="frame" x="75" y="6" width="172" height="19"/>
+                                                                                        <rect key="frame" x="75" y="-1" width="228" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="If3-H5-7Zf"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.saturation" id="l0P-Ig-lNE"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uhL-hO-Pwy">
-                                                                                        <rect key="frame" x="255" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uhL-hO-Pwy">
+                                                                                        <rect key="frame" x="311" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="f1n-oQ-Ju6">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="ODA-LL-gOS">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -668,8 +667,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-7B-S7Y">
-                                                                                        <rect key="frame" x="337" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-7B-S7Y">
+                                                                                        <rect key="frame" x="393" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="CHR-vp-cgU"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.saturation" id="yaA-ds-y3l">
@@ -694,7 +693,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0Ko-wt-UQM">
-                                                                                <rect key="frame" x="0.0" y="20" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="20" width="409" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ITt-3X-Dz1">
                                                                                         <rect key="frame" x="-2" y="7" width="71" height="16"/>
@@ -705,14 +704,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hUP-m8-YoO">
-                                                                                        <rect key="frame" x="75" y="6" width="172" height="19"/>
+                                                                                        <rect key="frame" x="75" y="-1" width="228" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="rq2-FG-rM0"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.lightness" id="Mrl-nE-dxd"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHP-dt-Cuk">
-                                                                                        <rect key="frame" x="255" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHP-dt-Cuk">
+                                                                                        <rect key="frame" x="311" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="Zyh-j7-0Gl">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="BZJ-fB-EJY">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -730,8 +729,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s88-Yl-R6t">
-                                                                                        <rect key="frame" x="337" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s88-Yl-R6t">
+                                                                                        <rect key="frame" x="393" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="8gu-Jr-MJE"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.lightness" id="ZHW-Uc-jhC">
@@ -786,7 +785,7 @@
                                                                 </constraints>
                                                             </customView>
                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0xv-oZ-3HS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="706" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="819" height="30"/>
                                                                 <subviews>
                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gxa-Kl-PWZ">
                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -797,14 +796,14 @@
                                                                         </textFieldCell>
                                                                     </textField>
                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rQF-f5-J0a">
-                                                                        <rect key="frame" x="58" y="2" width="542" height="24"/>
+                                                                        <rect key="frame" x="58" y="-1" width="655" height="28"/>
                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" numberOfTickMarks="11" sliderType="linear" id="6iU-bd-9yC"/>
                                                                         <connections>
                                                                             <binding destination="-2" name="value" keyPath="selectedColor.alpha" id="b0Z-0g-sKa"/>
                                                                         </connections>
                                                                     </slider>
-                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-cN-v6x">
-                                                                        <rect key="frame" x="608" y="4" width="75" height="22"/>
+                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-cN-v6x">
+                                                                        <rect key="frame" x="721" y="4" width="75" height="22"/>
                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="GHa-MO-x1P">
                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="5JS-DP-gHV">
                                                                                 <real key="minimum" value="0.0"/>
@@ -818,8 +817,8 @@
                                                                             <binding destination="-2" name="value" keyPath="selectedColor.alpha" id="SwS-Rt-dzh"/>
                                                                         </connections>
                                                                     </textField>
-                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VnC-jX-CQa">
-                                                                        <rect key="frame" x="690" y="2" width="19" height="27"/>
+                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VnC-jX-CQa">
+                                                                        <rect key="frame" x="803" y="1" width="19" height="28"/>
                                                                         <stepperCell key="cell" continuous="YES" alignment="left" increment="0.10000000000000001" maxValue="1" id="7Lw-xu-qaf"/>
                                                                         <connections>
                                                                             <binding destination="-2" name="value" keyPath="selectedColor.alpha" id="G7Y-BC-65p"/>
@@ -863,7 +862,7 @@
                                                         </constraints>
                                                     </customView>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-E9-cei">
-                                                        <rect key="frame" x="-2" y="397" width="135" height="18"/>
+                                                        <rect key="frame" x="-2" y="398" width="139" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Dark Mode Variant" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OfE-qm-sKb">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -873,18 +872,18 @@
                                                         </connections>
                                                     </button>
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="O9O-h1-xXA">
-                                                        <rect key="frame" x="0.0" y="195" width="706" height="184"/>
+                                                        <rect key="frame" x="0.0" y="195" width="819" height="184"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4cq-Cm-I0h">
-                                                                <rect key="frame" x="-2" y="161" width="145" height="23"/>
+                                                                <rect key="frame" x="-2" y="161" width="148" height="23"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dark Mode Color" id="nXb-rH-Xq2">
                                                                     <font key="font" metaFont="systemThin" size="20"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-i1-V76">
-                                                                <rect key="frame" x="562" y="162" width="96" height="22"/>
+                                                            <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNB-i1-V76">
+                                                                <rect key="frame" x="675" y="162" width="96" height="22"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="sEj-ce-aUK">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -899,23 +898,23 @@
                                                                 </connections>
                                                             </textField>
                                                             <customView identifier="Variant" translatesAutoresizingMaskIntoConstraints="NO" id="dhB-Uw-TWF" customClass="ColorView" customModule="ColorSet" customModuleProvider="target">
-                                                                <rect key="frame" x="666" y="153" width="40" height="40"/>
+                                                                <rect key="frame" x="779" y="153" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="Gvr-5W-2Oh"/>
                                                                     <constraint firstAttribute="height" constant="40" id="SLc-W0-tb4"/>
                                                                 </constraints>
                                                             </customView>
                                                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Zkc-k6-1Y4">
-                                                                <rect key="frame" x="0.0" y="150" width="706" height="5"/>
+                                                                <rect key="frame" x="0.0" y="150" width="819" height="5"/>
                                                             </box>
                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YY9-pw-lpx">
-                                                                <rect key="frame" x="0.0" y="-2" width="706" height="186"/>
+                                                                <rect key="frame" x="0.0" y="-2" width="819" height="186"/>
                                                                 <subviews>
                                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="rba-8T-IH2">
-                                                                        <rect key="frame" x="0.0" y="20" width="353" height="146"/>
+                                                                        <rect key="frame" x="0.0" y="20" width="410" height="146"/>
                                                                         <subviews>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="XqU-s0-x6t">
-                                                                                <rect key="frame" x="0.0" y="96" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="96" width="410" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p9H-6P-ckt">
                                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -929,14 +928,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cwf-ip-jh7">
-                                                                                        <rect key="frame" x="58" y="6" width="169" height="19"/>
+                                                                                        <rect key="frame" x="58" y="-1" width="226" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="PaC-1Q-FWb"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.red2" id="gqr-np-cz4"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fna-fj-eeQ">
-                                                                                        <rect key="frame" x="235" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fna-fj-eeQ">
+                                                                                        <rect key="frame" x="292" y="4" width="75" height="22"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="75" id="9cG-ij-Qjd"/>
                                                                                         </constraints>
@@ -957,8 +956,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jwk-IA-GOg">
-                                                                                        <rect key="frame" x="317" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jwk-IA-GOg">
+                                                                                        <rect key="frame" x="374" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" id="zFE-ya-qsW"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.red2" id="6Sz-Zf-nuc">
@@ -983,7 +982,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="6OA-o0-bpK">
-                                                                                <rect key="frame" x="0.0" y="58" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="58" width="410" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u9z-bv-Mbe">
                                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -994,14 +993,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7jd-HA-Up6">
-                                                                                        <rect key="frame" x="58" y="6" width="169" height="19"/>
+                                                                                        <rect key="frame" x="58" y="-1" width="226" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="uSC-xC-4EH"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.green2" id="sMF-PF-70B"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mi1-2w-uJh">
-                                                                                        <rect key="frame" x="235" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mi1-2w-uJh">
+                                                                                        <rect key="frame" x="292" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="6qy-9p-QIU">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="9Tq-TX-tjm">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -1019,8 +1018,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0L8-bo-ONs">
-                                                                                        <rect key="frame" x="317" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0L8-bo-ONs">
+                                                                                        <rect key="frame" x="374" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" id="1lX-Pa-wye"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.green2" id="7Pe-hY-ftB">
@@ -1045,7 +1044,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="hYe-Dd-P0Y">
-                                                                                <rect key="frame" x="0.0" y="20" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="20" width="410" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UkL-6Z-4MK">
                                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -1056,14 +1055,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gif-9y-tEH">
-                                                                                        <rect key="frame" x="58" y="6" width="169" height="19"/>
+                                                                                        <rect key="frame" x="58" y="-1" width="226" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="LWC-oO-0ag"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.blue2" id="z8e-hG-zyF"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-fu-fnP">
-                                                                                        <rect key="frame" x="235" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-fu-fnP">
+                                                                                        <rect key="frame" x="292" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="TYa-0C-by2">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="cdN-Kj-gub">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -1081,8 +1080,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ona-bK-IV6">
-                                                                                        <rect key="frame" x="317" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ona-bK-IV6">
+                                                                                        <rect key="frame" x="374" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" id="z2p-PQ-YOK"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.blue2" id="bx7-bt-UPw">
@@ -1125,10 +1124,10 @@
                                                                         </constraints>
                                                                     </customView>
                                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="w82-Zj-90l">
-                                                                        <rect key="frame" x="353" y="20" width="353" height="146"/>
+                                                                        <rect key="frame" x="410" y="20" width="409" height="146"/>
                                                                         <subviews>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="lfK-9G-8R3">
-                                                                                <rect key="frame" x="0.0" y="96" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="96" width="409" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vpd-qd-KLc">
                                                                                         <rect key="frame" x="-2" y="7" width="71" height="16"/>
@@ -1142,14 +1141,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bmr-7u-rbD">
-                                                                                        <rect key="frame" x="75" y="6" width="172" height="19"/>
+                                                                                        <rect key="frame" x="75" y="-1" width="228" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="dJk-eh-D0l"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.hue2" id="Jhy-tX-ubs"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y77-Z8-iBH">
-                                                                                        <rect key="frame" x="255" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y77-Z8-iBH">
+                                                                                        <rect key="frame" x="311" y="4" width="75" height="22"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="75" id="blW-qi-gJv"/>
                                                                                         </constraints>
@@ -1170,8 +1169,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7F2-El-i7T">
-                                                                                        <rect key="frame" x="337" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7F2-El-i7T">
+                                                                                        <rect key="frame" x="393" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="360" id="Y6y-b8-yfA"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.hue2" id="tp2-J9-xBy">
@@ -1196,7 +1195,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0gG-5w-Chh">
-                                                                                <rect key="frame" x="0.0" y="58" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="58" width="409" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SfO-7a-Oua">
                                                                                         <rect key="frame" x="-2" y="7" width="71" height="16"/>
@@ -1207,14 +1206,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TtY-mO-9Mg">
-                                                                                        <rect key="frame" x="75" y="6" width="172" height="19"/>
+                                                                                        <rect key="frame" x="75" y="-1" width="228" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="SUz-Iz-cIc"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.saturation2" id="zmg-B1-YMf"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBX-0t-H9j">
-                                                                                        <rect key="frame" x="255" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBX-0t-H9j">
+                                                                                        <rect key="frame" x="311" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="f1Q-0E-6Zd">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="hQS-tS-G1Y">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -1232,8 +1231,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-EW-mla">
-                                                                                        <rect key="frame" x="337" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-EW-mla">
+                                                                                        <rect key="frame" x="393" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="Adi-HG-7ti"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.saturation2" id="DjJ-c5-CP1">
@@ -1258,7 +1257,7 @@
                                                                                 </constraints>
                                                                             </customView>
                                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="iMg-Cf-v3l">
-                                                                                <rect key="frame" x="0.0" y="20" width="353" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="20" width="409" height="30"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4BE-84-IYq">
                                                                                         <rect key="frame" x="-2" y="7" width="71" height="16"/>
@@ -1269,14 +1268,14 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fr7-w3-A8o">
-                                                                                        <rect key="frame" x="75" y="6" width="172" height="19"/>
+                                                                                        <rect key="frame" x="75" y="-1" width="228" height="28"/>
                                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="6hX-EW-yb5"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.lightness2" id="9NO-vi-kpv"/>
                                                                                         </connections>
                                                                                     </slider>
-                                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-Wo-DF0">
-                                                                                        <rect key="frame" x="255" y="4" width="75" height="22"/>
+                                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-Wo-DF0">
+                                                                                        <rect key="frame" x="311" y="4" width="75" height="22"/>
                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="nqV-z3-vGS">
                                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="zms-1o-Kx5">
                                                                                                 <real key="minimum" value="0.0"/>
@@ -1294,8 +1293,8 @@
                                                                                             </binding>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-XB-Law">
-                                                                                        <rect key="frame" x="337" y="2" width="19" height="27"/>
+                                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-XB-Law">
+                                                                                        <rect key="frame" x="393" y="1" width="19" height="28"/>
                                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="H4r-MN-tAI"/>
                                                                                         <connections>
                                                                                             <binding destination="-2" name="value" keyPath="selectedColor.lightness2" id="zY0-K3-lpB">
@@ -1350,7 +1349,7 @@
                                                                 </constraints>
                                                             </customView>
                                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="quj-ei-PXJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="706" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="819" height="30"/>
                                                                 <subviews>
                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-iz-Pr9">
                                                                         <rect key="frame" x="-2" y="7" width="54" height="16"/>
@@ -1361,14 +1360,14 @@
                                                                         </textFieldCell>
                                                                     </textField>
                                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-af-rXS">
-                                                                        <rect key="frame" x="58" y="2" width="542" height="24"/>
+                                                                        <rect key="frame" x="58" y="-1" width="655" height="28"/>
                                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" numberOfTickMarks="11" sliderType="linear" id="EUe-vC-Y7t"/>
                                                                         <connections>
                                                                             <binding destination="-2" name="value" keyPath="selectedColor.alpha2" id="gcX-uz-grK"/>
                                                                         </connections>
                                                                     </slider>
-                                                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-up-sd0">
-                                                                        <rect key="frame" x="608" y="4" width="75" height="22"/>
+                                                                    <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-up-sd0">
+                                                                        <rect key="frame" x="721" y="4" width="75" height="22"/>
                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" bezelStyle="round" id="uU1-G7-Tri">
                                                                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="1i1-ZV-Mr3">
                                                                                 <real key="minimum" value="0.0"/>
@@ -1382,8 +1381,8 @@
                                                                             <binding destination="-2" name="value" keyPath="selectedColor.alpha2" id="FJi-yF-1QB"/>
                                                                         </connections>
                                                                     </textField>
-                                                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-PS-wJW">
-                                                                        <rect key="frame" x="690" y="2" width="19" height="27"/>
+                                                                    <stepper wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-PS-wJW">
+                                                                        <rect key="frame" x="803" y="1" width="19" height="28"/>
                                                                         <stepperCell key="cell" continuous="YES" alignment="left" increment="0.10000000000000001" maxValue="1" id="9Hd-qA-qpJ"/>
                                                                         <connections>
                                                                             <binding destination="-2" name="value" keyPath="selectedColor.alpha2" id="xo1-3i-ncI"/>
@@ -1434,10 +1433,10 @@
                                                         </connections>
                                                     </customView>
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="HGJ-0a-HEX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="706" height="175"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="819" height="175"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-bW-Bvm">
-                                                                <rect key="frame" x="-2" y="152" width="223" height="23"/>
+                                                                <rect key="frame" x="-2" y="151" width="228" height="24"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Predefined Lightness Pairs" id="0ts-fl-24H">
                                                                     <font key="font" metaFont="systemThin" size="20"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1445,7 +1444,7 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="H1d-I4-Wv0">
-                                                                <rect key="frame" x="227" y="159" width="10" height="10"/>
+                                                                <rect key="frame" x="232" y="156.5" width="10.5" height="14"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="10" id="HuC-cG-xy6"/>
                                                                     <constraint firstAttribute="width" constant="10" id="ubf-rY-QIN"/>
@@ -1459,16 +1458,16 @@
                                                                 </connections>
                                                             </button>
                                                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="FjG-R9-e6Q">
-                                                                <rect key="frame" x="0.0" y="141" width="706" height="5"/>
+                                                                <rect key="frame" x="0.0" y="140" width="819" height="5"/>
                                                             </box>
                                                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-Ab-UeL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="706" height="135"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="819" height="134"/>
                                                                 <clipView key="contentView" drawsBackground="NO" id="MmE-Nj-hfv">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="706" height="135"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="819" height="134"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <collectionView id="mhX-g4-VRX">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="706" height="135"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="819" height="134"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                             <collectionViewFlowLayout key="collectionViewLayout" id="Vs9-bz-2M6">
                                                                                 <size key="itemSize" width="120" height="50"/>
@@ -1486,7 +1485,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="PfT-fw-PkR">
-                                                                    <rect key="frame" x="689" y="1" width="16" height="83"/>
+                                                                    <rect key="frame" x="690" y="0.0" width="16" height="134"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                             </scrollView>
@@ -1578,7 +1577,7 @@
                     <constraint firstItem="MJG-CO-nnG" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="wla-CD-b2f"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="244" y="314"/>
+            <point key="canvasLocation" x="278.5" y="314"/>
         </window>
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="awq-PE-ook">
             <connections>
@@ -1622,6 +1621,6 @@
     </objects>
     <resources>
         <image name="File" width="512" height="512"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSAddTemplate" width="14" height="13"/>
     </resources>
 </document>

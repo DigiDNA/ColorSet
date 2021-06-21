@@ -7,6 +7,9 @@
     <Copyright>Copyright ©  2019</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DigiDNA/ColorSet</PackageProjectUrl>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>nullable;CS8600;CS8602;CS8603;CS8625</WarningsAsErrors>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -34,9 +34,9 @@ namespace ColorSetKit
 {
     static class PropertyListSerialization
     {
-        public static object PropertyListFromData( Data data )
+        public static object? PropertyListFromData( Data data )
         {
-            if( data == null || data.Count == 0 )
+            if( data.Count == 0 )
             {
                 return null;
             }
@@ -62,8 +62,13 @@ namespace ColorSetKit
                 {
                     xml.Load( reader );
 
-                    foreach( XmlNode child in xml.ChildNodes )
+                    foreach( object? o in xml.ChildNodes )
                     {
+                        if( !( o is XmlNode child ) )
+                        {
+                            continue;
+                        }
+
                         if( child.Name != "plist" )
                         {
                             continue;
@@ -84,8 +89,13 @@ namespace ColorSetKit
             return null;
         }
 
-        private static object PropertyListFromXmlNode( XmlNode node )
+        private static object? PropertyListFromXmlNode( XmlNode? node )
         {
+            if( node == null )
+            {
+                return null;
+            }
+
             try
             {
                 switch( node.Name )
@@ -129,7 +139,7 @@ namespace ColorSetKit
             return 0.0;
         }
 
-        private static string StringFromXmlNode( XmlNode node )
+        private static string? StringFromXmlNode( XmlNode node )
         {
             return node.Value;
         }
@@ -138,13 +148,18 @@ namespace ColorSetKit
         {
             List< object > list = new List< object >();
 
-            foreach( XmlNode child in node.ChildNodes )
+            foreach( object? o in node.ChildNodes )
             {
+                if( !( o is XmlNode child ) )
+                {
+                    continue;
+                }
+
                 try
                 {
-                    if( PropertyListFromXmlNode( child ) is object o )
+                    if( PropertyListFromXmlNode( child ) is object plist )
                     {
-                        list.Add( o );
+                        list.Add( plist );
                     }
                 }
                 catch
@@ -157,10 +172,15 @@ namespace ColorSetKit
         private static Dictionary< string, object > DictionaryFromXmlNode( XmlNode node )
         {
             Dictionary< string, object > dict = new Dictionary< string, object >();
-            string                       key  = null;
+            string?                      key  = null;
 
-            foreach( XmlNode child in node.ChildNodes )
+            foreach( object? o in node.ChildNodes )
             {
+                if( !( o is XmlNode child ) )
+                {
+                    continue;
+                }
+
                 try
                 {
                     if( child.Name == "key" )
@@ -175,9 +195,9 @@ namespace ColorSetKit
                         continue;
                     }
 
-                    if( PropertyListFromXmlNode( child ) is object o )
+                    if( PropertyListFromXmlNode( child ) is object plist )
                     {
-                        dict[ key ] = o;
+                        dict[ key ] = plist;
                         key         = null;
                     }
                 }

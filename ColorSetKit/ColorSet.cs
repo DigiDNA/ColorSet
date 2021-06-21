@@ -42,7 +42,7 @@ namespace ColorSetKit
         private static readonly ulong  Magic          = 0x434F4C4F52534554;
         private static readonly uint   Major          = 1;
         private static readonly uint   Minor          = 2;
-        private static ColorSet        SharedInstance = null;
+        private static ColorSet?       SharedInstance = null;
         private static readonly object SharedLock     = new object();
 
         public static ColorSet Shared
@@ -65,7 +65,12 @@ namespace ColorSetKit
                             throw new ApplicationException( "Cannot get entry assembly name" );
                         }
 
-                        string path = System.IO.Path.Combine( System.IO.Path.GetDirectoryName( assembly.Location ), "Colors.colorset" );
+                        if( !( System.IO.Path.GetDirectoryName( assembly.Location ) is string location ) )
+                        {
+                            throw new ApplicationException( "Cannot get entry assembly location" );
+                        }
+
+                        string path = System.IO.Path.Combine( location, "Colors.colorset" );
 
                         if( System.IO.File.Exists( path ) )
                         {
@@ -224,12 +229,12 @@ namespace ColorSetKit
             }
         }
 
-        public ColorPair this[ string key ]
+        public ColorPair? this[ string key ]
         {
             get => this.ColorNamed( key );
         }
 
-        public ColorPair ColorNamed( string name )
+        public ColorPair? ColorNamed( string name )
         {
             lock( this.Lock )
             {
@@ -274,17 +279,17 @@ namespace ColorSetKit
             this.Set( color, null, name );
         }
 
-        public void Add( SolidColorBrush color, SolidColorBrush variant, string name )
+        public void Add( SolidColorBrush color, SolidColorBrush? variant, string name )
         {
-            this.Add( color, variant, null, name );
+            this.Add( color, variant, new List< LightnessPair >(), name );
         }
         
-        public void Set( SolidColorBrush color, SolidColorBrush variant, string name )
+        public void Set( SolidColorBrush color, SolidColorBrush? variant, string name )
         {
-            this.Set( color, variant, null, name );
+            this.Set( color, variant, new List< LightnessPair >(), name );
         }
 
-        public void Add( SolidColorBrush color, SolidColorBrush variant, List< LightnessPair > lightnesses, string name )
+        public void Add( SolidColorBrush color, SolidColorBrush? variant, List< LightnessPair > lightnesses, string name )
         {
             lock( this.Lock )
             {
@@ -295,7 +300,7 @@ namespace ColorSetKit
             }
         }
         
-        public void Set( SolidColorBrush color, SolidColorBrush variant, List< LightnessPair > lightnesses, string name )
+        public void Set( SolidColorBrush color, SolidColorBrush? variant, List< LightnessPair > lightnesses, string name )
         {
             if( name == null )
             {
@@ -339,7 +344,12 @@ namespace ColorSetKit
                     stream += p.Value.Variant ?? new SolidColorBrush( clear );
                     stream += ( ulong )( p.Value.Lightnesses?.Count ?? 0 );
 
-                    foreach( LightnessPair lp in p.Value.Lightnesses )
+                    if( !( p.Value.Lightnesses is List< LightnessPair > lightnesses ) )
+                    {
+                        continue;
+                    }
+
+                    foreach( LightnessPair lp in lightnesses )
                     {
                         LightnessVariant l1 = lp.Lightness1 ?? new LightnessVariant();
                         LightnessVariant l2 = lp.Lightness2 ?? new LightnessVariant();
@@ -362,27 +372,27 @@ namespace ColorSetKit
             ulong minor;
 
             {
-                if( dictionary.TryGetValue( "magic", out object o ) == false || !( o is long u ) )
+                if( dictionary.TryGetValue( "magic", out object? o ) == false || !( o is long u ) )
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException( "Key magic is missing in input dictionary" );
                 }
 
                 magic = ( ulong )u;
             }
 
             {
-                if( dictionary.TryGetValue( "major", out object o ) == false || !( o is long u ) )
+                if( dictionary.TryGetValue( "major", out object? o ) == false || !( o is long u ) )
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException( "Key major is missing in input dictionary" );
                 }
 
                 major = ( ulong )u;
             }
 
             {
-                if( dictionary.TryGetValue( "minor", out object o ) == false || !( o is long u ) )
+                if( dictionary.TryGetValue( "minor", out object? o ) == false || !( o is long u ) )
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException( "Key minor is missing in input dictionary" );
                 }
 
                 minor = ( ulong )u;
@@ -390,16 +400,16 @@ namespace ColorSetKit
 
             if( magic != Magic )
             {
-                throw new ArgumentException();
+                throw new ArgumentException( "Bad magic value: expected " + Magic + ", got " + magic );
             }
 
             if( major < 1 || minor < 2 )
             {
-                throw new ArgumentException();
+                throw new ArgumentException( "Incompatible version: " + major + "." + minor );
             }
 
             {
-                if( dictionary.TryGetValue( "colors", out object o ) && o is Dictionary< string, object > colors )
+                if( dictionary.TryGetValue( "colors", out object? o ) && o is Dictionary< string, object > colors )
                 {
                     foreach( KeyValuePair< string, object > p in colors )
                     {

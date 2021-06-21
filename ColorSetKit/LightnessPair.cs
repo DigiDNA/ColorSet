@@ -37,39 +37,33 @@ namespace ColorSetKit
             get;
             set;
         }
+        = new LightnessVariant();
 
         public LightnessVariant Lightness2
         {
             get;
             set;
         }
+        = new LightnessVariant();
 
         public LightnessPair()
-        {
-            this.Lightness1 = new LightnessVariant();
-            this.Lightness2 = new LightnessVariant();
-        }
+        {}
 
         public LightnessPair( Dictionary< string, object > dictionary ): this()
         {
-            if( dictionary == null )
             {
-                throw new ArgumentException();
-            }
-
-            {
-                if( dictionary.TryGetValue( "lightness1", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                if( dictionary.TryGetValue( "lightness1", out object? o ) == false || !( o is Dictionary< string, object > dict ) )
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException( "Key lightness1 is missing in input dictionary" );
                 }
 
                 this.Lightness1 = new LightnessVariant( dict );
             }
 
             {
-                if( dictionary.TryGetValue( "lightness2", out object o ) == false || !( o is Dictionary< string, object > dict ) )
+                if( dictionary.TryGetValue( "lightness2", out object? o ) == false || !( o is Dictionary< string, object > dict ) )
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException( "Key lightness2 is missing in input dictionary" );
                 }
 
                 this.Lightness2 = new LightnessVariant( dict );
@@ -78,13 +72,11 @@ namespace ColorSetKit
 
         public Dictionary< string, object > ToDictionary()
         {
-            Dictionary< string, object > dict = new Dictionary< string, object >
+            return new Dictionary< string, object >
             {
                 { "lightness1", this.Lightness1.ToDictionary() },
                 { "lightness2", this.Lightness2.ToDictionary() }
             };
-
-            return dict;
         }
     }
 }

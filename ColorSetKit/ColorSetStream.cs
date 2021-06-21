@@ -52,17 +52,15 @@ namespace ColorSetKit
         }
         = new object();
 
-        public ColorSetStream()
+        public ColorSetStream(): this( null )
+        {}
+
+        public ColorSetStream( Data? data )
         {
-            this.Data = new Data();
+            this.Data = data ?? new Data();
         }
 
-        public ColorSetStream( Data data )
-        {
-            this.Data = data;
-        }
-
-        public string ReadString()
+        public string? ReadString()
         {
             lock( this.Lock )
             {
@@ -97,7 +95,7 @@ namespace ColorSetKit
             }
         }
 
-        public SolidColorBrush ReadColor()
+        public SolidColorBrush? ReadColor()
         {
             lock( this.Lock )
             {
@@ -232,7 +230,7 @@ namespace ColorSetKit
                 }
                 else
                 {
-                    buffer = null;
+                    buffer = Array.Empty< byte >();
 
                     return false;
                 }

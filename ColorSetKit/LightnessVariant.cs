@@ -37,35 +37,29 @@ namespace ColorSetKit
             get;
             set;
         }
+        = 0.0;
 
         public string Name
         {
             get;
             set;
         }
+        = "";
 
         public LightnessVariant()
-        {
-            this.Lightness = 0;
-            this.Name      = "";
-        }
+        {}
 
         public LightnessVariant( Dictionary< string, object > dictionary ): this()
         {
-            if( dictionary == null )
             {
-                return;
-            }
-
-            {
-                if( dictionary.TryGetValue( "lightness", out object o ) && o is double lightness )
+                if( dictionary.TryGetValue( "lightness", out object? o ) && o is double lightness )
                 {
                     this.Lightness = lightness;
                 }
             }
 
             {
-                if( dictionary.TryGetValue( "name", out object o ) && o is string name )
+                if( dictionary.TryGetValue( "name", out object? o ) && o is string name )
                 {
                     this.Name = name;
                 }
@@ -74,13 +68,11 @@ namespace ColorSetKit
 
         public Dictionary< string, object > ToDictionary()
         {
-            Dictionary< string, object > dict = new Dictionary< string, object >
+            return new Dictionary< string, object >
             {
                 { "lightness", this.Lightness },
                 { "name",      this.Name }
             };
-
-            return dict;
         }
     }
 }

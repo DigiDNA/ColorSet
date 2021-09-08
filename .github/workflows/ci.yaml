@@ -6,7 +6,7 @@ jobs:
         strategy:
             matrix:
                 run-config:
-                    - { scheme: 'ColorSetKit',  project: 'ColorSet++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'ColorSetKit',  project: 'ColorSet.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
         steps:
             
             - name: Checkout

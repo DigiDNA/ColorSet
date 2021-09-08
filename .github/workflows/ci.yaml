@@ -1,0 +1,47 @@
+name: CI
+on:   [push]
+jobs:
+    build:
+        runs-on: macos-latest
+        strategy:
+            matrix:
+                run-config:
+                    - { scheme: 'ColorSetKit',  project: 'ColorSet++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+        steps:
+            
+            - name: Checkout
+              id:   checkout
+              uses: actions/checkout@v1
+              with:
+                submodules: 'recursive'
+            
+            - name: Xcode - Version
+              id:   xcode-version
+              run:  xcode-select -p
+            
+            - name: Xcode - SDKs
+              id:   xcode-sdk
+              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
+            
+            - name: Xcode - Destinations
+              id:   xcode-destinations
+              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
+            
+            - name: Xcode - Build Settings
+              id:   xcode-build-settings
+              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
+            
+            - name: Xcode - Build
+              id:   xcode-build
+              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary ${{ matrix.run-config['actions'] }} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+            
+            - name: Slack
+              id:   slack
+              uses: act10ns/slack@v1
+              if:   always()
+              env:
+                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+              with:
+                status:     ${{ job.status }}
+                steps:      ${{ toJson(steps) }}
+                channel:    '#ci'

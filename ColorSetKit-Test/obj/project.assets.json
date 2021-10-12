@@ -58,7 +58,7 @@
           "lib/net45/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
         }
       },
-      "ColorSetKit/1.0.0": {
+      "ColorSetKit/1.3.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.2",
         "compile": {
@@ -518,7 +518,7 @@
         "mstest.testframework.nuspec"
       ]
     },
-    "ColorSetKit/1.0.0": {
+    "ColorSetKit/1.3.1": {
       "type": "project",
       "path": "../ColorSetKit/ColorSetKit.csproj",
       "msbuildProject": "../ColorSetKit/ColorSetKit.csproj"
@@ -526,7 +526,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.2": [
-      "ColorSetKit >= 1.0.0",
+      "ColorSetKit >= 1.3.1",
       "MSTest.TestAdapter >= 2.2.7",
       "MSTest.TestFramework >= 2.2.7",
       "Microsoft.NET.Test.Sdk >= 16.11.0",

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "kKvqesxN/RxYu1u4gChbPiwe2nxMtOMkbUahrkHKLA57qDgIsETBDHjt9VqDAJ/wRk2DwFg0/N8mafZf+2nq5g==",
+  "success": true,
+  "projectFilePath": "D:\\DDNA\\ColorSet\\ColorSetKit-Test\\ColorSetKit-Test.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Macmade\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
+    "C:\\Users\\Macmade\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",
+    "C:\\Users\\Macmade\\.nuget\\packages\\microsoft.net.test.sdk\\16.11.0\\microsoft.net.test.sdk.16.11.0.nupkg.sha512",
+    "C:\\Users\\Macmade\\.nuget\\packages\\mstest.testadapter\\2.2.7\\mstest.testadapter.2.2.7.nupkg.sha512",
+    "C:\\Users\\Macmade\\.nuget\\packages\\mstest.testframework\\2.2.7\\mstest.testframework.2.2.7.nupkg.sha512"
+  ],
+  "logs": []
+}

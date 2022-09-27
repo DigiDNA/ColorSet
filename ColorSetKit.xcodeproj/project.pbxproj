@@ -405,7 +405,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CI\" == false ] && [ -d \"$SRCROOT/Submodules/cgl\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile mit\nfi\n";
+			shellScript = "if [ -z \"$CI\" ] && [ -d \"$SRCROOT/Submodules/cgl\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile mit\nfi\n";
 		};
 		0587465E28E2E0FD00861788 /* Swift Format */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -424,7 +424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CI\" == false ] && [ -d \"$SRCROOT/Submodules/cgl\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile mit\nfi\n";
+			shellScript = "if [ -z \"$CI\" ] && [ -d \"$SRCROOT/Submodules/cgl\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile mit\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -684,7 +684,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ColorSet/ColorSet.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ColorSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -702,7 +701,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ColorSet/ColorSet.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ColorSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -299,6 +299,7 @@
 				057DC44722B1492200BA6727 /* Sources */,
 				057DC44822B1492200BA6727 /* Frameworks */,
 				057DC44922B1492200BA6727 /* Resources */,
+				0587465E28E2E0FD00861788 /* Swift Format */,
 			);
 			buildRules = (
 			);
@@ -318,6 +319,7 @@
 				05CD4AB620ED7CD100DBDE99 /* Sources */,
 				05CD4AB720ED7CD100DBDE99 /* Frameworks */,
 				05CD4AB820ED7CD100DBDE99 /* Resources */,
+				0587465C28E20ED000861788 /* Swift Format */,
 			);
 			buildRules = (
 			);
@@ -335,7 +337,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					057DC44A22B1492200BA6727 = {
@@ -384,6 +386,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0587465C28E20ED000861788 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -d \"$SRCROOT/Submodules/cgl\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile mit\nfi\n";
+		};
+		0587465E28E2E0FD00861788 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -d \"$SRCROOT/Submodules/cgl\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile mit\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		057DC44722B1492200BA6727 /* Sources */ = {

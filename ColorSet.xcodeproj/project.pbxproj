@@ -416,7 +416,6 @@
 				0509122120E55AE4009EF90C /* Run Script */,
 				0543AE6020DC33BC00284E99 /* Resources */,
 				0509121620E55A8A009EF90C /* CopyFiles */,
-				0587465F28E2E10B00861788 /* Swift Format */,
 			);
 			buildRules = (
 			);
@@ -532,25 +531,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    plist=\"ColorSet/Info.plist\"\n    rev=$(git rev-list `git branch | grep -e \"^*\" | cut -d' ' -f 2` | wc -l)\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $rev\" \"$plist\"\nfi\n";
-		};
-		0587465F28E2E10B00861788 /* Swift Format */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Format";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -z \"$CI\" ] && [ -f \"$SRCROOT/Submodules/cgl/Makefile\" ] && [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    make -f $SRCROOT/Submodules/cgl/Makefile ddna-mit\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

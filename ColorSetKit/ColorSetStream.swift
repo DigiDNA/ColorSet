@@ -242,6 +242,11 @@ public class ColorSetStream: NSObject
         {
             let nb = UnsafeMutableBufferPointer< UInt64 >.allocate( capacity: 1 )
 
+            defer
+            {
+                nb.deallocate()
+            }
+
             if self.read( size: 8, in: nb )
             {
                 guard let n = nb.first?.littleEndian
@@ -290,6 +295,14 @@ public class ColorSetStream: NSObject
             let bb = UnsafeMutableBufferPointer< Double >.allocate( capacity: 1 )
             let ab = UnsafeMutableBufferPointer< Double >.allocate( capacity: 1 )
 
+            defer
+            {
+                rb.deallocate()
+                gb.deallocate()
+                bb.deallocate()
+                ab.deallocate()
+            }
+
             if self.read( size: 8, in: rb ),
                self.read( size: 8, in: gb ),
                self.read( size: 8, in: bb ),
@@ -324,6 +337,11 @@ public class ColorSetStream: NSObject
         return self.synchronized
         {
             let buffer = UnsafeMutableBufferPointer< UInt8 >.allocate( capacity: Int( length ) )
+
+            defer
+            {
+                buffer.deallocate()
+            }
 
             if self.read( size: length, in: buffer )
             {

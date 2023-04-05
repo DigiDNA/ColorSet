@@ -424,7 +424,7 @@
 			baseConfigurationReference = 054D8EC6238BE45300574045 /* Debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = J5PR93692Y;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 			};
 			name = Debug;
 		};
@@ -433,7 +433,7 @@
 			baseConfigurationReference = 054D8EC7238BE45300574045 /* Release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = J5PR93692Y;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 			};
 			name = Release;
 		};
@@ -481,7 +481,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSetKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -505,7 +504,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSetKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				VERSIONING_SYSTEM = "apple-generic";

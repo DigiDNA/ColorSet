@@ -425,6 +425,10 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = J5PR93692Y;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
+				);
 			};
 			name = Debug;
 		};
@@ -434,6 +438,10 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = J5PR93692Y;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
+				);
 			};
 			name = Release;
 		};

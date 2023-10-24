@@ -45,5 +45,13 @@ namespace ColorSetKit
         {
             return new System.Windows.Media.SolidColorBrush( self.Color.ByChangingLightness( l ) );
         }
+
+        public static System.Windows.Media.SolidColorBrush ByChangingOpacity( this System.Windows.Media.SolidColorBrush self, double l )
+        {
+            System.Windows.Media.SolidColorBrush copy = self.Clone();
+            copy.Opacity                              = l;
+
+            return copy;
+        }
     }
 }

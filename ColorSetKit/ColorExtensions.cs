@@ -122,6 +122,16 @@ namespace ColorSetKit
             return FromHSL( h, hsl.Saturation, hsl.Lightness, rgb.Alpha );
         }
 
+        public static System.Windows.Media.Color ByIncreasingHue( this System.Windows.Media.Color self, double h )
+        {
+            return self.ByChangingHue( self.GetHSL().Hue + h );
+        }
+
+        public static System.Windows.Media.Color ByDecreasingHue( this System.Windows.Media.Color self, double h )
+        {
+            return self.ByChangingHue( self.GetHSL().Hue - h );
+        }
+
         public static System.Windows.Media.Color ByChangingSaturation( this System.Windows.Media.Color self, double s )
         {
             RGBComponents rgb = self.GetRGB();
@@ -130,12 +140,32 @@ namespace ColorSetKit
             return FromHSL( hsl.Hue, s, hsl.Lightness, rgb.Alpha );
         }
 
+        public static System.Windows.Media.Color ByIncreasingSaturation( this System.Windows.Media.Color self, double s )
+        {
+            return self.ByChangingSaturation( self.GetHSL().Saturation + s );
+        }
+
+        public static System.Windows.Media.Color ByDecreasingSaturation( this System.Windows.Media.Color self, double s )
+        {
+            return self.ByChangingSaturation( self.GetHSL().Saturation - s );
+        }
+
         public static System.Windows.Media.Color ByChangingLightness( this System.Windows.Media.Color self, double l )
         {
             RGBComponents rgb = self.GetRGB();
             HSL           hsl = RGBToHSL( rgb.Red, rgb.Green, rgb.Blue );
 
             return FromHSL( hsl.Hue, hsl.Saturation, l, rgb.Alpha );
+        }
+
+        public static System.Windows.Media.Color ByIncreasingLightness( this System.Windows.Media.Color self, double l )
+        {
+            return self.ByChangingLightness( self.GetHSL().Lightness + l );
+        }
+
+        public static System.Windows.Media.Color ByDecreasingLightness( this System.Windows.Media.Color self, double l )
+        {
+            return self.ByChangingLightness( self.GetHSL().Lightness - l );
         }
 
         private static RGB HSLToRGB( double h, double s, double l )

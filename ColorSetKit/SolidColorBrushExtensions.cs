@@ -35,10 +35,28 @@ namespace ColorSetKit
         {
             return new System.Windows.Media.SolidColorBrush( self.Color.ByChangingHue( h ) );
         }
+        public static System.Windows.Media.SolidColorBrush ByIncreasingHue( this System.Windows.Media.SolidColorBrush self, double h )
+        {
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByIncreasingHue( h ) );
+        }
+        public static System.Windows.Media.SolidColorBrush ByDecreasingHue( this System.Windows.Media.SolidColorBrush self, double h )
+        {
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByDecreasingHue( h ) );
+        }
 
         public static System.Windows.Media.SolidColorBrush ByChangingSaturation( this System.Windows.Media.SolidColorBrush self, double s )
         {
-            return new System.Windows.Media.SolidColorBrush( self.Color.ByChangingHue( s ) );
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByChangingSaturation( s ) );
+        }
+
+        public static System.Windows.Media.SolidColorBrush ByIncreasingSaturation( this System.Windows.Media.SolidColorBrush self, double s )
+        {
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByIncreasingSaturation( s ) );
+        }
+
+        public static System.Windows.Media.SolidColorBrush ByDecreasingSaturation( this System.Windows.Media.SolidColorBrush self, double s )
+        {
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByDecreasingSaturation( s ) );
         }
 
         public static System.Windows.Media.SolidColorBrush ByChangingLightness( this System.Windows.Media.SolidColorBrush self, double l )
@@ -46,12 +64,32 @@ namespace ColorSetKit
             return new System.Windows.Media.SolidColorBrush( self.Color.ByChangingLightness( l ) );
         }
 
-        public static System.Windows.Media.SolidColorBrush ByChangingOpacity( this System.Windows.Media.SolidColorBrush self, double l )
+        public static System.Windows.Media.SolidColorBrush ByIncreasingLightness( this System.Windows.Media.SolidColorBrush self, double l )
+        {
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByIncreasingLightness( l ) );
+        }
+
+        public static System.Windows.Media.SolidColorBrush ByDecreasingLightness( this System.Windows.Media.SolidColorBrush self, double l )
+        {
+            return new System.Windows.Media.SolidColorBrush( self.Color.ByDecreasingLightness( l ) );
+        }
+
+        public static System.Windows.Media.SolidColorBrush ByChangingOpacity( this System.Windows.Media.SolidColorBrush self, double o )
         {
             System.Windows.Media.SolidColorBrush copy = self.Clone();
-            copy.Opacity                              = l;
+            copy.Opacity                              = o;
 
             return copy;
+        }
+
+        public static System.Windows.Media.SolidColorBrush ByIncreasingOpacity( this System.Windows.Media.SolidColorBrush self, double o )
+        {
+            return self.ByChangingOpacity( self.Opacity + o );
+        }
+
+        public static System.Windows.Media.SolidColorBrush ByDecreasingOpacity( this System.Windows.Media.SolidColorBrush self, double o )
+        {
+            return self.ByChangingOpacity( self.Opacity - o );
         }
     }
 }

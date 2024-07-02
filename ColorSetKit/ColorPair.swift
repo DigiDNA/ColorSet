@@ -102,12 +102,12 @@ public class ColorPair: NSObject, DictionaryRepresentable
     {
         super.init()
 
-        if let color = self.colorFromDictionary( dictionary[ "color" ] as? [ String: Any ] )
+        if let color = ColorPair.colorFromDictionary( dictionary[ "color" ] as? [ String: Any ] )
         {
             self.color = color
         }
 
-        if let variant = self.colorFromDictionary( dictionary[ "variant" ] as? [ String: Any ] )
+        if let variant = ColorPair.colorFromDictionary( dictionary[ "variant" ] as? [ String: Any ] )
         {
             self.variant = variant
         }
@@ -130,8 +130,8 @@ public class ColorPair: NSObject, DictionaryRepresentable
         var dict        = [ String: Any ]()
         var lightnesses = [ [ String: Any ] ]()
 
-        dict[ "color" ]   = self.colorToDictionary( self.color )
-        dict[ "variant" ] = self.colorToDictionary( self.variant )
+        dict[ "color" ]   = ColorPair.colorToDictionary( self.color )
+        dict[ "variant" ] = ColorPair.colorToDictionary( self.variant )
 
         for l in self.lightnesses
         {
@@ -143,7 +143,7 @@ public class ColorPair: NSObject, DictionaryRepresentable
         return dict
     }
 
-    private func colorToDictionary( _ color: NSColor? ) -> [ String: Any ]?
+    private static func colorToDictionary( _ color: NSColor? ) -> [ String: Any ]?
     {
         guard let color = color
         else
@@ -160,7 +160,7 @@ public class ColorPair: NSObject, DictionaryRepresentable
         return [ "r": rgb.red, "g": rgb.green, "b": rgb.blue, "a": rgb.alpha ]
     }
 
-    private func colorFromDictionary( _ dictionary: [ String: Any ]? ) -> NSColor?
+    private static func colorFromDictionary( _ dictionary: [ String: Any ]? ) -> NSColor?
     {
         guard let dictionary = dictionary
         else

@@ -598,6 +598,10 @@ public extension NSColor
                 return true
             }
         }
+        else
+        {
+            return appearance?.name == .vibrantDark
+        }
 
         return false
     }

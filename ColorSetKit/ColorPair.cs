@@ -32,13 +32,13 @@ namespace ColorSetKit
 {
     public partial class ColorPair
     {
-        public SolidColorBrush Color
+        public SolidColorBrush? Color
         {
             get;
             set;
         }
 
-        public SolidColorBrush Variant
+        public SolidColorBrush? Variant
         {
             get;
             set;
@@ -49,47 +49,42 @@ namespace ColorSetKit
             get;
             set;
         }
+        = new List< LightnessPair >();
 
         public ColorPair(): this( null, null )
         {}
 
-        public ColorPair( SolidColorBrush color ): this( color, null )
+        public ColorPair( SolidColorBrush? color ): this( color, null )
         {}
 
-        public ColorPair( SolidColorBrush color, SolidColorBrush variant )
+        public ColorPair( SolidColorBrush? color, SolidColorBrush? variant )
         {
-            this.Color       = color;
-            this.Variant     = variant;
-            this.Lightnesses = new List< LightnessPair >();
+            this.Color   = color;
+            this.Variant = variant;
         }
 
         public ColorPair( Dictionary< string, object > dictionary ): this()
         {
-            if( dictionary == null )
             {
-                throw new ArgumentException();
-            }
-
-            {
-                if( dictionary.TryGetValue( "color", out object o ) && o is Dictionary< string, object > dict )
+                if( dictionary.TryGetValue( "color", out object? o ) && ColorFromDictionary( o as Dictionary< string, object > ) is SolidColorBrush color )
                 {
-                    this.Color = this.ColorFromDictionary( dict );
+                    this.Color = color;
                 }
             }
 
             {
-                if( dictionary.TryGetValue( "variant", out object o ) && o is Dictionary< string, object > dict )
+                if( dictionary.TryGetValue( "variant", out object? o ) && ColorFromDictionary( o as Dictionary< string, object > ) is SolidColorBrush variant )
                 {
-                    this.Variant = this.ColorFromDictionary( dict );
+                    this.Variant = variant;
                 }
             }
 
             {
-                if( dictionary.TryGetValue( "lightnesses", out object o ) && o is List< object > list )
+                if( dictionary.TryGetValue( "lightnesses", out object? o ) && o is List< object > list )
                 {
                     foreach( object value in list )
                     {
-                        if( !( value is Dictionary<string, object> l ) )
+                        if( !( value is Dictionary< string, object > l ) )
                         {
                             continue;
                         }
@@ -107,11 +102,21 @@ namespace ColorSetKit
 
         public Dictionary< string, object > ToDictionary()
         {
-            Dictionary< string, object > dict = new Dictionary< string, object >
+            Dictionary< string, object > dict = new Dictionary< string, object >();
+
             {
-                { "color",   this.ColorToDictionary( this.Color ) },
-                { "variant", this.ColorToDictionary( this.Variant ) }
-            };
+                if( ColorToDictionary( this.Color ) is Dictionary< string, object > d )
+                {
+                    dict[ "color" ] = d;
+                }
+            }
+
+            {
+                if( ColorToDictionary( this.Variant ) is Dictionary< string, object > d )
+                {
+                    dict[ "variant" ] = d;
+                }
+            }
 
             List< Dictionary< string, object > > lightnesses = new List< Dictionary< string, object > >();
 
@@ -125,7 +130,7 @@ namespace ColorSetKit
             return dict;
         }
 
-        private Dictionary< string, object > ColorToDictionary( SolidColorBrush color )
+        private static Dictionary< string, object >? ColorToDictionary( SolidColorBrush? color )
         {
             if( color == null )
             {
@@ -143,7 +148,7 @@ namespace ColorSetKit
             };
         }
 
-        private SolidColorBrush ColorFromDictionary( Dictionary< string, object > dictionary )
+        private static SolidColorBrush? ColorFromDictionary( Dictionary< string, object >? dictionary )
         {
             if( dictionary == null )
             {
@@ -156,36 +161,36 @@ namespace ColorSetKit
             double a;
 
             {
-                if( dictionary.TryGetValue( "r", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "r", out object? o ) == false || !( o is double d ) )
                 {
-                    throw new ArgumentException();
+                    return null;
                 }
 
                 r = d;
             }
 
             {
-                if( dictionary.TryGetValue( "g", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "g", out object? o ) == false || !( o is double d ) )
                 {
-                    throw new ArgumentException();
+                    return null;
                 }
 
                 g = d;
             }
 
             {
-                if( dictionary.TryGetValue( "b", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "b", out object? o ) == false || !( o is double d ) )
                 {
-                    throw new ArgumentException();
+                    return null;
                 }
 
                 b = d;
             }
 
             {
-                if( dictionary.TryGetValue( "a", out object o ) == false || !( o is double d ) )
+                if( dictionary.TryGetValue( "a", out object? o ) == false || !( o is double d ) )
                 {
-                    throw new ArgumentException();
+                    return null;
                 }
 
                 a = d;

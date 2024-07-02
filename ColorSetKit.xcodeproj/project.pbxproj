@@ -335,7 +335,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					057DC44A22B1492200BA6727 = {
@@ -424,7 +424,7 @@
 			baseConfigurationReference = 054D8EC6238BE45300574045 /* Debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = J5PR93692Y;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
@@ -437,7 +437,7 @@
 			baseConfigurationReference = 054D8EC7238BE45300574045 /* Release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = J5PR93692Y;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
@@ -489,7 +489,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSetKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -513,7 +512,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DigiDNA.ColorSetKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				VERSIONING_SYSTEM = "apple-generic";

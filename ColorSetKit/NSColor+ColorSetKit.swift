@@ -598,11 +598,19 @@ public extension NSColor
                 return true
             }
         }
-        else
+        else if appearance?.name == .vibrantDark
         {
-            return appearance?.name == .vibrantDark
+            return true
         }
 
-        return false
+        return isCustomAppearanceDark?( appearance ) ?? false
     }
+
+    @objc
+    class func setCustomAppearanceDarkChecker( _ checker: ( ( NSAppearance? ) -> Bool )? )
+    {
+        isCustomAppearanceDark = checker
+    }
+
+    private static var isCustomAppearanceDark: ( ( NSAppearance? ) -> Bool )?
 }

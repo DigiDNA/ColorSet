@@ -335,7 +335,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 2650;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					057DC44A22B1492200BA6727 = {
@@ -427,7 +427,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
+					"$(DT_TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
 				);
 			};
 			name = Debug;
@@ -440,7 +440,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
+					"$(DT_TOOLCHAIN_DIR)/usr/lib/swift-5.0/macosx/libswiftAppKit.dylib",
 				);
 			};
 			name = Release;

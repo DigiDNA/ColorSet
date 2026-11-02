@@ -19,6 +19,6 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © DigiDNA SARL, 2008-2026. All rights reserved.</string>
+	<string>Copyright © DigiDNA SA, 2008-2026. All rights reserved.</string>
 </dict>
 </plist>
